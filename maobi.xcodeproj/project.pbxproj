@@ -14,8 +14,9 @@
 		864D94D12AD99D8300F76C79 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94D02AD99D8300F76C79 /* Persistence.swift */; };
 		864D94D42AD99D8300F76C79 /* maobi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 864D94D22AD99D8300F76C79 /* maobi.xcdatamodeld */; };
 		864D94DC2AD9A9C700F76C79 /* SVGPath in Frameworks */ = {isa = PBXBuildFile; productRef = 864D94DB2AD9A9C700F76C79 /* SVGPath */; };
-		864D94DF2AD9AA0900F76C79 /* graphics.txt in Resources */ = {isa = PBXBuildFile; fileRef = 864D94DD2AD9AA0900F76C79 /* graphics.txt */; };
-		864D94E02AD9AA0900F76C79 /* dictionary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 864D94DE2AD9AA0900F76C79 /* dictionary.txt */; };
+		864D94E22AD9ACCF00F76C79 /* characterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94E12AD9ACCF00F76C79 /* characterData.swift */; };
+		86E231912AD9B78D00785AEC /* graphics_short.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86E231902AD9B78D00785AEC /* graphics_short.txt */; };
+		86E231942AD9E17300785AEC /* SwiftSVG in Frameworks */ = {isa = PBXBuildFile; productRef = 86E231932AD9E17300785AEC /* SwiftSVG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +27,8 @@
 		864D94CE2AD99D8300F76C79 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		864D94D02AD99D8300F76C79 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		864D94D32AD99D8300F76C79 /* maobi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = maobi.xcdatamodel; sourceTree = "<group>"; };
-		864D94DD2AD9AA0900F76C79 /* graphics.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = graphics.txt; path = ../../../Downloads/graphics.txt; sourceTree = "<group>"; };
-		864D94DE2AD9AA0900F76C79 /* dictionary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dictionary.txt; path = ../../../Downloads/dictionary.txt; sourceTree = "<group>"; };
+		864D94E12AD9ACCF00F76C79 /* characterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = characterData.swift; sourceTree = "<group>"; };
+		86E231902AD9B78D00785AEC /* graphics_short.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = graphics_short.txt; path = ../../maobi_playground/maobi_playground.playground/Resources/graphics_short.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +37,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				864D94DC2AD9A9C700F76C79 /* SVGPath in Frameworks */,
+				86E231942AD9E17300785AEC /* SwiftSVG in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +64,12 @@
 			isa = PBXGroup;
 			children = (
 				864D94C72AD99D8100F76C79 /* maobiApp.swift */,
+				864D94E12AD9ACCF00F76C79 /* characterData.swift */,
 				864D94C92AD99D8100F76C79 /* ContentView.swift */,
 				864D94CB2AD99D8300F76C79 /* Assets.xcassets */,
 				864D94D02AD99D8300F76C79 /* Persistence.swift */,
 				864D94D22AD99D8300F76C79 /* maobi.xcdatamodeld */,
-				864D94DE2AD9AA0900F76C79 /* dictionary.txt */,
-				864D94DD2AD9AA0900F76C79 /* graphics.txt */,
+				86E231902AD9B78D00785AEC /* graphics_short.txt */,
 				864D94CD2AD99D8300F76C79 /* Preview Content */,
 			);
 			path = maobi;
@@ -99,6 +101,7 @@
 			name = maobi;
 			packageProductDependencies = (
 				864D94DB2AD9A9C700F76C79 /* SVGPath */,
+				86E231932AD9E17300785AEC /* SwiftSVG */,
 			);
 			productName = maobi;
 			productReference = 864D94C42AD99D8100F76C79 /* maobi.app */;
@@ -130,6 +133,7 @@
 			mainGroup = 864D94BB2AD99D8100F76C79;
 			packageReferences = (
 				864D94DA2AD9A9C700F76C79 /* XCRemoteSwiftPackageReference "SVGPath" */,
+				86E231922AD9E17300785AEC /* XCRemoteSwiftPackageReference "SwiftSVG" */,
 			);
 			productRefGroup = 864D94C52AD99D8100F76C79 /* Products */;
 			projectDirPath = "";
@@ -146,8 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				864D94CF2AD99D8300F76C79 /* Preview Assets.xcassets in Resources */,
-				864D94DF2AD9AA0900F76C79 /* graphics.txt in Resources */,
-				864D94E02AD9AA0900F76C79 /* dictionary.txt in Resources */,
+				86E231912AD9B78D00785AEC /* graphics_short.txt in Resources */,
 				864D94CC2AD99D8300F76C79 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +165,7 @@
 				864D94D12AD99D8300F76C79 /* Persistence.swift in Sources */,
 				864D94CA2AD99D8100F76C79 /* ContentView.swift in Sources */,
 				864D94D42AD99D8300F76C79 /* maobi.xcdatamodeld in Sources */,
+				864D94E22AD9ACCF00F76C79 /* characterData.swift in Sources */,
 				864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,6 +375,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		86E231922AD9E17300785AEC /* XCRemoteSwiftPackageReference "SwiftSVG" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mchoe/SwiftSVG";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -378,6 +390,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 864D94DA2AD9A9C700F76C79 /* XCRemoteSwiftPackageReference "SVGPath" */;
 			productName = SVGPath;
+		};
+		86E231932AD9E17300785AEC /* SwiftSVG */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E231922AD9E17300785AEC /* XCRemoteSwiftPackageReference "SwiftSVG" */;
+			productName = SwiftSVG;
 		};
 /* End XCSwiftPackageProductDependency section */
 
