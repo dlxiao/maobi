@@ -38,15 +38,15 @@
 		864D94D02AD99D8300F76C79 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		864D94D32AD99D8300F76C79 /* maobi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = maobi.xcdatamodel; sourceTree = "<group>"; };
 		864D94E12AD9ACCF00F76C79 /* loadCharacterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadCharacterData.swift; sourceTree = "<group>"; };
-		86E231902AD9B78D00785AEC /* graphics_subset.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = graphics_subset.txt; path = /Users/dora/Desktop/maobi/maobi/graphics_subset.txt; sourceTree = "<absolute>"; };
-		86E231952AE5BABE00785AEC /* graphics_full.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = graphics_full.txt; path = /Users/dora/Desktop/maobi/maobi/graphics_full.txt; sourceTree = "<absolute>"; };
-		86E231962AE5BABE00785AEC /* dictionary_full.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dictionary_full.txt; path = /Users/dora/Desktop/maobi/maobi/dictionary_full.txt; sourceTree = "<absolute>"; };
-		86E2319B2AE5BC2300785AEC /* dictionary_subset.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dictionary_subset.txt; path = /Users/dora/Desktop/maobi/maobi/dictionary_subset.txt; sourceTree = "<absolute>"; };
-		86E2319F2AE5C5AC00785AEC /* 20022.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 20022.svg; path = /Users/dora/Desktop/maobi/maobi/character_data/animations/20022.svg; sourceTree = "<absolute>"; };
-		86E231A02AE5C5AC00785AEC /* 20031.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 20031.svg; path = /Users/dora/Desktop/maobi/maobi/character_data/animations/20031.svg; sourceTree = "<absolute>"; };
-		86E231A12AE5C5AC00785AEC /* 19968.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 19968.svg; path = /Users/dora/Desktop/maobi/maobi/character_data/animations/19968.svg; sourceTree = "<absolute>"; };
-		86E231A22AE5C5AC00785AEC /* 20101.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 20101.svg; path = /Users/dora/Desktop/maobi/maobi/character_data/animations/20101.svg; sourceTree = "<absolute>"; };
-		86E231A32AE5C5AC00785AEC /* 20008.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 20008.svg; path = /Users/dora/Desktop/maobi/maobi/character_data/animations/20008.svg; sourceTree = "<absolute>"; };
+		86E231902AD9B78D00785AEC /* graphics_subset.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = graphics_subset.txt; path = ../graphics_subset.txt; sourceTree = "<group>"; };
+		86E231952AE5BABE00785AEC /* graphics_full.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = graphics_full.txt; path = ../graphics_full.txt; sourceTree = "<group>"; };
+		86E231962AE5BABE00785AEC /* dictionary_full.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dictionary_full.txt; path = ../dictionary_full.txt; sourceTree = "<group>"; };
+		86E2319B2AE5BC2300785AEC /* dictionary_subset.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dictionary_subset.txt; path = ../dictionary_subset.txt; sourceTree = "<group>"; };
+		86E2319F2AE5C5AC00785AEC /* 20022.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 20022.svg; sourceTree = "<group>"; };
+		86E231A02AE5C5AC00785AEC /* 20031.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 20031.svg; sourceTree = "<group>"; };
+		86E231A12AE5C5AC00785AEC /* 19968.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 19968.svg; sourceTree = "<group>"; };
+		86E231A22AE5C5AC00785AEC /* 20101.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 20101.svg; sourceTree = "<group>"; };
+		86E231A32AE5C5AC00785AEC /* 20008.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 20008.svg; sourceTree = "<group>"; };
 		86E231AA2AE5C7D800785AEC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		86E231AC2AE5C8A200785AEC /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,11 +106,11 @@
 		86E2319D2AE5BCBE00785AEC /* character_data */ = {
 			isa = PBXGroup;
 			children = (
-				86E2319E2AE5BCDD00785AEC /* animations */,
 				86E231952AE5BABE00785AEC /* graphics_full.txt */,
 				86E231962AE5BABE00785AEC /* dictionary_full.txt */,
 				86E231902AD9B78D00785AEC /* graphics_subset.txt */,
 				86E2319B2AE5BC2300785AEC /* dictionary_subset.txt */,
+				86E2319E2AE5BCDD00785AEC /* animations */,
 			);
 			path = character_data;
 			sourceTree = "<group>";
