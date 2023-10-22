@@ -38,10 +38,10 @@
 		864D94D02AD99D8300F76C79 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		864D94D32AD99D8300F76C79 /* maobi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = maobi.xcdatamodel; sourceTree = "<group>"; };
 		864D94E12AD9ACCF00F76C79 /* loadCharacterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadCharacterData.swift; sourceTree = "<group>"; };
-		86E231902AD9B78D00785AEC /* graphics_subset.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = graphics_subset.txt; path = ../graphics_subset.txt; sourceTree = "<group>"; };
-		86E231952AE5BABE00785AEC /* graphics_full.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = graphics_full.txt; path = ../graphics_full.txt; sourceTree = "<group>"; };
-		86E231962AE5BABE00785AEC /* dictionary_full.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dictionary_full.txt; path = ../dictionary_full.txt; sourceTree = "<group>"; };
-		86E2319B2AE5BC2300785AEC /* dictionary_subset.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dictionary_subset.txt; path = ../dictionary_subset.txt; sourceTree = "<group>"; };
+		86E231902AD9B78D00785AEC /* graphics_subset.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphics_subset.txt; sourceTree = "<group>"; };
+		86E231952AE5BABE00785AEC /* graphics_full.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphics_full.txt; sourceTree = "<group>"; };
+		86E231962AE5BABE00785AEC /* dictionary_full.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dictionary_full.txt; sourceTree = "<group>"; };
+		86E2319B2AE5BC2300785AEC /* dictionary_subset.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dictionary_subset.txt; sourceTree = "<group>"; };
 		86E2319F2AE5C5AC00785AEC /* 20022.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 20022.svg; sourceTree = "<group>"; };
 		86E231A02AE5C5AC00785AEC /* 20031.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 20031.svg; sourceTree = "<group>"; };
 		86E231A12AE5C5AC00785AEC /* 19968.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 19968.svg; sourceTree = "<group>"; };
