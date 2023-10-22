@@ -1,0 +1,5 @@
+{"character":"一","definition":"one; a, an; alone","pinyin":["yī"],"decomposition":"？","etymology":{"type":"ideographic","hint":"Represents heaven (天), earth (旦), or the number 1"},"radical":"一","matches":[null],"id":"19968"}
+{"character":"丶","definition":"dot","pinyin":["diǎn"],"decomposition":"？","radical":"丶","matches":[null],"id":"20022"}
+{"character":"丨","definition":"number one; line","pinyin":["shù"],"decomposition":"？","radical":"丨","matches":[null],"id":"20008"}
+{"character":"丿","definition":"slash","pinyin":["piě"],"decomposition":"？","radical":"丿","matches":[null],"id":"20031"}
+{"character":"亅","definition":"hook","pinyin":["jué"],"decomposition":"？","radical":"亅","matches":[null],"id":"20101"}

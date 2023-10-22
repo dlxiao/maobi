@@ -14,9 +14,19 @@
 		864D94D12AD99D8300F76C79 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94D02AD99D8300F76C79 /* Persistence.swift */; };
 		864D94D42AD99D8300F76C79 /* maobi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 864D94D22AD99D8300F76C79 /* maobi.xcdatamodeld */; };
 		864D94DC2AD9A9C700F76C79 /* SVGPath in Frameworks */ = {isa = PBXBuildFile; productRef = 864D94DB2AD9A9C700F76C79 /* SVGPath */; };
-		864D94E22AD9ACCF00F76C79 /* characterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94E12AD9ACCF00F76C79 /* characterData.swift */; };
-		86E231912AD9B78D00785AEC /* graphics_short.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86E231902AD9B78D00785AEC /* graphics_short.txt */; };
+		864D94E22AD9ACCF00F76C79 /* loadCharacterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94E12AD9ACCF00F76C79 /* loadCharacterData.swift */; };
+		86E231912AD9B78D00785AEC /* graphics_subset.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86E231902AD9B78D00785AEC /* graphics_subset.txt */; };
 		86E231942AD9E17300785AEC /* SwiftSVG in Frameworks */ = {isa = PBXBuildFile; productRef = 86E231932AD9E17300785AEC /* SwiftSVG */; };
+		86E231972AE5BABE00785AEC /* graphics_full.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86E231952AE5BABE00785AEC /* graphics_full.txt */; };
+		86E231982AE5BABE00785AEC /* dictionary_full.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86E231962AE5BABE00785AEC /* dictionary_full.txt */; };
+		86E2319C2AE5BC2300785AEC /* dictionary_subset.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86E2319B2AE5BC2300785AEC /* dictionary_subset.txt */; };
+		86E231A42AE5C5AC00785AEC /* 20022.svg in Resources */ = {isa = PBXBuildFile; fileRef = 86E2319F2AE5C5AC00785AEC /* 20022.svg */; };
+		86E231A52AE5C5AC00785AEC /* 20031.svg in Resources */ = {isa = PBXBuildFile; fileRef = 86E231A02AE5C5AC00785AEC /* 20031.svg */; };
+		86E231A62AE5C5AC00785AEC /* 19968.svg in Resources */ = {isa = PBXBuildFile; fileRef = 86E231A12AE5C5AC00785AEC /* 19968.svg */; };
+		86E231A72AE5C5AC00785AEC /* 20101.svg in Resources */ = {isa = PBXBuildFile; fileRef = 86E231A22AE5C5AC00785AEC /* 20101.svg */; };
+		86E231A82AE5C5AC00785AEC /* 20008.svg in Resources */ = {isa = PBXBuildFile; fileRef = 86E231A32AE5C5AC00785AEC /* 20008.svg */; };
+		86E231AB2AE5C7D800785AEC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231AA2AE5C7D800785AEC /* CardView.swift */; };
+		86E231AD2AE5C8A200785AEC /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231AC2AE5C8A200785AEC /* LevelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +37,18 @@
 		864D94CE2AD99D8300F76C79 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		864D94D02AD99D8300F76C79 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		864D94D32AD99D8300F76C79 /* maobi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = maobi.xcdatamodel; sourceTree = "<group>"; };
-		864D94E12AD9ACCF00F76C79 /* characterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = characterData.swift; sourceTree = "<group>"; };
-		86E231902AD9B78D00785AEC /* graphics_short.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = graphics_short.txt; path = ../../maobi_playground/maobi_playground.playground/Resources/graphics_short.txt; sourceTree = "<group>"; };
+		864D94E12AD9ACCF00F76C79 /* loadCharacterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadCharacterData.swift; sourceTree = "<group>"; };
+		86E231902AD9B78D00785AEC /* graphics_subset.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = graphics_subset.txt; path = /Users/dora/Desktop/maobi/maobi/graphics_subset.txt; sourceTree = "<absolute>"; };
+		86E231952AE5BABE00785AEC /* graphics_full.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = graphics_full.txt; path = /Users/dora/Desktop/maobi/maobi/graphics_full.txt; sourceTree = "<absolute>"; };
+		86E231962AE5BABE00785AEC /* dictionary_full.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dictionary_full.txt; path = /Users/dora/Desktop/maobi/maobi/dictionary_full.txt; sourceTree = "<absolute>"; };
+		86E2319B2AE5BC2300785AEC /* dictionary_subset.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dictionary_subset.txt; path = /Users/dora/Desktop/maobi/maobi/dictionary_subset.txt; sourceTree = "<absolute>"; };
+		86E2319F2AE5C5AC00785AEC /* 20022.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 20022.svg; path = /Users/dora/Desktop/maobi/maobi/character_data/animations/20022.svg; sourceTree = "<absolute>"; };
+		86E231A02AE5C5AC00785AEC /* 20031.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 20031.svg; path = /Users/dora/Desktop/maobi/maobi/character_data/animations/20031.svg; sourceTree = "<absolute>"; };
+		86E231A12AE5C5AC00785AEC /* 19968.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 19968.svg; path = /Users/dora/Desktop/maobi/maobi/character_data/animations/19968.svg; sourceTree = "<absolute>"; };
+		86E231A22AE5C5AC00785AEC /* 20101.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 20101.svg; path = /Users/dora/Desktop/maobi/maobi/character_data/animations/20101.svg; sourceTree = "<absolute>"; };
+		86E231A32AE5C5AC00785AEC /* 20008.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 20008.svg; path = /Users/dora/Desktop/maobi/maobi/character_data/animations/20008.svg; sourceTree = "<absolute>"; };
+		86E231AA2AE5C7D800785AEC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		86E231AC2AE5C8A200785AEC /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,12 +84,12 @@
 			isa = PBXGroup;
 			children = (
 				864D94C72AD99D8100F76C79 /* maobiApp.swift */,
-				864D94E12AD9ACCF00F76C79 /* characterData.swift */,
-				864D94C92AD99D8100F76C79 /* ContentView.swift */,
+				864D94E12AD9ACCF00F76C79 /* loadCharacterData.swift */,
+				86E231A92AE5C78800785AEC /* Views */,
 				864D94CB2AD99D8300F76C79 /* Assets.xcassets */,
 				864D94D02AD99D8300F76C79 /* Persistence.swift */,
 				864D94D22AD99D8300F76C79 /* maobi.xcdatamodeld */,
-				86E231902AD9B78D00785AEC /* graphics_short.txt */,
+				86E2319D2AE5BCBE00785AEC /* character_data */,
 				864D94CD2AD99D8300F76C79 /* Preview Content */,
 			);
 			path = maobi;
@@ -81,6 +101,40 @@
 				864D94CE2AD99D8300F76C79 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		86E2319D2AE5BCBE00785AEC /* character_data */ = {
+			isa = PBXGroup;
+			children = (
+				86E2319E2AE5BCDD00785AEC /* animations */,
+				86E231952AE5BABE00785AEC /* graphics_full.txt */,
+				86E231962AE5BABE00785AEC /* dictionary_full.txt */,
+				86E231902AD9B78D00785AEC /* graphics_subset.txt */,
+				86E2319B2AE5BC2300785AEC /* dictionary_subset.txt */,
+			);
+			path = character_data;
+			sourceTree = "<group>";
+		};
+		86E2319E2AE5BCDD00785AEC /* animations */ = {
+			isa = PBXGroup;
+			children = (
+				86E231A12AE5C5AC00785AEC /* 19968.svg */,
+				86E231A32AE5C5AC00785AEC /* 20008.svg */,
+				86E2319F2AE5C5AC00785AEC /* 20022.svg */,
+				86E231A02AE5C5AC00785AEC /* 20031.svg */,
+				86E231A22AE5C5AC00785AEC /* 20101.svg */,
+			);
+			path = animations;
+			sourceTree = "<group>";
+		};
+		86E231A92AE5C78800785AEC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				864D94C92AD99D8100F76C79 /* ContentView.swift */,
+				86E231AA2AE5C7D800785AEC /* CardView.swift */,
+				86E231AC2AE5C8A200785AEC /* LevelView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +203,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E2319C2AE5BC2300785AEC /* dictionary_subset.txt in Resources */,
 				864D94CF2AD99D8300F76C79 /* Preview Assets.xcassets in Resources */,
-				86E231912AD9B78D00785AEC /* graphics_short.txt in Resources */,
+				86E231912AD9B78D00785AEC /* graphics_subset.txt in Resources */,
 				864D94CC2AD99D8300F76C79 /* Assets.xcassets in Resources */,
+				86E231982AE5BABE00785AEC /* dictionary_full.txt in Resources */,
+				86E231A52AE5C5AC00785AEC /* 20031.svg in Resources */,
+				86E231A62AE5C5AC00785AEC /* 19968.svg in Resources */,
+				86E231972AE5BABE00785AEC /* graphics_full.txt in Resources */,
+				86E231A42AE5C5AC00785AEC /* 20022.svg in Resources */,
+				86E231A82AE5C5AC00785AEC /* 20008.svg in Resources */,
+				86E231A72AE5C5AC00785AEC /* 20101.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,10 +224,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E231AD2AE5C8A200785AEC /* LevelView.swift in Sources */,
 				864D94D12AD99D8300F76C79 /* Persistence.swift in Sources */,
 				864D94CA2AD99D8100F76C79 /* ContentView.swift in Sources */,
 				864D94D42AD99D8300F76C79 /* maobi.xcdatamodeld in Sources */,
-				864D94E22AD9ACCF00F76C79 /* characterData.swift in Sources */,
+				864D94E22AD9ACCF00F76C79 /* loadCharacterData.swift in Sources */,
+				86E231AB2AE5C7D800785AEC /* CardView.swift in Sources */,
 				864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
