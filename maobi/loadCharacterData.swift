@@ -119,10 +119,10 @@ func displayAnimatedMissing(_ charName : String, _ allCharData : Dictionary<Stri
             <defs>
                 <linearGradient id="left-to-right">
                   <stop offset="0" stop-color="#555555">
-                    <animate dur="0.5s" attributeName="offset" fill="freeze" from="0" to="1" />
+                    <animate dur="1s" attributeName="offset" fill="freeze" from="0" to="1" repeatCount="indefinite" />
                   </stop>
                   <stop offset="0" stop-color="#DDDDDD">
-                    <animate dur="0.5s" attributeName="offset" fill="freeze" from="0" to="1" />
+                    <animate dur="1s" attributeName="offset" fill="freeze" from="0" to="1" repeatCount="indefinite" />
                   </stop>
                   
                 </linearGradient>
