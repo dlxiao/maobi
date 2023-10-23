@@ -6,7 +6,7 @@ struct maobiApp: App {
 
     var body: some Scene {
         WindowGroup {
-          ContentView()
+          CardView() // change back to ContentView after testing image thing
         }
     }
 }

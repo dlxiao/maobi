@@ -7,7 +7,6 @@ struct ContentView: View {
   var sampleCharacters = ["大", "小", "水", "天", "王", "十", "九", "八", "七", "六"]
   
   var body: some View {
-    
     NavigationView {
       List {
         Section(header: Text("Strokes"), content: {
@@ -18,7 +17,6 @@ struct ContentView: View {
             )
           }
         })
-        
         Section(header: Text("Characters"), content: {
           ForEach(sampleCharacters, id: \.self) { c in
             NavigationLink(
@@ -27,9 +25,9 @@ struct ContentView: View {
             )
           }
         })
-        
       }
     }.navigationBarTitle("Demo of Character Data")
+    
   }
 }
 
