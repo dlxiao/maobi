@@ -93,23 +93,54 @@ func loadCharacterData() -> Dictionary<String, CharacterData> {
 }
 
 
-// Works without internet by using local data
+// Works without internet by using local data,
+// and also handles edge case for "ti" and "na" that aren't in the dataset
 // Returns svg element of the character charName
 func displayCharBySVG(_ charName : String, _ allCharData : Dictionary<String, CharacterData>) -> String {
   var result = """
       <svg viewBox='0 0 1024 1024'>
-      <g transform="scale(0.5, -0.5) translate(0, -900)">
+      <g transform="scale(0.8, -0.8) translate(-200, -600)">
     """
   
   if let charData = allCharData[charName] {
     for stroke in charData.strokes {
-      result += "<path d='" + stroke + "'/>"
+      result += "<path fill='#555555' d='" + stroke + "'/>"
     }
   }
   return result + "</g></svg>"
 }
 
 
+// Displays animation of two strokes that are missing from data: "ti" and "na"
+func displayAnimatedMissing(_ charName : String, _ allCharData : Dictionary<String, CharacterData>) -> String {
+  
+  var result = """
+      <svg viewBox='0 0 1024 1024'>
+            <defs>
+                <linearGradient id="left-to-right">
+                  <stop offset="0" stop-color="#555555">
+                    <animate dur="0.5s" attributeName="offset" fill="freeze" from="0" to="1" />
+                  </stop>
+                  <stop offset="0" stop-color="#DDDDDD">
+                    <animate dur="0.5s" attributeName="offset" fill="freeze" from="0" to="1" />
+                  </stop>
+                  
+                </linearGradient>
+              </defs>
+      <g transform="scale(0.8, -0.8) translate(-200, -600)">
+        
+    """
+  
+  if let charData = allCharData[charName] {
+    for stroke in charData.strokes {
+      result += "<path fill='url(#left-to-right)'; d='" + stroke + "'/>"
+    }
+  }
+  return result + "</g></svg>"
+}
+
+
+// Returns text label of navigation row for the given character
 func getLevelLabel(_ charName : String, _ allCharData : Dictionary<String, CharacterData>) -> String {
   
   if let charInfo = allCharData[charName] {
@@ -120,6 +151,8 @@ func getLevelLabel(_ charName : String, _ allCharData : Dictionary<String, Chara
   
 }
 
+
+// Demo to display char info, image, and animation
 func displayLevel(_ charName : String, _ allCharData : Dictionary<String, CharacterData>) -> String {
   let currChar = allCharData[charName]!
   let currPinyin = "Pinyin: " + currChar.pinyin
@@ -130,7 +163,7 @@ func displayLevel(_ charName : String, _ allCharData : Dictionary<String, Charac
   
   if(charName == "丶" || charName == "ノ") {
     staticChar = displayCharBySVG(charName, allCharData)
-    animatedChar = "TODO"
+    animatedChar = displayAnimatedMissing(charName, allCharData)
     return """
       <body style="padding:10%;">
         <h1>\(currPinyin)</h1>
