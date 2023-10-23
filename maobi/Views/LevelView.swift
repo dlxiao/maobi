@@ -3,7 +3,7 @@ import WebKit
 import Foundation
 
 struct LevelView: View {
-  @State var text = displayCharByAPI("轮", 300)
+  @State var text : String
    
   var body: some View {
     WebView(text: $text)

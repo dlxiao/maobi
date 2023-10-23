@@ -47,7 +47,7 @@ func loadGraphics() -> Dictionary<String, CharacterGraphics> {
   let contents = try! String(contentsOf: fileurl!, encoding: String.Encoding.utf8)
   var lines = contents.components(separatedBy: NSCharacterSet.newlines)
   lines.removeLast()
-
+  
   var result : [String: CharacterGraphics] = [:]
   for line in lines {
     guard let lineEntry = try? JSONDecoder().decode(CharacterGraphics.self, from: Data(line.utf8)) else {
@@ -67,7 +67,7 @@ func loadInfo() -> Dictionary<String, CharacterInfo> {
   let contents = try! String(contentsOf: fileurl!, encoding: String.Encoding.utf8)
   var lines = contents.components(separatedBy: NSCharacterSet.newlines)
   lines.removeLast()
-
+  
   var result : [String: CharacterInfo] = [:]
   for line in lines {
     guard let lineEntry = try? JSONDecoder().decode(CharacterInfo.self, from: Data(line.utf8)) else {
@@ -95,55 +95,80 @@ func loadCharacterData() -> Dictionary<String, CharacterData> {
 
 // Works without internet by using local data
 // Returns svg element of the character charName
-func displayCharBySVG(_ charName : String, graphicsData : Dictionary<String, CharacterGraphics>) -> String {
-    var result = """
+func displayCharBySVG(_ charName : String, _ allCharData : Dictionary<String, CharacterData>) -> String {
+  var result = """
       <svg viewBox='0 0 1024 1024'>
-      <g transform="scale(1, -1) translate(0, -900)">
+      <g transform="scale(0.5, -0.5) translate(0, -900)">
     """
   
-  if let charData = graphicsData[charName] {
+  if let charData = allCharData[charName] {
     for stroke in charData.strokes {
-        result += "<path d='" + stroke + "'/>"
-      }
+      result += "<path d='" + stroke + "'/>"
+    }
   }
   return result + "</g></svg>"
 }
 
 
-// Uses api at https://hanziwriter.org/docs.html#api-link
-// Returns page displaying character charName
-func displayCharByAPI(_ charName : String, _ size : Int) -> String {
-  return """
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
-  </head>
-  <body>
-    <div id="character-target-div"></div>
-  </body>
-  <script>
-    var writer = HanziWriter.create('character-target-div', '\(charName)', {
-      width: \(size),
-      height: \(size),
-      padding: 5,
-      delayBetweenLoops: 1000
-    });
-  </script>
-  """
-}
-
-
-func getLevelLabel(_ charName : String, _ allCharInfo : Dictionary<String, CharacterData>) -> String {
+func getLevelLabel(_ charName : String, _ allCharData : Dictionary<String, CharacterData>) -> String {
   
-  if let charInfo = allCharInfo[charName] {
+  if let charInfo = allCharData[charName] {
     return charName + " " + charInfo.pinyin
   } else {
     return charName + " Error:Data not found"
   }
-
+  
 }
 
-
-func strokeOrderAnimation() -> String {
-  var result = ""
-  return result
+func displayLevel(_ charName : String, _ allCharData : Dictionary<String, CharacterData>) -> String {
+  let currChar = allCharData[charName]!
+  let currPinyin = "Pinyin: " + currChar.pinyin
+  let currDefinition = "Definition: " + currChar.definition
+  var staticChar : String
+  var animatedChar : String
+  var charLookup = (charName == " ` ") ? "丶" : charName
+  
+  if(charName == "丶" || charName == "ノ") {
+    staticChar = displayCharBySVG(charName, allCharData)
+    animatedChar = "TODO"
+    return """
+      <body style="padding:10%;">
+        <h1>\(currPinyin)</h1>
+        <h1>\(currDefinition)</h1>
+        <br><br>
+        <h1>Picture</h1>
+        <div id="static-target">\(staticChar)</div>
+        <h1>Animation</h1>
+        <div id="animated-target">\(animatedChar)</div>
+      </body>
+    """
+  }
+  return """
+      <head>
+        <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+      </head>
+      <body style="padding:10%;">
+        <h1>\(currPinyin)</h1>
+        <h1>\(currDefinition)</h1>
+        <br><br>
+        <h1>Picture</h1>
+        <div id="static-target"></div>
+        <h1>Animation</h1>
+        <div id="animated-target"></div>
+      </body>
+      <script>
+        HanziWriter.create('static-target', '\(charLookup)', {
+          width: 500,
+          height: 500,
+          padding: 5
+        });
+        var writer = HanziWriter.create('animated-target', '\(charLookup)', {
+          width: 500,
+          height: 500,
+          padding: 5,
+          delayBetweenLoops: 1000
+        });
+        writer.loopCharacterAnimation();
+      </script>
+  """
 }

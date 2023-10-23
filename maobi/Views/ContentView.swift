@@ -2,21 +2,31 @@ import SwiftUI
 import WebKit
 
 struct ContentView: View {
-  @State var text = displayCharByAPI("轮", 300)
   var characterData = loadCharacterData()
-  var basicStrokes = ["一", "丨", "丶"]
-  
+  var basicStrokes = ["一", "丨", " ` ", "亅", "丶", "丿", "ノ"]
+  var sampleCharacters = [""]
   
   var body: some View {
-    NavigationView {
-          List(basicStrokes, id: \.self) { c in
-            NavigationLink(
-              destination: LevelView(text: displayCharByAPI(c, 300)),
-              label: {
-                Text(getLevelLabel(c, characterData))
-              })
-          }.navigationBarTitle("Characters")
-        }
+    VStack {
+      NavigationView {
+        List(basicStrokes, id: \.self) { c in
+          NavigationLink(
+            destination: LevelView(text: displayLevel(c, characterData)),
+            label: {
+              Text(getLevelLabel(c, characterData))
+            })
+        }.navigationBarTitle("Basic Strokes")
+      }
+//      NavigationView {
+//        List(sampleCharacters, id: \.self) { c in
+//          NavigationLink(
+//            destination: LevelView(text: displayLevel(c, characterData)),
+//            label: {
+//              Text(getLevelLabel(c, characterData))
+//            })
+//        }.navigationBarTitle("Sample Characters")
+//      }
+    }
   }
 }
 
