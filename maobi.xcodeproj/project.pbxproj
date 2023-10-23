@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94C72AD99D8100F76C79 /* maobiApp.swift */; };
-		864D94CA2AD99D8100F76C79 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94C92AD99D8100F76C79 /* ContentView.swift */; };
+		864D94CA2AD99D8100F76C79 /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94C92AD99D8100F76C79 /* LevelView.swift */; };
 		864D94CC2AD99D8300F76C79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864D94CB2AD99D8300F76C79 /* Assets.xcassets */; };
 		864D94CF2AD99D8300F76C79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864D94CE2AD99D8300F76C79 /* Preview Assets.xcassets */; };
 		864D94D12AD99D8300F76C79 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94D02AD99D8300F76C79 /* Persistence.swift */; };
@@ -26,13 +26,16 @@
 		86E231A72AE5C5AC00785AEC /* 20101.svg in Resources */ = {isa = PBXBuildFile; fileRef = 86E231A22AE5C5AC00785AEC /* 20101.svg */; };
 		86E231A82AE5C5AC00785AEC /* 20008.svg in Resources */ = {isa = PBXBuildFile; fileRef = 86E231A32AE5C5AC00785AEC /* 20008.svg */; };
 		86E231AB2AE5C7D800785AEC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231AA2AE5C7D800785AEC /* CardView.swift */; };
-		86E231AD2AE5C8A200785AEC /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231AC2AE5C8A200785AEC /* LevelView.swift */; };
+		86E231AD2AE5C8A200785AEC /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231AC2AE5C8A200785AEC /* CharacterView.swift */; };
+		86E231B32AE6284A00785AEC /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231B22AE6284A00785AEC /* TutorialView.swift */; };
+		86E231B52AE6287D00785AEC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231B42AE6287D00785AEC /* HomeView.swift */; };
+		86E231B72AE62A6600785AEC /* tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231B62AE62A6600785AEC /* tutorial.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		864D94C42AD99D8100F76C79 /* maobi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = maobi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		864D94C72AD99D8100F76C79 /* maobiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maobiApp.swift; sourceTree = "<group>"; };
-		864D94C92AD99D8100F76C79 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		864D94C92AD99D8100F76C79 /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		864D94CB2AD99D8300F76C79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		864D94CE2AD99D8300F76C79 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		864D94D02AD99D8300F76C79 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -48,7 +51,10 @@
 		86E231A22AE5C5AC00785AEC /* 20101.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 20101.svg; sourceTree = "<group>"; };
 		86E231A32AE5C5AC00785AEC /* 20008.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 20008.svg; sourceTree = "<group>"; };
 		86E231AA2AE5C7D800785AEC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		86E231AC2AE5C8A200785AEC /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
+		86E231AC2AE5C8A200785AEC /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
+		86E231B22AE6284A00785AEC /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		86E231B42AE6287D00785AEC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		86E231B62AE62A6600785AEC /* tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tutorial.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,7 @@
 			children = (
 				864D94C72AD99D8100F76C79 /* maobiApp.swift */,
 				864D94E12AD9ACCF00F76C79 /* loadCharacterData.swift */,
+				86E231B62AE62A6600785AEC /* tutorial.swift */,
 				86E231A92AE5C78800785AEC /* Views */,
 				864D94CB2AD99D8300F76C79 /* Assets.xcassets */,
 				864D94D02AD99D8300F76C79 /* Persistence.swift */,
@@ -130,9 +137,11 @@
 		86E231A92AE5C78800785AEC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				864D94C92AD99D8100F76C79 /* ContentView.swift */,
+				864D94C92AD99D8100F76C79 /* LevelView.swift */,
+				86E231B42AE6287D00785AEC /* HomeView.swift */,
 				86E231AA2AE5C7D800785AEC /* CardView.swift */,
-				86E231AC2AE5C8A200785AEC /* LevelView.swift */,
+				86E231AC2AE5C8A200785AEC /* CharacterView.swift */,
+				86E231B22AE6284A00785AEC /* TutorialView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -224,13 +233,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86E231AD2AE5C8A200785AEC /* LevelView.swift in Sources */,
+				86E231B52AE6287D00785AEC /* HomeView.swift in Sources */,
+				86E231AD2AE5C8A200785AEC /* CharacterView.swift in Sources */,
 				864D94D12AD99D8300F76C79 /* Persistence.swift in Sources */,
-				864D94CA2AD99D8100F76C79 /* ContentView.swift in Sources */,
+				864D94CA2AD99D8100F76C79 /* LevelView.swift in Sources */,
 				864D94D42AD99D8300F76C79 /* maobi.xcdatamodeld in Sources */,
+				86E231B32AE6284A00785AEC /* TutorialView.swift in Sources */,
 				864D94E22AD9ACCF00F76C79 /* loadCharacterData.swift in Sources */,
 				86E231AB2AE5C7D800785AEC /* CardView.swift in Sources */,
 				864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */,
+				86E231B72AE62A6600785AEC /* tutorial.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

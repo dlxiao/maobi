@@ -6,7 +6,7 @@ struct maobiApp: App {
 
     var body: some Scene {
         WindowGroup {
-          ContentView()
+          HomeView()
         }
     }
 }
