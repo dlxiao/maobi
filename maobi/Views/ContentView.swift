@@ -4,32 +4,34 @@ import WebKit
 struct ContentView: View {
   var characterData = loadCharacterData()
   var basicStrokes = ["一", "丨", " ` ", "亅", "丶", "丿", "ノ"]
-  var sampleCharacters = [""]
+  var sampleCharacters = ["小"]
   
   var body: some View {
-    VStack {
-      NavigationView {
-        List(basicStrokes, id: \.self) { c in
-          NavigationLink(
-            destination: LevelView(text: displayLevel(c, characterData)),
-            label: {
-              Text(getLevelLabel(c, characterData))
-            })
-        }.navigationBarTitle("Basic Strokes")
+    
+    NavigationView {
+      List {
+        Section(header: Text("Strokes"), content: {
+          ForEach(basicStrokes, id: \.self) { c in
+            NavigationLink(
+              destination: LevelView(text: displayLevel(c, characterData)),
+              label: {Text(getLevelLabel(c, characterData))}
+            )
+          }
+        })
+        
+        Section(header: Text("Characters"), content: {
+          ForEach(sampleCharacters, id: \.self) { c in
+            NavigationLink(
+              destination: LevelView(text: displayLevel(c, characterData)),
+              label: {Text(getLevelLabel(c, characterData))}
+            )
+          }
+        })
+        
       }
-//      NavigationView {
-//        List(sampleCharacters, id: \.self) { c in
-//          NavigationLink(
-//            destination: LevelView(text: displayLevel(c, characterData)),
-//            label: {
-//              Text(getLevelLabel(c, characterData))
-//            })
-//        }.navigationBarTitle("Sample Characters")
-//      }
-    }
+    }.navigationBarTitle("Demo of Character Data")
   }
 }
-
 
 
 

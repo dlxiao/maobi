@@ -5,3 +5,4 @@
 {"character":"亅","definition":"vertical hook","pinyin":["gōu"],"decomposition":"？","radical":"亅","matches":[null],"id":"20101"}
 {"character": "丶", "definition":"down-right", "pinyin": ["nà"]}
 {"character":"ノ", "definition":"up-right", "pinyin": ["tí"]}
+{"character":"小","definition":"small, tiny, insignificant","pinyin":["xiǎo"],"decomposition":"⿻亅八","etymology":{"type":"ideographic","hint":"Dividing 八 by a line 亅"},"radical":"小","matches":[[0],[1],[1]]}
