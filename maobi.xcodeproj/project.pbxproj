@@ -30,6 +30,7 @@
 		86E231B32AE6284A00785AEC /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231B22AE6284A00785AEC /* TutorialView.swift */; };
 		86E231B52AE6287D00785AEC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231B42AE6287D00785AEC /* HomeView.swift */; };
 		86E231B72AE62A6600785AEC /* tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231B62AE62A6600785AEC /* tutorial.swift */; };
+		86E231B92AE9F18B00785AEC /* FirebaseDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231B82AE9F18B00785AEC /* FirebaseDemoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		86E231B22AE6284A00785AEC /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		86E231B42AE6287D00785AEC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		86E231B62AE62A6600785AEC /* tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tutorial.swift; sourceTree = "<group>"; };
+		86E231B82AE9F18B00785AEC /* FirebaseDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDemoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				86E231AA2AE5C7D800785AEC /* CardView.swift */,
 				86E231AC2AE5C8A200785AEC /* CharacterView.swift */,
 				86E231B22AE6284A00785AEC /* TutorialView.swift */,
+				86E231B82AE9F18B00785AEC /* FirebaseDemoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E231B92AE9F18B00785AEC /* FirebaseDemoView.swift in Sources */,
 				86E231B52AE6287D00785AEC /* HomeView.swift in Sources */,
 				86E231AD2AE5C8A200785AEC /* CharacterView.swift in Sources */,
 				864D94D12AD99D8300F76C79 /* Persistence.swift in Sources */,

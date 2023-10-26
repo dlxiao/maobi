@@ -23,6 +23,12 @@ struct HomeView: View {
             Text("Character Demo")
         }
         
+        FirebaseDemoView()
+        .tabItem {
+            Image(systemName: "list.dash")
+            Text("Firebase Demo")
+        }
+        
       }
       
     }
