@@ -31,6 +31,12 @@
 		86E231B52AE6287D00785AEC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231B42AE6287D00785AEC /* HomeView.swift */; };
 		86E231B72AE62A6600785AEC /* tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231B62AE62A6600785AEC /* tutorial.swift */; };
 		86E231B92AE9F18B00785AEC /* FirebaseDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231B82AE9F18B00785AEC /* FirebaseDemoView.swift */; };
+		86E231BB2AE9FA5B00785AEC /* firebaseDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231BA2AE9FA5B00785AEC /* firebaseDemo.swift */; };
+		86E231BE2AE9FA9200785AEC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 86E231BD2AE9FA9200785AEC /* FirebaseFirestore */; };
+		86E231C02AE9FA9200785AEC /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 86E231BF2AE9FA9200785AEC /* FirebaseFirestoreCombine-Community */; };
+		86E231C22AE9FA9200785AEC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86E231C12AE9FA9200785AEC /* FirebaseFirestoreSwift */; };
+		86E231C42AEA00D100785AEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86E231C32AEA00D100785AEC /* GoogleService-Info.plist */; };
+		86E231C62AEA379C00785AEC /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231C52AEA379C00785AEC /* UserDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +63,9 @@
 		86E231B42AE6287D00785AEC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		86E231B62AE62A6600785AEC /* tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tutorial.swift; sourceTree = "<group>"; };
 		86E231B82AE9F18B00785AEC /* FirebaseDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDemoView.swift; sourceTree = "<group>"; };
+		86E231BA2AE9FA5B00785AEC /* firebaseDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firebaseDemo.swift; sourceTree = "<group>"; };
+		86E231C32AEA00D100785AEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		86E231C52AEA379C00785AEC /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +73,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E231C22AE9FA9200785AEC /* FirebaseFirestoreSwift in Frameworks */,
 				864D94DC2AD9A9C700F76C79 /* SVGPath in Frameworks */,
+				86E231C02AE9FA9200785AEC /* FirebaseFirestoreCombine-Community in Frameworks */,
 				86E231942AD9E17300785AEC /* SwiftSVG in Frameworks */,
+				86E231BE2AE9FA9200785AEC /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,9 +103,11 @@
 		864D94C62AD99D8100F76C79 /* maobi */ = {
 			isa = PBXGroup;
 			children = (
+				86E231C32AEA00D100785AEC /* GoogleService-Info.plist */,
 				864D94C72AD99D8100F76C79 /* maobiApp.swift */,
 				864D94E12AD9ACCF00F76C79 /* loadCharacterData.swift */,
 				86E231B62AE62A6600785AEC /* tutorial.swift */,
+				86E231BA2AE9FA5B00785AEC /* firebaseDemo.swift */,
 				86E231A92AE5C78800785AEC /* Views */,
 				864D94CB2AD99D8300F76C79 /* Assets.xcassets */,
 				864D94D02AD99D8300F76C79 /* Persistence.swift */,
@@ -145,6 +159,7 @@
 				86E231AC2AE5C8A200785AEC /* CharacterView.swift */,
 				86E231B22AE6284A00785AEC /* TutorialView.swift */,
 				86E231B82AE9F18B00785AEC /* FirebaseDemoView.swift */,
+				86E231C52AEA379C00785AEC /* UserDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,6 +183,9 @@
 			packageProductDependencies = (
 				864D94DB2AD9A9C700F76C79 /* SVGPath */,
 				86E231932AD9E17300785AEC /* SwiftSVG */,
+				86E231BD2AE9FA9200785AEC /* FirebaseFirestore */,
+				86E231BF2AE9FA9200785AEC /* FirebaseFirestoreCombine-Community */,
+				86E231C12AE9FA9200785AEC /* FirebaseFirestoreSwift */,
 			);
 			productName = maobi;
 			productReference = 864D94C42AD99D8100F76C79 /* maobi.app */;
@@ -200,6 +218,7 @@
 			packageReferences = (
 				864D94DA2AD9A9C700F76C79 /* XCRemoteSwiftPackageReference "SVGPath" */,
 				86E231922AD9E17300785AEC /* XCRemoteSwiftPackageReference "SwiftSVG" */,
+				86E231BC2AE9FA9200785AEC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 864D94C52AD99D8100F76C79 /* Products */;
 			projectDirPath = "";
@@ -220,6 +239,7 @@
 				86E231912AD9B78D00785AEC /* graphics_subset.txt in Resources */,
 				864D94CC2AD99D8300F76C79 /* Assets.xcassets in Resources */,
 				86E231982AE5BABE00785AEC /* dictionary_full.txt in Resources */,
+				86E231C42AEA00D100785AEC /* GoogleService-Info.plist in Resources */,
 				86E231A52AE5C5AC00785AEC /* 20031.svg in Resources */,
 				86E231A62AE5C5AC00785AEC /* 19968.svg in Resources */,
 				86E231972AE5BABE00785AEC /* graphics_full.txt in Resources */,
@@ -239,10 +259,12 @@
 				86E231B92AE9F18B00785AEC /* FirebaseDemoView.swift in Sources */,
 				86E231B52AE6287D00785AEC /* HomeView.swift in Sources */,
 				86E231AD2AE5C8A200785AEC /* CharacterView.swift in Sources */,
+				86E231BB2AE9FA5B00785AEC /* firebaseDemo.swift in Sources */,
 				864D94D12AD99D8300F76C79 /* Persistence.swift in Sources */,
 				864D94CA2AD99D8100F76C79 /* LevelView.swift in Sources */,
 				864D94D42AD99D8300F76C79 /* maobi.xcdatamodeld in Sources */,
 				86E231B32AE6284A00785AEC /* TutorialView.swift in Sources */,
+				86E231C62AEA379C00785AEC /* UserDetailsView.swift in Sources */,
 				864D94E22AD9ACCF00F76C79 /* loadCharacterData.swift in Sources */,
 				86E231AB2AE5C7D800785AEC /* CardView.swift in Sources */,
 				864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */,
@@ -463,6 +485,14 @@
 				kind = branch;
 			};
 		};
+		86E231BC2AE9FA9200785AEC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -475,6 +505,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 86E231922AD9E17300785AEC /* XCRemoteSwiftPackageReference "SwiftSVG" */;
 			productName = SwiftSVG;
+		};
+		86E231BD2AE9FA9200785AEC /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E231BC2AE9FA9200785AEC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		86E231BF2AE9FA9200785AEC /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E231BC2AE9FA9200785AEC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		86E231C12AE9FA9200785AEC /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E231BC2AE9FA9200785AEC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 
