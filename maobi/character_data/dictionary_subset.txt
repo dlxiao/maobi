@@ -1,0 +1,17 @@
+{"character":"一","definition":"horizontal","pinyin":["héng"],"decomposition":"？","etymology":{"type":"ideographic","hint":"Represents heaven (天), earth (旦), or the number 1"},"radical":"一","matches":[null],"id":"19968"}
+{"character":" ` ","definition":"dot","pinyin":["diǎn"],"decomposition":"？","radical":"丶","matches":[null],"id":"20022"}
+{"character":"丨","definition":"vertical","pinyin":["shù"],"decomposition":"？","radical":"丨","matches":[null],"id":"20008"}
+{"character":"丿","definition":"down-left","pinyin":["piě / wān "],"decomposition":"？","radical":"丿","matches":[null],"id":"20031"}
+{"character":"亅","definition":"vertical hook","pinyin":["gōu"],"decomposition":"？","radical":"亅","matches":[null],"id":"20101"}
+{"character": "丶", "definition":"down-right", "pinyin": ["nà"]}
+{"character":"ノ", "definition":"up-right", "pinyin": ["tí"]}
+{"character":"小","definition":"small, tiny, insignificant","pinyin":["xiǎo"],"decomposition":"⿻亅八","etymology":{"type":"ideographic","hint":"Dividing 八 by a line 亅"},"radical":"小","matches":[[0],[1],[1]]}
+{"character":"水","definition":"water, liquid, lotion, juice","pinyin":["shuǐ"],"decomposition":"⿻亅？","etymology":{"type":"pictographic","hint":"A river running between two banks; compare 川"},"radical":"水","matches":[[0],null,null,null]}
+{"character":"王","definition":"king, ruler; royal; surname","pinyin":["wáng"],"decomposition":"⿱一土","etymology":{"type":"ideographic","hint":"A man 十 bridging heaven and earth (both 一)"},"radical":"王","matches":[[0],[1],[1],[1]]}
+{"character":"大","definition":"big, great, vast, high, deep","pinyin":["dà"],"decomposition":"⿻一人","etymology":{"type":"ideographic","hint":"A man 人 with outstretched arms"},"radical":"大","matches":[[0],[1],[1]]}
+{"character":"天","definition":"sky, heaven; god, celestial","pinyin":["tiān"],"decomposition":"⿱一大","etymology":{"type":"ideographic","hint":"The heavens 一 above a man 大"},"radical":"大","matches":[[0],[1],[1],[1]]}
+{"character":"十","definition":"ten, tenth; complete; perfect","pinyin":["shí"],"decomposition":"⿻一丨","radical":"十","matches":[[0],[1]]}
+{"character":"九","definition":"nine","pinyin":["jiǔ"],"decomposition":"⿻丿乙","etymology":{"type":"pictographic","hint":"An elbow"},"radical":"乙","matches":[[0],[1]]}
+{"character":"八","definition":"eight; all around, all sides","pinyin":["bā"],"decomposition":"？","etymology":{"type":"ideographic","hint":"Two bent lines meaning \"to divide\""},"radical":"八","matches":[null,null]}
+{"character":"七","definition":"seven","pinyin":["qī"],"decomposition":"⿻一乚","radical":"一","matches":[[0],[1]]}
+{"character":"六","definition":"six","pinyin":["liù"],"decomposition":"⿱亠八","radical":"八","matches":[[0],[0],[1],[1]]}
