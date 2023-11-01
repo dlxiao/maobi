@@ -192,7 +192,8 @@ class Levels {
   }
   
   func getCharacterLevels() -> [CharacterData] {
-    return (self.allCharacters.filter { self.sampleCharacters.contains($0.0) }).map { $0.1 }
+    let basicStrokes = self.allCharacters.filter { self.sampleCharacters.contains($0.0) }.map { $0.1 }
+    return basicStrokes.sorted(by: { $0.getPinyin() < $1.getPinyin() })
   }
   
   // Load graphics for characters from graphics.txt from https://github.com/skishore/makemeahanzi

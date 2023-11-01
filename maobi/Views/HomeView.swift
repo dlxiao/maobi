@@ -12,7 +12,7 @@ struct HomeView: View {
       
       Text("Placeholder top bar")
       List {
-        ForEach(levels.getBasicStrokes()) { c in // or levels.getCharacterLevels()
+        ForEach(levels.getCharacterLevels()) { c in // or levels.getBasicStrokes()
           NavigationLink(
             destination: LevelView(character: c),
             label: {Text(c.toString())} // Turn this into cards
