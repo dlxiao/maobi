@@ -33,6 +33,7 @@
 		86E231F92AF1D1FE00785AEC /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231F82AF1D1FE00785AEC /* Camera.swift */; };
 		86E231FB2AF1E80900785AEC /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231FA2AF1E80900785AEC /* LevelView.swift */; };
 		86E231FD2AF20D7500785AEC /* LevelGraphicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */; };
+		86E231FF2AF29EE400785AEC /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231FE2AF29EE400785AEC /* CameraView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		86E231F82AF1D1FE00785AEC /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		86E231FA2AF1E80900785AEC /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelGraphicsView.swift; sourceTree = "<group>"; };
+		86E231FE2AF29EE400785AEC /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			children = (
 				86E231B42AE6287D00785AEC /* HomeView.swift */,
 				86E231FA2AF1E80900785AEC /* LevelView.swift */,
+				86E231FE2AF29EE400785AEC /* CameraView.swift */,
 				86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */,
 			);
 			path = Views;
@@ -255,6 +258,7 @@
 				86E231B52AE6287D00785AEC /* HomeView.swift in Sources */,
 				86E231BB2AE9FA5B00785AEC /* User.swift in Sources */,
 				86E231FD2AF20D7500785AEC /* LevelGraphicsView.swift in Sources */,
+				86E231FF2AF29EE400785AEC /* CameraView.swift in Sources */,
 				864D94D12AD99D8300F76C79 /* Persistence.swift in Sources */,
 				864D94D42AD99D8300F76C79 /* maobi.xcdatamodeld in Sources */,
 				864D94E22AD9ACCF00F76C79 /* Character.swift in Sources */,

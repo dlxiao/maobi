@@ -6,6 +6,7 @@ struct HomeView: View {
   var levels = Levels()
   
   var body: some View {
+    Text("Placeholder top bar")
     NavigationView {
       List {
         ForEach(levels.getBasicStrokes()) { c in // or levels.getCharacterLevels()
@@ -16,7 +17,9 @@ struct HomeView: View {
         }
       }
       
-    }.navigationBarTitle("Levels")
+    }.navigationTitle(Text("My Detail View"))
+      .navigationBarTitleDisplayMode(.inline)
+    Text("Placeholder bottom bar")
   }
 }
 
