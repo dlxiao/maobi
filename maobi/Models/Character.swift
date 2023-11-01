@@ -187,7 +187,8 @@ class Levels {
   }
   
   func getBasicStrokes() -> [CharacterData] {
-    return (self.allCharacters.filter { self.basicStrokes.contains($0.0) }).map { $0.1 }
+    let basicStrokes = self.allCharacters.filter { self.basicStrokes.contains($0.0) }.map { $0.1 }
+    return basicStrokes.sorted(by: { $0.getPinyin() < $1.getPinyin() })
   }
   
   func getCharacterLevels() -> [CharacterData] {

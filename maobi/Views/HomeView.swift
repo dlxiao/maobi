@@ -3,11 +3,14 @@ import SwiftUI
 
 struct HomeView: View {
   @ObservedObject var user = UserRepository()
-  var levels = Levels()
-  
+  var levels : Levels
   var body: some View {
-    Text("Placeholder top bar")
+    
     NavigationView {
+      VStack{
+        
+      
+      Text("Placeholder top bar")
       List {
         ForEach(levels.getBasicStrokes()) { c in // or levels.getCharacterLevels()
           NavigationLink(
@@ -16,18 +19,15 @@ struct HomeView: View {
           )
         }
       }
-      
+      Text("Placeholder bottom bar")
+      }
     }.navigationTitle(Text("My Detail View"))
       .navigationBarTitleDisplayMode(.inline)
-    Text("Placeholder bottom bar")
+      
+    
   }
 }
 
-struct HomeView_Previews: PreviewProvider {
-  static var previews: some View {
-    HomeView()
-  }
-}
 
 struct WebView: UIViewRepresentable {
   var html: String

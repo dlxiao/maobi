@@ -17,7 +17,7 @@ struct LevelView: View {
       LevelGraphicsView(html: character.getLevelHTML()) // pass in image and animation
       Button(action: {}) {
         NavigationLink(
-          destination: CameraView(),
+          destination: CameraView(character: character),
           label: { Text("Check your Work!").fontWeight(.bold)
           })
       }.padding(.all)

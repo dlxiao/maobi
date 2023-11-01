@@ -18,10 +18,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct maobiApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
+  var levels = Levels()
     var body: some Scene {
         WindowGroup {
-          HomeView()
+          HomeView(levels: levels)
         }
     }
 }
