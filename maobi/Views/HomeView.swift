@@ -1,41 +1,38 @@
-//
-//  HomeView.swift
-//  maobi
-//
-//  Created by Dora Xiao on 10/23/23.
-//
-
+import WebKit
 import SwiftUI
 
 struct HomeView: View {
-    var body: some View {
-      TabView {
-
-        TutorialView(text:getTutorial())
-        .tabItem {
-            Image(systemName: "house.fill")
-            Text("Tutorial Demo")
-        }
-
-        LevelView()
-        .tabItem {
-            Image(systemName: "list.dash")
-            Text("Character Demo")
-        }
-        
-        FirebaseDemoView()
-        .tabItem {
-            Image(systemName: "list.dash")
-            Text("Firebase Demo")
-        }
-        
-      }
-      
-    }
+  @ObservedObject var user = UserRepository()
+  var levels = Levels()
+  
+  var body: some View {
+    // let test = user.getUserLevels("")
+    // let test2 = user.getAllFeedback()
+    // Text(user.getUserID())
+    // Text(user.getUsername())
+    // Text(user.getPassword())
+    // Text(String(user.getTotalStars()))
+    
+    var html = levels.example()
+    WebView(html: html).frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+    
+  }
 }
 
 struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
+  static var previews: some View {
+    HomeView()
+  }
+}
+
+struct WebView: UIViewRepresentable {
+  var html: String
+  
+  func makeUIView(context: Context) -> WKWebView {
+    return WKWebView()
+  }
+  
+  func updateUIView(_ uiView: WKWebView, context: Context) {
+    uiView.loadHTMLString(html, baseURL: nil)
+  }
 }
