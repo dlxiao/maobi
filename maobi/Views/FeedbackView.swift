@@ -26,7 +26,7 @@ struct FeedbackView: View {
     Text("Stroke order: " + feedback["strokeOrder"]!)
     
     
-    Button(action: { }) {
+    Button(action: { NavigationUtil.popToRootView() }) {
       Text("Finish").fontWeight(.bold)
     }.padding(.all)
       .background(Color(red: 0.83, green: 0.25, blue: 0.17))
