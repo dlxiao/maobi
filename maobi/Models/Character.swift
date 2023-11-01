@@ -32,7 +32,8 @@ struct CharacterInfo: Decodable {
 
 
 // Combined all character data here
-class CharacterData {
+class CharacterData : Identifiable {
+  
   private var character : String
   private var definition : String
   private var pinyin : String
@@ -128,7 +129,11 @@ class CharacterData {
   func getDefinition() -> String {
     return self.definition
   }
-
+  
+  func toString() -> String {
+    return self.character
+  }
+  
 }
 
 
@@ -163,6 +168,18 @@ class Levels {
   
   func getCharacter(_ character : String) -> CharacterData {
     return self.allCharacters[character]!
+  }
+  
+  func getAllCharacters() -> [CharacterData] {
+    return self.allCharacters.map { $0.1 }
+  }
+  
+  func getBasicStrokes() -> [CharacterData] {
+    return (self.allCharacters.filter { self.basicStrokes.contains($0.0) }).map { $0.1 }
+  }
+  
+  func getCharacterLevels() -> [CharacterData] {
+    return (self.allCharacters.filter { self.sampleCharacters.contains($0.0) }).map { $0.1 }
   }
   
   // Load graphics for characters from graphics.txt from https://github.com/skishore/makemeahanzi

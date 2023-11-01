@@ -31,6 +31,8 @@
 		86E231C22AE9FA9200785AEC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86E231C12AE9FA9200785AEC /* FirebaseFirestoreSwift */; };
 		86E231C42AEA00D100785AEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86E231C32AEA00D100785AEC /* GoogleService-Info.plist */; };
 		86E231F92AF1D1FE00785AEC /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231F82AF1D1FE00785AEC /* Camera.swift */; };
+		86E231FB2AF1E80900785AEC /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231FA2AF1E80900785AEC /* LevelView.swift */; };
+		86E231FD2AF20D7500785AEC /* LevelGraphicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		86E231BA2AE9FA5B00785AEC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		86E231C32AEA00D100785AEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		86E231F82AF1D1FE00785AEC /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		86E231FA2AF1E80900785AEC /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
+		86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelGraphicsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				86E231B42AE6287D00785AEC /* HomeView.swift */,
+				86E231FA2AF1E80900785AEC /* LevelView.swift */,
+				86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,9 +254,11 @@
 			files = (
 				86E231B52AE6287D00785AEC /* HomeView.swift in Sources */,
 				86E231BB2AE9FA5B00785AEC /* User.swift in Sources */,
+				86E231FD2AF20D7500785AEC /* LevelGraphicsView.swift in Sources */,
 				864D94D12AD99D8300F76C79 /* Persistence.swift in Sources */,
 				864D94D42AD99D8300F76C79 /* maobi.xcdatamodeld in Sources */,
 				864D94E22AD9ACCF00F76C79 /* Character.swift in Sources */,
+				86E231FB2AF1E80900785AEC /* LevelView.swift in Sources */,
 				86E231F92AF1D1FE00785AEC /* Camera.swift in Sources */,
 				864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */,
 			);

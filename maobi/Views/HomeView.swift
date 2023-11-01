@@ -6,16 +6,17 @@ struct HomeView: View {
   var levels = Levels()
   
   var body: some View {
-    // let test = user.getUserLevels("")
-    // let test2 = user.getAllFeedback()
-    // Text(user.getUserID())
-    // Text(user.getUsername())
-    // Text(user.getPassword())
-    // Text(String(user.getTotalStars()))
-    
-    var html = levels.example()
-    WebView(html: html).frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-    
+    NavigationView {
+      List {
+        ForEach(levels.getBasicStrokes()) { c in // or levels.getCharacterLevels()
+          NavigationLink(
+            destination: LevelView(character: c),
+            label: {Text(c.toString())} // Turn this into cards
+          )
+        }
+      }
+      
+    }.navigationBarTitle("Levels")
   }
 }
 
