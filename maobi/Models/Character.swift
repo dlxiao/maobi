@@ -128,6 +128,10 @@ class CharacterData {
   func getDefinition() -> String {
     return self.definition
   }
+  
+  func toString() -> String {
+    return self.character
+  }
 
 }
 
