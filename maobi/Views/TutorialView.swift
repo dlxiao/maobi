@@ -11,7 +11,7 @@ struct TutorialView: View {
     @State private var step = 0
     @State private var isTutorialDone = false
     @State private var isTutorialStart = true
-    var levels = Levels()
+    var levels : Levels
     
     var body: some View {
         ZStack{
@@ -105,7 +105,7 @@ struct TutorialView: View {
                 }
 
             } else if step > 5 {
-                HomeView().disabled(false)
+              HomeView(levels: levels).disabled(false)
                 
             }
           if isTutorialDone == false {
@@ -148,8 +148,8 @@ struct TutorialView: View {
     }
 }
 
-struct TutorialView_Previews: PreviewProvider {
-    static var previews: some View {
-        TutorialView()
-    }
-}
+//struct TutorialView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TutorialView()
+//    }
+//}

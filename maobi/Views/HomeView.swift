@@ -5,7 +5,7 @@ struct HomeView: View {
   @ObservedObject var user = UserRepository()
   var levels : Levels
   var body: some View {
-      TopBarView()
+      
       NavigationView{
           ZStack{
               VStack{
@@ -74,8 +74,9 @@ struct HomeView: View {
               
           }
       }
-    
+    TopBarView()
   }
+  
   
 }
 
