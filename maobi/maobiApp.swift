@@ -11,6 +11,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     FirebaseApp.configure()
 
+    
     return true
   }
 }
@@ -18,12 +19,24 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct maobiApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
-    var body: some Scene {
-        WindowGroup {
-          HomeView()
-        }
-    }
+  @State private var showTutorial = isFirstLaunch()
+  
+  var body: some Scene {
+      WindowGroup {
+          if showTutorial {
+              OnboardingView(onFinish: {
+                  showTutorial = false
+                  UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+              })
+          } else {
+              HomeView()
+          }
+      }
+  }
+  
+  static func isFirstLaunch() -> Bool {
+      return !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
+  }
 }
 
 
