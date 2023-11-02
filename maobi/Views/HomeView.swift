@@ -3,8 +3,7 @@ import SwiftUI
 
 struct HomeView: View {
   @ObservedObject var user = UserRepository()
-  var levels = Levels()
-  
+  var levels : Levels
   var body: some View {
       TopBarView()
       NavigationView{
@@ -80,11 +79,6 @@ struct HomeView: View {
   
 }
 
-struct HomeView_Previews: PreviewProvider {
-  static var previews: some View {
-    HomeView()
-  }
-}
 
 struct WebView: UIViewRepresentable {
   var html: String
