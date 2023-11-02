@@ -5,13 +5,11 @@ import Foundation
 
 // Entering level for one character
 
-struct CharacterView: View {
-  @State var text : String
+struct LevelGraphicsView: View {
+  @State var html : String
    
   var body: some View {
-    WebView(text: $text)
+    WebView(html: html)
       .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
   }
 }
-
-

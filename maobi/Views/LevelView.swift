@@ -1,51 +1,28 @@
 import SwiftUI
-import WebKit
-
-
-// Navigation view of strokes and characters
 
 struct LevelView: View {
-  var characterData = loadCharacterData()
-  var basicStrokes = ["一", "丨", " ` ", "亅", "丶", "丿", "ノ"]
-  var sampleCharacters = ["大", "小", "水", "天", "王", "十", "九", "八", "七", "六"]
-  
+  var character : CharacterData
+
   var body: some View {
+    VStack {
+      Text(character.toString() + "  |  " + character.getPinyin()).font(.largeTitle).padding(20)
+      Text("This character means \"" + character.getDefinition() + "\". To write it, follow the stroke order animation below:").padding(20)
+      
+      LevelGraphicsView(html: character.getLevelHTML()) // pass in image and animation
+      Button(action: {}) {
+        NavigationLink(
+          destination: CameraView(character: character),
+          label: { Text("Check your Work!").fontWeight(.bold)
+          })
+      }.padding(.all)
+        .background(Color(red: 0.83, green: 0.25, blue: 0.17))
+        .foregroundColor(.white)
+        .cornerRadius(15.0)
+    }.padding([.bottom], 50)
     
-    NavigationView {
-      List {
-        Section(header: Text("Strokes"), content: {
-          ForEach(basicStrokes, id: \.self) { c in
-            NavigationLink(
-              destination: CharacterView(text: displayLevel(c, characterData)),
-              label: {Text(getLevelLabel(c, characterData))}
-            )
-          }
-        })
-        
-        Section(header: Text("Characters"), content: {
-          ForEach(sampleCharacters, id: \.self) { c in
-            NavigationLink(
-              destination: CharacterView(text: displayLevel(c, characterData)),
-              label: {Text(getLevelLabel(c, characterData))}
-            )
-          }
-        })
-        
-      }
-    }.navigationBarTitle("Demo of Character Data")
+    
   }
+
 }
 
 
-
-struct WebView: UIViewRepresentable {
-  @Binding var text: String
-  
-  func makeUIView(context: Context) -> WKWebView {
-    return WKWebView()
-  }
-  
-  func updateUIView(_ uiView: WKWebView, context: Context) {
-    uiView.loadHTMLString(text, baseURL: nil)
-  }
-}
