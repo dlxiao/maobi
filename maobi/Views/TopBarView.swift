@@ -30,7 +30,7 @@ struct TopBarView: View {
                             .font(.title)
                             .foregroundColor(.black)
                     }
-                    Spacer()
+//                    Spacer()
 
                     Image(systemName: "star.fill")
                         .foregroundColor(Color(red:1, green: 0.97, blue: 0.78))
@@ -39,7 +39,6 @@ struct TopBarView: View {
                     Text("46").bold()
 
                 }
-                .padding()
                 .frame(maxWidth: .infinity)
                 .background(Color(red: 0.9, green: 0.71, blue: 0.54))
                 

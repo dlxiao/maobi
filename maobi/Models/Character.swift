@@ -32,7 +32,7 @@ struct CharacterInfo: Decodable {
 
 
 // Combined all character data here
-class CharacterData {
+class CharacterData : Identifiable {
   private var character : String
   private var definition : String
   private var pinyin : String
@@ -168,6 +168,16 @@ class Levels {
   func getCharacter(_ character : String) -> CharacterData {
     return self.allCharacters[character]!
   }
+  
+  func getBasicStrokes() -> [CharacterData] {
+      let basicStrokes = self.allCharacters.filter { self.basicStrokes.contains($0.0) }.map { $0.1 }
+      return basicStrokes.sorted(by: { $0.getPinyin() < $1.getPinyin() })
+    }
+    
+    func getCharacterLevels() -> [CharacterData] {
+      let basicStrokes = self.allCharacters.filter { self.sampleCharacters.contains($0.0) }.map { $0.1 }
+      return basicStrokes.sorted(by: { $0.getPinyin() < $1.getPinyin() })
+    }
   
   // Load graphics for characters from graphics.txt from https://github.com/skishore/makemeahanzi
   // Currently using a subset, since there are 10k rows in the whole file
