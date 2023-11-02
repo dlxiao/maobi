@@ -11,6 +11,7 @@
 		70780E892AF331D30067BDEE /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E882AF331D30067BDEE /* CharacterListView.swift */; };
 		70780E8B2AF332070067BDEE /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E8A2AF332070067BDEE /* TutorialView.swift */; };
 		70780E8D2AF3325C0067BDEE /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E8C2AF3325C0067BDEE /* TopBarView.swift */; };
+		70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E902AF33ADB0067BDEE /* MenuView.swift */; };
 		864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94C72AD99D8100F76C79 /* maobiApp.swift */; };
 		864D94CC2AD99D8300F76C79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864D94CB2AD99D8300F76C79 /* Assets.xcassets */; };
 		864D94CF2AD99D8300F76C79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864D94CE2AD99D8300F76C79 /* Preview Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		70780E882AF331D30067BDEE /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		70780E8A2AF332070067BDEE /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		70780E8C2AF3325C0067BDEE /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		70780E902AF33ADB0067BDEE /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		864D94C42AD99D8100F76C79 /* maobi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = maobi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		864D94C72AD99D8100F76C79 /* maobiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maobiApp.swift; sourceTree = "<group>"; };
 		864D94CB2AD99D8300F76C79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				70780E882AF331D30067BDEE /* CharacterListView.swift */,
 				70780E8A2AF332070067BDEE /* TutorialView.swift */,
 				70780E8C2AF3325C0067BDEE /* TopBarView.swift */,
+				70780E902AF33ADB0067BDEE /* MenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86E231B52AE6287D00785AEC /* HomeView.swift in Sources */,
+				70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */,
 				86E231BB2AE9FA5B00785AEC /* User.swift in Sources */,
 				864D94D12AD99D8300F76C79 /* Persistence.swift in Sources */,
 				70780E892AF331D30067BDEE /* CharacterListView.swift in Sources */,

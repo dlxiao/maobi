@@ -24,7 +24,7 @@ struct TopBarView: View {
                 Spacer()
                 
                 Image(systemName: "star.fill")
-                    .foregroundColor(Color.yellow)
+                    .foregroundColor(Color(red:1, green: 0.97, blue: 0.78))
                     .frame(width: 43, height: 43)
                     .scaleEffect(1.5)
                 Text("46").bold()
@@ -34,6 +34,16 @@ struct TopBarView: View {
             .frame(maxWidth: .infinity)
             .background(Color(red: 0.9, green: 0.71, blue: 0.54))
             Spacer()
+            
+            if isMenuOpen{
+                MenuView()
+                    .frame(width: 250)
+                    .background(Color.white)
+                    .edgesIgnoringSafeArea(.all)
+                    .onTapGesture {
+                        isMenuOpen.toggle()
+                    }
+            }
         }
 
 
