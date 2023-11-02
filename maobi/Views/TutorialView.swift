@@ -9,10 +9,11 @@ import SwiftUI
 
 struct TutorialView: View {
     @State private var step = 0
+    var levels = Levels()
     
     var body: some View {
         ZStack{
-            HomeView().disabled(true)
+            HomeView(levels: levels).disabled(true)
             
             ZStack{
                 Color.black.opacity(0.5).ignoresSafeArea()
