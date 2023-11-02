@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70471DFF2AF3F7A500DE800F /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70471DFE2AF3F7A500DE800F /* LevelView.swift */; };
+		70780E872AF331B50067BDEE /* StrokeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E862AF331B50067BDEE /* StrokeListView.swift */; };
+		70780E892AF331D30067BDEE /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E882AF331D30067BDEE /* CharacterListView.swift */; };
+		70780E8B2AF332070067BDEE /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E8A2AF332070067BDEE /* TutorialView.swift */; };
+		70780E8D2AF3325C0067BDEE /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E8C2AF3325C0067BDEE /* TopBarView.swift */; };
+		70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E902AF33ADB0067BDEE /* MenuView.swift */; };
 		864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94C72AD99D8100F76C79 /* maobiApp.swift */; };
 		864D94CC2AD99D8300F76C79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864D94CB2AD99D8300F76C79 /* Assets.xcassets */; };
 		864D94CF2AD99D8300F76C79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864D94CE2AD99D8300F76C79 /* Preview Assets.xcassets */; };
@@ -38,6 +44,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70471DFE2AF3F7A500DE800F /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
+		70780E862AF331B50067BDEE /* StrokeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeListView.swift; sourceTree = "<group>"; };
+		70780E882AF331D30067BDEE /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
+		70780E8A2AF332070067BDEE /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		70780E8C2AF3325C0067BDEE /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		70780E902AF33ADB0067BDEE /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		864D94C42AD99D8100F76C79 /* maobi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = maobi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		864D94C72AD99D8100F76C79 /* maobiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maobiApp.swift; sourceTree = "<group>"; };
 		864D94CB2AD99D8300F76C79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -152,6 +164,12 @@
 				86E231FE2AF29EE400785AEC /* CameraView.swift */,
 				86E232002AF2B09100785AEC /* FeedbackView.swift */,
 				86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */,
+				70780E862AF331B50067BDEE /* StrokeListView.swift */,
+				70780E882AF331D30067BDEE /* CharacterListView.swift */,
+				70471DFE2AF3F7A500DE800F /* LevelView.swift */,
+				70780E8A2AF332070067BDEE /* TutorialView.swift */,
+				70780E8C2AF3325C0067BDEE /* TopBarView.swift */,
+				70780E902AF33ADB0067BDEE /* MenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -259,15 +277,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				86E231B52AE6287D00785AEC /* HomeView.swift in Sources */,
+				70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */,
 				86E231BB2AE9FA5B00785AEC /* User.swift in Sources */,
 				86E231FD2AF20D7500785AEC /* LevelGraphicsView.swift in Sources */,
 				86E231FF2AF29EE400785AEC /* CameraView.swift in Sources */,
 				864D94D12AD99D8300F76C79 /* Persistence.swift in Sources */,
+				70780E892AF331D30067BDEE /* CharacterListView.swift in Sources */,
+				70471DFF2AF3F7A500DE800F /* LevelView.swift in Sources */,
 				864D94D42AD99D8300F76C79 /* maobi.xcdatamodeld in Sources */,
 				864D94E22AD9ACCF00F76C79 /* Character.swift in Sources */,
 				86E231FB2AF1E80900785AEC /* LevelView.swift in Sources */,
 				86E231F92AF1D1FE00785AEC /* Camera.swift in Sources */,
 				86E232012AF2B09100785AEC /* FeedbackView.swift in Sources */,
+				70780E872AF331B50067BDEE /* StrokeListView.swift in Sources */,
+				70780E8D2AF3325C0067BDEE /* TopBarView.swift in Sources */,
+				70780E8B2AF332070067BDEE /* TutorialView.swift in Sources */,
 				864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +428,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -432,6 +457,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

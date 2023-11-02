@@ -1,14 +1,8 @@
-//
-//  LevelView.swift
-//  maobi
-//
-//  Created by Dora Xiao on 10/31/23.
-//
-
 import SwiftUI
 
 struct LevelView: View {
   var character : CharacterData
+
   var body: some View {
     VStack {
       Text(character.toString() + "  |  " + character.getPinyin()).font(.largeTitle).padding(20)
@@ -28,4 +22,7 @@ struct LevelView: View {
     
     
   }
+
 }
+
+

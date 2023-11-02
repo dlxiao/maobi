@@ -33,7 +33,6 @@ struct CharacterInfo: Decodable {
 
 // Combined all character data here
 class CharacterData : Identifiable {
-  
   private var character : String
   private var definition : String
   private var pinyin : String
@@ -145,7 +144,6 @@ class CharacterData : Identifiable {
     <script>\(s1+s2)</script>
     """
   }
-  
 }
 
 
