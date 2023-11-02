@@ -12,8 +12,6 @@ struct MenuView: View {
         VStack(alignment: .leading){
             Text("teresa_y")
                 .padding(.top, 150)
-            Text("tyang218@gmail.com")
-                .padding(.top)
             Text("Tutorial")
                 .padding(.top)
             Text("Sign Out")
