@@ -9,13 +9,14 @@ import SwiftUI
 
 struct TopBarView: View {
     @State var isMenuOpen = false
+    var levels: Levels
     var body: some View {
         GeometryReader{ geometry in
             
         ZStack(alignment: .top){
                             
             if isMenuOpen{
-                MenuView()
+                MenuView(levels: levels)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
                 
@@ -30,7 +31,7 @@ struct TopBarView: View {
                             .font(.title)
                             .foregroundColor(.black)
                     }
-//                    Spacer()
+                    Spacer()
 
                     Image(systemName: "star.fill")
                         .foregroundColor(Color(red:1, green: 0.97, blue: 0.78))
@@ -51,8 +52,8 @@ struct TopBarView: View {
     }
 }
 
-struct TopBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        TopBarView()
-    }
-}
+//struct TopBarView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TopBarView()
+//    }
+//}
