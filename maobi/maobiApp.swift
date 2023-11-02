@@ -21,7 +21,8 @@ struct maobiApp: App {
 
     var body: some Scene {
         WindowGroup {
-          HomeView()
+          //HomeView()
+          TutorialView()
         }
     }
 }

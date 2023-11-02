@@ -10,6 +10,7 @@ import SwiftUI
 struct TutorialView: View {
     @State private var step = 0
     @State private var isTutorialDone = false
+    @State private var isTutorialStart = true
     
     var body: some View {
         ZStack{
@@ -102,22 +103,32 @@ struct TutorialView: View {
                     }
                 }
 
-            } else if step > 5{
+            } else if step > 5 {
                 HomeView().disabled(false)
                 
             }
-            if isTutorialDone == false{
+          if isTutorialDone == false {
+            Button(action: {
+              isTutorialStart = false
+              if step <= 5 {
+                step += 1
+              }
+              if(step > 5) {
+                isTutorialDone = true
+                isTutorialStart = true
+              }
+            }){
+              Text("Next").foregroundColor(.white)
+            }
+            .offset(x: 150, y: 400)
+          }
+          if isTutorialStart == false {
                 Button(action: {
-                    if step <= 5 {
-                        step += 1
-                    }
-                }){
-                    Text("Next").foregroundColor(.white)
-                }
-                .offset(x: 150, y: 400)
-                
-                Button(action: {
+                  if step <= 1 {
+                    isTutorialStart = true
+                  }
                     if step >= 1 {
+                      
                         step -= 1
                     }
                 }){
