@@ -9,19 +9,18 @@ import SwiftUI
 
 struct CharacterListView: View {
     
-    var sampleCharacters = ["大", "小", "水", "天", "王", "十", "九", "八", "七", "六"]
+  var levels : Levels
     
     var body: some View {
-        NavigationView{
             ZStack {
                 ScrollView{
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]){
                         
-                        ForEach(sampleCharacters, id: \.self){
+                      ForEach(levels.getCharacterLevels()){
                             c in
                             VStack{
-                                NavigationLink(destination: LevelView()){
-                                    Text(c)
+                              NavigationLink(destination: LevelView(character: c)){
+                                Text(c.toString())
                                 }
                                 .frame(width: 162, height: 162)
                                 .background(Color(red: 0.97, green: 0.94, blue: 0.91))
@@ -33,14 +32,7 @@ struct CharacterListView: View {
                     }
                     
                 }.padding(.top, 100)
-                TopBarView()
             }
-        }
-    }
-}
-
-struct CharacterListView_Previews: PreviewProvider {
-    static var previews: some View {
-        CharacterListView()
+        
     }
 }

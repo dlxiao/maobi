@@ -32,7 +32,7 @@ struct CharacterInfo: Decodable {
 
 
 // Combined all character data here
-class CharacterData {
+class CharacterData : Identifiable {
   private var character : String
   private var definition : String
   private var pinyin : String
@@ -50,17 +50,18 @@ class CharacterData {
   func getImage(_ size : Int = 500) -> (String, String) {
     var charLookup = (self.character == " ` ") ? "丶" : self.character
     if(charLookup == "丶" || charLookup == "ノ") {
+      let xtranslate = charLookup == "丶" ? -300 : 0
       var paths = (self.strokes.map() { "<path fill='#555555' d='" + $0 + "'/>" }).joined()
-      var svg = """
-        <svg viewBox='0 0 1024 1024'>
-          <g transform="scale(1.0, -1.0) translate(0, -900)">
+      let svg = """
+        <svg viewBox='0 0 1024 1024' style='width: 50%; float: left; text-align: center;'>
+          <g transform="scale(1.0, -1.0) translate(\(xtranslate), -900)">
             \(paths)
           </g>
         </svg>
       """
       return (svg, "")
     } else {
-      let div = "<div id='image-\(charLookup)'></div>"
+      let div = "<div id='image-\(charLookup)' style='width: 50%; float: left; text-align: center;'></div>"
       let script = """
         var image\(charLookup) = HanziWriter.create('image-\(charLookup)', '\(charLookup)', {
           width: \(size),
@@ -75,9 +76,10 @@ class CharacterData {
   func getAnimation(_ size : Int = 500) -> (String, String) {
     var charLookup = (self.character == " ` ") ? "丶" : self.character
     if(charLookup == "丶" || charLookup == "ノ") {
+      let xtranslate = charLookup == "丶" ? -300 : 0
       let paths = (self.strokes.map() { "<path fill='url(#left-to-right)'; d='" + $0 + "'/>" }).joined()
       var svg = """
-          <svg viewBox='0 0 1024 1024'>
+          <svg viewBox='0 0 1024 1024' style='width: 50%; float: left; text-align: center;'>
                 <defs>
                     <linearGradient id="left-to-right">
                       <stop offset="0" stop-color="#555555">
@@ -88,11 +90,11 @@ class CharacterData {
                       </stop>
                     </linearGradient>
                   </defs>
-          <g transform="scale(1.0, -1.0) translate(0, -900)">\(paths)</g></svg>
+          <g transform="scale(1.0, -1.0) translate(\(xtranslate), -900)">\(paths)</g></svg>
         """
       return (svg, "")
     } else {
-      var div = "<div id='animation-\(charLookup)'></div>"
+      var div = "<div id='animation-\(charLookup)' style='width: 50%; float: left; text-align: center;'></div>"
       var script = """
         var animation\(charLookup) = HanziWriter.create('animation-\(charLookup)', '\(charLookup)', {
           width: \(size),
@@ -132,7 +134,16 @@ class CharacterData {
   func toString() -> String {
     return self.character
   }
-
+  
+  func getLevelHTML() -> String {
+    let (d1, s1) = self.getImage(400)
+    let (d2, s2) = self.getAnimation(400)
+    return """
+    <head><script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script></head>
+    <body style="padding:5%;">\(d1+d2)</body>
+    <script>\(s1+s2)</script>
+    """
+  }
 }
 
 
@@ -167,6 +178,20 @@ class Levels {
   
   func getCharacter(_ character : String) -> CharacterData {
     return self.allCharacters[character]!
+  }
+  
+  func getAllCharacters() -> [CharacterData] {
+    return self.allCharacters.map { $0.1 }
+  }
+  
+  func getBasicStrokes() -> [CharacterData] {
+    let basicStrokes = self.allCharacters.filter { self.basicStrokes.contains($0.0) }.map { $0.1 }
+    return basicStrokes.sorted(by: { $0.getPinyin() < $1.getPinyin() })
+  }
+  
+  func getCharacterLevels() -> [CharacterData] {
+    let basicStrokes = self.allCharacters.filter { self.sampleCharacters.contains($0.0) }.map { $0.1 }
+    return basicStrokes.sorted(by: { $0.getPinyin() < $1.getPinyin() })
   }
   
   // Load graphics for characters from graphics.txt from https://github.com/skishore/makemeahanzi

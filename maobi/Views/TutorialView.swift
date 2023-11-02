@@ -11,10 +11,11 @@ struct TutorialView: View {
     @State private var step = 0
     @State private var isTutorialDone = false
     @State private var isTutorialStart = true
+    var levels = Levels()
     
     var body: some View {
         ZStack{
-            HomeView().disabled(true)
+            HomeView(levels: levels).disabled(true)
             
             if step == 0{
                 
