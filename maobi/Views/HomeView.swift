@@ -6,7 +6,6 @@ struct HomeView: View {
   var levels : Levels
   var body: some View {
       
-      NavigationView{
           ZStack{
               VStack{
                   HStack{
@@ -70,11 +69,10 @@ struct HomeView: View {
                       
                   }
               }
+              .navigationBarBackButtonHidden()
+              TopBarView(levels: levels)
               
-              
-          }
-      }.padding([.top], 50)
-      TopBarView(levels: levels)
+          }.padding([.top], 50)
   }
   
   

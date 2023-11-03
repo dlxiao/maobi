@@ -42,6 +42,8 @@ struct TopBarView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .background(Color(red: 0.9, green: 0.71, blue: 0.54))
+            
+            
                 
 
             }

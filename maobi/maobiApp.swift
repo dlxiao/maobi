@@ -21,8 +21,8 @@ struct maobiApp: App {
   var levels = Levels()
   var body: some Scene {
     WindowGroup {
-//      TutorialView(levels: levels)
-        BottomBarView(levels: levels)
+      TutorialOneView(levels: levels)
+//        BottomBarView(levels: levels)
     }
   }
 }
