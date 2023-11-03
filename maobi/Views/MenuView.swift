@@ -15,7 +15,7 @@ struct MenuView: View {
             VStack(alignment: .leading){
                 Text("teresa_y")
                     .padding(.top, 100)
-                NavigationLink(destination: TutorialView(levels: levels)){
+                NavigationLink(destination: TutorialOneView(levels: levels)){
                     Text("Tutorial")
                 }.padding(.top)
                 

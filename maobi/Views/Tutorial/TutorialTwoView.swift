@@ -12,7 +12,8 @@ struct TutorialTwoView: View {
 
     var body: some View {
             ZStack{
-                HomeView(levels: levels).disabled(true)
+                HomeView(levels: levels).disabled(true).navigationBarBackButtonHidden(false)
+
                 
                 ZStack{
                     Color.black.opacity(0.6).ignoresSafeArea()

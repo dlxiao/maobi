@@ -24,6 +24,12 @@ struct BottomBarView: View {
                             Image(systemName: "house.fill")
                                 .foregroundColor(Color.black)
                         }
+                    
+                    MenuView(levels: levels)
+                        .tabItem{
+                            Image(systemName:"person.fill")
+                                .foregroundColor(Color.black)
+                        }
 
 
                 }
