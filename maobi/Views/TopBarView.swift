@@ -15,23 +15,23 @@ struct TopBarView: View {
             
         ZStack(alignment: .top){
                             
-            if isMenuOpen{
-                MenuView(levels: levels)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
+//            if isMenuOpen{
+//                MenuView(levels: levels)
+//                    .frame(maxWidth: .infinity, alignment: .leading)
+//            }
                 
                 
                 HStack{
-                    Button(action:{withAnimation{
-                        isMenuOpen.toggle()
-                    }
-
-                    }) {
-                        Image(systemName: isMenuOpen ? "xmark" : "line.horizontal.3")
-                            .font(.title)
-                            .foregroundColor(.black)
-                    }
-                    Spacer()
+//                    Button(action:{withAnimation{
+//                        isMenuOpen.toggle()
+//                    }
+//
+//                    }) {
+//                        Image(systemName: isMenuOpen ? "xmark" : "line.horizontal.3")
+//                            .font(.title)
+//                            .foregroundColor(.black)
+//                    }
+//                    Spacer()
 
                     Image(systemName: "star.fill")
                         .foregroundColor(Color(red:1, green: 0.97, blue: 0.78))

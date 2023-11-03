@@ -26,12 +26,7 @@ struct MenuView: View {
             }
             .padding()
             .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .leading)
-            .background(
-                Rectangle()
-                    .fill(Color.white)
-                    .shadow(color: .black.opacity(0.25), radius: 2, x: 4, y:0)
-            )
-            .edgesIgnoringSafeArea(.all)
+            .background(Color(.white))
         }
 
     }
