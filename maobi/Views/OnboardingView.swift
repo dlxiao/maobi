@@ -269,7 +269,7 @@ struct OnboardingView: View {
         .tag(6)
         
         VStack {
-          NavigationLink("", destination: HomeView(), isActive: $navigateToHome)
+          NavigationLink("", destination: TutorialView(), isActive: $navigateToHome)
             .hidden()
           Text("You just wrote a Chinese character!")
             .font(.system(size: 30))
