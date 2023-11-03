@@ -21,19 +21,23 @@ struct maobiApp: App {
   
   var levels = Levels()
   var body: some Scene {
-      WindowGroup {
-          if showTutorial {
-              OnboardingView(onFinish: {
-                  showTutorial = false
-                  UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
-              })
-          } else {
-              HomeView(levels: levels)
-          }
+    WindowGroup {
+      if showTutorial {
+        OnboardingView(levels: levels, onFinish: {
+          showTutorial = false
+          UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+        })
+      } else {
+        HomeView(levels: levels)
       }
+    }
   }
   
-
+  static func isFirstLaunch() -> Bool {
+    return !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
+  }
+  
+}
 
 // pop to root of navigation stack
 // taken from https://stackoverflow.com/questions/57334455/how-can-i-pop-to-the-root-view-using-swiftui/59662275#59662275

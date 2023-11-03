@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardingView: View {
+  var levels : Levels
   var onFinish: () -> Void
   @State private var currentPage: Int = 0
   @State private var navigateToPage2: Bool = false  // Add this state variable
@@ -269,7 +270,7 @@ struct OnboardingView: View {
         .tag(6)
         
         VStack {
-          NavigationLink("", destination: TutorialView(), isActive: $navigateToHome)
+          NavigationLink("", destination: TutorialView(levels: levels), isActive: $navigateToHome)
             .hidden()
           Text("You just wrote a Chinese character!")
             .font(.system(size: 30))
