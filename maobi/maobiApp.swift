@@ -22,16 +22,20 @@ struct maobiApp: App {
   var levels = Levels()
   var body: some Scene {
     WindowGroup {
-      if showTutorial {
-        OnboardingView(levels: levels, onFinish: {
-          showTutorial = false
-          UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
-        })
-      } else {
-        HomeView(levels: levels)
-      }
+//      if showTutorial {
+//        OnboardingView(levels: levels, onFinish: {
+//          showTutorial = false
+//          UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+//        })
+//      } else {
+//        HomeView(levels: levels)
+//      }
+      TestNavView()
     }
+    
   }
+  
+  
   
   static func isFirstLaunch() -> Bool {
     return !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
