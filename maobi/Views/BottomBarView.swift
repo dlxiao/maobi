@@ -16,8 +16,9 @@ struct BottomBarView: View {
 //                MenuView(levels: levels)
 //                    .frame(maxWidth: .infinity, alignment: .leading)
 //            }
-                
-                
+        
+        TopBarView()
+
                 TabView{
                     HomeView(levels: levels)
                         .tabItem{
@@ -33,8 +34,6 @@ struct BottomBarView: View {
 
 
                 }
-                .background(Color(red: 0.9, green: 0.71, blue: 0.54))
-                
 
             }
     }

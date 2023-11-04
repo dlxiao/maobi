@@ -13,7 +13,7 @@ struct TutorialOneView: View {
     var body: some View {
         NavigationView{
             ZStack{
-                HomeView(levels: levels).disabled(true)
+                BottomBarView(levels: levels).disabled(true)
                 
                 ZStack{
                     Color.black.opacity(0.6).ignoresSafeArea()
@@ -37,7 +37,8 @@ struct TutorialOneView: View {
                 .offset(x: 150, y: 400)
                 
             }
-        }
+        }.navigationBarTitle("")
+            .navigationBarHidden(true)
     }
 }
 

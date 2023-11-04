@@ -68,11 +68,12 @@ struct HomeView: View {
                       }
                       
                   }
-              }
-              .navigationBarBackButtonHidden()
-              TopBarView(levels: levels)
-              
+              }              
           }.padding([.top], 50)
+          .navigationBarTitle("")
+          .navigationBarHidden(true)
+          .navigationBarBackButtonHidden()
+
   }
   
   

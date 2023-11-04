@@ -35,6 +35,8 @@ struct TutorialThreeView: View {
                     })
                 .offset(x: 150, y: 400)
             }
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
 
     }
 }

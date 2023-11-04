@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TopBarView: View {
     @State var isMenuOpen = false
-    var levels: Levels
     var body: some View {
         GeometryReader{ geometry in
             
