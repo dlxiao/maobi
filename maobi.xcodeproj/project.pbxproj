@@ -13,6 +13,12 @@
 		70780E8B2AF332070067BDEE /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E8A2AF332070067BDEE /* TutorialView.swift */; };
 		70780E8D2AF3325C0067BDEE /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E8C2AF3325C0067BDEE /* TopBarView.swift */; };
 		70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E902AF33ADB0067BDEE /* MenuView.swift */; };
+		70DA4A7F2AF5CACD00357E4F /* TutorialFourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA4A792AF5CACD00357E4F /* TutorialFourView.swift */; };
+		70DA4A802AF5CACD00357E4F /* TutorialOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA4A7A2AF5CACD00357E4F /* TutorialOneView.swift */; };
+		70DA4A812AF5CACD00357E4F /* TutorialFiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA4A7B2AF5CACD00357E4F /* TutorialFiveView.swift */; };
+		70DA4A822AF5CACD00357E4F /* TutorialSixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA4A7C2AF5CACD00357E4F /* TutorialSixView.swift */; };
+		70DA4A832AF5CACD00357E4F /* TutorialThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA4A7D2AF5CACD00357E4F /* TutorialThreeView.swift */; };
+		70DA4A842AF5CACD00357E4F /* TutorialTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA4A7E2AF5CACD00357E4F /* TutorialTwoView.swift */; };
 		864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94C72AD99D8100F76C79 /* maobiApp.swift */; };
 		864D94CC2AD99D8300F76C79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864D94CB2AD99D8300F76C79 /* Assets.xcassets */; };
 		864D94CF2AD99D8300F76C79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864D94CE2AD99D8300F76C79 /* Preview Assets.xcassets */; };
@@ -52,6 +58,12 @@
 		70780E8A2AF332070067BDEE /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		70780E8C2AF3325C0067BDEE /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		70780E902AF33ADB0067BDEE /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		70DA4A792AF5CACD00357E4F /* TutorialFourView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialFourView.swift; path = ../../../../../Downloads/TutorialFourView.swift; sourceTree = "<group>"; };
+		70DA4A7A2AF5CACD00357E4F /* TutorialOneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialOneView.swift; path = ../../../../../Downloads/TutorialOneView.swift; sourceTree = "<group>"; };
+		70DA4A7B2AF5CACD00357E4F /* TutorialFiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialFiveView.swift; path = ../../../../../Downloads/TutorialFiveView.swift; sourceTree = "<group>"; };
+		70DA4A7C2AF5CACD00357E4F /* TutorialSixView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialSixView.swift; path = ../../../../../Downloads/TutorialSixView.swift; sourceTree = "<group>"; };
+		70DA4A7D2AF5CACD00357E4F /* TutorialThreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialThreeView.swift; path = ../../../../../Downloads/TutorialThreeView.swift; sourceTree = "<group>"; };
+		70DA4A7E2AF5CACD00357E4F /* TutorialTwoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialTwoView.swift; path = ../../../../../Downloads/TutorialTwoView.swift; sourceTree = "<group>"; };
 		864D94C42AD99D8100F76C79 /* maobi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = maobi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		864D94C72AD99D8100F76C79 /* maobiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maobiApp.swift; sourceTree = "<group>"; };
 		864D94CB2AD99D8300F76C79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,6 +109,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70DA4A722AF5CA4B00357E4F /* TutorialViews */ = {
+			isa = PBXGroup;
+			children = (
+				70DA4A7B2AF5CACD00357E4F /* TutorialFiveView.swift */,
+				70DA4A792AF5CACD00357E4F /* TutorialFourView.swift */,
+				70DA4A7A2AF5CACD00357E4F /* TutorialOneView.swift */,
+				70DA4A7C2AF5CACD00357E4F /* TutorialSixView.swift */,
+				70DA4A7D2AF5CACD00357E4F /* TutorialThreeView.swift */,
+				70DA4A7E2AF5CACD00357E4F /* TutorialTwoView.swift */,
+			);
+			path = TutorialViews;
+			sourceTree = "<group>";
+		};
 		864D94BB2AD99D8100F76C79 = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +203,7 @@
 				70780E8C2AF3325C0067BDEE /* TopBarView.swift */,
 				70780E902AF33ADB0067BDEE /* MenuView.swift */,
 				86E232072AF5B65F00785AEC /* TestNavView.swift */,
+				70DA4A722AF5CA4B00357E4F /* TutorialViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -284,9 +310,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70DA4A842AF5CACD00357E4F /* TutorialTwoView.swift in Sources */,
+				70DA4A802AF5CACD00357E4F /* TutorialOneView.swift in Sources */,
+				70DA4A832AF5CACD00357E4F /* TutorialThreeView.swift in Sources */,
 				86E232082AF5B65F00785AEC /* TestNavView.swift in Sources */,
 				86E231B52AE6287D00785AEC /* HomeView.swift in Sources */,
 				70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */,
+				70DA4A822AF5CACD00357E4F /* TutorialSixView.swift in Sources */,
+				70DA4A812AF5CACD00357E4F /* TutorialFiveView.swift in Sources */,
 				86E231BB2AE9FA5B00785AEC /* User.swift in Sources */,
 				86E231FD2AF20D7500785AEC /* LevelGraphicsView.swift in Sources */,
 				86E231FF2AF29EE400785AEC /* CameraView.swift in Sources */,
@@ -296,6 +327,7 @@
 				864D94D42AD99D8300F76C79 /* maobi.xcdatamodeld in Sources */,
 				864D94E22AD9ACCF00F76C79 /* Character.swift in Sources */,
 				86E231FB2AF1E80900785AEC /* LevelView.swift in Sources */,
+				70DA4A7F2AF5CACD00357E4F /* TutorialFourView.swift in Sources */,
 				86E231F92AF1D1FE00785AEC /* Camera.swift in Sources */,
 				86E232012AF2B09100785AEC /* FeedbackView.swift in Sources */,
 				70780E872AF331B50067BDEE /* StrokeListView.swift in Sources */,

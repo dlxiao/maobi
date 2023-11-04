@@ -8,7 +8,7 @@ struct TestNavView: View {
   var body: some View {
     TopBarView()
     TabView {
-      TutorialViewTest(levels: levels)
+      TutorialOneView(levels: levels)
         .tabItem {
           Label("Home", systemImage: "tray.and.arrow.down.fill")
         }
