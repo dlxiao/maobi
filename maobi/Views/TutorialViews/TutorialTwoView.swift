@@ -12,9 +12,7 @@ struct TutorialTwoView: View {
 
     var body: some View {
             ZStack{
-                HomeView(levels: levels).disabled(true).navigationBarBackButtonHidden(false)
-
-                
+              HomeView(levels: levels).disabled(true)
                 ZStack{
                     Color.black.opacity(0.6).ignoresSafeArea()
                     Circle()
@@ -29,15 +27,21 @@ struct TutorialTwoView: View {
                     .frame(width: 200)
                     .offset(x: 80, y: -250)
                 
+              HStack {
+                NavigationLink(
+                    destination: TutorialOneView(levels: levels),
+                    label: {
+                        Text("Back").foregroundColor(.white)
+                    }).offset(x:-80, y:-300)
                 NavigationLink(
                     destination: TutorialThreeView(levels: levels),
                     label: {
-                        Text("Next")
-                    })
-                .offset(x: 150, y: 400)
+                      Text("Next").foregroundColor(.white)
+                    }).offset(x:80, y:-300)
+                
+                
+              }
             }
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
 
     }
 }

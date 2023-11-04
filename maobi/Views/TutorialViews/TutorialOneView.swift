@@ -29,12 +29,15 @@ struct TutorialOneView: View {
                     .frame(width: 200)
                     .offset(x: -80, y: -250)
                 
+              HStack {
                 NavigationLink(
                     destination: TutorialTwoView(levels: levels),
                     label: {
-                        Text("Next")
-                    })
-                .offset(x: 150, y: 400)
+                      Text("Next").foregroundColor(.white)
+                    }).offset(x:80, y:-300)
+                
+                
+              }
                 
             }
         }.navigationBarTitle("")

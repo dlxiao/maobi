@@ -20,7 +20,7 @@ struct StrokeListView: View {
                         ForEach(sampleStrokes){
                             c in
                             VStack{
-                              NavigationLink(destination: LevelView(character: c)){
+                              NavigationLink(destination: LevelView(character: c, levels: levels)){
                                 Text(c.toString())
                                 }
                                 .frame(width: 162, height: 162)

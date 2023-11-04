@@ -29,12 +29,20 @@ struct TutorialFourView: View {
                     .frame(width: 150)
                     .offset(x: 100, y: -270)
                 
+              HStack {
+                NavigationLink(
+                    destination: TutorialThreeView(levels: levels),
+                    label: {
+                        Text("Back").foregroundColor(.white)
+                    }).offset(x:-80, y:-300)
                 NavigationLink(
                     destination: TutorialFiveView(levels: levels),
                     label: {
-                        Text("Next")
-                    })
-                .offset(x: 150, y: 400)
+                      Text("Next").foregroundColor(.white)
+                    }).offset(x:80, y:-300)
+                
+                
+              }
             }
             .navigationBarTitle("")
             .navigationBarHidden(true)
