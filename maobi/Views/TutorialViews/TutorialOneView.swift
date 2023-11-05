@@ -40,8 +40,8 @@ struct TutorialOneView: View {
               }
                 
             }
-        }.navigationBarTitle("")
-            .navigationBarHidden(true)
+            
+        }.navigationBarHidden(true)
     }
 }
 

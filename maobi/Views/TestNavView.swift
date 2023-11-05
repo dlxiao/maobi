@@ -12,7 +12,7 @@ struct TestNavView: View {
         .tabItem {
           Label("Home", systemImage: "house.fill")
         }
-      MenuViewTest()
+        MenuView(levels: levels)
         .tabItem {
           Label("Menu", systemImage: "person.fill")
         }
