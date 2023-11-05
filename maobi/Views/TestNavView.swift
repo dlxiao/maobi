@@ -10,11 +10,11 @@ struct TestNavView: View {
     TabView {
       TutorialOneView(levels: levels)
         .tabItem {
-          Label("Home", systemImage: "tray.and.arrow.down.fill")
+          Label("Home", systemImage: "house.fill")
         }
       MenuViewTest()
         .tabItem {
-          Label("Menu", systemImage: "tray.and.arrow.up.fill")
+          Label("Menu", systemImage: "person.fill")
         }
     }
     
