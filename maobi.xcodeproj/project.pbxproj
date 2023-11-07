@@ -13,6 +13,7 @@
 		70780E8B2AF332070067BDEE /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E8A2AF332070067BDEE /* TutorialView.swift */; };
 		70780E8D2AF3325C0067BDEE /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E8C2AF3325C0067BDEE /* TopBarView.swift */; };
 		70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E902AF33ADB0067BDEE /* MenuView.swift */; };
+		709460142AFACDDE006AF4FE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709460132AFACDDE006AF4FE /* ViewModel.swift */; };
 		70DA4A872AF5CC2900357E4F /* TutorialOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA4A862AF5CC2900357E4F /* TutorialOneView.swift */; };
 		70DA4A892AF5CC5C00357E4F /* TutorialTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA4A882AF5CC5C00357E4F /* TutorialTwoView.swift */; };
 		70DA4A8B2AF5CC6F00357E4F /* TutorialThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA4A8A2AF5CC6F00357E4F /* TutorialThreeView.swift */; };
@@ -58,6 +59,7 @@
 		70780E8A2AF332070067BDEE /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		70780E8C2AF3325C0067BDEE /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		70780E902AF33ADB0067BDEE /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		709460132AFACDDE006AF4FE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		70DA4A862AF5CC2900357E4F /* TutorialOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOneView.swift; sourceTree = "<group>"; };
 		70DA4A882AF5CC5C00357E4F /* TutorialTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTwoView.swift; sourceTree = "<group>"; };
 		70DA4A8A2AF5CC6F00357E4F /* TutorialThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialThreeView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		709460122AFACDCD006AF4FE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				709460132AFACDDE006AF4FE /* ViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		70DA4A852AF5CC1800357E4F /* TutorialViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +212,7 @@
 				70780E8A2AF332070067BDEE /* TutorialView.swift */,
 				70780E8C2AF3325C0067BDEE /* TopBarView.swift */,
 				70780E902AF33ADB0067BDEE /* MenuView.swift */,
+				709460122AFACDCD006AF4FE /* ViewModels */,
 				70DA4A852AF5CC1800357E4F /* TutorialViews */,
 				86E232072AF5B65F00785AEC /* TestNavView.swift */,
 			);
@@ -316,6 +327,7 @@
 				70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */,
 				86E231BB2AE9FA5B00785AEC /* User.swift in Sources */,
 				70DA4A8D2AF5CC8000357E4F /* TutorialFourView.swift in Sources */,
+				709460142AFACDDE006AF4FE /* ViewModel.swift in Sources */,
 				86E231FD2AF20D7500785AEC /* LevelGraphicsView.swift in Sources */,
 				86E231FF2AF29EE400785AEC /* CameraView.swift in Sources */,
 				70DA4A8B2AF5CC6F00357E4F /* TutorialThreeView.swift in Sources */,

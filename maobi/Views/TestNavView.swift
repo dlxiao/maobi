@@ -4,9 +4,8 @@ import SwiftUI
 // Starting point
 // With topbar and tabs
 struct TestNavView: View {
+    @EnvironmentObject var viewModel: ViewModel
   var levels = Levels()
-    @State private var isTabViewEnabled = true
-
   var body: some View {
       
       TopBarView()
@@ -23,7 +22,7 @@ struct TestNavView: View {
           }
           VStack{
               Spacer()
-              if !isTabViewEnabled{
+              if !viewModel.isTabViewEnabled{
                   Rectangle()
                       .fill(Color.white.opacity(0.001))
                       .frame(width: .infinity, height: 50)
