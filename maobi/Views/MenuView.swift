@@ -16,7 +16,7 @@ struct MenuView: View {
             VStack(alignment: .leading){
                 Text("teresa_y")
                     .padding(.top, 50)
-                NavigationLink(destination: TutorialView(levels: levels)){Text("Tutorial")}
+                NavigationLink(destination: TutorialOneView(levels: levels)){Text("Tutorial")}
                     .padding(.top)
                 Text("Sign Out")
                     .fontWeight(.bold)
