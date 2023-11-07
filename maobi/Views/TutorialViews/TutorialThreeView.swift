@@ -33,12 +33,12 @@ struct TutorialThreeView: View {
                     destination: TutorialTwoView(levels: levels),
                     label: {
                         Text("Back").foregroundColor(.white)
-                    }).offset(x:-80, y:-300)
+                    }).offset(x:-80, y:300)
                 NavigationLink(
                     destination: TutorialFourView(levels: levels),
                     label: {
                       Text("Next").foregroundColor(.white)
-                    }).offset(x:80, y:-300)
+                    }).offset(x:80, y:300)
                 
                 
               }

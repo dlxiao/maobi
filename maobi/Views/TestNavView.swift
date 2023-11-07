@@ -5,18 +5,31 @@ import SwiftUI
 // With topbar and tabs
 struct TestNavView: View {
   var levels = Levels()
+    @State private var isTabViewEnabled = true
+
   var body: some View {
-    TopBarView()
-    TabView {
-      TutorialOneView(levels: levels)
-        .tabItem {
-          Label("Home", systemImage: "house.fill")
-        }
-        MenuView(levels: levels)
-        .tabItem {
-          Label("Menu", systemImage: "person.fill")
-        }
-    }
+      
+      TopBarView()
+      ZStack{
+          TabView {
+              TutorialOneView(levels: levels)
+                  .tabItem {
+                      Label("Home", systemImage: "house.fill")
+                  }
+              MenuView(levels: levels)
+                  .tabItem {
+                      Label("Menu", systemImage: "person.fill")
+                  }
+          }
+          VStack{
+              Spacer()
+              if !isTabViewEnabled{
+                  Rectangle()
+                      .fill(Color.white.opacity(0.001))
+                      .frame(width: .infinity, height: 50)
+              }
+          }
+      }
     
   }
 }

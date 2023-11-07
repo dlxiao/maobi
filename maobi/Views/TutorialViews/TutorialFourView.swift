@@ -19,7 +19,7 @@ struct TutorialFourView: View {
                     Circle()
                         .frame(width: 100, height: 100)
                         .blendMode(.destinationOut)
-                        .offset(x: 170, y: -370)
+                        .offset(x: 0, y: -370)
                     
                 }
                 .compositingGroup()
@@ -27,19 +27,19 @@ struct TutorialFourView: View {
                 
                     .foregroundColor(Color.white)
                     .frame(width: 150)
-                    .offset(x: 100, y: -270)
+                    .offset(x: 0, y: -270)
                 
               HStack {
                 NavigationLink(
                     destination: TutorialThreeView(levels: levels),
                     label: {
                         Text("Back").foregroundColor(.white)
-                    }).offset(x:-80, y:-300)
+                    }).offset(x:-80, y:300)
                 NavigationLink(
                     destination: TutorialFiveView(levels: levels),
                     label: {
                       Text("Next").foregroundColor(.white)
-                    }).offset(x:80, y:-300)
+                    }).offset(x:80, y:300)
                 
                 
               }
