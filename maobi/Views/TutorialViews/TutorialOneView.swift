@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TutorialOneView: View {
     var levels : Levels
+    @EnvironmentObject var viewModel: ViewModel
 
     var body: some View {
         NavigationView{
@@ -39,6 +40,8 @@ struct TutorialOneView: View {
                 
               }
                 
+            }.onAppear{
+                viewModel.isTabViewEnabled = false
             }
             
         }.navigationBarHidden(true)

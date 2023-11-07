@@ -18,6 +18,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct maobiApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
   @State private var showTutorial = isFirstLaunch()
+    var viewModel = ViewModel()
+    
   
   var levels = Levels()
   var body: some Scene {
@@ -30,7 +32,7 @@ struct maobiApp: App {
 //      } else {
 //        HomeView(levels: levels)
 //      }
-      TestNavView()
+      TestNavView().environmentObject(viewModel)
     }
     
   }

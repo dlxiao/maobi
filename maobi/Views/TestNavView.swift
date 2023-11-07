@@ -5,8 +5,8 @@ import SwiftUI
 // With topbar and tabs
 struct TestNavView: View {
     @EnvironmentObject var viewModel: ViewModel
-  var levels = Levels()
-  var body: some View {
+    var levels = Levels()
+    var body: some View {
       
       TopBarView()
       ZStack{

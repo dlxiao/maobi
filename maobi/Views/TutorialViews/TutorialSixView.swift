@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TutorialSixView: View {
     var levels: Levels
+    @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
             ZStack{
@@ -40,6 +41,7 @@ struct TutorialSixView: View {
             }
             .navigationBarTitle("")
             .navigationBarHidden(true)
+            .onDisappear{viewModel.isTabViewEnabled = true}
 
     }
 }
