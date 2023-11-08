@@ -74,7 +74,7 @@ struct HomeView: View {
               
           }
       }.padding([.top], 50)
-    TopBarView()
+    //TopBarView()
   }
   
   

@@ -23,10 +23,11 @@ struct maobiApp: App {
   var body: some Scene {
     WindowGroup {
       if showTutorial {
-        OnboardingView(levels: levels, onFinish: {
-          showTutorial = false
-          UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
-        })
+        HomeView(levels: levels)
+//        OnboardingView(levels: levels, onFinish: {
+//          showTutorial = false
+//          UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+//        })
       } else {
         HomeView(levels: levels)
       }
