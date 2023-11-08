@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Need access to camera</string>
 	<key>API_KEY</key>
 	<string>AIzaSyD0jno_HCsh5k0pt1PP6yvIp72KuaHUUj8</string>
 	<key>GCM_SENDER_ID</key>

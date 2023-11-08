@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct LevelView: View {
+  @StateObject var cameraModel = CameraModel()
   var character : CharacterData
 
   var body: some View {
@@ -11,7 +12,7 @@ struct LevelView: View {
       LevelGraphicsView(html: character.getLevelHTML()) // pass in image and animation
       Button(action: {}) {
         NavigationLink(
-          destination: CameraView(character: character),
+          destination: CameraView(cameraModel: cameraModel, character: character),
           label: { Text("Check your Work!").fontWeight(.bold)
           })
       }.padding(.all)

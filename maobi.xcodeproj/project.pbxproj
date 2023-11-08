@@ -45,6 +45,7 @@
 		8D3487732AF5B5B2008186E0 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487722AF5B5B2008186E0 /* FirebaseAnalyticsSwift */; };
 		8D3487752AF5B5B2008186E0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487742AF5B5B2008186E0 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		8D3487772AF5B5B2008186E0 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487762AF5B5B2008186E0 /* FirebaseAppCheck */; };
+		8D4BE0B72AFBFDA400E99327 /* AlignmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4BE0B62AFBFDA400E99327 /* AlignmentView.swift */; };
 		8D4E6CAC2AF5B86A005E49EA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D4E6CAB2AF5B86A005E49EA /* GoogleService-Info.plist */; };
 		8D75D5522AF3F82100C39216 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D75D5512AF3F82100C39216 /* OnboardingView.swift */; };
 		8DDCA3032AF99F4D00FB181B /* FingerDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCA3022AF99F4D00FB181B /* FingerDraw.swift */; };
@@ -81,6 +82,8 @@
 		86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelGraphicsView.swift; sourceTree = "<group>"; };
 		86E231FE2AF29EE400785AEC /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		86E232002AF2B09100785AEC /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
+		8D4BE0B62AFBFDA400E99327 /* AlignmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentView.swift; sourceTree = "<group>"; };
+		8D4BE0B82AFC099900E99327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D4E6CAB2AF5B86A005E49EA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "maobi/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8D75D5512AF3F82100C39216 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8DDCA3022AF99F4D00FB181B /* FingerDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDraw.swift; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 		864D94C62AD99D8100F76C79 /* maobi */ = {
 			isa = PBXGroup;
 			children = (
+				8D4BE0B82AFC099900E99327 /* Info.plist */,
+				8D4E6CAB2AF5B86A005E49EA /* GoogleService-Info.plist */,
 				864D94C72AD99D8100F76C79 /* maobiApp.swift */,
 				86E231F72AF1B1CC00785AEC /* Models */,
 				86E231A92AE5C78800785AEC /* Views */,
@@ -150,7 +155,6 @@
 		86E2319D2AE5BCBE00785AEC /* character_data */ = {
 			isa = PBXGroup;
 			children = (
-				8D4E6CAB2AF5B86A005E49EA /* GoogleService-Info.plist */,
 				86E231952AE5BABE00785AEC /* graphics_full.txt */,
 				86E231962AE5BABE00785AEC /* dictionary_full.txt */,
 				86E231902AD9B78D00785AEC /* graphics_subset.txt */,
@@ -188,6 +192,7 @@
 				70780E8C2AF3325C0067BDEE /* TopBarView.swift */,
 				70780E902AF33ADB0067BDEE /* MenuView.swift */,
 				8DDCA3042AF99F8900FB181B /* FingerDrawView.swift */,
+				8D4BE0B62AFBFDA400E99327 /* AlignmentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 				70780E892AF331D30067BDEE /* CharacterListView.swift in Sources */,
 				70471DFF2AF3F7A500DE800F /* LevelView.swift in Sources */,
 				864D94D42AD99D8300F76C79 /* maobi.xcdatamodeld in Sources */,
+				8D4BE0B72AFBFDA400E99327 /* AlignmentView.swift in Sources */,
 				864D94E22AD9ACCF00F76C79 /* Character.swift in Sources */,
 				8DDCA3052AF99F8900FB181B /* FingerDrawView.swift in Sources */,
 				86E231FB2AF1E80900785AEC /* LevelView.swift in Sources */,
@@ -376,6 +382,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = Yes;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -430,6 +439,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = Yes;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -448,6 +460,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"maobi/Preview Content\"";
+				DEVELOPMENT_TEAM = MFFBJX3ZHX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -477,6 +490,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"maobi/Preview Content\"";
+				DEVELOPMENT_TEAM = MFFBJX3ZHX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
