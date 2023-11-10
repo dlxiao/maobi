@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TopBarView: View {
+    @EnvironmentObject var viewModel: ViewModel
+
     var body: some View {
         ZStack(alignment: .top){
           HStack{
@@ -20,7 +22,11 @@ struct TopBarView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .background(Color(red: 0.9, green: 0.71, blue: 0.54))
+            
+            
+
             }
+        .overlay(!viewModel.isTabViewEnabled ? Color.black.opacity(0.6).ignoresSafeArea() : nil)
 
     }
 }

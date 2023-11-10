@@ -20,6 +20,7 @@ struct TestNavView: View {
                       Label("Menu", systemImage: "person.fill")
                   }
           }
+          .accentColor(Color(red: 0.9, green: 0.71, blue: 0.54))
           VStack{
               Spacer()
               if !viewModel.isTabViewEnabled{
