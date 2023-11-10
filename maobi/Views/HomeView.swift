@@ -12,7 +12,7 @@ struct HomeView: View {
           HStack{
             VStack{
               NavigationLink(destination: StrokeListView(levels: levels)){
-                Image(systemName: "swift")
+                Image("strokes-icon")
                   .padding(10.0)
                 
               }
@@ -26,7 +26,7 @@ struct HomeView: View {
             
             VStack{
               NavigationLink(destination: CharacterListView(levels: levels)){
-                Image(systemName: "swift")
+                Image("character-icon")
                   .padding(10.0)
                 
               }
@@ -42,7 +42,7 @@ struct HomeView: View {
           HStack{
             VStack{
               Button(action:{}){
-                Image(systemName: "swift")
+                Image("stack")
                   .padding(10.0)
                 
               }
@@ -56,7 +56,7 @@ struct HomeView: View {
             
             VStack{
               Button(action:{}){
-                Image(systemName: "swift")
+                Image("daily-icon")
                   .padding(10.0)
                 
               }
