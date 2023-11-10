@@ -17,7 +17,8 @@ struct FeedbackGraphicsView: View {
   @State var feedbackText = ""
   
   var body: some View {
-    let processed = ProcessImage(submissionPath: "submission_good", templatePath: "template", character: "十")
+//    let processed = ProcessImage(submissionPath: "submission_good", templatePath: "template", character: "十")
+    let processed = ProcessImage(submissionPath: "小", templatePath: "小_template", character: "小")
     
     ZStack {
       processed.characterContour

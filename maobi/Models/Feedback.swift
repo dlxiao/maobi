@@ -26,7 +26,7 @@ class ProcessImage {
     self.templatePts = detectVisionContours(templatePath)
     self.characterContour = CharacterContour(self.submissionPts)
     getTemplateAnchors(character)
-    joinAnchors()
+    joinAnchors(character)
   }
   
   // Grabs the corresponding template anchors for the char
@@ -38,7 +38,7 @@ class ProcessImage {
     } else if(character == "九") {
       print("")
     } else if (character == "小") {
-      print("")
+      print("No joints")
     } else if (character == "王") {
       print("")
     } else if (character == "七") {
@@ -49,30 +49,36 @@ class ProcessImage {
   }
   
   // Interprets the templateAnchorMapping and creates stroke objects
-  func joinAnchors() {
-    let submissionPts = self.submissionPts[0]
+  func joinAnchors(_ character : String) {
     var anchorPts : [(Int, CGPoint)] = []
-    for pt in self.templateAnchors {
-      anchorPts.append(closestPoint(CGPoint(x:pt.x, y:pt.y), submissionPts))
-    }
-    
-    let n = submissionPts.count-1
-    
-    for stroke in self.templateAnchorMapping {
-      var strokePts : [CGPoint] = []
-      
-      for (s,d) in stroke {
-        let (sidx, _) = anchorPts[s]
-        let (eidx, _) = anchorPts[d]
-        if(sidx > eidx) {
-          strokePts += (submissionPts[sidx...n] + submissionPts[0...eidx])
-        } else {
-          strokePts += submissionPts[sidx...eidx]
-        }
+    if(character == "小") {
+      for stroke in self.submissionPts {
+        self.strokes.append(StrokeContour(stroke))
       }
-      let sample = strokePts.enumerated().compactMap { i, e in i % 5 == 0 ? e : nil }
-      let newStrokeObject = StrokeContour(sample)
-      self.strokes.append(newStrokeObject)
+    } else {
+      let submissionPts = self.submissionPts[0]
+      for pt in self.templateAnchors {
+        anchorPts.append(closestPoint(CGPoint(x:pt.x, y:pt.y), submissionPts))
+      }
+      
+      let n = submissionPts.count-1
+      
+      for stroke in self.templateAnchorMapping {
+        var strokePts : [CGPoint] = []
+        
+        for (s,d) in stroke {
+          let (sidx, _) = anchorPts[s]
+          let (eidx, _) = anchorPts[d]
+          if(sidx > eidx) {
+            strokePts += (submissionPts[sidx...n] + submissionPts[0...eidx])
+          } else {
+            strokePts += submissionPts[sidx...eidx]
+          }
+        }
+        let sample = strokePts.enumerated().compactMap { i, e in i % 5 == 0 ? e : nil }
+        let newStrokeObject = StrokeContour(sample)
+        self.strokes.append(newStrokeObject)
+      }
     }
   }
   
