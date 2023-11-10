@@ -5,6 +5,7 @@ struct HomeView: View {
   @ObservedObject var user = UserRepository()
     @EnvironmentObject var viewModel: ViewModel
   var levels : Levels
+    
   var body: some View {
     NavigationView {
       ZStack{

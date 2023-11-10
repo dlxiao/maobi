@@ -5,22 +5,36 @@ import SwiftUI
 // With topbar and tabs
 struct TestNavView: View {
     @EnvironmentObject var viewModel: ViewModel
+    @State private var selectedTab = 0
+    
+    
     var levels = Levels()
     var body: some View {
       
       TopBarView()
       ZStack{
-          TabView {
+          TabView(selection: $selectedTab) {
               TutorialOneView(levels: levels)
                   .tabItem {
                       Label("Home", systemImage: "house.fill")
                   }
+                  .tag(0)
               MenuView(levels: levels)
                   .tabItem {
                       Label("Menu", systemImage: "person.fill")
                   }
+                  .tag(1)
           }
           .accentColor(Color(red: 0.9, green: 0.71, blue: 0.54))
+          .onChange(of: selectedTab){
+              selected in
+              if selected == 0 {
+                  viewModel.menuView = false
+              }
+              else if selected == 1 {
+                  viewModel.menuView = true
+              }
+          }
           VStack{
               Spacer()
               if !viewModel.isTabViewEnabled{

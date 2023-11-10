@@ -29,8 +29,27 @@ struct TutorialSixView: View {
                     label: {
                         Text("Back").foregroundColor(.white)
                     }).offset(x:-80, y:300)
+//                  if !viewModel.menuView{
+//                      NavigationLink(
+//      //                    destination: !viewModel.menuView ? HomeView(levels: levels) : MenuView(levels: levels),
+//                          destination: HomeView(levels: levels),
+//                          label: {
+//                              Text("Next").foregroundColor(.white)
+//                          }).offset(x:80, y:300)
+//
+//                  }
+//                  else if viewModel.menuView{
+//                      NavigationLink(
+//      //                    destination: !viewModel.menuView ? HomeView(levels: levels) : MenuView(levels: levels),
+//                          destination: MenuView(levels: levels),
+//                          label: {
+//                              Text("Next").foregroundColor(.white)
+//                          }).offset(x:80, y:300)
+//
+//                  }
                 NavigationLink(
-                    destination: HomeView(levels: levels),
+                    destination: !viewModel.menuView ? AnyView(HomeView(levels: levels)) : AnyView(MenuView(levels: levels)),
+//                    destination: HomeView(levels: levels),
                     label: {
                         Text("Next").foregroundColor(.white)
                     }).offset(x:80, y:300)

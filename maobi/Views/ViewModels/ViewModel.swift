@@ -9,6 +9,7 @@ import SwiftUI
 
 class ViewModel: ObservableObject {
     @Published var isTabViewEnabled: Bool = true
+    @Published var menuView: Bool = false
     }
 
 //struct ViewModel_Previews: PreviewProvider {

@@ -10,11 +10,12 @@ import SwiftUI
 struct MenuView: View {
     
     var levels: Levels
+    @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
         NavigationView{
             VStack(alignment: .leading){
-                Text("teresa_y")
+                Text("Guest")
                     .padding(.top, 50)
                 NavigationLink(destination: TutorialOneView(levels: levels)){Text("Tutorial")}
                     .padding(.top)
@@ -27,14 +28,18 @@ struct MenuView: View {
             }
             .padding()
             .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .leading)
-            .background(
-                Rectangle()
-                    .fill(Color.white)
-                    .shadow(color: .black.opacity(0.25), radius: 2, x: 4, y:0)
-            )
-            .edgesIgnoringSafeArea(.all)
+//            .background(
+//                Rectangle()
+//                    .fill(Color.white)
+//                    .shadow(color: .black.opacity(0.25), radius: 2, x: 4, y:0)
+//            )
+//            .edgesIgnoringSafeArea(.all)
             
         }
+        .navigationBarTitle("")
+          .navigationBarBackButtonHidden(true)
+          .navigationBarHidden(true)
+        
     }
 }
 
