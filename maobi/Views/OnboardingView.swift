@@ -9,6 +9,9 @@ import SwiftUI
 
 struct OnboardingView: View {
   var levels : Levels
+  let horizontal = FingerDraw(character: "一", size: 700)
+  let vertical = FingerDraw(character: "丨", size: 800)
+  let ten = FingerDraw(character: "十", size: 550)
   var onFinish: () -> Void
   @State private var currentPage: Int = 0
   @State private var navigateToPage2: Bool = false  // Add this state variable
@@ -39,7 +42,6 @@ struct OnboardingView: View {
           .padding(.bottom, 300)
         }
         .padding()
-        .background(NavigationLink("", destination: Text("Onboarding 2"), isActive: $navigateToPage2).hidden())
         .tabItem { Text("Onboarding") }
         .tag(0)
         
@@ -49,11 +51,8 @@ struct OnboardingView: View {
               .font(.system(size: 30))
               .padding()
             Spacer()
-            Image("horizontal")
-              .resizable()
-              .frame(width: 289, height: 100)
-              .font(.footnote)
-              .padding()
+            FingerDrawView(html: horizontal.getQuizHTML())
+              .offset(x: 30, y: 120)
             Spacer()
             HStack {
               Spacer() // Pushes the button to the right
@@ -88,7 +87,6 @@ struct OnboardingView: View {
           Spacer()
           Image("horizontal")
             .resizable()
-            .frame(width: 289, height: 100)
             .font(.footnote)
             .padding()
           Spacer()
@@ -114,11 +112,8 @@ struct OnboardingView: View {
               .font(.system(size: 30))
               .padding()
             Spacer()
-            Image("vertical")
-              .resizable()
-              .frame(width: 70, height: 305)
-              .font(.footnote)
-              .padding()
+            FingerDrawView(html: vertical.getQuizHTML())
+              .offset(x: 30, y: 120)
             Spacer()
             HStack {
               Spacer() // Pushes the button to the right
@@ -153,7 +148,6 @@ struct OnboardingView: View {
           Spacer()
           Image("vertical")
             .resizable()
-            .frame(width: 70, height: 305)
             .font(.footnote)
             .padding()
           Spacer()
@@ -200,11 +194,8 @@ struct OnboardingView: View {
           Text("Try it out!")
             .font(.system(size: 30))
             .padding()
-          Image("ten3")
-            .resizable()
-            .frame(width: 180, height: 189.95)
-            .font(.footnote)
-            .padding()
+          FingerDrawView(html: ten.getQuizHTML())
+            .offset(x: 70, y: 25)
           HStack {
             Spacer() // Pushes the button to the right
             Button(action: {
@@ -248,7 +239,7 @@ struct OnboardingView: View {
           Text("Nice!")
             .font(.system(size: 30))
             .padding()
-          Image("ten3")
+          Image("ten")
             .resizable()
             .frame(width: 180, height: 189.95)
             .font(.footnote)
