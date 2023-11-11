@@ -33,9 +33,9 @@ class ProcessImage {
   }
   
   
-  init(submissionPath : String, templatePath : String, character : String) {
-    self.submissionPts = detectVisionContours(submissionPath)
-    self.templatePts = detectVisionContours(templatePath)
+  init(submission : UIImage, template : UIImage, character : String) {
+    self.submissionPts = detectVisionContours(submission)
+    self.templatePts = detectVisionContours(template)
     self.submissionPts.sort(by: {$0[0].x < $1[0].x})
     self.templatePts.sort(by: {$0[0].x < $1[0].x})
     self.characterContour = CharacterContour(self.submissionPts)

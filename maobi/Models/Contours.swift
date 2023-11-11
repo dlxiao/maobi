@@ -8,11 +8,10 @@ import CoreImage
 // Code for applying VNImageRequest is modified from
 // iOS14VisionContourDetection (GitHub) by Anupam Chugh on 26/06/20
 
-func detectVisionContours(_ path: String) -> [[CGPoint]] {
+func detectVisionContours(_ srcimg: UIImage) -> [[CGPoint]] {
   
-  let context = CIContext()
-  if let sourceImage = UIImage.init(named: path) { // image path passed here
-    var inputImage = CIImage.init(cgImage: sourceImage.cgImage!)
+    let context = CIContext()
+    var inputImage = CIImage.init(cgImage: srcimg.cgImage!)
     let contourRequest = VNDetectContoursRequest.init()
     contourRequest.revision = VNDetectContourRequestRevision1
     contourRequest.contrastAdjustment = 1.0
@@ -45,7 +44,7 @@ func detectVisionContours(_ path: String) -> [[CGPoint]] {
     } catch {
       print("Error getting contour")
     }
-  }
+  
   return []
 }
 

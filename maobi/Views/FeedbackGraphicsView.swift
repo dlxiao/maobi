@@ -13,14 +13,14 @@ import Foundation
 
 struct FeedbackGraphicsView: View {
   //  @State var html : String
-  let submissionPath = "小_thick"
-  let character = "小"
+  var submission : UIImage
+  var character : String
   
   @State var selectedStroke = -1
   
   var body: some View {
-    let templatePath = "\(character)_template"
-    let processed = ProcessImage(submissionPath: submissionPath, templatePath: templatePath, character: character)
+    let template = UIImage.init(named: "\(character)_template")!
+    let processed = ProcessImage(submission: submission, template: template, character: character)
     
     // Overall message
     Text(processed.overallMsg).font(.title)
