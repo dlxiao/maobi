@@ -42,8 +42,8 @@ class ProcessImage {
   }
   
   func calculateFeedback() {
-    var thicknessTotal = 0
-    var alignmentTotal = 0
+    var perfectThickness = true
+    var perfectAlignment = true
     let numStrokes = self.strokes.count
     
     for i in 0...(numStrokes-1) {
@@ -53,27 +53,19 @@ class ProcessImage {
       // Sample every 10th pt
       var templateStrokeSample = self.templateStrokes[i].contourpts.enumerated().compactMap { j, p in j % 10 == 0 ? p : nil }
         
-      var total = 0
+      var ct = 0
       
       // for a sample of pts in templateStroke, check if inside or outside user
       for pt in templateStrokeSample {
-        if(userStroke.contains(pt)) {
-          total += 1
-        } else {
-          total -= 1
-        }
+        ct = userStroke.contains(pt) ? ct+1 : ct-1
       }
-      let percentDiff = Float(abs(total)) / Float(self.strokes[i].contourpts.count / 10)
+      let percentDiff = Float(abs(ct)) / Float(self.strokes[i].contourpts.count / 10)
 
       if(percentDiff > 0.6) {
-        if(total < 0) {
-          thicknessResult = "Too thin, try again."
-        } else {
-          thicknessResult = "Too thick, try again."
-        }
+        thicknessResult = ct < 0 ? "Too thin." : "Too thick."
+        perfectThickness = false
       } else {
         thicknessResult = "Perfect thickness!"
-        thicknessTotal += 1
       }
       
       var horizontalAlign = 0
@@ -82,51 +74,47 @@ class ProcessImage {
       for pt in self.alignmentAnchors {
         let subPt = closestPoint(pt, self.submissionPts.flatMap {$0})
         let tempPt = closestPoint(pt, self.templatePts.flatMap {$0})
-        if(subPt.1.x < tempPt.1.x) {
-          horizontalAlign -= 1
-        } else {
-          horizontalAlign += 1
-        }
-        if(subPt.1.y < tempPt.1.y) {
-          verticalAlign -= 1
-        } else {
-          verticalAlign += 1
-        }
+        horizontalAlign = subPt.1.x < tempPt.1.x ? horizontalAlign - 1 : horizontalAlign + 1
+        verticalAlign = subPt.1.y < tempPt.1.y ? verticalAlign - 1 : verticalAlign + 1
       }
       print("\(horizontalAlign), \(verticalAlign)")
       
-      var perfect = true
       if(abs(horizontalAlign) > anchorCt / 2) {
-        perfect = false
-        if(horizontalAlign > 0) {
-          alignmentResult += "Too high. "
-        } else {
-          alignmentResult += "Too low. "
-        }
+        perfectAlignment = false
+        alignmentResult += horizontalAlign > 0 ? "Too high. " : "Too low. "
       }
       
       if(abs(verticalAlign) > anchorCt / 2) {
-        perfect = false
-        if(verticalAlign > 0) {
-          alignmentResult += "Too much to the right. "
-        } else {
-          alignmentResult += "Too much to the left. "
-        }
+        perfectAlignment = false
+        alignmentResult += verticalAlign > 0 ? "Too much to the right. " : "Too much to the left. "
+      } else {
+        alignmentResult = "Perfect alignment!"
       }
       
-      if(perfect) {
-        alignmentResult = "Perfect alignment!"
-        alignmentTotal += 1
+      feedback.append(["thickness": thicknessResult, "alignment": alignmentResult, "strokeOrder": "TBD"])
+    
+      if(alignmentResult == "Perfect alignment!" && thicknessResult == "Perfect thickness!") {
+        self.stars = 3
+        self.overallMsg = "Awesome Work!"
+      } else if(alignmentResult == "Perfect alignment!" || thicknessResult == "Perfect thickness!") {
+        self.stars = 2
+        self.overallMsg = "Good progress."
+      } else {
+        self.stars = 1
+        self.overallMsg = "Try again."
       }
-          
-    feedback.append(["thickness": thicknessResult, "alignment": alignmentResult, "strokeOrder": "TBD"])
     }
-    if(thicknessTotal >= numStrokes && alignmentTotal >= numStrokes) {
-      self.stars += 2
-    } else if(thicknessTotal >= numStrokes || alignmentTotal >= numStrokes) {
-      self.stars += 1
+    
+    // Adjust overall feedback
+    if(perfectAlignment) {
+      self.alignmentMsg = "Perfect alignment!"
     } else {
-      self.stars = 1
+      self.alignmentMsg = "Good start."
+    }
+    if(perfectThickness) {
+      self.thicknessMsg = "Perfect thickness!"
+    } else {
+      self.thicknessMsg = "Good start."
     }
   }
   

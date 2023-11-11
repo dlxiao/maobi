@@ -13,7 +13,7 @@ import Foundation
 
 struct FeedbackGraphicsView: View {
   //  @State var html : String
-  let processed = ProcessImage(submissionPath: "小", templatePath: "小_template", character: "小")
+  let processed = ProcessImage(submissionPath: "小_template", templatePath: "小_template", character: "小")
   @State var selectedStroke = -1
   
   var body: some View {
@@ -67,15 +67,34 @@ struct FeedbackGraphicsView: View {
     .padding(.bottom)
     
     // Feedback Messages
-    if(selectedStroke == -1) {
-      Text(processed.thicknessMsg)
-      Text(processed.alignmentMsg)
-      Text(processed.strokeorderMsg)
-    } else {
-        Text(processed.feedback[selectedStroke]["thickness"]!)
-        Text(processed.feedback[selectedStroke]["alignment"]!)
-        Text(processed.feedback[selectedStroke]["strokeOrder"]!)
+    VStack {
+      HStack(alignment: .top) {
+        Text("Thickness: ")
+        if(selectedStroke == -1) {
+          Text(processed.thicknessMsg)
+        } else {
+          Text(processed.feedback[selectedStroke]["thickness"]!)
+        }
+      }
+      HStack{
+        Text("Alignment: ")
+        if(selectedStroke == -1) {
+          Text(processed.alignmentMsg)
+        } else {
+          Text(processed.feedback[selectedStroke]["alignment"]!)
+        }
+      }
+      HStack{
+        Text("Stroke Order: ")
+        if(selectedStroke == -1) {
+          Text(processed.strokeorderMsg)
+        } else {
+          Text(processed.feedback[selectedStroke]["strokeOrder"]!)
+        }
+      }
+      
     }
+    
     
     
   }
