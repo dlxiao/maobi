@@ -13,13 +13,13 @@ import Foundation
 
 struct FeedbackGraphicsView: View {
   //  @State var html : String
-  let submissionPath = "小_warped"
-  let templatePath = "小_template"
+  let submissionPath = "小_thick"
   let character = "小"
   
   @State var selectedStroke = -1
   
   var body: some View {
+    let templatePath = "\(character)_template"
     let processed = ProcessImage(submissionPath: submissionPath, templatePath: templatePath, character: character)
     
     // Overall message

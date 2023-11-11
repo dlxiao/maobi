@@ -160,8 +160,6 @@ class ProcessImage {
       print("No joints")
     } else if (character == "八") {
       print("No joints")
-    } else if (character == "七") {
-      print("")
     } else {
       print("Error: character not in dataset")
     }
