@@ -13,15 +13,17 @@ import Foundation
 
 struct FeedbackGraphicsView: View {
   //  @State var html : String
-  let processed = ProcessImage(submissionPath: "小", templatePath: "小_template", character: "小")
+  let submissionPath = "小_warped"
+  let templatePath = "小_template"
+  let character = "小"
+  
   @State var selectedStroke = -1
   
   var body: some View {
-    
-//    let processed = ProcessImage(submissionPath: "submission_good", templatePath: "template", character: "十")
+    let processed = ProcessImage(submissionPath: submissionPath, templatePath: templatePath, character: character)
     
     // Overall message
-    Text(processed.overallMsg).font(.largeTitle)
+    Text(processed.overallMsg).font(.title)
     
     // Stars
     HStack {
@@ -38,27 +40,38 @@ struct FeedbackGraphicsView: View {
       }
     }.padding(.bottom)
     
-    
     // Image overlaid with strokes, clickable
     ZStack {
-      processed.characterContour
-        .stroke(Color.black, lineWidth: 4)
-        .background(processed.characterContour.fill(Color.black))
-        .frame(width: 250, height: 250)
-        .offset(x: 0, y: 0)
-      
-      if(selectedStroke >= 0) {
-        processed.strokes[selectedStroke]
-          .stroke(Color.red, lineWidth: 4)
-          .background(processed.strokes[selectedStroke].fill(Color.red))
-          .frame(width: 250, height: 250)
-          .offset(x: 0, y: 0)
+        if(processed.invalid) {
+          // display template contour over submission to show misalignment
+          CharacterContour(processed.submissionPts).stroke(Color.black, lineWidth: 4)
+            .background(processed.characterContour.fill(Color.black))
+            .frame(width: 250, height: 250)
+            .offset(x: 0, y: 0)
+          CharacterContour(processed.templatePts).stroke(Color.red, lineWidth: 4)
+            .frame(width: 250, height: 250)
+            .offset(x: 0, y: 0)
+        } else { // clickable strokes
+          processed.characterContour
+            .stroke(Color.black, lineWidth: 4)
+            .background(processed.characterContour.fill(Color.black))
+            .frame(width: 250, height: 250)
+            .offset(x: 0, y: 0)
+          
+          if(selectedStroke >= 0) {
+            processed.strokes[selectedStroke]
+              .stroke(Color.red, lineWidth: 4)
+              .background(processed.strokes[selectedStroke].fill(Color.red))
+              .frame(width: 250, height: 250)
+              .offset(x: 0, y: 0)
+            
+            processed.templateStrokes[selectedStroke]
+              .stroke(Color.yellow, lineWidth: 2)
+              .frame(width: 250, height: 250)
+              .offset(x: 0, y: 0)
+          }
         
-        processed.templateStrokes[selectedStroke]
-          .stroke(Color.yellow, lineWidth: 2)
-          .frame(width: 250, height: 250)
-          .offset(x: 0, y: 0)
-      }
+        }
       
     }.onTapGesture { location in
       print("Clicked \(location)")
@@ -67,34 +80,35 @@ struct FeedbackGraphicsView: View {
     .padding(.bottom)
     
     // Feedback Messages
-    VStack {
-      HStack(alignment: .top) {
-        Text("Thickness: ")
-        if(selectedStroke == -1) {
-          Text(processed.thicknessMsg)
-        } else {
-          Text(processed.feedback[selectedStroke]["thickness"]!)
-        }
-      }.padding()
-      HStack(alignment: .top){
-        Text("Alignment: ")
-        if(selectedStroke == -1) {
-          Text(processed.alignmentMsg)
-        } else {
-          Text(processed.feedback[selectedStroke]["alignment"]!)
-        }
-      }.padding()
-      HStack(alignment: .top){
-        Text("Stroke Order: ")
-        if(selectedStroke == -1) {
-          Text(processed.strokeorderMsg)
-        } else {
-          Text(processed.feedback[selectedStroke]["strokeOrder"]!)
-        }
-      }.padding()
-      
+    if(!processed.invalid) {
+      VStack {
+        HStack(alignment: .top) {
+          Text("Thickness: ")
+          if(selectedStroke == -1) {
+            Text(processed.thicknessMsg)
+          } else {
+            Text(processed.feedback[selectedStroke]["thickness"]!)
+          }
+        }.padding()
+        HStack(alignment: .top){
+          Text("Alignment: ")
+          if(selectedStroke == -1) {
+            Text(processed.alignmentMsg)
+          } else {
+            Text(processed.feedback[selectedStroke]["alignment"]!)
+          }
+        }.padding()
+        HStack(alignment: .top){
+          Text("Stroke Order: ")
+          if(selectedStroke == -1) {
+            Text(processed.strokeorderMsg)
+          } else {
+            Text(processed.feedback[selectedStroke]["strokeOrder"]!)
+          }
+        }.padding()
+        
+      }
     }
-    
     
     
   }

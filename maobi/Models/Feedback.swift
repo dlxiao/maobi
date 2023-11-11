@@ -19,6 +19,7 @@ class ProcessImage {
   var strokes : [StrokeContour] = []
   var templateStrokes : [StrokeContour] = []
   var characterContour : CharacterContour
+  var invalid = false
   
   var stars : Int = 1
   var overallMsg : String = "Awesome work!"
@@ -27,6 +28,10 @@ class ProcessImage {
   var strokeorderMsg : String = "TBD"
   var feedback : [Dictionary<String, String>] = []
   
+  enum InvalidSubmission: Error {
+      case invalid
+  }
+  
   
   init(submissionPath : String, templatePath : String, character : String) {
     self.submissionPts = detectVisionContours(submissionPath)
@@ -34,12 +39,23 @@ class ProcessImage {
     self.submissionPts.sort(by: {$0[0].x < $1[0].x})
     self.templatePts.sort(by: {$0[0].x < $1[0].x})
     self.characterContour = CharacterContour(self.submissionPts)
-    getAnchors(character)
-    joinAnchors(character)
-    calculateFeedback()
+    
+    do {
+      try getAnchors(character)
+      try joinAnchors(character)
+      try calculateFeedback()
+    } catch {
+      self.invalid = true
+      self.stars = 0
+      self.overallMsg = "Invalid or misaligned photo. Please retry."
+      self.alignmentMsg = ""
+      self.thicknessMsg = ""
+      self.strokeorderMsg = ""
+    }
   }
   
-  func calculateFeedback() {
+  
+  func calculateFeedback() throws {
     var perfectThickness = true
     var perfectAlignment = true
     var delta = 10 // allowed error
@@ -131,7 +147,7 @@ class ProcessImage {
   }
   
   // Grabs the corresponding template anchors for the char
-  func getAnchors(_ character : String) {
+  func getAnchors(_ character : String) throws {
     if(character == "十") {
       self.templateAnchors = [(110, 112), (110, 100), (126, 98), (125, 112)]
         .map {CGPoint(x:$0.0, y:$0.1)}
@@ -152,10 +168,8 @@ class ProcessImage {
   }
   
   // Interprets the templateAnchorMapping and creates stroke objects
-  func joinAnchors(_ character : String) {
-    var anchorPts : [(Int, CGPoint)] = []
-    if(character == "小") {
-      
+  func joinAnchors(_ character : String) throws {
+    if(character == "小" || character == "八") {
       for stroke in self.submissionPts {
         self.strokes.append(StrokeContour(stroke))
       }
@@ -163,6 +177,8 @@ class ProcessImage {
         self.templateStrokes.append(StrokeContour(stroke))
       }
     } else {
+      var anchorPts : [(Int, CGPoint)] = []
+      if(self.submissionPts.count < 1) { throw InvalidSubmission.invalid }
       let submissionPts = self.submissionPts[0]
       for pt in self.templateAnchors {
         anchorPts.append(closestPoint(CGPoint(x:pt.x, y:pt.y), submissionPts))
@@ -174,8 +190,10 @@ class ProcessImage {
         var strokePts : [CGPoint] = []
         
         for (s,d) in stroke {
+          if(s >= anchorPts.count || d >= anchorPts.count) { throw InvalidSubmission.invalid }
           let (sidx, _) = anchorPts[s]
           let (eidx, _) = anchorPts[d]
+          if(sidx >= submissionPts.count || eidx >= submissionPts.count) { throw InvalidSubmission.invalid }
           if(sidx > eidx) {
             strokePts += (submissionPts[sidx...n] + submissionPts[0...eidx])
           } else {
@@ -183,9 +201,13 @@ class ProcessImage {
           }
         }
         let sample = strokePts.enumerated().compactMap { i, e in i % 5 == 0 ? e : nil }
+        if(sample.count < 2) { throw InvalidSubmission.invalid }
         let newStrokeObject = StrokeContour(sample)
         self.strokes.append(newStrokeObject)
       }
+    }
+    if(self.strokes.count != self.templateStrokes.count) {
+      throw InvalidSubmission.invalid
     }
   }
   
