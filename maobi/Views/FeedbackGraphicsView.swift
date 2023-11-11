@@ -61,6 +61,7 @@ struct FeedbackGraphicsView: View {
       }
       
     }.onTapGesture { location in
+//      print("Clicked \(location)")
       selectedStroke = processed.shapeClicked(location)
       }
     .padding(.bottom)

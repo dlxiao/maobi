@@ -17,6 +17,7 @@ class ProcessImage {
   var templatePts : [[CGPoint]] = []
   var templateAnchors : [CGPoint] = []
   var templateAnchorMapping : [[(Int, Int)]] = []
+  var alignmentAnchors : [CGPoint] = []
   var strokes : [StrokeContour] = []
   var templateStrokes : [StrokeContour] = []
   var characterContour : CharacterContour
@@ -35,25 +36,107 @@ class ProcessImage {
     self.submissionPts.sort(by: {$0[0].x < $1[0].x})
     self.templatePts.sort(by: {$0[0].x < $1[0].x})
     self.characterContour = CharacterContour(self.submissionPts)
-    getTemplateAnchors(character)
+    getAnchors(character)
     joinAnchors(character)
     calculateFeedback()
   }
   
   func calculateFeedback() {
-    for i in 0...(strokes.count-1) {
-      var thicknessResult = "thickness for stroke \(i)"
-      var alignmentResult = "alignment for stroke \(i)"
-      feedback.append(["thickness": thicknessResult, "alignment": alignmentResult, "strokeOrder": "TBD"])
+    var thicknessTotal = 0
+    var alignmentTotal = 0
+    let numStrokes = self.strokes.count
+    
+    for i in 0...(numStrokes-1) {
+      var thicknessResult = ""
+      var alignmentResult = ""
+      let userStroke : UIBezierPath = self.strokes[i].outline
+      // Sample every 10th pt
+      var templateStrokeSample = self.templateStrokes[i].contourpts.enumerated().compactMap { j, p in j % 10 == 0 ? p : nil }
+        
+      var total = 0
+      
+      // for a sample of pts in templateStroke, check if inside or outside user
+      for pt in templateStrokeSample {
+        if(userStroke.contains(pt)) {
+          total += 1
+        } else {
+          total -= 1
+        }
+      }
+      let percentDiff = Float(abs(total)) / Float(self.strokes[i].contourpts.count / 10)
+
+      if(percentDiff > 0.6) {
+        if(total < 0) {
+          thicknessResult = "Too thin, try again."
+        } else {
+          thicknessResult = "Too thick, try again."
+        }
+      } else {
+        thicknessResult = "Perfect thickness!"
+        thicknessTotal += 1
+      }
+      
+      var horizontalAlign = 0
+      var verticalAlign = 0
+      let anchorCt = self.alignmentAnchors.count
+      for pt in self.alignmentAnchors {
+        let subPt = closestPoint(pt, self.submissionPts.flatMap {$0})
+        let tempPt = closestPoint(pt, self.templatePts.flatMap {$0})
+        if(subPt.1.x < tempPt.1.x) {
+          horizontalAlign -= 1
+        } else {
+          horizontalAlign += 1
+        }
+        if(subPt.1.y < tempPt.1.y) {
+          verticalAlign -= 1
+        } else {
+          verticalAlign += 1
+        }
+      }
+      print("\(horizontalAlign), \(verticalAlign)")
+      
+      var perfect = true
+      if(abs(horizontalAlign) > anchorCt / 2) {
+        perfect = false
+        if(horizontalAlign > 0) {
+          alignmentResult += "Too high. "
+        } else {
+          alignmentResult += "Too low. "
+        }
+      }
+      
+      if(abs(verticalAlign) > anchorCt / 2) {
+        perfect = false
+        if(verticalAlign > 0) {
+          alignmentResult += "Too much to the right. "
+        } else {
+          alignmentResult += "Too much to the left. "
+        }
+      }
+      
+      if(perfect) {
+        alignmentResult = "Perfect alignment!"
+        alignmentTotal += 1
+      }
+          
+    feedback.append(["thickness": thicknessResult, "alignment": alignmentResult, "strokeOrder": "TBD"])
+    }
+    if(thicknessTotal >= numStrokes && alignmentTotal >= numStrokes) {
+      self.stars += 2
+    } else if(thicknessTotal >= numStrokes || alignmentTotal >= numStrokes) {
+      self.stars += 1
+    } else {
+      self.stars = 1
     }
   }
   
   // Grabs the corresponding template anchors for the char
-  func getTemplateAnchors(_ character : String) {
+  func getAnchors(_ character : String) {
     if(character == "十") {
       self.templateAnchors = [(110, 112), (110, 100), (126, 98), (125, 112)]
         .map {CGPoint(x:$0.0, y:$0.1)}
       self.templateAnchorMapping = [[(1,2),(3,0)], [(0,1),(2,3)]]
+      self.alignmentAnchors = [(123,18), (125, 231),(84, 201), (28,145),(64,99),(173,96),(223,146)].map {CGPoint(x:$0.0, y:$0.1)}
     } else if(character == "九") {
       print("")
     } else if (character == "小") {
