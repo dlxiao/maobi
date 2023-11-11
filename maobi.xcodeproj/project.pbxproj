@@ -13,6 +13,13 @@
 		70780E8B2AF332070067BDEE /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E8A2AF332070067BDEE /* TutorialView.swift */; };
 		70780E8D2AF3325C0067BDEE /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E8C2AF3325C0067BDEE /* TopBarView.swift */; };
 		70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E902AF33ADB0067BDEE /* MenuView.swift */; };
+		709460142AFACDDE006AF4FE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709460132AFACDDE006AF4FE /* ViewModel.swift */; };
+		70DA4A872AF5CC2900357E4F /* TutorialOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA4A862AF5CC2900357E4F /* TutorialOneView.swift */; };
+		70DA4A892AF5CC5C00357E4F /* TutorialTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA4A882AF5CC5C00357E4F /* TutorialTwoView.swift */; };
+		70DA4A8B2AF5CC6F00357E4F /* TutorialThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA4A8A2AF5CC6F00357E4F /* TutorialThreeView.swift */; };
+		70DA4A8D2AF5CC8000357E4F /* TutorialFourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA4A8C2AF5CC8000357E4F /* TutorialFourView.swift */; };
+		70DA4A8F2AF5CCA700357E4F /* TutorialFiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA4A8E2AF5CCA700357E4F /* TutorialFiveView.swift */; };
+		70DA4A912AF5CCBA00357E4F /* TutorialSixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DA4A902AF5CCBA00357E4F /* TutorialSixView.swift */; };
 		864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94C72AD99D8100F76C79 /* maobiApp.swift */; };
 		864D94CC2AD99D8300F76C79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864D94CB2AD99D8300F76C79 /* Assets.xcassets */; };
 		864D94CF2AD99D8300F76C79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864D94CE2AD99D8300F76C79 /* Preview Assets.xcassets */; };
@@ -45,7 +52,8 @@
 		8D3487732AF5B5B2008186E0 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487722AF5B5B2008186E0 /* FirebaseAnalyticsSwift */; };
 		8D3487752AF5B5B2008186E0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487742AF5B5B2008186E0 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		8D3487772AF5B5B2008186E0 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487762AF5B5B2008186E0 /* FirebaseAppCheck */; };
-		8D4E6CAC2AF5B86A005E49EA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D4E6CAB2AF5B86A005E49EA /* GoogleService-Info.plist */; };
+		86E232052AF5B42800785AEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86E232042AF5B42800785AEC /* GoogleService-Info.plist */; };
+		86E232082AF5B65F00785AEC /* TestNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E232072AF5B65F00785AEC /* TestNavView.swift */; };
 		8D75D5522AF3F82100C39216 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D75D5512AF3F82100C39216 /* OnboardingView.swift */; };
 		8DDCA3032AF99F4D00FB181B /* FingerDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCA3022AF99F4D00FB181B /* FingerDraw.swift */; };
 		8DDCA3052AF99F8900FB181B /* FingerDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCA3042AF99F8900FB181B /* FingerDrawView.swift */; };
@@ -58,6 +66,13 @@
 		70780E8A2AF332070067BDEE /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		70780E8C2AF3325C0067BDEE /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		70780E902AF33ADB0067BDEE /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		709460132AFACDDE006AF4FE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		70DA4A862AF5CC2900357E4F /* TutorialOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOneView.swift; sourceTree = "<group>"; };
+		70DA4A882AF5CC5C00357E4F /* TutorialTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTwoView.swift; sourceTree = "<group>"; };
+		70DA4A8A2AF5CC6F00357E4F /* TutorialThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialThreeView.swift; sourceTree = "<group>"; };
+		70DA4A8C2AF5CC8000357E4F /* TutorialFourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFourView.swift; sourceTree = "<group>"; };
+		70DA4A8E2AF5CCA700357E4F /* TutorialFiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFiveView.swift; sourceTree = "<group>"; };
+		70DA4A902AF5CCBA00357E4F /* TutorialSixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSixView.swift; sourceTree = "<group>"; };
 		864D94C42AD99D8100F76C79 /* maobi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = maobi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		864D94C72AD99D8100F76C79 /* maobiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maobiApp.swift; sourceTree = "<group>"; };
 		864D94CB2AD99D8300F76C79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,7 +96,9 @@
 		86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelGraphicsView.swift; sourceTree = "<group>"; };
 		86E231FE2AF29EE400785AEC /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		86E232002AF2B09100785AEC /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
-		8D4E6CAB2AF5B86A005E49EA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "maobi/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		86E232042AF5B42800785AEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		86E232062AF5B42A00785AEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		86E232072AF5B65F00785AEC /* TestNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNavView.swift; sourceTree = "<group>"; };
 		8D75D5512AF3F82100C39216 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8DDCA3022AF99F4D00FB181B /* FingerDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDraw.swift; sourceTree = "<group>"; };
 		8DDCA3042AF99F8900FB181B /* FingerDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDrawView.swift; sourceTree = "<group>"; };
@@ -108,6 +125,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		709460122AFACDCD006AF4FE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				709460132AFACDDE006AF4FE /* ViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		70DA4A852AF5CC1800357E4F /* TutorialViews */ = {
+			isa = PBXGroup;
+			children = (
+				70DA4A8E2AF5CCA700357E4F /* TutorialFiveView.swift */,
+				70DA4A902AF5CCBA00357E4F /* TutorialSixView.swift */,
+				70DA4A862AF5CC2900357E4F /* TutorialOneView.swift */,
+				70DA4A882AF5CC5C00357E4F /* TutorialTwoView.swift */,
+				70DA4A8A2AF5CC6F00357E4F /* TutorialThreeView.swift */,
+				70DA4A8C2AF5CC8000357E4F /* TutorialFourView.swift */,
+			);
+			path = TutorialViews;
+			sourceTree = "<group>";
+		};
 		864D94BB2AD99D8100F76C79 = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +226,9 @@
 				70780E8C2AF3325C0067BDEE /* TopBarView.swift */,
 				70780E902AF33ADB0067BDEE /* MenuView.swift */,
 				8DDCA3042AF99F8900FB181B /* FingerDrawView.swift */,
+				709460122AFACDCD006AF4FE /* ViewModels */,
+				70DA4A852AF5CC1800357E4F /* TutorialViews */,
+				86E232072AF5B65F00785AEC /* TestNavView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,13 +341,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E232082AF5B65F00785AEC /* TestNavView.swift in Sources */,
+				70DA4A892AF5CC5C00357E4F /* TutorialTwoView.swift in Sources */,
 				86E231B52AE6287D00785AEC /* HomeView.swift in Sources */,
 				70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */,
 				8DDCA3032AF99F4D00FB181B /* FingerDraw.swift in Sources */,
 				86E231BB2AE9FA5B00785AEC /* User.swift in Sources */,
+				70DA4A8D2AF5CC8000357E4F /* TutorialFourView.swift in Sources */,
+				709460142AFACDDE006AF4FE /* ViewModel.swift in Sources */,
 				86E231FD2AF20D7500785AEC /* LevelGraphicsView.swift in Sources */,
 				86E231FF2AF29EE400785AEC /* CameraView.swift in Sources */,
+				70DA4A8B2AF5CC6F00357E4F /* TutorialThreeView.swift in Sources */,
 				864D94D12AD99D8300F76C79 /* Persistence.swift in Sources */,
+				70DA4A8F2AF5CCA700357E4F /* TutorialFiveView.swift in Sources */,
 				70780E892AF331D30067BDEE /* CharacterListView.swift in Sources */,
 				70471DFF2AF3F7A500DE800F /* LevelView.swift in Sources */,
 				864D94D42AD99D8300F76C79 /* maobi.xcdatamodeld in Sources */,
@@ -318,6 +365,8 @@
 				70780E872AF331B50067BDEE /* StrokeListView.swift in Sources */,
 				70780E8D2AF3325C0067BDEE /* TopBarView.swift in Sources */,
 				70780E8B2AF332070067BDEE /* TutorialView.swift in Sources */,
+				70DA4A872AF5CC2900357E4F /* TutorialOneView.swift in Sources */,
+				70DA4A912AF5CCBA00357E4F /* TutorialSixView.swift in Sources */,
 				864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */,
 				8D75D5522AF3F82100C39216 /* OnboardingView.swift in Sources */,
 			);

@@ -18,21 +18,26 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct maobiApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
   @State private var showTutorial = isFirstLaunch()
+    var viewModel = ViewModel()
+    
   
   var levels = Levels()
   var body: some Scene {
     WindowGroup {
-      if showTutorial {
+//      if showTutorial {
+//        OnboardingView(levels: levels, onFinish: {
+//          showTutorial = false
+//          UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+//        })
+//      } else {
 //        HomeView(levels: levels)
-        OnboardingView(levels: levels, onFinish: {
-          showTutorial = false
-          UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
-        })
-      } else {
-        HomeView(levels: levels)
-      }
+//      }
+      TestNavView().environmentObject(viewModel)
     }
+    
   }
+  
+  
   
   static func isFirstLaunch() -> Bool {
     return !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")

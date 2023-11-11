@@ -20,8 +20,11 @@ struct StrokeListView: View {
                         ForEach(sampleStrokes){
                             c in
                             VStack{
-                              NavigationLink(destination: LevelView(character: c)){
+                              NavigationLink(destination: LevelView(character: c, levels: levels)){
                                 Text(c.toString())
+                                      .foregroundColor(Color.black)
+                                      .font(.system(.largeTitle))
+                                      .fontWeight(.bold)
                                 }
                                 .frame(width: 162, height: 162)
                                 .background(Color(red: 0.97, green: 0.94, blue: 0.91))

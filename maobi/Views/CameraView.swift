@@ -10,6 +10,7 @@ import SwiftUI
 struct CameraView: View {
   @State private var image = UIImage()
   var character : CharacterData
+  var levels : Levels
   @State private var showSheet = true
   
   
@@ -18,7 +19,7 @@ struct CameraView: View {
       
     Button(action: {}) {
       NavigationLink(
-        destination: FeedbackView(feedback: getFeedback(character, image)),
+        destination: FeedbackView(feedback: getFeedback(character, image), levels: levels),
         label: { Text("Submit Photo").fontWeight(.bold)
         })
     }.padding(.all)
