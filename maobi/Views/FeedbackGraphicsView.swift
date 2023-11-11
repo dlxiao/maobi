@@ -17,6 +17,8 @@ struct FeedbackGraphicsView: View {
   @State var feedbackText = ""
   
   var body: some View {
+    Image(uiImage: perspectiveTransform())
+    
 //    let processed = ProcessImage(submissionPath: "submission_good", templatePath: "template", character: "十")
     let processed = ProcessImage(submissionPath: "小", templatePath: "小_template", character: "小")
     

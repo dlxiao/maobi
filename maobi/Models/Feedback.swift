@@ -165,6 +165,8 @@ struct CharacterContour: Shape {
 
 
 
+
+
 // Get contours from image
 // Code for applying VNImageRequest is modified from
 // iOS14VisionContourDetection (GitHub) by Anupam Chugh on 26/06/20
@@ -172,7 +174,7 @@ struct CharacterContour: Shape {
 func detectVisionContours(_ path: String) -> [[CGPoint]] {
   
   let context = CIContext()
-  if let sourceImage = UIImage.init(named: path) {
+  if let sourceImage = UIImage.init(named: path) { // image path passed here
     var inputImage = CIImage.init(cgImage: sourceImage.cgImage!)
     let contourRequest = VNDetectContoursRequest.init()
     contourRequest.revision = VNDetectContourRequestRevision1
