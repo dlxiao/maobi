@@ -18,14 +18,34 @@ class ProcessImage {
   var templateAnchors : [CGPoint] = []
   var templateAnchorMapping : [[(Int, Int)]] = []
   var strokes : [StrokeContour] = []
+  var templateStrokes : [StrokeContour] = []
   var characterContour : CharacterContour
+  
+  var stars : Int = 1
+  var overallMsg : String = "Awesome work!"
+  var alignmentMsg : String = "Perfect alignment."
+  var thicknessMsg : String = "Perfect thickness."
+  var strokeorderMsg : String = "TBD"
+  var feedback : [Dictionary<String, String>] = []
+  
   
   init(submissionPath : String, templatePath : String, character : String) {
     self.submissionPts = detectVisionContours(submissionPath)
     self.templatePts = detectVisionContours(templatePath)
+    self.submissionPts.sort(by: {$0[0].x < $1[0].x})
+    self.templatePts.sort(by: {$0[0].x < $1[0].x})
     self.characterContour = CharacterContour(self.submissionPts)
     getTemplateAnchors(character)
     joinAnchors(character)
+    calculateFeedback()
+  }
+  
+  func calculateFeedback() {
+    for i in 0...(strokes.count-1) {
+      var thicknessResult = "thickness for stroke \(i)"
+      var alignmentResult = "alignment for stroke \(i)"
+      feedback.append(["thickness": thicknessResult, "alignment": alignmentResult, "strokeOrder": "TBD"])
+    }
   }
   
   // Grabs the corresponding template anchors for the char
@@ -51,8 +71,12 @@ class ProcessImage {
   func joinAnchors(_ character : String) {
     var anchorPts : [(Int, CGPoint)] = []
     if(character == "小") {
+      
       for stroke in self.submissionPts {
         self.strokes.append(StrokeContour(stroke))
+      }
+      for stroke in self.templatePts {
+        self.templateStrokes.append(StrokeContour(stroke))
       }
     } else {
       let submissionPts = self.submissionPts[0]

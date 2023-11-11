@@ -35,8 +35,8 @@ struct maobiApp: App {
 //      TestNavView().environmentObject(viewModel)
       
       
-//        FeedbackGraphicsView()
-        AlignPhotoView()
+        FeedbackGraphicsView()
+//        AlignPhotoView()
     }
     
   }

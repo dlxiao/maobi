@@ -13,15 +13,33 @@ import Foundation
 
 struct FeedbackGraphicsView: View {
   //  @State var html : String
+  let processed = ProcessImage(submissionPath: "小", templatePath: "小_template", character: "小")
   @State var selectedStroke = -1
-  @State var feedbackText = ""
   
   var body: some View {
     
-    
 //    let processed = ProcessImage(submissionPath: "submission_good", templatePath: "template", character: "十")
-    let processed = ProcessImage(submissionPath: "小", templatePath: "小_template", character: "小")
     
+    // Overall message
+    Text(processed.overallMsg).font(.largeTitle)
+    
+    // Stars
+    HStack {
+      if(processed.stars == 0) {
+      } else if (processed.stars == 1) {
+        Image("star")
+      } else if (processed.stars == 2) {
+        Image("star")
+        Image("star")
+      } else {
+        Image("star")
+        Image("star")
+        Image("star")
+      }
+    }.padding(.bottom)
+    
+    
+    // Image overlaid with strokes, clickable
     ZStack {
       processed.characterContour
         .stroke(Color.black, lineWidth: 4)
@@ -35,11 +53,29 @@ struct FeedbackGraphicsView: View {
           .background(processed.strokes[selectedStroke].fill(Color.red))
           .frame(width: 250, height: 250)
           .offset(x: 0, y: 0)
+        
+        processed.templateStrokes[selectedStroke]
+          .stroke(Color.yellow, lineWidth: 2)
+          .frame(width: 250, height: 250)
+          .offset(x: 0, y: 0)
       }
       
     }.onTapGesture { location in
       selectedStroke = processed.shapeClicked(location)
+      }
+    .padding(.bottom)
+    
+    // Feedback Messages
+    if(selectedStroke == -1) {
+      Text(processed.thicknessMsg)
+      Text(processed.alignmentMsg)
+      Text(processed.strokeorderMsg)
+    } else {
+        Text(processed.feedback[selectedStroke]["thickness"]!)
+        Text(processed.feedback[selectedStroke]["alignment"]!)
+        Text(processed.feedback[selectedStroke]["strokeOrder"]!)
     }
+    
     
   }
   
