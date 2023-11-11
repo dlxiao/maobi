@@ -39,11 +39,10 @@ class ProcessImage {
     calculateFeedback()
   }
   
-  
   func calculateFeedback() {
     var perfectThickness = true
     var perfectAlignment = true
-    var delta = 5
+    var delta = 10 // allowed error
     let numStrokes = self.strokes.count
     
     for i in 0...(numStrokes-1) {
@@ -53,9 +52,9 @@ class ProcessImage {
       // Sample every 10th pt
       var templateStrokeSample = self.templateStrokes[i].contourpts
         
-      var ct = 0
       
-      // for a sample of pts in templateStroke, check if inside or outside user
+      // Thickness
+      var ct = 0
       for pt in templateStrokeSample {
         ct = userStroke.contains(pt) ? ct+1 : ct-1
       }
@@ -68,54 +67,68 @@ class ProcessImage {
         thicknessResult = "Perfect thickness!"
       }
       
-      var horizontalAlign = 0
-      var verticalAlign = 0
-      let anchorCt = self.alignmentAnchors.count
-      for pt in self.alignmentAnchors {
-        let subPt = closestPoint(pt, self.submissionPts.flatMap {$0})
-        let tempPt = closestPoint(pt, self.templatePts.flatMap {$0})
-        horizontalAlign = subPt.1.x < tempPt.1.x ? horizontalAlign - 1 : horizontalAlign + 1
-        verticalAlign = subPt.1.y < tempPt.1.y ? verticalAlign - 1 : verticalAlign + 1
-      }
-      print("\(horizontalAlign), \(verticalAlign)")
+      // Alignment
+      let subStroke = self.strokes[i]
+      let tempStroke = self.templateStrokes[i]
+      let (subLeft, subRight) = horizontalExtremes(subStroke)
+      let (tempLeft, tempRight) = horizontalExtremes(tempStroke)
+      let (subTop, subBottom) = verticalExtremes(subStroke)
+      let (tempTop, tempBottom) = verticalExtremes(tempStroke)
+      var strokePerfectAlignment = true
       
-      if(abs(horizontalAlign) > anchorCt / 2) {
+      if(abs(subLeft - tempLeft) > delta) {
         perfectAlignment = false
-        alignmentResult += horizontalAlign > 0 ? "Too high. " : "Too low. "
+        strokePerfectAlignment = false
+        alignmentResult += subLeft < tempLeft ? "Leftside too far left. " : "Leftside too far right. "
       }
       
-      if(abs(verticalAlign) > anchorCt / 2) {
+      if(abs(subRight - tempRight) > delta) {
         perfectAlignment = false
-        alignmentResult += verticalAlign > 0 ? "Too much to the right. " : "Too much to the left. "
-      } else {
-        alignmentResult = "Perfect alignment!"
+        strokePerfectAlignment = false
+        alignmentResult += subRight < tempRight ? "Rightside too far left. " : "Rightside too far right. "
       }
+      
+      if(abs(subTop - tempTop) > delta) {
+        perfectAlignment = false
+        strokePerfectAlignment = false
+        alignmentResult += subTop < tempTop ? "Top too high. " : "Top too low. "
+      }
+      
+      if(abs(subBottom - tempBottom) > delta) {
+        perfectAlignment = false
+        strokePerfectAlignment = false
+        alignmentResult += subBottom < tempBottom ? "Bottom too high. " : "Bottom too low. "
+      }
+      
+      if(strokePerfectAlignment) { alignmentResult = "Perfect alignment!" }
       
       feedback.append(["thickness": thicknessResult, "alignment": alignmentResult, "strokeOrder": "TBD"])
-    
-      if(alignmentResult == "Perfect alignment!" && thicknessResult == "Perfect thickness!") {
-        self.stars = 3
-        self.overallMsg = "Awesome Work!"
-      } else if(alignmentResult == "Perfect alignment!" || thicknessResult == "Perfect thickness!") {
-        self.stars = 2
-        self.overallMsg = "Good progress."
-      } else {
-        self.stars = 1
-        self.overallMsg = "Try again."
-      }
     }
     
-    // Adjust overall feedback
+    // Adjust overall feedback & stars
     if(perfectAlignment) {
       self.alignmentMsg = "Perfect alignment!"
+      self.stars += 1
     } else {
       self.alignmentMsg = "Good start."
     }
+    
     if(perfectThickness) {
+      self.stars += 1
       self.thicknessMsg = "Perfect thickness!"
     } else {
       self.thicknessMsg = "Good start."
     }
+    
+    if(perfectAlignment && perfectThickness) {
+      self.overallMsg = "Awesome Work!"
+    } else if(perfectAlignment || perfectThickness) {
+      self.overallMsg = "Good progress."
+    } else {
+      self.overallMsg = "Try again."
+    }
+    
+    
   }
   
   // Grabs the corresponding template anchors for the char
@@ -128,6 +141,7 @@ class ProcessImage {
     } else if(character == "九") {
       print("")
     } else if (character == "小") {
+      self.alignmentAnchors = [(114,400-18), (129, 400-233), (79, 400-197), (60,400-102),(29,400-158),(173,400-92),(223,400-148)].map {CGPoint(x:$0.0, y:$0.1)}
       print("No joints")
     } else if (character == "八") {
       print("No joints")
@@ -203,6 +217,22 @@ class ProcessImage {
     }
     return -1
   }
+  
+  // Returns leftmost and rightmost anchor points in a stroke
+  func horizontalExtremes(_ stroke : StrokeContour) -> (Int, Int) {
+    let sorted = stroke.contourpts.sorted(by: { $0.x < $1.x })
+    let left = Int(sorted[0].x)
+    let right = Int(sorted[sorted.count-1].x)
+    return (left, right)
+  }
+  // Returns lowest and highest anchor points in a stroke
+  func verticalExtremes(_ stroke : StrokeContour) -> (Int, Int) {
+    let sorted = stroke.contourpts.sorted(by: { $0.y < $1.y })
+    let lowest = Int(sorted[0].y)
+    let highest = Int(sorted[sorted.count-1].y)
+    return (lowest, highest)
+  }
+  
   
 }
 

@@ -61,7 +61,7 @@ struct FeedbackGraphicsView: View {
       }
       
     }.onTapGesture { location in
-//      print("Clicked \(location)")
+      print("Clicked \(location)")
       selectedStroke = processed.shapeClicked(location)
       }
     .padding(.bottom)
@@ -75,23 +75,23 @@ struct FeedbackGraphicsView: View {
         } else {
           Text(processed.feedback[selectedStroke]["thickness"]!)
         }
-      }
-      HStack{
+      }.padding()
+      HStack(alignment: .top){
         Text("Alignment: ")
         if(selectedStroke == -1) {
           Text(processed.alignmentMsg)
         } else {
           Text(processed.feedback[selectedStroke]["alignment"]!)
         }
-      }
-      HStack{
+      }.padding()
+      HStack(alignment: .top){
         Text("Stroke Order: ")
         if(selectedStroke == -1) {
           Text(processed.strokeorderMsg)
         } else {
           Text(processed.feedback[selectedStroke]["strokeOrder"]!)
         }
-      }
+      }.padding()
       
     }
     
