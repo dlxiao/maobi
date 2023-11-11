@@ -12,7 +12,6 @@ import CoreImage
 import CoreImage.CIFilterBuiltins
 
 
-
 class ProcessImage {
   var submissionPts : [[CGPoint]] = []
   var templatePts : [[CGPoint]] = []
@@ -164,6 +163,82 @@ struct CharacterContour: Shape {
 }
 
 
+
+// given the input UIImage, perform perspective transformation to the
+// four bounding points
+func perspectiveTransform(_ input : UIImage) -> UIImage {
+  
+  let inputImage = CIImage(image: input)!
+  let context = CIContext()
+  
+  let transformFilter = CIFilter(name:"CIPerspectiveTransform")
+  transformFilter?.setValue(inputImage, forKey: kCIInputImageKey)
+  transformFilter?.setValue(CIVector(cgPoint: CGPoint(x:0,y:250)), forKey: "inputTopLeft")
+  transformFilter?.setValue(CIVector(cgPoint: CGPoint(x:250,y:500)), forKey: "inputTopRight")
+  transformFilter?.setValue(CIVector(cgPoint: CGPoint(x:0,y:0)), forKey: "inputBottomLeft")
+  transformFilter?.setValue(CIVector(cgPoint: CGPoint(x:250,y:0)), forKey: "inputBottomRight")
+  
+  let transformed = transformFilter?.outputImage
+  let cgOutputImage = context.createCGImage(transformed!, from: inputImage.extent)!
+  
+  return UIImage(cgImage: cgOutputImage)
+}
+
+
+func perspectiveCorrection(_ input : UIImage, _ bottomLeft : CGPoint, _ bottomRight : CGPoint, _ topRight : CGPoint, _ topLeft : CGPoint) -> UIImage {
+  let inputImage = CIImage(image: input)!
+  let context = CIContext()
+  let transformFilter = CIFilter(name:"CIPerspectiveCorrection")
+  transformFilter?.setValue(inputImage, forKey: kCIInputImageKey)
+  transformFilter?.setValue(CIVector(cgPoint: topLeft), forKey: "inputTopLeft")
+  transformFilter?.setValue(CIVector(cgPoint: topRight), forKey: "inputTopRight")
+  transformFilter?.setValue(CIVector(cgPoint: bottomLeft), forKey: "inputBottomLeft")
+  transformFilter?.setValue(CIVector(cgPoint: bottomRight), forKey: "inputBottomRight")
+  
+  let transformed = transformFilter?.outputImage
+  let cgOutputImage = context.createCGImage(transformed!, from: inputImage.extent)!
+  
+  return UIImage(cgImage: cgOutputImage)
+}
+
+
+//func crop(_ input: UIImage, _ bottomLeft : CGPoint, _ bottomRight : CGPoint, _ topRight : CGPoint, _ topLeft : CGPoint) -> UIImage {
+//  let inputImage = CIImage(image: input)!
+//  let path = UIBezierPath()
+//  path.move(to: topLeft)
+//  path.addLine(to: topRight)
+//  path.addLine(to: bottomRight)
+//  path.addLine(to: bottomLeft)
+//  let outputImage = input.crop(withPath: path, andColor: UIColor.white)
+////  return outputImage
+//  return perspectiveTransform(outputImage)
+//}
+
+
+// Crop image by bezierpath
+// From https://stackoverflow.com/questions/35608928/crop-image-enclosed-in-a-4-sided-not-rectangle-polygon
+extension UIImage {
+
+    func crop(withPath: UIBezierPath, andColor: UIColor) -> UIImage {
+        let r: CGRect = withPath.cgPath.boundingBox
+        UIGraphicsBeginImageContextWithOptions(r.size, false, self.scale)
+        if let context = UIGraphicsGetCurrentContext() {
+            let rect = CGRect(origin: .zero, size: size)
+            context.setFillColor(andColor.cgColor)
+            context.fill(rect)
+            context.translateBy(x: -r.origin.x, y: -r.origin.y)
+            context.addPath(withPath.cgPath)
+            context.clip()
+        }
+        draw(in: CGRect(origin: .zero, size: size))
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else {
+            return UIImage()
+        }
+        UIGraphicsEndImageContext()
+        return image
+    }
+
+}
 
 
 

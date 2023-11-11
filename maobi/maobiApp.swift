@@ -33,7 +33,10 @@ struct maobiApp: App {
 //        HomeView(levels: levels)
 //      }
 //      TestNavView().environmentObject(viewModel)
-      FeedbackGraphicsView()
+      
+      
+//        FeedbackGraphicsView()
+        AlignPhotoView()
     }
     
   }
