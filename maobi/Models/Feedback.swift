@@ -58,9 +58,8 @@ class ProcessImage {
       for pt in templateStrokeSample {
         ct = userStroke.contains(pt) ? ct+1 : ct-1
       }
-      let percentDiff = Float(abs(ct)) / Float(self.strokes[i].contourpts.count / 10)
-
-      if(percentDiff > 0.6) {
+      let percentDiff = Float(abs(ct)) / Float(self.strokes[i].contourpts.count)
+      if(percentDiff > 0.25) {
         thicknessResult = ct < 0 ? "Too thin." : "Too thick."
         perfectThickness = false
       } else {

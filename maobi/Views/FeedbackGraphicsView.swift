@@ -13,7 +13,7 @@ import Foundation
 
 struct FeedbackGraphicsView: View {
   //  @State var html : String
-  let processed = ProcessImage(submissionPath: "小_thin", templatePath: "小_template", character: "小")
+  let processed = ProcessImage(submissionPath: "小", templatePath: "小_template", character: "小")
   @State var selectedStroke = -1
   
   var body: some View {
