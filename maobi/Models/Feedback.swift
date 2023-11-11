@@ -1,7 +1,5 @@
 // Feedback.swift
 
-
-
 import WebKit
 import SwiftUI
 import CoreGraphics
@@ -41,9 +39,11 @@ class ProcessImage {
     calculateFeedback()
   }
   
+  
   func calculateFeedback() {
     var perfectThickness = true
     var perfectAlignment = true
+    var delta = 5
     let numStrokes = self.strokes.count
     
     for i in 0...(numStrokes-1) {
@@ -51,7 +51,7 @@ class ProcessImage {
       var alignmentResult = ""
       let userStroke : UIBezierPath = self.strokes[i].outline
       // Sample every 10th pt
-      var templateStrokeSample = self.templateStrokes[i].contourpts.enumerated().compactMap { j, p in j % 10 == 0 ? p : nil }
+      var templateStrokeSample = self.templateStrokes[i].contourpts
         
       var ct = 0
       
@@ -129,8 +129,8 @@ class ProcessImage {
       print("")
     } else if (character == "小") {
       print("No joints")
-    } else if (character == "王") {
-      print("")
+    } else if (character == "八") {
+      print("No joints")
     } else if (character == "七") {
       print("")
     } else {
@@ -176,6 +176,8 @@ class ProcessImage {
     }
   }
   
+  
+  
   // Helpers for euclidean distance from https://www.hackingwithswift.com/example-code/core-graphics/how-to-calculate-the-distance-between-two-cgpoints
   func CGPointDistanceSquared(from: CGPoint, to: CGPoint) -> CGFloat {
     return (from.x - to.x) * (from.x - to.x) + (from.y - to.y) * (from.y - to.y)
@@ -203,6 +205,9 @@ class ProcessImage {
   }
   
 }
+
+
+
 
 
 // Stroke Shape Object - draws a single stroke given its points
@@ -257,161 +262,3 @@ struct CharacterContour: Shape {
   }
 }
 
-
-
-// given the input UIImage, perform perspective transformation to the
-// four bounding points
-func perspectiveTransform(_ input : UIImage) -> UIImage {
-  
-  let inputImage = CIImage(image: input)!
-  let context = CIContext()
-  
-  let transformFilter = CIFilter(name:"CIPerspectiveTransform")
-  transformFilter?.setValue(inputImage, forKey: kCIInputImageKey)
-  transformFilter?.setValue(CIVector(cgPoint: CGPoint(x:0,y:250)), forKey: "inputTopLeft")
-  transformFilter?.setValue(CIVector(cgPoint: CGPoint(x:250,y:500)), forKey: "inputTopRight")
-  transformFilter?.setValue(CIVector(cgPoint: CGPoint(x:0,y:0)), forKey: "inputBottomLeft")
-  transformFilter?.setValue(CIVector(cgPoint: CGPoint(x:250,y:0)), forKey: "inputBottomRight")
-  
-  let transformed = transformFilter?.outputImage
-  let cgOutputImage = context.createCGImage(transformed!, from: inputImage.extent)!
-  
-  return UIImage(cgImage: cgOutputImage)
-}
-
-
-func perspectiveCorrection(_ input : UIImage, _ bottomLeft : CGPoint, _ bottomRight : CGPoint, _ topRight : CGPoint, _ topLeft : CGPoint) -> UIImage {
-  let inputImage = CIImage(image: input)!
-  let context = CIContext()
-  let transformFilter = CIFilter(name:"CIPerspectiveCorrection")
-  transformFilter?.setValue(inputImage, forKey: kCIInputImageKey)
-  transformFilter?.setValue(CIVector(cgPoint: topLeft), forKey: "inputTopLeft")
-  transformFilter?.setValue(CIVector(cgPoint: topRight), forKey: "inputTopRight")
-  transformFilter?.setValue(CIVector(cgPoint: bottomLeft), forKey: "inputBottomLeft")
-  transformFilter?.setValue(CIVector(cgPoint: bottomRight), forKey: "inputBottomRight")
-  
-  let transformed = transformFilter?.outputImage
-  let cgOutputImage = context.createCGImage(transformed!, from: inputImage.extent)!
-  
-  return UIImage(cgImage: cgOutputImage)
-}
-
-
-//func crop(_ input: UIImage, _ bottomLeft : CGPoint, _ bottomRight : CGPoint, _ topRight : CGPoint, _ topLeft : CGPoint) -> UIImage {
-//  let inputImage = CIImage(image: input)!
-//  let path = UIBezierPath()
-//  path.move(to: topLeft)
-//  path.addLine(to: topRight)
-//  path.addLine(to: bottomRight)
-//  path.addLine(to: bottomLeft)
-//  let outputImage = input.crop(withPath: path, andColor: UIColor.white)
-////  return outputImage
-//  return perspectiveTransform(outputImage)
-//}
-
-
-// Crop image by bezierpath
-// From https://stackoverflow.com/questions/35608928/crop-image-enclosed-in-a-4-sided-not-rectangle-polygon
-extension UIImage {
-
-    func crop(withPath: UIBezierPath, andColor: UIColor) -> UIImage {
-        let r: CGRect = withPath.cgPath.boundingBox
-        UIGraphicsBeginImageContextWithOptions(r.size, false, self.scale)
-        if let context = UIGraphicsGetCurrentContext() {
-            let rect = CGRect(origin: .zero, size: size)
-            context.setFillColor(andColor.cgColor)
-            context.fill(rect)
-            context.translateBy(x: -r.origin.x, y: -r.origin.y)
-            context.addPath(withPath.cgPath)
-            context.clip()
-        }
-        draw(in: CGRect(origin: .zero, size: size))
-        guard let image = UIGraphicsGetImageFromCurrentImageContext() else {
-            return UIImage()
-        }
-        UIGraphicsEndImageContext()
-        return image
-    }
-
-}
-
-
-
-// Get contours from image
-// Code for applying VNImageRequest is modified from
-// iOS14VisionContourDetection (GitHub) by Anupam Chugh on 26/06/20
-
-func detectVisionContours(_ path: String) -> [[CGPoint]] {
-  
-  let context = CIContext()
-  if let sourceImage = UIImage.init(named: path) { // image path passed here
-    var inputImage = CIImage.init(cgImage: sourceImage.cgImage!)
-    let contourRequest = VNDetectContoursRequest.init()
-    contourRequest.revision = VNDetectContourRequestRevision1
-    contourRequest.contrastAdjustment = 1.0
-    contourRequest.maximumImageDimension = 512
-    
-    do {
-      let noiseReductionFilter = CIFilter.gaussianBlur()
-      noiseReductionFilter.radius = 0.5
-      noiseReductionFilter.inputImage = inputImage
-      
-      let blackAndWhite = CustomFilter()
-      blackAndWhite.inputImage = noiseReductionFilter.outputImage!
-      inputImage = blackAndWhite.outputImage!
-    }
-    
-    let requestHandler = VNImageRequestHandler.init(ciImage: inputImage, options: [:])
-    
-    try! requestHandler.perform([contourRequest])
-    let contoursObservation = contourRequest.results?.first as! VNContoursObservation
-    
-    
-    do {
-      let numContours = contoursObservation.contourCount
-      var pts : [[CGPoint]] = []
-      for contourIdx in 1...(numContours-1) {
-        let contour = try contoursObservation.contour(at:contourIdx)
-        pts.append(contour.normalizedPoints.map { CGPoint(x:Int($0[0]*250.0), y:Int((1-$0[1])*250.0))})
-      }
-      return pts
-    } catch {
-      print("Error getting contour")
-    }
-  }
-  return []
-}
-
-class CustomFilter: CIFilter {
-  var inputImage: CIImage?
-  
-  override public var outputImage: CIImage! {
-    get {
-      if let inputImage = self.inputImage {
-        let args = [inputImage as AnyObject]
-        
-        let callback: CIKernelROICallback = {
-          (index, rect) in
-          return rect.insetBy(dx: -1, dy: -1)
-        }
-        
-        return createCustomKernel().apply(extent: inputImage.extent, roiCallback: callback, arguments: args)
-      } else {
-        return nil
-      }
-    }
-  }
-  
-  func createCustomKernel() -> CIKernel {
-    return CIColorKernel(source:
-                          "kernel vec4 replaceWithBlackOrWhite(__sample s) {" +
-                         "if (s.r > 0.25 && s.g > 0.25 && s.b > 0.25) {" +
-                         "    return vec4(0.0,0.0,0.0,1.0);" +
-                         "} else {" +
-                         "    return vec4(1.0,1.0,1.0,1.0);" +
-                         "}" +
-                         "}"
-    )!
-    
-  }
-}
