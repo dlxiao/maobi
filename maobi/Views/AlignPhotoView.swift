@@ -22,7 +22,7 @@ struct AlignPhotoView: View {
   @State var size = UIScreen.main.bounds.width * 0.5
   
     var body: some View {
-      let inputImage = UIImage(named: "小_thick")!
+      let inputImage = UIImage(named: "小_thin")!
       let templateImage = UIImage(named: "小_template")!
       
       ZStack {
