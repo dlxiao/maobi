@@ -13,8 +13,9 @@ func inBounds(_ topLeft : (Double, Double), _ bottomRight : (Double, Double), _ 
 }
 
 struct AlignPhotoView: View {
-  var levels : Levels
   var character : String
+  var levels : Levels
+  var cameraModel : CameraModel
   @State var topLeft = (0,UIScreen.main.bounds.width)
   @State var bottomRight = (UIScreen.main.bounds.width,0)
   @State var zoom = 0.5
@@ -23,8 +24,8 @@ struct AlignPhotoView: View {
   @State var size = UIScreen.main.bounds.width * 0.5
   
     var body: some View {
-      let inputImage = UIImage(named: "小_thin")!
-      let templateImage = UIImage(named: "小_template")!
+      let inputImage = cameraModel.image!
+      let templateImage = UIImage(named: "\(character)_template")!
       
       ZStack {
         VStack {

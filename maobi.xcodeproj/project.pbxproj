@@ -33,6 +33,7 @@
 		86DC80E82AFFF5AE00D61940 /* Contours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E72AFFF5AE00D61940 /* Contours.swift */; };
 		86DC80EA2AFFF62B00D61940 /* Perspective.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E92AFFF62B00D61940 /* Perspective.swift */; };
 		86DC80F82B00557B00D61940 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86DC80F72B00557B00D61940 /* GoogleService-Info.plist */; };
+		86DC80FE2B013C7600D61940 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80FD2B013C7600D61940 /* TestView.swift */; };
 		86E231912AD9B78D00785AEC /* graphics_subset.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86E231902AD9B78D00785AEC /* graphics_subset.txt */; };
 		86E231942AD9E17300785AEC /* SwiftSVG in Frameworks */ = {isa = PBXBuildFile; productRef = 86E231932AD9E17300785AEC /* SwiftSVG */; };
 		86E231972AE5BABE00785AEC /* graphics_full.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86E231952AE5BABE00785AEC /* graphics_full.txt */; };
@@ -84,6 +85,7 @@
 		86DC80E72AFFF5AE00D61940 /* Contours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contours.swift; sourceTree = "<group>"; };
 		86DC80E92AFFF62B00D61940 /* Perspective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perspective.swift; sourceTree = "<group>"; };
 		86DC80F72B00557B00D61940 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		86DC80FD2B013C7600D61940 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		86E231902AD9B78D00785AEC /* graphics_subset.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphics_subset.txt; sourceTree = "<group>"; };
 		86E231952AE5BABE00785AEC /* graphics_full.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphics_full.txt; sourceTree = "<group>"; };
 		86E231962AE5BABE00785AEC /* dictionary_full.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dictionary_full.txt; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				86DC80E52AFF310400D61940 /* AlignPhotoView.swift */,
 				709460122AFACDCD006AF4FE /* ViewModels */,
 				70DA4A852AF5CC1800357E4F /* TutorialViews */,
+				86DC80FD2B013C7600D61940 /* TestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				864D94E22AD9ACCF00F76C79 /* Character.swift in Sources */,
 				86E231FB2AF1E80900785AEC /* LevelView.swift in Sources */,
 				86E231F92AF1D1FE00785AEC /* Camera.swift in Sources */,
+				86DC80FE2B013C7600D61940 /* TestView.swift in Sources */,
 				86E232012AF2B09100785AEC /* FeedbackView.swift in Sources */,
 				70780E872AF331B50067BDEE /* StrokeListView.swift in Sources */,
 				70780E8D2AF3325C0067BDEE /* TopBarView.swift in Sources */,

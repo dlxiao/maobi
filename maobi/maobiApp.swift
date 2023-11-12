@@ -33,7 +33,7 @@ struct maobiApp: App {
 //        HomeView(levels: levels)
 //      }
       TestNavView().environmentObject(viewModel)
-      
+            
 //      NavigationView {
 //        NavigationLink("to align photo view", destination: AlignPhotoView(character: "小"))
 //      }
