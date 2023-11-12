@@ -6,98 +6,64 @@
 //
 
 import SwiftUI
+import PhotosUI
 
-struct AlignPhotoView: View {
-  @State var topLeft = CGPoint(x:50,y:350)
-  @State var topRight = CGPoint(x:350,y:350)
-  @State var bottomLeft = CGPoint(x:50,y:50)
-  @State var bottomRight = CGPoint(x:350,y:50)
-  @State var zoom = 1.0
-  
-    var body: some View {
-      let inputImage = UIImage(named: "小_warped")!
-      let templateImage = UIImage(named: "小_template")!
-      
-      
-//      let transformed = perspectiveCorrection(inputImage, CGPoint(x:37, y:400-353), CGPoint(x:339, y:400-310), CGPoint(x: 295, y:400-158), CGPoint(x:109, y:400-158))
-//      Image(uiImage: inputImage)
-//      Image(uiImage: transformed)
-      
-
-      ZStack(alignment: .topLeading) {
-        Image(uiImage: inputImage)
-          .scaleEffect(zoom)
-
-        Circle()
-          .fill(Color.red)
-          .frame(width: 25, height: 25)
-          .position(self.topLeft)
-          .gesture(
-            DragGesture()
-              .onChanged { val in
-                self.topLeft = val.location
-              }
-          )
-        Circle()
-          .fill(Color.red)
-          .frame(width: 25, height: 25)
-          .position(self.topRight)
-          .gesture(
-            DragGesture()
-              .onChanged { val in
-                self.topRight = val.location
-              }
-          )
-        Circle()
-          .fill(Color.red)
-          .frame(width: 25, height: 25)
-          .position(self.bottomLeft)
-          .gesture(
-            DragGesture()
-              .onChanged { val in
-                self.bottomLeft = val.location
-              }
-          )
-        Circle()
-          .fill(Color.red)
-          .frame(width: 25, height: 25)
-          .position(self.bottomRight)
-          .gesture(
-            DragGesture()
-              .onChanged { val in
-                self.bottomRight = val.location
-              }
-          )
-
-        // Draw rectangle around overlay
-        Path { path in
-            path.move(to: topLeft)
-            path.addLine(to: topRight)
-            path.addLine(to: bottomRight)
-            path.addLine(to: bottomLeft)
-            path.addLine(to: topLeft)
-
-        }
-        .stroke(Color.red)
-
-        // Now sure how to display the image overlay
-  //      Image(uiImage: perspectiveCorrection(UIImage(named: "小_warped")!, bottomLeft, bottomRight, topRight, topLeft))
-
-
-      }
-
-      // slider for zoom
-      VStack {
-          Slider(value: $zoom, in: 0.25...2.0)
-          Text("\(String(format: "Zoom: %.2f", zoom))")
-      }
-
-
-    }
+func inBounds(_ topLeft : (Double, Double), _ bottomRight : (Double, Double), _ pt : (Double, Double)) -> Bool {
+  return pt.0 > topLeft.0 && pt.0 < bottomRight.0 && pt.1 > topLeft.1 && pt.1 < bottomRight.1
 }
 
-struct AlignPhotoView_Previews: PreviewProvider {
-    static var previews: some View {
-        AlignPhotoView()
+struct AlignPhotoView: View {
+  var character : String
+  @State var topLeft = (0,UIScreen.main.bounds.width)
+  @State var bottomRight = (UIScreen.main.bounds.width,0)
+  @State var zoom = 0.5
+  @State var translation = (0.0, 0.0)
+  var screenWidth = UIScreen.main.bounds.width
+  @State var size = UIScreen.main.bounds.width * 0.5
+  
+    var body: some View {
+      let inputImage = UIImage(named: "小_thick")!
+      let templateImage = UIImage(named: "小_template")!
+      
+      ZStack {
+        VStack {
+          Text("Confirm your alignment").font(.title).padding([.bottom]).zIndex(1)
+          
+          ZStack {
+            Image(uiImage: inputImage)
+              .scaleEffect(zoom)
+              .offset(x: self.translation.0, y:self.translation.1)
+              .border(.red, width: 3)
+//              .gesture(DragGesture()
+//                .onChanged({ val in
+//                  self.translation = (val.location.x - val.startLocation.x, val.location.y - val.startLocation.y)
+//                })) // disabling drag for now bc can't get alignment working
+            Image(uiImage: templateImage)
+              .scaleEffect(0.5)
+              .opacity(0.3)
+          }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        
+      }
+      
+      VStack {
+        Text("\(String(format: "Zoom: %.2f", zoom))").zIndex(1)
+        Slider(value: $zoom, in: 0.5...2.0).zIndex(1)
+        
+        
+        Button(action: {}) {
+          NavigationLink(
+            destination: FeedbackGraphicsView(translation: self.translation, zoom: self.zoom, submission: inputImage, character: self.character),
+            label: { Text("Submit Photo").fontWeight(.bold)
+            })
+        }.padding(.all)
+          .background(Color(red: 0.83, green: 0.25, blue: 0.17))
+          .foregroundColor(.white)
+          .cornerRadius(15.0)
+        
+      }.background(Color.white)
+
+
     }
 }
