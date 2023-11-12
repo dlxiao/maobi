@@ -10,6 +10,7 @@ import SwiftUI
 class ViewModel: ObservableObject {
     @Published var isTabViewEnabled: Bool = true
     @Published var menuView: Bool = false
+    @Published var isOnboardingEnabled: Bool = false
     }
 
 //struct ViewModel_Previews: PreviewProvider {

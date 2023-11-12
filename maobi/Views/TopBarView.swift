@@ -27,7 +27,9 @@ struct TopBarView: View {
             
 
             }
+        .overlay(viewModel.isOnboardingEnabled ? Color.white.ignoresSafeArea() : nil)
         .overlay(!viewModel.isTabViewEnabled ? Color.black.opacity(0.6).ignoresSafeArea() : nil)
+
 
     }
 }

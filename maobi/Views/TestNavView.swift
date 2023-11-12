@@ -5,6 +5,7 @@ import SwiftUI
 // With topbar and tabs
 struct TestNavView: View {
     @EnvironmentObject var viewModel: ViewModel
+
     @State private var selectedTab = 0
     
     
@@ -43,7 +44,15 @@ struct TestNavView: View {
                       .fill(Color.white.opacity(0.001))
                       .frame(width: .infinity, height: 50)
               }
+              
+              else if viewModel.isOnboardingEnabled{
+                  Rectangle()
+                      .fill(Color.white)
+                      .frame(width: .infinity, height: 40)
+
+              }
           }
+          
 
       }
     

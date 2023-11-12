@@ -23,6 +23,8 @@ struct OnboardingView: View {
   
   @State private var navigateToHome: Bool = false
   
+    @EnvironmentObject var viewModel: ViewModel
+    
   var body: some View {
     NavigationView {
       TabView(selection: $currentPage) {
@@ -283,13 +285,13 @@ struct OnboardingView: View {
                 .scaledToFit()
                 .frame(width: 100)
               
-              Image("rice paper")
+              Image("Rice Paper")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100)
             }
             HStack(spacing: 30) {
-              Image("chinese ink")
+              Image("Chinese Ink")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100)
@@ -322,6 +324,8 @@ struct OnboardingView: View {
         .tag(7)
         
       }
+      .onAppear{viewModel.isOnboardingEnabled = true}
+      .onDisappear{viewModel.isOnboardingEnabled = false}
       .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // Hide the default navigation dots
       .onChange(of: currentPage, perform: { value in
         if value == 1 {
