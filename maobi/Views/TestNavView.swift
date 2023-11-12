@@ -12,8 +12,10 @@ struct TestNavView: View {
     var levels = Levels()
     var user = UserRepository()
     var body: some View {
-      
-      TopBarView(user: user)
+        if viewModel.isTabViewEnabled{
+            TopBarView(user: user)
+        }
+        
       ZStack{
           TabView(selection: $selectedTab) {
             OnboardingView(levels: levels, user: user)

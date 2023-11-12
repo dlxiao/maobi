@@ -16,6 +16,11 @@ struct TutorialOneView: View {
         NavigationView{
             ZStack{
                 HomeView(levels: levels, user: user).disabled(true)
+                VStack{
+                    TopBarView(user: user)
+                    Spacer()
+                }
+
                 
                 ZStack{
                     Color.black.opacity(0.6).ignoresSafeArea()

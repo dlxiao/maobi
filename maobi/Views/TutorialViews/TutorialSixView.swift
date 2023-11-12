@@ -15,6 +15,11 @@ struct TutorialSixView: View {
     var body: some View {
             ZStack{
                 HomeView(levels: levels, user: user).disabled(true).navigationBarBackButtonHidden(false)
+                VStack{
+                    TopBarView(user: user)
+                    Spacer()
+                }
+
 
                 ZStack{
                     Color.black.opacity(0.6).ignoresSafeArea()
