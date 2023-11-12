@@ -37,7 +37,6 @@ struct CameraView: View {
     var character: CharacterData
 
     var body: some View {
-        NavigationView {
             VStack {
               Text("Getting Camera Feedback").font(.title)
               Text("After clicking open camera, please take a photo aligned to the overlay. You will receive feedback about the thickness, alignment, and stroke order of the character in this level: \(character.toString()). ").padding()
@@ -48,29 +47,30 @@ struct CameraView: View {
                 .background(Color(red: 0.83, green: 0.25, blue: 0.17))
                 .foregroundColor(.white)
                 .cornerRadius(15.0)
-                
-                // NavigationLink that is activated when `navigateToAlignmentView` is true
-                NavigationLink(
-                  destination: AlignPhotoView(character: character.toString(), levels: levels, cameraModel: cameraModel),
-                    isActive: $navigateToAlignmentView,
-                    label: {
-                        EmptyView()
-                    })
+              
+              // NavigationLink that is activated when `navigateToAlignmentView` is true
+              NavigationLink(
+                destination: AlignPhotoView(character: character.toString(), levels: levels, cameraModel: cameraModel),
+                  isActive: $navigateToAlignmentView,
+                  label: {
+                      EmptyView()
+                  })
             }
             .sheet(isPresented: $showCameraPicker) {
-              ZStack {
+              ZStack(alignment: .top) {
                 ImagePicker(character: character.toString(), sourceType: .camera) { selectedImage in
                     cameraModel.storeImage(selectedImage) // Store the cropped image in CameraModel
-//                   cameraModel.overlayImage(character: character)
-                  
+                    cameraModel.overlayImage(character: character)
                     navigateToAlignmentView = true // Trigger navigation
-                }
-//                Image(uiImage: UIImage(named: "\(character.toString())_template")!)
+                }.overlay(
+                  Image(uiImage: UIImage(named: "\(character.toString())_template")!).opacity(0.2)
+                )
+                
                 
               }
                 
             }
-        }
+
         .onChange(of: cameraModel.image) { _ in
             navigateToAlignmentView = true // Navigate when the image is set in CameraModel
         }
@@ -101,10 +101,6 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
  
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-          let overlay = UIImageView(image: UIImage(named: "\(character)_template"))
-          overlay.isOpaque = false
-          overlay.alpha = 0.1
-          picker.cameraOverlayView = overlay
             if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 // Crop the image to a square before passing it back
                 let croppedImage = uiImage.crop(ratio: 1)

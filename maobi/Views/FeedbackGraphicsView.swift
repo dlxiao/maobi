@@ -96,6 +96,7 @@ struct FeedbackGraphicsView: View {
       selectedStroke = processed.shapeClicked(location)
       }
     .padding(.bottom)
+    .background(Color.white)
 
     // Feedback Messages
     if(!processed.invalid) {
