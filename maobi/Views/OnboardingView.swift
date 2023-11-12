@@ -31,7 +31,7 @@ struct OnboardingView: View {
         VStack {
           Spacer()
           Text("Welcome!")
-            .font(.system(size: 50))
+            .font(.largeTitle)
             .bold()
           Spacer()
           
@@ -39,7 +39,7 @@ struct OnboardingView: View {
             currentPage = 1  // Set currentPage to the next page
           }) {
             Text("Get Started >")
-              .font(.system(size: 30))
+              .font(.largeTitle)
               .foregroundColor(.red)
           }
           .padding(.bottom, 300)
@@ -51,7 +51,7 @@ struct OnboardingView: View {
         ZStack {
           VStack {
             Text("Try this Stroke:")
-              .font(.system(size: 30))
+              .font(.largeTitle)
               .padding()
             Spacer()
             FingerDrawView(html: horizontal.getQuizHTML())
@@ -85,7 +85,7 @@ struct OnboardingView: View {
         
         VStack {
           Text("Nice work!")
-            .font(.system(size: 30))
+            .font(.largeTitle)
             .padding()
           Spacer()
           Image("horizontal")
@@ -146,7 +146,7 @@ struct OnboardingView: View {
         
         VStack {
           Text("Nice work!")
-            .font(.system(size: 30))
+            .font(.largeTitle)
             .padding()
           Spacer()
           Image("vertical")
@@ -172,14 +172,12 @@ struct OnboardingView: View {
         
         VStack {
           Text("Let's put it together")
-            .font(.system(size: 30))
+            .font(.largeTitle)
             .padding()
           Spacer()
           Text("This is the Chinese character for '10'.")
-            .font(.system(size: 20))
             .padding()
           Text("Order matters. This character has the following stroke order:")
-            .font(.system(size: 20))
             .padding()
           // Stroke order images here
           HStack(spacing: 30) {
@@ -195,7 +193,7 @@ struct OnboardingView: View {
           }
           Spacer()
           Text("Try it out!")
-            .font(.system(size: 30))
+            .font(.largeTitle)
             .padding([.top])
           FingerDrawView(html: ten.getQuizHTML())
             .offset(x: 70, y: 25)
@@ -217,14 +215,12 @@ struct OnboardingView: View {
         
         VStack {
           Text("Let's put it together")
-            .font(.system(size: 30))
+            .font(.largeTitle)
             .padding()
           Spacer()
           Text("This is the Chinese character for '10'.")
-            .font(.system(size: 20))
             .padding()
           Text("Order matters. This character has the following stroke order:")
-            .font(.system(size: 20))
             .padding()
           // Stroke order images here
           HStack(spacing: 30) {
@@ -267,16 +263,16 @@ struct OnboardingView: View {
           NavigationLink("", destination: TutorialOneView(levels: levels, user: user), isActive: $navigateToHome)
             .hidden()
           Text("You just wrote a Chinese character!")
-            .font(.system(size: 30))
+            .font(.largeTitle)
+            .multilineTextAlignment(.center)
             .padding()
+            
           Spacer()
-          Text("Although we just wrote using a touch screen, the rest of this app is for practicing ").font(.system(size: 20)) +
-          Text("physical").bold().font(.system(size: 20)) +
-          Text(" calligraphy.")
-            .font(.system(size: 20))
+          Text("Although we just wrote using a touch screen, the rest of this app is for practicing **physical** calligraphy")
+                .padding(30)
+            
           Spacer()
           Text("Recommended Materials:")
-            .font(.system(size: 20))
             .padding()
           VStack {
             HStack(spacing: 30) {
