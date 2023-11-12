@@ -74,8 +74,8 @@ struct OnboardingView: View {
             .resizable()  // Make the image resizable
             .scaledToFit()  // Scale to fit within its bounding frame
             .frame(width: UIScreen.main.bounds.width * 0.4)  // Set to 80% of screen width
-            .offset(x: (moveRight ? moveDistance : -moveDistance) + 80, y: 80)  // Additional offset to move it slightly to the right and down
-            .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: true))
+            .offset(x: (moveRight ? -moveDistance : moveDistance) + 80, y: 80)  // Additional offset to move it slightly to the right and down
+            .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: false))
             .onAppear() {
               moveRight.toggle()
             }
@@ -135,8 +135,8 @@ struct OnboardingView: View {
             .resizable()  // Make the image resizable
             .scaledToFit()  // Scale to fit within its bounding frame
             .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.height * 0.25)
-            .offset(x: 80, y: (moveUp ? -moveDistance : moveDistance) + 50)  // Hover up and down
-            .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: true))
+            .offset(x: 80, y: (moveUp ? moveDistance : -moveDistance) + 50)  // Hover up and down
+            .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: false))
             .onAppear() {
               moveUp.toggle()
             }

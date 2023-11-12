@@ -50,7 +50,7 @@ struct TestNavView: View {
               else if viewModel.isOnboardingEnabled{
                   Rectangle()
                       .fill(Color.white)
-                      .frame(width: .infinity, height: 40)
+                      .frame(width: .infinity, height: 50)
 
               }
           }
