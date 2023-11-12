@@ -10,6 +10,7 @@ import SwiftUI
 struct MenuView: View {
     
     var levels: Levels
+    var user : UserRepository
     @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
@@ -17,8 +18,11 @@ struct MenuView: View {
             VStack(alignment: .leading){
                 Text("Guest")
                     .padding(.top, 50)
-                NavigationLink(destination: TutorialOneView(levels: levels)){Text("Tutorial")}
+              NavigationLink(destination: OnboardingView(levels: levels, user: user)){Text("Tutorial")}
                     .padding(.top)
+                    .navigationBarTitle("")
+                      .navigationBarBackButtonHidden(true)
+                      .navigationBarHidden(true)
                 Text("Sign Out")
                     .fontWeight(.bold)
                     .foregroundColor(Color.red)
@@ -26,6 +30,7 @@ struct MenuView: View {
                 
                 Spacer()
             }
+          
             .padding()
             .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .leading)
 //            .background(

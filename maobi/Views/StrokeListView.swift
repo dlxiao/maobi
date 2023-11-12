@@ -11,6 +11,7 @@ import WebKit
 struct StrokeListView: View {
 //    var character : CharacterData
   var levels : Levels
+  var user : UserRepository
   
     var body: some View {
       let sampleStrokes = levels.getBasicStrokes()
@@ -20,7 +21,7 @@ struct StrokeListView: View {
                         ForEach(sampleStrokes){
                             c in
                             VStack{
-                              NavigationLink(destination: LevelView(character: c, levels: levels)){
+                              NavigationLink(destination: LevelView(character: c, levels: levels, user: user)){
                                 Text(c.toString())
                                       .foregroundColor(Color.black)
                                       .font(.system(.largeTitle))

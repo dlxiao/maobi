@@ -10,6 +10,7 @@ import SwiftUI
 struct FeedbackView: View {
   var feedback : Dictionary<String, String>
   var levels : Levels
+  var user : UserRepository
   
   var body: some View {
     Text(feedback["message"]!) // depends on number of stars
@@ -27,7 +28,7 @@ struct FeedbackView: View {
     Text("Stroke order: " + feedback["strokeOrder"]!)
     
     NavigationLink(
-        destination: HomeView(levels: levels),
+      destination: HomeView(levels: levels, user: user),
         label: {
             Text("Finish").fontWeight(.bold)
         }).padding(.all)

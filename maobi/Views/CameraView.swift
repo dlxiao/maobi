@@ -11,6 +11,7 @@ struct CameraView: View {
   @State private var image = UIImage()
   var character : CharacterData
   var levels : Levels
+  var user : UserRepository
   @State private var showSheet = true
   
   
@@ -19,7 +20,7 @@ struct CameraView: View {
       
     Button(action: {}) {
       NavigationLink(
-        destination: FeedbackView(feedback: getFeedback(character, image), levels: levels),
+        destination: FeedbackView(feedback: getFeedback(character, image), levels: levels, user: user),
         label: { Text("Submit Photo").fontWeight(.bold)
         })
     }.padding(.all)

@@ -10,6 +10,7 @@ import SwiftUI
 struct CharacterListView: View {
     
   var levels : Levels
+  var user : UserRepository
     
     var body: some View {
             ZStack {
@@ -19,7 +20,7 @@ struct CharacterListView: View {
                       ForEach(levels.getCharacterLevels()){
                             c in
                             VStack{
-                              NavigationLink(destination: LevelView(character: c, levels: levels)){
+                              NavigationLink(destination: LevelView(character: c, levels: levels, user: user)){
                                 Text(c.toString())
                                       .foregroundColor(Color.black)
                                       .font(.system(.largeTitle))

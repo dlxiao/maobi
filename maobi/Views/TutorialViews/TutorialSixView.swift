@@ -9,11 +9,12 @@ import SwiftUI
 
 struct TutorialSixView: View {
     var levels: Levels
+  var user : UserRepository
     @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
             ZStack{
-                HomeView(levels: levels).disabled(true).navigationBarBackButtonHidden(false)
+                HomeView(levels: levels, user: user).disabled(true).navigationBarBackButtonHidden(false)
 
                 ZStack{
                     Color.black.opacity(0.6).ignoresSafeArea()
@@ -25,7 +26,7 @@ struct TutorialSixView: View {
 
               HStack {
                 NavigationLink(
-                    destination: TutorialFiveView(levels: levels),
+                    destination: TutorialFiveView(levels: levels, user: user),
                     label: {
                         Text("Back").foregroundColor(.white)
                     }).offset(x:-80, y:300)
@@ -48,7 +49,7 @@ struct TutorialSixView: View {
 //
 //                  }
                 NavigationLink(
-                    destination: !viewModel.menuView ? AnyView(HomeView(levels: levels)) : AnyView(MenuView(levels: levels)),
+                    destination: !viewModel.menuView ? AnyView(HomeView(levels: levels, user: user)) : AnyView(MenuView(levels: levels, user: user)),
 //                    destination: HomeView(levels: levels),
                     label: {
                         Text("Next").foregroundColor(.white)

@@ -9,10 +9,11 @@ import SwiftUI
 
 struct OnboardingView: View {
   var levels : Levels
+  var user : UserRepository
   let horizontal = FingerDraw(character: "一", size: 700)
   let vertical = FingerDraw(character: "丨", size: 800)
-  let ten = FingerDraw(character: "十", size: 550)
-  var onFinish: () -> Void
+  let ten = FingerDraw(character: "十", size: 500)
+  
   @State private var currentPage: Int = 0
   @State private var navigateToPage2: Bool = false  // Add this state variable
   
@@ -193,7 +194,7 @@ struct OnboardingView: View {
           Spacer()
           Text("Try it out!")
             .font(.system(size: 30))
-            .padding()
+            .padding([.top])
           FingerDrawView(html: ten.getQuizHTML())
             .offset(x: 70, y: 25)
           HStack {
@@ -261,7 +262,7 @@ struct OnboardingView: View {
         .tag(6)
         
         VStack {
-          NavigationLink("", destination: TutorialView(levels: levels), isActive: $navigateToHome)
+          NavigationLink("", destination: TutorialOneView(levels: levels, user: user), isActive: $navigateToHome)
             .hidden()
           Text("You just wrote a Chinese character!")
             .font(.system(size: 30))
@@ -272,7 +273,7 @@ struct OnboardingView: View {
           Text(" calligraphy.")
             .font(.system(size: 20))
           Spacer()
-          Text("Recommendation Materials:")
+          Text("Recommended Materials:")
             .font(.system(size: 20))
             .padding()
           VStack {
@@ -328,5 +329,8 @@ struct OnboardingView: View {
         }
       })
     }
+    .navigationBarTitle("")
+      .navigationBarBackButtonHidden(true)
+      .navigationBarHidden(true)
   }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TopBarView: View {
     @EnvironmentObject var viewModel: ViewModel
+  var user : UserRepository
 
     var body: some View {
         ZStack(alignment: .top){
@@ -17,7 +18,7 @@ struct TopBarView: View {
                         .foregroundColor(Color(red:1, green: 0.97, blue: 0.78))
                         .frame(width: 43, height: 43)
                         .scaleEffect(0.5)
-                    Text("46").bold()
+            Text("\(user.getTotalStars())").bold()
 
                 }
                 .frame(maxWidth: .infinity)

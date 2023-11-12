@@ -3,6 +3,7 @@ import SwiftUI
 struct LevelView: View {
   var character : CharacterData
   var levels : Levels
+  var user : UserRepository
 
   var body: some View {
     VStack {
@@ -12,7 +13,7 @@ struct LevelView: View {
       LevelGraphicsView(html: character.getLevelHTML()) // pass in image and animation
       Button(action: {}) {
         NavigationLink(
-          destination: CameraView(character: character, levels: levels),
+          destination: CameraView(character: character, levels: levels, user: user),
           label: { Text("Check your Work!").fontWeight(.bold)
           })
       }.padding(.all)

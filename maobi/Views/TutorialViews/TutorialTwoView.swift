@@ -9,10 +9,11 @@ import SwiftUI
 
 struct TutorialTwoView: View {
     var levels : Levels
+  var user : UserRepository
 
     var body: some View {
             ZStack{
-              HomeView(levels: levels).disabled(true)
+              HomeView(levels: levels, user: user).disabled(true)
                 ZStack{
                     Color.black.opacity(0.6).ignoresSafeArea()
                     Circle()
@@ -29,12 +30,12 @@ struct TutorialTwoView: View {
                 
               HStack {
                 NavigationLink(
-                    destination: TutorialOneView(levels: levels),
+                    destination: TutorialOneView(levels: levels, user: user),
                     label: {
                         Text("Back").foregroundColor(.white)
                     }).offset(x:-80, y:300)
                 NavigationLink(
-                    destination: TutorialThreeView(levels: levels),
+                    destination: TutorialThreeView(levels: levels, user: user),
                     label: {
                       Text("Next").foregroundColor(.white)
                     }).offset(x:80, y:300)
