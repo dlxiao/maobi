@@ -19,7 +19,7 @@ struct CameraView: View {
       
     Button(action: {}) {
       NavigationLink(
-        destination: FeedbackView(feedback: getFeedback(character, image), levels: levels),
+        destination: AlignPhotoView(levels: levels, character: character.toString()),
         label: { Text("Submit Photo").fontWeight(.bold)
         })
     }.padding(.all)

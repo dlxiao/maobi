@@ -32,11 +32,11 @@ struct maobiApp: App {
 //      } else {
 //        HomeView(levels: levels)
 //      }
-//      TestNavView().environmentObject(viewModel)
+      TestNavView().environmentObject(viewModel)
       
-      NavigationView {
-        NavigationLink("to align photo view", destination: AlignPhotoView(character: "小"))
-      }
+//      NavigationView {
+//        NavigationLink("to align photo view", destination: AlignPhotoView(character: "小"))
+//      }
       
       // Pass in PERSPECTIVE TRANSFORMED version of submission & the current level's character
 //      FeedbackGraphicsView(submission: UIImage.init(named: "小_thick")!, character: "小")

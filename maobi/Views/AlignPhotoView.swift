@@ -13,6 +13,7 @@ func inBounds(_ topLeft : (Double, Double), _ bottomRight : (Double, Double), _ 
 }
 
 struct AlignPhotoView: View {
+  var levels : Levels
   var character : String
   @State var topLeft = (0,UIScreen.main.bounds.width)
   @State var bottomRight = (UIScreen.main.bounds.width,0)
@@ -54,7 +55,7 @@ struct AlignPhotoView: View {
         
         Button(action: {}) {
           NavigationLink(
-            destination: FeedbackGraphicsView(translation: self.translation, zoom: self.zoom, submission: inputImage, character: self.character),
+            destination: FeedbackGraphicsView(levels: levels, translation: self.translation, zoom: self.zoom, submission: inputImage, character: self.character),
             label: { Text("Submit Photo").fontWeight(.bold)
             })
         }.padding(.all)

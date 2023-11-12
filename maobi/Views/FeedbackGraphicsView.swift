@@ -13,6 +13,7 @@ import Foundation
 
 struct FeedbackGraphicsView: View {
   //  @State var html : String
+  var levels : Levels
   var translation : (Double, Double)
   var zoom : Double
   var submission : UIImage
@@ -127,7 +128,15 @@ struct FeedbackGraphicsView: View {
       }
     }
 
-    
+    Button(action: {}) {
+      NavigationLink(
+        destination: HomeView(levels: levels),
+        label: { Text("Finish").fontWeight(.bold)
+        })
+    }.padding(.all)
+      .background(Color(red: 0.83, green: 0.25, blue: 0.17))
+      .foregroundColor(.white)
+      .cornerRadius(15.0)
   }
   
 }
