@@ -8,7 +8,7 @@ import FirebaseFirestoreSwift
 
 
 struct User: Codable, Hashable {
-  var userID : String
+  @DocumentID var userID : String?
   var username: String
   var password: String
   var totalStars: Int
@@ -22,7 +22,7 @@ struct User: Codable, Hashable {
 }
 
 struct UserLevel: Codable, Hashable {
-  var userlevelID : String
+  @DocumentID var userlevelID : String?
   var maxStars: Int
   var character: String
   var unlockDate : Date
@@ -36,7 +36,7 @@ struct UserLevel: Codable, Hashable {
 }
 
 struct Feedback: Codable, Hashable {
-  var userID : String
+  @DocumentID var userID : String?
   var feedbackID : String
   var userlevelID : String
   var stars: Int
@@ -60,7 +60,7 @@ struct Feedback: Codable, Hashable {
 
 class UserRepository: ObservableObject {
   private let store = Firestore.firestore()
-  @Published var user : User = User(userID: "", username: "", password: "", totalStars: 0)
+  @Published var user : User = User(userID: "sampleuser_1", username: "", password: "", totalStars: 0)
   
   private let userID = "sampleuser_1" // login is not part of MVP, hardcoding this user
 
@@ -125,10 +125,10 @@ class UserRepository: ObservableObject {
 //    return
 //  }
   
-  func addTotalStars(_ toAdd : Int) -> Int {
+    func addTotalStars(_ toAdd: Int) {
     let newTotal = self.user.totalStars + toAdd
     self.user.totalStars = newTotal
-    return newTotal
+//    return newTotal
   }
   
   // Loading data and private helpers
@@ -182,5 +182,26 @@ class UserRepository: ObservableObject {
         }
       }
   }
+    
+    func update(_ user: User){
+        guard let userId = user.userID else {return}
+        
+        do{
+            try store.collection("user").document(userId).setData(from: user)
+
+        }
+        catch {
+            fatalError("Unable to update user: \(error.localizedDescription).")
+        }
+    }
+    
+    func updateStars(inc: Int){
+        guard let userId = user.userID else {return}
+
+        store.collection("user").document(userId).updateData(["totalStars": FieldValue.increment(Int64(inc))])
+
+        
+        
+    }
   
 }

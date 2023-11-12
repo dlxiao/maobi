@@ -32,7 +32,8 @@ struct maobiApp: App {
 //      } else {
 //        HomeView(levels: levels)
 //      }
-      TestNavView().environmentObject(viewModel)
+//      TestNavView().environmentObject(viewModel)
+        testStarView()
     }
     
   }
