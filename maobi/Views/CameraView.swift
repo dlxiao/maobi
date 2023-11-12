@@ -10,9 +10,9 @@ struct CameraView: View {
     @State var opacity = 0.2
     @ObservedObject var cameraModel: CameraModel
     var character: CharacterData
-    var overlay = UIImageView(image: UIImage(named: "小_template")!)
 
     var body: some View {
+      var overlay = UIImageView(image: UIImage(named: "\(character.toString())_template")!)
             VStack {
               Text("Getting Camera Feedback").font(.title)
               Text("After clicking open camera, please take a photo aligned to the overlay. You will receive feedback about the thickness, alignment, and stroke order of the character in this level: \(character.toString()). ").padding()
@@ -150,10 +150,6 @@ struct ImagePicker: UIViewControllerRepresentable {
             picker.cameraOverlayView = nil
         }
       
-      NotificationCenter.default.addObserver(forName: NSNotification.Name("_UIImagePickerControllerUserDidCaptureItem"), object: nil, queue: nil) { _ in
-          picker.cameraOverlayView = nil
-      }
-      
       NotificationCenter.default.addObserver(forName: NSNotification.Name("_UIImagePickerControllerUserDidRejectItem"), object: nil, queue: nil) { _ in picker.cameraOverlayView = overlay }
       
       return picker
@@ -176,13 +172,10 @@ extension View {
         NavigationView {
             ZStack {
                 self
-                    .navigationBarTitle("")
                     .navigationBarHidden(true)
 
                 NavigationLink(
-                    destination: view
-                        .navigationBarTitle("")
-                        .navigationBarHidden(true),
+                    destination: view,
                     isActive: binding
                 ) {
                     EmptyView()

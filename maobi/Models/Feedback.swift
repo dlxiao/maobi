@@ -61,6 +61,7 @@ class ProcessImage {
     var delta = 10 // allowed error
     let numStrokes = self.strokes.count
     
+    if(numStrokes < 1) {throw InvalidSubmission.invalid}
     for i in 0...(numStrokes-1) {
       var thicknessResult = ""
       var alignmentResult = ""
