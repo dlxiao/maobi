@@ -24,8 +24,8 @@ struct AlignPhotoView: View {
   @State var size = UIScreen.main.bounds.width * 0.5
   
     var body: some View {
-//      let inputImage = resizeImage(image: squareCrop(cameraModel.image!), newWidth: 400)!
-      let inputImage = threshold(cameraModel.composedImage!)
+      let inputImage = resizeImage(image: squareCrop(cameraModel.image!), newWidth: 400)!
+//      let inputImage = threshold(cameraModel.image!)
       
       
       let templateImage = UIImage(named: "\(character)_template")!

@@ -150,7 +150,7 @@ class CharacterData : Identifiable {
 class Levels {
   // Hardcoded characters available, for now
   private var basicStrokes = ["一", "丨", " ` ", "亅", "丶", "丿", "ノ"]
-  private var sampleCharacters = ["大", "小", "水", "天", "王", "十", "九", "八", "七", "六"]
+  private var sampleCharacters = ["二", "小", "大", "水", "天", "王", "十", "九", "八", "七", "六"]
   private var allCharacters : Dictionary<String, CharacterData> = [:]
   
   init() {

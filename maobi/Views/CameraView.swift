@@ -2,6 +2,68 @@ import SwiftUI
 import UIKit
 import AVFoundation
 
+
+struct CameraView: View {
+  var levels : Levels
+    @State private var showCameraPicker = false
+    @State private var navigateToAlignmentView = false
+    @State var opacity = 0.2
+    @ObservedObject var cameraModel: CameraModel
+    var character: CharacterData
+    var overlay = UIImageView(image: UIImage(named: "小_template")!)
+
+    var body: some View {
+            VStack {
+              Text("Getting Camera Feedback").font(.title)
+              Text("After clicking open camera, please take a photo aligned to the overlay. You will receive feedback about the thickness, alignment, and stroke order of the character in this level: \(character.toString()). ").padding()
+              
+              Button(action: {
+                showCameraPicker = true
+                overlay.alpha = 0.2
+              }) {
+                Text("Open Camera")
+              }.padding(.all)
+                .background(Color(red: 0.83, green: 0.25, blue: 0.17))
+                .foregroundColor(.white)
+                .cornerRadius(15.0)
+              
+            }
+            .sheet(isPresented: $showCameraPicker) {
+              VStack{
+                ZStack(alignment: .top) {
+                  ImagePicker(character: character.toString(), overlay: overlay, sourceType: .camera) { selectedImage in
+                    cameraModel.storeImage(selectedImage) // Store the cropped image in CameraModel
+                    cameraModel.overlayImage(character: character)
+                    navigateToAlignmentView = true // Trigger navigation
+                  }
+//                  .overlay(
+//                    Image(uiImage: UIImage(named: "\(character.toString())_template")!).opacity(self.opacity)
+//                  )
+                }
+                
+//                Button(action: {
+//                  let renderer = ImageRenderer(content : self)
+//                  if let uiImage = renderer.uiImage {
+//                    cameraModel.composedImage = uiImage
+//                  } else {
+//                    cameraModel.composedImage = UIImage(named: "\(character.toString())_template")!
+//                  }
+//                  showCameraPicker = false
+//                  navigateToAlignmentView = true
+//                }) {
+//                  Text("Take Picture")
+//                }.padding(.all)
+//                  .background(Color(red: 0.83, green: 0.25, blue: 0.17))
+//                  .foregroundColor(.white)
+//                  .cornerRadius(15.0)
+                
+                
+              }
+            
+        }.navigate(to: AlignPhotoView(character: character.toString(), levels: levels, cameraModel: cameraModel), when: $navigateToAlignmentView)
+    }
+}
+
 extension UIImage {
     
     // Crop the image to a specified ratio by removing the excess parts.
@@ -29,57 +91,10 @@ extension UIImage {
     }
 }
 
-struct CameraView: View {
-  var levels : Levels
-    @State private var showCameraPicker = false
-    @State private var navigateToAlignmentView = false
-    @ObservedObject var cameraModel: CameraModel
-    var character: CharacterData
-
-    var body: some View {
-            VStack {
-              Text("Getting Camera Feedback").font(.title)
-              Text("After clicking open camera, please take a photo aligned to the overlay. You will receive feedback about the thickness, alignment, and stroke order of the character in this level: \(character.toString()). ").padding()
-              
-              Button(action: {showCameraPicker = true}) {
-                Text("Open Camera")
-              }.padding(.all)
-                .background(Color(red: 0.83, green: 0.25, blue: 0.17))
-                .foregroundColor(.white)
-                .cornerRadius(15.0)
-              
-              // NavigationLink that is activated when `navigateToAlignmentView` is true
-              NavigationLink(
-                destination: AlignPhotoView(character: character.toString(), levels: levels, cameraModel: cameraModel),
-                  isActive: $navigateToAlignmentView,
-                  label: {
-                      EmptyView()
-                  })
-            }
-            .sheet(isPresented: $showCameraPicker) {
-              ZStack(alignment: .top) {
-                ImagePicker(character: character.toString(), sourceType: .camera) { selectedImage in
-                    cameraModel.storeImage(selectedImage) // Store the cropped image in CameraModel
-                    cameraModel.overlayImage(character: character)
-                    navigateToAlignmentView = true // Trigger navigation
-                }.overlay(
-                  Image(uiImage: UIImage(named: "\(character.toString())_template")!).opacity(0.2)
-                )
-                
-                
-              }
-                
-            }
-
-        .onChange(of: cameraModel.image) { _ in
-            navigateToAlignmentView = true // Navigate when the image is set in CameraModel
-        }
-    }
-}
-
 
 struct ImagePicker: UIViewControllerRepresentable {
-  var character: String
+    var character: String
+    var overlay : UIImageView
     @Environment(\.presentationMode) private var presentationMode
     let sourceType: UIImagePickerController.SourceType
     let onImagePicked: (UIImage) -> Void
@@ -126,10 +141,54 @@ struct ImagePicker: UIViewControllerRepresentable {
         let picker = UIImagePickerController()
         picker.sourceType = sourceType
         picker.delegate = context.coordinator
-        return picker
+        picker.cameraOverlayView = overlay
+      
+      
+//        picker.showsCameraControls = false;
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("_UIImagePickerControllerUserDidCaptureItem"), object: nil, queue: nil) { _ in
+            picker.cameraOverlayView = nil
+        }
+      
+      NotificationCenter.default.addObserver(forName: NSNotification.Name("_UIImagePickerControllerUserDidCaptureItem"), object: nil, queue: nil) { _ in
+          picker.cameraOverlayView = nil
+      }
+      
+      NotificationCenter.default.addObserver(forName: NSNotification.Name("_UIImagePickerControllerUserDidRejectItem"), object: nil, queue: nil) { _ in picker.cameraOverlayView = overlay }
+      
+      return picker
+        
     }
  
     func updateUIViewController(_ uiViewController: UIImagePickerController,
                                 context: UIViewControllerRepresentableContext<ImagePicker>) {
+    }
+}
+
+
+
+extension View {
+    /// Navigate to a new view.
+    /// - Parameters:
+    ///   - view: View to navigate to.
+    ///   - binding: Only navigates when this condition is `true`.
+    func navigate<NewView: View>(to view: NewView, when binding: Binding<Bool>) -> some View {
+        NavigationView {
+            ZStack {
+                self
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+
+                NavigationLink(
+                    destination: view
+                        .navigationBarTitle("")
+                        .navigationBarHidden(true),
+                    isActive: binding
+                ) {
+                    EmptyView()
+                }
+            }
+        }
+        .navigationViewStyle(.stack)
     }
 }

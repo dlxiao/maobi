@@ -153,8 +153,8 @@ class ProcessImage {
         .map {CGPoint(x:$0.0, y:$0.1)}
       self.templateAnchorMapping = [[(1,2),(3,0)], [(0,1),(2,3)]]
       self.alignmentAnchors = [(123,18), (125, 231),(84, 201), (28,145),(64,99),(173,96),(223,146)].map {CGPoint(x:$0.0, y:$0.1)}
-    } else if(character == "九") {
-      print("")
+    } else if(character == "二") {
+      print("No joints")
     } else if (character == "小") {
       self.alignmentAnchors = [(114,400-18), (129, 400-233), (79, 400-197), (60,400-102),(29,400-158),(173,400-92),(223,400-148)].map {CGPoint(x:$0.0, y:$0.1)}
       print("No joints")

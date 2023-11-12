@@ -15,3 +15,4 @@
 {"character":"八","definition":"eight; all around, all sides","pinyin":["bā"],"decomposition":"？","etymology":{"type":"ideographic","hint":"Two bent lines meaning \"to divide\""},"radical":"八","matches":[null,null]}
 {"character":"七","definition":"seven","pinyin":["qī"],"decomposition":"⿻一乚","radical":"一","matches":[[0],[1]]}
 {"character":"六","definition":"six","pinyin":["liù"],"decomposition":"⿱亠八","radical":"八","matches":[[0],[0],[1],[1]]}
+{"character":"二","definition":"two","pinyin":["èr"],"decomposition":"","radical":"","matches":[]}
