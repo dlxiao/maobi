@@ -13,13 +13,15 @@ struct LevelView: View {
       
       LevelGraphicsView(html: character.getLevelHTML()) // pass in image and animation
       Button(action: {}) {
-        NavigationLink(
-          destination: CameraView(levels: levels, cameraModel: cameraModel, character: character, user:user)
-            .navigationBarTitle("")
-            .navigationBarBackButtonHidden(true)
-            .navigationBarHidden(true),
-          label: { Text("Check your Work!").fontWeight(.bold)
-          })
+        if(["一", "丨", " ` ", "亅", "丶", "丿", "ノ", "小", "十","八", "二"].contains(character.toString())) {
+          NavigationLink(
+            destination: CameraView(levels: levels, cameraModel: cameraModel, character: character, user:user)
+              .navigationBarTitle(""),
+            label: { Text("Check your Work!").fontWeight(.bold)
+            })
+        } else {
+          Text("Check your Work!").fontWeight(.bold)
+        }
       }.padding(.all)
         .background(Color(red: 0.83, green: 0.25, blue: 0.17))
         .foregroundColor(.white)

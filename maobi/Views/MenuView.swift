@@ -18,7 +18,7 @@ struct MenuView: View {
             VStack(alignment: .leading){
                 Text("Guest")
                     .padding(.top, 50)
-              NavigationLink(destination: TutorialOneView(levels: levels, user: user)){Text("Tutorial")}
+              NavigationLink(destination: OnboardingView(levels: levels, user: user)){Text("Tutorial")}
                     .padding(.top)
                     .navigationBarTitle("")
                       .navigationBarBackButtonHidden(true)
