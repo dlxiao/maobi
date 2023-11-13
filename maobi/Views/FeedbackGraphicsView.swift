@@ -162,16 +162,17 @@ struct FeedbackGraphicsView: View {
       }) {
         NavigationLink(
           destination: HomeView(levels: levels, user: user),
-          label: { Text("Finish").fontWeight(.bold)
+          label: { Text("Finish")
+                    .fontWeight(.bold)
           })
       }.padding(.all)
         .background(Color(red: 0.83, green: 0.25, blue: 0.17))
         .foregroundColor(.white)
         .cornerRadius(15.0)
-        .onDisappear {
-            user.updateStars(inc: processed.stars)
-            user.addTotalStars(processed.stars)
-        }
+        .simultaneousGesture(TapGesture().onEnded{
+              user.updateStars(inc: processed.stars)
+              user.addTotalStars(processed.stars)
+        })
     }
   }
   
