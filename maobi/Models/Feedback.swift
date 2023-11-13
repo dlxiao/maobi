@@ -34,7 +34,7 @@ class ProcessImage {
   
   
   init(submission : UIImage, template : UIImage, character : String) {
-    self.submissionPts = detectVisionContours(submission)
+    self.submissionPts = detectVisionContours(submission).filter { $0.count > 50 }
     self.templatePts = detectVisionContours(template)
     self.submissionPts.sort(by: {$0[0].x < $1[0].x})
     self.templatePts.sort(by: {$0[0].x < $1[0].x})
@@ -168,7 +168,7 @@ class ProcessImage {
   
   // Interprets the templateAnchorMapping and creates stroke objects
   func joinAnchors(_ character : String) throws {
-    if(character == "小" || character == "八") {
+    if(character == "小" || character == "八" || character == "二") {
       for stroke in self.submissionPts {
         self.strokes.append(StrokeContour(stroke))
       }

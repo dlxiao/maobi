@@ -11,6 +11,17 @@ import Combine
 import Foundation
 
 
+func binarize(_ uiimage : UIImage) -> UIImage {
+  var image = CIImage(image: uiimage)!
+  var ciCtx = CIContext()
+  var filter = ThresholdFilter()
+  filter.inputImage = CIImage(image: uiimage, options: [CIImageOption.colorSpace: NSNull()])
+  let outputImage = filter.outputImage
+  let cgimg = ciCtx.createCGImage(outputImage!, from: (outputImage?.extent)!)
+  return UIImage(cgImage: cgimg!)
+}
+
+
 struct FeedbackGraphicsView: View {
   //  @State var html : String
   var levels : Levels
@@ -24,9 +35,11 @@ struct FeedbackGraphicsView: View {
   var body: some View {
     let template = UIImage.init(named: "\(self.character)_template")!
     let transformed = transformSubmission(submissionZoom: self.zoom, templateZoom: 0.5, translation: self.translation, submission: self.submission, template: template)
-    let processed = ProcessImage(submission: transformed, template: template, character: character)
+    let test = binarize(submission)
+    let processed = ProcessImage(submission: test, template: template, character: character)
 
-
+//    Image(uiImage: test)
+//
 //    VStack {
 //      ZStack {
 //        Spacer()

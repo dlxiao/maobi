@@ -48,7 +48,7 @@ struct AlignPhotoView: View {
               //                })) // disabling drag for now bc can't get alignment working
               Image(uiImage: templateImage)
                 .scaleEffect(0.5)
-                .offset(x: self.translation.0, y: -20)
+                .offset(x: self.translation.0, y: 0)
                 .opacity(0.3)
             }
           }

@@ -105,7 +105,7 @@ func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage? {
 class ThresholdFilter: CIFilter
 {
     var inputImage : CIImage?
-    var threshold: Float = 0.554688 // This is set to a good value via Otsu's method
+    var threshold: Float = 0.1 // This is set to a good value via Otsu's method
 
     var thresholdKernel =  CIColorKernel(source:
         "kernel vec4 thresholdKernel(sampler image, float threshold) {" +

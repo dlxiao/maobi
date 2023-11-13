@@ -141,7 +141,7 @@ struct ImagePicker: UIViewControllerRepresentable {
         let picker = UIImagePickerController()
         picker.sourceType = sourceType
         picker.delegate = context.coordinator
-        overlay.frame = CGRect(x: 0, y: 200, width: overlay.frame.width, height: overlay.frame.height)
+        overlay.frame = CGRect(x: 0, y: 150, width: overlay.frame.width, height: overlay.frame.height)
         picker.cameraOverlayView = overlay
       
       
