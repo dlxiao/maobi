@@ -12,7 +12,7 @@ struct CameraView: View {
     var character: CharacterData
 
     var body: some View {
-      var overlay = UIImageView(image: UIImage(named: "\(character.toString())_template")!)
+        var overlay = UIImageView(image: resizeImage(image: UIImage(named: "\(character.toString())_template")!, newWidth: 400))
             VStack {
               Text("Getting Camera Feedback").font(.title)
               Text("After clicking open camera, please take a photo aligned to the overlay. You will receive feedback about the thickness, alignment, and stroke order of the character in this level: \(character.toString()). ").padding()
@@ -141,7 +141,7 @@ struct ImagePicker: UIViewControllerRepresentable {
         let picker = UIImagePickerController()
         picker.sourceType = sourceType
         picker.delegate = context.coordinator
-        overlay.frame = overlay.frame.offsetBy(dx: CGFloat(0), dy: CGFloat(150))
+        overlay.frame = CGRect(x: 0, y: 200, width: overlay.frame.width, height: overlay.frame.height)
         picker.cameraOverlayView = overlay
       
       

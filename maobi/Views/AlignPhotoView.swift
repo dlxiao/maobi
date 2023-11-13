@@ -28,7 +28,7 @@ struct AlignPhotoView: View {
 //      let inputImage = threshold(cameraModel.image!)
       
       
-      let templateImage = UIImage(named: "\(character)_template")!
+        let templateImage = resizeImage(image: UIImage(named: "\(character)_template")!, newWidth: 400)!
       
 //      Image(uiImage: inputImage)
       VStack{
@@ -48,6 +48,7 @@ struct AlignPhotoView: View {
               //                })) // disabling drag for now bc can't get alignment working
               Image(uiImage: templateImage)
                 .scaleEffect(0.5)
+                .offset(x: self.translation.0, y: -20)
                 .opacity(0.3)
             }
           }

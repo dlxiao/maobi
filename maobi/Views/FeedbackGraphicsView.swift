@@ -68,7 +68,7 @@ struct FeedbackGraphicsView: View {
             .offset(x: 0, y: 0)
           CharacterContour(processed.templatePts).stroke(Color.red, lineWidth: 4)
             .frame(width: 250, height: 250)
-            .offset(x: 0, y: 0)
+            .offset(x: 0, y:-15)
         } else { // clickable strokes
           processed.characterContour
             .stroke(Color.black, lineWidth: 4)
