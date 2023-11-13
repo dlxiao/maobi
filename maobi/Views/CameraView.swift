@@ -13,7 +13,8 @@ struct CameraView: View {
     var user : UserRepository
 
     var body: some View {
-        var overlay = UIImageView(image: resizeImage(image: UIImage(named: "\(character.toString())_template")!, newWidth: 400))
+      let filename = "\((character.toString() == " ` " ? "`" : character.toString()))_template"
+        var overlay = UIImageView(image: resizeImage(image: UIImage(named: filename)!, newWidth: 400))
             VStack {
               Text("Getting Camera Feedback").font(.title)
               Text("After clicking open camera, please take a photo aligned to the overlay. You will receive feedback about the thickness, alignment, and stroke order of the character in this level: \(character.toString()). ").padding()
