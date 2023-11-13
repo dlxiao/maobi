@@ -35,7 +35,8 @@ struct FeedbackGraphicsView: View {
   
   var body: some View {
     ScrollView {
-      let template = UIImage.init(named: "\(self.character)_template")!
+      let filename = "\(character == " ` " ? "`" : character)_template"
+      let template = UIImage.init(named: filename)!
       let transformed = transformSubmission(submissionZoom: self.zoom, templateZoom: 0.5, translation: self.translation, submission: self.submission, template: template)
       let test = binarize(submission)
       let processed = ProcessImage(submission: test, template: template, character: character)

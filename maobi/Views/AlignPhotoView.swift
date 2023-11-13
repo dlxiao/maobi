@@ -28,8 +28,8 @@ struct AlignPhotoView: View {
       let inputImage = resizeImage(image: squareCrop(cameraModel.image!), newWidth: 400)!
 //      let inputImage = threshold(cameraModel.image!)
       
-      
-        let templateImage = resizeImage(image: UIImage(named: "\(character)_template")!, newWidth: 400)!
+      let filename = "\((character == " ` " ? "`" : character))_template"
+        let templateImage = resizeImage(image: UIImage(named: filename)!, newWidth: 400)!
       
 //      Image(uiImage: inputImage)
       VStack{
@@ -73,6 +73,7 @@ struct AlignPhotoView: View {
             .cornerRadius(15.0)
           
         }.background(Color.white)
+          .padding([.bottom], 100)
         
       }.background(Color.white)
     }

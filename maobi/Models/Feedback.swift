@@ -168,7 +168,7 @@ class ProcessImage {
   
   // Interprets the templateAnchorMapping and creates stroke objects
   func joinAnchors(_ character : String) throws {
-    if(character == "小" || character == "八" || character == "二") {
+    if(character == "小" || character == "八" || character == "二" || ["一", "丨", " ` ", "亅", "丶", "丿", "ノ"].contains(character)) {
       for stroke in self.submissionPts {
         self.strokes.append(StrokeContour(stroke))
       }
