@@ -60,9 +60,9 @@
 		8D3487732AF5B5B2008186E0 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487722AF5B5B2008186E0 /* FirebaseAnalyticsSwift */; };
 		8D3487752AF5B5B2008186E0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487742AF5B5B2008186E0 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		8D3487772AF5B5B2008186E0 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487762AF5B5B2008186E0 /* FirebaseAppCheck */; };
+		8D52D5322B02596E000223BB /* FingerDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D52D5312B02596E000223BB /* FingerDraw.swift */; };
+		8D52D5342B02598F000223BB /* FingerDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D52D5332B02598F000223BB /* FingerDrawView.swift */; };
 		8D75D5522AF3F82100C39216 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D75D5512AF3F82100C39216 /* OnboardingView.swift */; };
-		8DDCA3032AF99F4D00FB181B /* FingerDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCA3022AF99F4D00FB181B /* FingerDraw.swift */; };
-		8DDCA3052AF99F8900FB181B /* FingerDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCA3042AF99F8900FB181B /* FingerDrawView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +110,8 @@
 		86E231FE2AF29EE400785AEC /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		86E232002AF2B09100785AEC /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		86E232072AF5B65F00785AEC /* TestNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNavView.swift; sourceTree = "<group>"; };
+		8D52D5312B02596E000223BB /* FingerDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDraw.swift; sourceTree = "<group>"; };
+		8D52D5332B02598F000223BB /* FingerDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDrawView.swift; sourceTree = "<group>"; };
 		8D75D5512AF3F82100C39216 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8DDCA3022AF99F4D00FB181B /* FingerDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDraw.swift; sourceTree = "<group>"; };
 		8DDCA3042AF99F8900FB181B /* FingerDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDrawView.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				864D94C62AD99D8100F76C79 /* maobi */,
 				864D94C52AD99D8100F76C79 /* Products */,
+				8D52D52B2B025713000223BB /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -224,6 +227,7 @@
 		86E231A92AE5C78800785AEC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8D52D5332B02598F000223BB /* FingerDrawView.swift */,
 				86E231B42AE6287D00785AEC /* HomeView.swift */,
 				8D75D5512AF3F82100C39216 /* OnboardingView.swift */,
 				86E231FA2AF1E80900785AEC /* LevelView.swift */,
@@ -249,6 +253,7 @@
 		86E231F72AF1B1CC00785AEC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8D52D5312B02596E000223BB /* FingerDraw.swift */,
 				86E231BA2AE9FA5B00785AEC /* User.swift */,
 				864D94E12AD9ACCF00F76C79 /* Character.swift */,
 				86E231F82AF1D1FE00785AEC /* Camera.swift */,
@@ -257,6 +262,15 @@
 				86DC80E92AFFF62B00D61940 /* Perspective.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8D52D52B2B025713000223BB /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				8DDCA3022AF99F4D00FB181B /* FingerDraw.swift */,
+				8DDCA3042AF99F8900FB181B /* FingerDrawView.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,13 +370,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D52D5342B02598F000223BB /* FingerDrawView.swift in Sources */,
+				8D52D5322B02596E000223BB /* FingerDraw.swift in Sources */,
 				86DC80E82AFFF5AE00D61940 /* Contours.swift in Sources */,
 				86DC80EA2AFFF62B00D61940 /* Perspective.swift in Sources */,
 				86E232082AF5B65F00785AEC /* TestNavView.swift in Sources */,
 				70DA4A892AF5CC5C00357E4F /* TutorialTwoView.swift in Sources */,
 				86E231B52AE6287D00785AEC /* HomeView.swift in Sources */,
 				70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */,
-				8DDCA3032AF99F4D00FB181B /* FingerDraw.swift in Sources */,
 				86E231BB2AE9FA5B00785AEC /* User.swift in Sources */,
 				86DC80E62AFF310400D61940 /* AlignPhotoView.swift in Sources */,
 				70DA4A8D2AF5CC8000357E4F /* TutorialFourView.swift in Sources */,
@@ -378,7 +393,6 @@
 				70471DFF2AF3F7A500DE800F /* LevelView.swift in Sources */,
 				864D94D42AD99D8300F76C79 /* maobi.xcdatamodeld in Sources */,
 				864D94E22AD9ACCF00F76C79 /* Character.swift in Sources */,
-				8DDCA3052AF99F8900FB181B /* FingerDrawView.swift in Sources */,
 				86E231FB2AF1E80900785AEC /* LevelView.swift in Sources */,
 				86E231F92AF1D1FE00785AEC /* Camera.swift in Sources */,
 				86DC80FE2B013C7600D61940 /* TestView.swift in Sources */,
@@ -518,7 +532,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"maobi/Preview Content\"";
-				DEVELOPMENT_TEAM = 4AS8N7YMJ7;
+				DEVELOPMENT_TEAM = MFFBJX3ZHX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow camera access.";
@@ -533,7 +547,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = test.maobi;
+				PRODUCT_BUNDLE_IDENTIFIER = maobi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -549,7 +563,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"maobi/Preview Content\"";
-				DEVELOPMENT_TEAM = 4AS8N7YMJ7;
+				DEVELOPMENT_TEAM = MFFBJX3ZHX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow camera access.";
@@ -564,7 +578,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = test.maobi;
+				PRODUCT_BUNDLE_IDENTIFIER = maobi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

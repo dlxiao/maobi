@@ -10,6 +10,7 @@ struct CameraView: View {
     @State var opacity = 0.2
     @ObservedObject var cameraModel: CameraModel
     var character: CharacterData
+    var user : UserRepository
 
     var body: some View {
         var overlay = UIImageView(image: resizeImage(image: UIImage(named: "\(character.toString())_template")!, newWidth: 400))
@@ -60,7 +61,7 @@ struct CameraView: View {
                 
               }
             
-        }.navigate(to: AlignPhotoView(character: character.toString(), levels: levels, cameraModel: cameraModel), when: $navigateToAlignmentView)
+            }.navigate(to: AlignPhotoView(character: character.toString(), levels: levels, cameraModel: cameraModel, user: user), when: $navigateToAlignmentView)
     }
 }
 

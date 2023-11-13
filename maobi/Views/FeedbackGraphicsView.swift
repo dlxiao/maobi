@@ -29,6 +29,7 @@ struct FeedbackGraphicsView: View {
   var zoom : Double
   var submission : UIImage
   var character : String
+  var user : UserRepository
   
   @State var selectedStroke = -1
   
@@ -144,7 +145,7 @@ struct FeedbackGraphicsView: View {
 
     Button(action: {}) {
       NavigationLink(
-        destination: HomeView(levels: levels),
+        destination: HomeView(levels: levels, user: user),
         label: { Text("Finish").fontWeight(.bold)
         })
     }.padding(.all)

@@ -22,6 +22,7 @@ struct AlignPhotoView: View {
   @State var translation = (0.0, 0.0)
   var screenWidth = UIScreen.main.bounds.width
   @State var size = UIScreen.main.bounds.width * 0.5
+  var user : UserRepository
   
     var body: some View {
       let inputImage = resizeImage(image: squareCrop(cameraModel.image!), newWidth: 400)!
@@ -63,7 +64,7 @@ struct AlignPhotoView: View {
           
           Button(action: {}) {
             NavigationLink(
-              destination: FeedbackGraphicsView(levels: levels, translation: self.translation, zoom: self.zoom, submission: inputImage, character: self.character),
+              destination: FeedbackGraphicsView(levels: levels, translation: self.translation, zoom: self.zoom, submission: inputImage, character: self.character, user: user),
               label: { Text("Submit Photo").fontWeight(.bold)
               })
           }.padding(.all)

@@ -4,6 +4,7 @@ struct LevelView: View {
   var character : CharacterData
   var levels : Levels
   @StateObject var cameraModel = CameraModel()
+  var user : UserRepository
 
   var body: some View {
     VStack {
@@ -13,7 +14,7 @@ struct LevelView: View {
       LevelGraphicsView(html: character.getLevelHTML()) // pass in image and animation
       Button(action: {}) {
         NavigationLink(
-          destination: CameraView(levels: levels, cameraModel: cameraModel, character: character)
+          destination: CameraView(levels: levels, cameraModel: cameraModel, character: character, user:user)
             .navigationBarTitle("")
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true),
