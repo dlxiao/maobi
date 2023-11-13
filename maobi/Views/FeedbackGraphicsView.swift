@@ -39,6 +39,7 @@ struct FeedbackGraphicsView: View {
       let template = UIImage.init(named: filename)!
       let transformed = transformSubmission(submissionZoom: self.zoom, templateZoom: 0.5, translation: self.translation, submission: self.submission, template: template)
       let test = binarize(submission)
+      
       let processed = ProcessImage(submission: test, template: template, character: character)
       
       //    Image(uiImage: test)
