@@ -62,6 +62,7 @@
 		8D3487772AF5B5B2008186E0 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487762AF5B5B2008186E0 /* FirebaseAppCheck */; };
 		8D52D5322B02596E000223BB /* FingerDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D52D5312B02596E000223BB /* FingerDraw.swift */; };
 		8D52D5342B02598F000223BB /* FingerDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D52D5332B02598F000223BB /* FingerDrawView.swift */; };
+		8D52D5362B027381000223BB /* UserLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D52D5352B027381000223BB /* UserLevel.swift */; };
 		8D75D5522AF3F82100C39216 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D75D5512AF3F82100C39216 /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +113,7 @@
 		86E232072AF5B65F00785AEC /* TestNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNavView.swift; sourceTree = "<group>"; };
 		8D52D5312B02596E000223BB /* FingerDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDraw.swift; sourceTree = "<group>"; };
 		8D52D5332B02598F000223BB /* FingerDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDrawView.swift; sourceTree = "<group>"; };
+		8D52D5352B027381000223BB /* UserLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLevel.swift; sourceTree = "<group>"; };
 		8D75D5512AF3F82100C39216 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8DDCA3022AF99F4D00FB181B /* FingerDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDraw.swift; sourceTree = "<group>"; };
 		8DDCA3042AF99F8900FB181B /* FingerDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDrawView.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				86DC80E12AFEF53200D61940 /* Feedback.swift */,
 				86DC80E72AFFF5AE00D61940 /* Contours.swift */,
 				86DC80E92AFFF62B00D61940 /* Perspective.swift */,
+				8D52D5352B027381000223BB /* UserLevel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				86DC80E82AFFF5AE00D61940 /* Contours.swift in Sources */,
 				86DC80EA2AFFF62B00D61940 /* Perspective.swift in Sources */,
 				86E232082AF5B65F00785AEC /* TestNavView.swift in Sources */,
+				8D52D5362B027381000223BB /* UserLevel.swift in Sources */,
 				70DA4A892AF5CC5C00357E4F /* TutorialTwoView.swift in Sources */,
 				86E231B52AE6287D00785AEC /* HomeView.swift in Sources */,
 				70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */,

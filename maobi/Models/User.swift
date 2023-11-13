@@ -24,6 +24,7 @@ struct User: Codable, Hashable {
 struct UserLevel: Codable, Hashable {
   var userlevelID : String
   var maxStars: Int
+  //TODO: change to character
   var character: String
   var unlockDate : Date
   
@@ -100,6 +101,11 @@ class UserRepository: ObservableObject {
     return self.userlevels
   }
   
+  //TODO: get specific user level after database set up
+  func getUserLevel(_ level: Levels) -> UserLevel? {
+    return UserLevel(userlevelID: "", maxStars: 0, character: "", unlockDate : Date())
+  }
+  
   // TODO
   func sortLevels(_ levels : [UserLevel], _ sortBy : String) -> [UserLevel] {
     return []
@@ -131,20 +137,38 @@ class UserRepository: ObservableObject {
     return newTotal
   }
   
+  func updateMaxStars(userLevelId: String, newStars: Int) {
+      // Find the UserLevel object and update maxStars
+      if let index = self.userlevels.firstIndex(where: { $0.userlevelID == userLevelId }) {
+          let currentMaxStars = self.userlevels[index].maxStars
+          if newStars > currentMaxStars {
+              self.userlevels[index].maxStars = newStars
+              // Update Firebase (for both userlevel and user documents)
+//              updateUserLevelInFirebase(userLevelId: userLevelId, newMaxStars: newStars)
+//              updateUserInFirebase()
+          }
+      }
+  }
+  
   //TODO: When user login set up.
-//  func updateUserLevelStars(userID: String, newMaxStars: Int) {
-//      // Update the local model
-//      if let index = self.userlevels.firstIndex(where: { $0.userlevelID == currentLevelID }) {
-//          self.userlevels[index].maxStars = newMaxStars
-//      }
-//
-//      // Update Firebase
-//      let userLevelRef = store.collection("userlevel").document(currentLevelID)
+//  private func updateUserLevelInFirebase(userLevelId: String, newMaxStars: Int) {
+//      let userLevelRef = store.collection("userlevel").document(userLevelId)
 //      userLevelRef.updateData(["maxStars": newMaxStars]) { err in
 //          if let err = err {
 //              print("Error updating maxStars: \(err)")
 //          } else {
 //              print("maxStars successfully updated")
+//          }
+//      }
+//  }
+//
+//  private func updateUserInFirebase() {
+//      let userRef = store.collection("user").document(self.user.userID)
+//      userRef.updateData(["totalStars": self.user.totalStars]) { err in
+//          if let err = err {
+//              print("Error updating totalStars: \(err)")
+//          } else {
+//              print("totalStars successfully updated")
 //          }
 //      }
 //  }
