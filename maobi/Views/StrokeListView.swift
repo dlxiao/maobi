@@ -31,7 +31,7 @@ struct StrokeListView: View {
                                 .background(Color(red: 0.97, green: 0.94, blue: 0.91))
                                 .cornerRadius(10)
                                 .shadow(color: Color(red: 0.87, green: 0.78, blue: 0.7), radius: 0, x: 0, y: 4)
-                                Text("stroke").bold()
+                              Text(c.getPinyin()).bold()
                             }
                         }
                     }
