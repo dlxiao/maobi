@@ -281,13 +281,13 @@ struct OnboardingView: View {
                 .scaledToFit()
                 .frame(width: 100)
               
-              Image("Rice Paper")
+              Image("rice paper")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100)
             }
             HStack(spacing: 30) {
-              Image("Chinese Ink")
+              Image("chinese ink")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100)
