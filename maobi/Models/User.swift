@@ -8,7 +8,7 @@ import FirebaseFirestoreSwift
 
 
 struct User: Codable, Hashable {
-  var userID : String
+  @DocumentID var userID : String?
   var username: String
   var password: String
   var totalStars: Int
@@ -22,7 +22,7 @@ struct User: Codable, Hashable {
 }
 
 struct UserLevel: Codable, Hashable {
-  var userlevelID : String
+  @DocumentID var userlevelID : String?
   var maxStars: Int
   //TODO: change to character
   var character: String
@@ -37,7 +37,7 @@ struct UserLevel: Codable, Hashable {
 }
 
 struct Feedback: Codable, Hashable {
-  var userID : String
+  @DocumentID var userID : String?
   var feedbackID : String
   var userlevelID : String
   var stars: Int
@@ -61,8 +61,7 @@ struct Feedback: Codable, Hashable {
 
 class UserRepository: ObservableObject {
   private let store = Firestore.firestore()
-  @Published var user : User = User(userID: "", username: "", password: "", totalStars: 0)
-  
+  @Published var user : User = User(userID: "sampleuser_1", username: "", password: "", totalStars: 0)
   private let userID = "sampleuser_1" // login is not part of MVP, hardcoding this user
 
   private var userlevels : [UserLevel] = []
@@ -131,12 +130,29 @@ class UserRepository: ObservableObject {
 //    return
 //  }
   
-  func addTotalStars(_ toAdd : Int) -> Int {
+  // TODO: should merge with setTotalStars for potential minus after unlock implemented
+  func addTotalStars(_ toAdd : Int) {
     let newTotal = self.user.totalStars + toAdd
     self.user.totalStars = newTotal
-    return newTotal
   }
   
+  func update(_ user: User){
+      guard let userId = user.userID else {return}
+
+      do{
+          try store.collection("user").document(userId).setData(from: user)
+
+      }
+      catch {
+          fatalError("Unable to update user: \(error.localizedDescription).")
+      }
+  }
+
+  func updateStars(inc: Int){
+      guard let userId = user.userID else {return}
+
+      store.collection("user").document(userId).updateData(["totalStars": FieldValue.increment(Int64(inc))])
+  }
   func updateMaxStars(userLevelId: String, newStars: Int) {
       // Find the UserLevel object and update maxStars
       if let index = self.userlevels.firstIndex(where: { $0.userlevelID == userLevelId }) {
@@ -158,17 +174,6 @@ class UserRepository: ObservableObject {
 //              print("Error updating maxStars: \(err)")
 //          } else {
 //              print("maxStars successfully updated")
-//          }
-//      }
-//  }
-//
-//  private func updateUserInFirebase() {
-//      let userRef = store.collection("user").document(self.user.userID)
-//      userRef.updateData(["totalStars": self.user.totalStars]) { err in
-//          if let err = err {
-//              print("Error updating totalStars: \(err)")
-//          } else {
-//              print("totalStars successfully updated")
 //          }
 //      }
 //  }
