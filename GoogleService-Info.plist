@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Need access to camera</string>
 	<key>API_KEY</key>
 	<string>AIzaSyD0jno_HCsh5k0pt1PP6yvIp72KuaHUUj8</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,15 +15,15 @@
 	<key>STORAGE_BUCKET</key>
 	<string>maobi-f35ca.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:95062573059:ios:46a8ffb1bdbadd4a968e36</string>
 </dict>

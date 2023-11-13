@@ -5,20 +5,39 @@ import SwiftUI
 // With topbar and tabs
 struct TestNavView: View {
     @EnvironmentObject var viewModel: ViewModel
+
+    @State private var selectedTab = 0
+    
+    
     var levels = Levels()
+    var user = UserRepository()
     var body: some View {
-      
-      TopBarView()
+        if viewModel.isTabViewEnabled{
+            TopBarView(user: user)
+        }
+        
       ZStack{
-          TabView {
-              TutorialOneView(levels: levels)
+          TabView(selection: $selectedTab) {
+            OnboardingView(levels: levels, user: user)
                   .tabItem {
                       Label("Home", systemImage: "house.fill")
                   }
-              MenuView(levels: levels)
+                  .tag(0)
+              MenuView(levels: levels, user: user)
                   .tabItem {
                       Label("Menu", systemImage: "person.fill")
                   }
+                  .tag(1)
+          }
+          .accentColor(Color(red: 0.9, green: 0.71, blue: 0.54))
+          .onChange(of: selectedTab){
+              selected in
+              if selected == 0 {
+                  viewModel.menuView = false
+              }
+              else if selected == 1 {
+                  viewModel.menuView = true
+              }
           }
           VStack{
               Spacer()
@@ -27,59 +46,18 @@ struct TestNavView: View {
                       .fill(Color.white.opacity(0.001))
                       .frame(width: .infinity, height: 50)
               }
+              
+              else if viewModel.isOnboardingEnabled{
+                  Rectangle()
+                      .fill(Color.white)
+                      .frame(width: .infinity, height: 50)
+
+              }
           }
+          
 
       }
     
   }
 }
-
-
-struct HomeViewTest: View {
-  var levels : Levels
-  var body: some View {
-    VStack {
-      NavigationLink(destination: StrokeListView(levels: levels)) { Text("Strokes") }
-      NavigationLink(destination: CharacterListView(levels: levels)) { Text("Characters") }
-    }.navigationBarTitle("")
-      .navigationBarBackButtonHidden(true)
-      .navigationBarHidden(true)
-    
-  }
-}
-
-struct MenuViewTest: View {
-  var body: some View {
-    NavigationView {
-      VStack {
-        Text("placeholder menu stuff")
-      }
-    }
-  }
-}
-
-struct TutorialViewTest: View {
-  var levels : Levels
-  var body: some View {
-    NavigationView {
-      VStack {
-        NavigationLink(destination: OnboardingViewTest(levels: levels)) { Text("Finish tutorial, go to onboarding") }
-      }
-    }.navigationBarTitle("")
-      .navigationBarBackButtonHidden(true)
-      .navigationBarHidden(true)
-  }
-}
-
-struct OnboardingViewTest : View {
-  var levels : Levels
-  var body: some View {
-      VStack {
-        NavigationLink(destination: HomeView(levels: levels)) { Text("Finish onboarding, go to home") }
-      }.navigationBarTitle("")
-      .navigationBarBackButtonHidden(true)
-      .navigationBarHidden(true)
-  }
-}
-
 

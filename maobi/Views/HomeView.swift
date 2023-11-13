@@ -2,16 +2,17 @@ import WebKit
 import SwiftUI
 
 struct HomeView: View {
-  @ObservedObject var user = UserRepository()
-    @EnvironmentObject var viewModel: ViewModel
+  @EnvironmentObject var viewModel: ViewModel
   var levels : Levels
+  var user : UserRepository
+  
   var body: some View {
     NavigationView {
       ZStack{
         VStack{
           HStack{
             VStack{
-              NavigationLink(destination: StrokeListView(levels: levels)){
+              NavigationLink(destination: StrokeListView(levels: levels, user: user)){
                 Image("strokes-icon")
                   .padding(10.0)
                 
@@ -25,7 +26,7 @@ struct HomeView: View {
             }
             
             VStack{
-              NavigationLink(destination: CharacterListView(levels: levels)){
+              NavigationLink(destination: CharacterListView(levels: levels, user: user)){
                 Image("character-icon")
                   .padding(10.0)
                 

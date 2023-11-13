@@ -9,7 +9,11 @@ import SwiftUI
 
 struct OnboardingView: View {
   var levels : Levels
-  var onFinish: () -> Void
+  var user : UserRepository
+  let horizontal = FingerDraw(character: "一", size: 700)
+  let vertical = FingerDraw(character: "丨", size: 800)
+  let ten = FingerDraw(character: "十", size: 500)
+  
   @State private var currentPage: Int = 0
   @State private var navigateToPage2: Bool = false  // Add this state variable
   
@@ -19,13 +23,15 @@ struct OnboardingView: View {
   
   @State private var navigateToHome: Bool = false
   
+    @EnvironmentObject var viewModel: ViewModel
+    
   var body: some View {
     NavigationView {
       TabView(selection: $currentPage) {
         VStack {
           Spacer()
           Text("Welcome!")
-            .font(.system(size: 50))
+            .font(.largeTitle)
             .bold()
           Spacer()
           
@@ -33,27 +39,23 @@ struct OnboardingView: View {
             currentPage = 1  // Set currentPage to the next page
           }) {
             Text("Get Started >")
-              .font(.system(size: 30))
+              .font(.largeTitle)
               .foregroundColor(.red)
           }
           .padding(.bottom, 300)
         }
         .padding()
-        .background(NavigationLink("", destination: Text("Onboarding 2"), isActive: $navigateToPage2).hidden())
         .tabItem { Text("Onboarding") }
         .tag(0)
         
         ZStack {
           VStack {
             Text("Try this Stroke:")
-              .font(.system(size: 30))
+              .font(.largeTitle)
               .padding()
             Spacer()
-            Image("horizontal")
-              .resizable()
-              .frame(width: 289, height: 100)
-              .font(.footnote)
-              .padding()
+            FingerDrawView(html: horizontal.getQuizHTML())
+              .offset(x: 30, y: 120)
             Spacer()
             HStack {
               Spacer() // Pushes the button to the right
@@ -72,8 +74,8 @@ struct OnboardingView: View {
             .resizable()  // Make the image resizable
             .scaledToFit()  // Scale to fit within its bounding frame
             .frame(width: UIScreen.main.bounds.width * 0.4)  // Set to 80% of screen width
-            .offset(x: (moveRight ? moveDistance : -moveDistance) + 80, y: 80)  // Additional offset to move it slightly to the right and down
-            .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: true))
+            .offset(x: (moveRight ? -moveDistance : moveDistance) + 80, y: 80)  // Additional offset to move it slightly to the right and down
+            .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: false))
             .onAppear() {
               moveRight.toggle()
             }
@@ -83,12 +85,11 @@ struct OnboardingView: View {
         
         VStack {
           Text("Nice work!")
-            .font(.system(size: 30))
+            .font(.largeTitle)
             .padding()
           Spacer()
           Image("horizontal")
             .resizable()
-            .frame(width: 289, height: 100)
             .font(.footnote)
             .padding()
           Spacer()
@@ -114,11 +115,8 @@ struct OnboardingView: View {
               .font(.system(size: 30))
               .padding()
             Spacer()
-            Image("vertical")
-              .resizable()
-              .frame(width: 70, height: 305)
-              .font(.footnote)
-              .padding()
+            FingerDrawView(html: vertical.getQuizHTML())
+              .offset(x: 30, y: 120)
             Spacer()
             HStack {
               Spacer() // Pushes the button to the right
@@ -137,8 +135,8 @@ struct OnboardingView: View {
             .resizable()  // Make the image resizable
             .scaledToFit()  // Scale to fit within its bounding frame
             .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.height * 0.25)
-            .offset(x: 80, y: (moveUp ? -moveDistance : moveDistance) + 50)  // Hover up and down
-            .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: true))
+            .offset(x: 80, y: (moveUp ? moveDistance : -moveDistance) + 50)  // Hover up and down
+            .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: false))
             .onAppear() {
               moveUp.toggle()
             }
@@ -148,12 +146,11 @@ struct OnboardingView: View {
         
         VStack {
           Text("Nice work!")
-            .font(.system(size: 30))
+            .font(.largeTitle)
             .padding()
           Spacer()
           Image("vertical")
             .resizable()
-            .frame(width: 70, height: 305)
             .font(.footnote)
             .padding()
           Spacer()
@@ -175,14 +172,12 @@ struct OnboardingView: View {
         
         VStack {
           Text("Let's put it together")
-            .font(.system(size: 30))
+            .font(.largeTitle)
             .padding()
           Spacer()
           Text("This is the Chinese character for '10'.")
-            .font(.system(size: 20))
             .padding()
           Text("Order matters. This character has the following stroke order:")
-            .font(.system(size: 20))
             .padding()
           // Stroke order images here
           HStack(spacing: 30) {
@@ -198,13 +193,10 @@ struct OnboardingView: View {
           }
           Spacer()
           Text("Try it out!")
-            .font(.system(size: 30))
-            .padding()
-          Image("ten3")
-            .resizable()
-            .frame(width: 180, height: 189.95)
-            .font(.footnote)
-            .padding()
+            .font(.largeTitle)
+            .padding([.top])
+          FingerDrawView(html: ten.getQuizHTML())
+            .offset(x: 70, y: 25)
           HStack {
             Spacer() // Pushes the button to the right
             Button(action: {
@@ -223,14 +215,12 @@ struct OnboardingView: View {
         
         VStack {
           Text("Let's put it together")
-            .font(.system(size: 30))
+            .font(.largeTitle)
             .padding()
           Spacer()
           Text("This is the Chinese character for '10'.")
-            .font(.system(size: 20))
             .padding()
           Text("Order matters. This character has the following stroke order:")
-            .font(.system(size: 20))
             .padding()
           // Stroke order images here
           HStack(spacing: 30) {
@@ -248,7 +238,7 @@ struct OnboardingView: View {
           Text("Nice!")
             .font(.system(size: 30))
             .padding()
-          Image("ten3")
+          Image("ten")
             .resizable()
             .frame(width: 180, height: 189.95)
             .font(.footnote)
@@ -270,19 +260,19 @@ struct OnboardingView: View {
         .tag(6)
         
         VStack {
-          NavigationLink("", destination: TutorialView(levels: levels), isActive: $navigateToHome)
+          NavigationLink("", destination: TutorialOneView(levels: levels, user: user), isActive: $navigateToHome)
             .hidden()
           Text("You just wrote a Chinese character!")
-            .font(.system(size: 30))
+            .font(.largeTitle)
+            .multilineTextAlignment(.center)
             .padding()
+            
           Spacer()
-          Text("Although we just wrote using a touch screen, the rest of this app is for practicing ").font(.system(size: 20)) +
-          Text("physical").bold().font(.system(size: 20)) +
-          Text(" calligraphy.")
-            .font(.system(size: 20))
+          Text("Although we just wrote using a touch screen, the rest of this app is for practicing **physical** calligraphy")
+                .padding(30)
+            
           Spacer()
-          Text("Recommendation Materials:")
-            .font(.system(size: 20))
+          Text("Recommended Materials:")
             .padding()
           VStack {
             HStack(spacing: 30) {
@@ -291,13 +281,13 @@ struct OnboardingView: View {
                 .scaledToFit()
                 .frame(width: 100)
               
-              Image("rice paper")
+              Image("Rice Paper")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100)
             }
             HStack(spacing: 30) {
-              Image("chinese ink")
+              Image("Chinese Ink")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100)
@@ -330,6 +320,8 @@ struct OnboardingView: View {
         .tag(7)
         
       }
+      .onAppear{viewModel.isOnboardingEnabled = true}
+      .onDisappear{viewModel.isOnboardingEnabled = false}
       .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // Hide the default navigation dots
       .onChange(of: currentPage, perform: { value in
         if value == 1 {
@@ -337,5 +329,8 @@ struct OnboardingView: View {
         }
       })
     }
+    .navigationBarTitle("")
+      .navigationBarBackButtonHidden(true)
+      .navigationBarHidden(true)
   }
 }

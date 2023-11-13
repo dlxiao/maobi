@@ -112,13 +112,17 @@ class CharacterData : Identifiable {
   func getQuiz(_ size : Int = 500) -> (String, String) {
     var div = "<div id='quiz-\(self.character)'></div>"
     var script = """
-      var writer2 = HanziWriter.create('quiz-\(self.character)', '\(self.character)', {
+      var fingerWrite = HanziWriter.create('quiz-\(self.character)', '\(self.character)', {
         width: \(size),
         height: \(size),
         showCharacter: false,
         padding: 5
       });
-      writer2.quiz();
+      fingerWrite.quiz({
+        onComplete: function(summaryData) {
+          
+        }
+      });
     """
     return (div, script)
   }

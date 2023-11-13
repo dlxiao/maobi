@@ -5,6 +5,7 @@ import AVFoundation
 
 struct CameraView: View {
   var levels : Levels
+//<<<<<<< HEAD
     @State private var showCameraPicker = false
     @State private var navigateToAlignmentView = false
     @State var opacity = 0.2
@@ -62,6 +63,26 @@ struct CameraView: View {
             
         }.navigate(to: AlignPhotoView(character: character.toString(), levels: levels, cameraModel: cameraModel), when: $navigateToAlignmentView)
     }
+//=======
+//  var user : UserRepository
+//  @State private var showSheet = true
+//  
+//  
+//  var body: some View {
+//      ImagePicker(sourceType: .camera, selectedImage: self.$image)
+//      
+//    Button(action: {}) {
+//      NavigationLink(
+//        destination: FeedbackView(feedback: getFeedback(character, image), levels: levels, user: user),
+//        label: { Text("Submit Photo").fontWeight(.bold)
+//        })
+//    }.padding(.all)
+//      .background(Color(red: 0.83, green: 0.25, blue: 0.17))
+//      .foregroundColor(.white)
+//      .cornerRadius(15.0)
+//  }
+//  
+//>>>>>>> origin/layout
 }
 
 extension UIImage {
