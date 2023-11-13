@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TopBarView: View {
     @EnvironmentObject var viewModel: ViewModel
-  var user : UserRepository
+    @ObservedObject var user : UserRepository
 
     var body: some View {
         ZStack(alignment: .top){

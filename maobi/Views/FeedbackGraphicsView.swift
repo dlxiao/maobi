@@ -29,7 +29,8 @@ struct FeedbackGraphicsView: View {
   var zoom : Double
   var submission : UIImage
   var character : String
-  var user : UserRepository
+  @ObservedObject var user : UserRepository
+  @EnvironmentObject var viewModel: ViewModel
   
   @State var selectedStroke = -1
   
@@ -147,7 +148,7 @@ struct FeedbackGraphicsView: View {
       }
       
       Button(action: {
-        user.setTotalStars(user.getTotalStars() + processed.stars)
+        // user.setTotalStars(user.getTotalStars() + processed.stars)
         // TODO: change to this after userLevel set up
         //      if let userLevel = user.getUserLevel(levels) {
         //          // Now you have the full UserLevel object
@@ -167,6 +168,10 @@ struct FeedbackGraphicsView: View {
         .background(Color(red: 0.83, green: 0.25, blue: 0.17))
         .foregroundColor(.white)
         .cornerRadius(15.0)
+        .onDisappear {
+            user.updateStars(inc: processed.stars)
+            user.addTotalStars(processed.stars)
+        }
     }
   }
   

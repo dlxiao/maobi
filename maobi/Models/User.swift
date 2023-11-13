@@ -8,7 +8,7 @@ import FirebaseFirestoreSwift
 
 
 struct User: Codable, Hashable {
-  var userID : String
+  @DocumentID var userID : String?
   var username: String
   var password: String
   var totalStars: Int
@@ -22,7 +22,7 @@ struct User: Codable, Hashable {
 }
 
 struct UserLevel: Codable, Hashable {
-  var userlevelID : String
+  @DocumentID var userlevelID : String?
   var maxStars: Int
   //TODO: change to character
   var character: String
@@ -37,7 +37,7 @@ struct UserLevel: Codable, Hashable {
 }
 
 struct Feedback: Codable, Hashable {
-  var userID : String
+  @DocumentID var userID : String?
   var feedbackID : String
   var userlevelID : String
   var stars: Int
@@ -131,24 +131,30 @@ class UserRepository: ObservableObject {
 //    return
 //  }
   
-  func addTotalStars(_ toAdd : Int) -> Int {
+  func addTotalStars(_ toAdd : Int) {
     let newTotal = self.user.totalStars + toAdd
     self.user.totalStars = newTotal
-    return newTotal
+    // return newTotal
   }
   
-  func updateMaxStars(userLevelId: String, newStars: Int) {
-      // Find the UserLevel object and update maxStars
-      if let index = self.userlevels.firstIndex(where: { $0.userlevelID == userLevelId }) {
-          let currentMaxStars = self.userlevels[index].maxStars
-          if newStars > currentMaxStars {
-              self.userlevels[index].maxStars = newStars
-              // Update Firebase (for both userlevel and user documents)
-//              updateUserLevelInFirebase(userLevelId: userLevelId, newMaxStars: newStars)
-//              updateUserInFirebase()
-          }
-      }
+  func updateStars(inc: Int){
+      guard let userId = user.userID else {return}
+
+      store.collection("user").document(userId).updateData(["totalStars": FieldValue.increment(Int64(inc))])
   }
+  
+//  func updateMaxStars(userLevelId: String, newStars: Int) {
+//      // Find the UserLevel object and update maxStars
+//      if let index = self.userlevels.firstIndex(where: { $0.userlevelID == userLevelId }) {
+//          let currentMaxStars = self.userlevels[index].maxStars
+//          if newStars > currentMaxStars {
+//              self.userlevels[index].maxStars = newStars
+//              // Update Firebase (for both userlevel and user documents)
+////              updateUserLevelInFirebase(userLevelId: userLevelId, newMaxStars: newStars)
+////              updateUserInFirebase()
+//          }
+//      }
+//  }
   
   //TODO: When user login set up.
 //  private func updateUserLevelInFirebase(userLevelId: String, newMaxStars: Int) {
