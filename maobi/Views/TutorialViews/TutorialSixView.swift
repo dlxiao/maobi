@@ -24,7 +24,7 @@ struct TutorialSixView: View {
                 ZStack{
                     Color.black.opacity(0.6).ignoresSafeArea()
                     VStack{
-                        Text("You're all set.").font(.largeTitle).fontWeight(.bold).foregroundColor(.white).padding()
+                        Text("You get 10 free stars.").font(.largeTitle).fontWeight(.bold).foregroundColor(.white).padding()
                         Text("Have fun!").font(.largeTitle).fontWeight(.bold).foregroundColor(.white).padding()
                     }
                 }
@@ -66,7 +66,10 @@ struct TutorialSixView: View {
             }
             .navigationBarTitle("")
             .navigationBarHidden(true)
-            .onDisappear{viewModel.isTabViewEnabled = true}
+            .onDisappear{
+              viewModel.isTabViewEnabled = true
+              user.setTotalStars(10)
+            }
 
     }
 }

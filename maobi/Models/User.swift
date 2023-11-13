@@ -131,6 +131,24 @@ class UserRepository: ObservableObject {
     return newTotal
   }
   
+  //TODO: When user login set up.
+//  func updateUserLevelStars(userID: String, newMaxStars: Int) {
+//      // Update the local model
+//      if let index = self.userlevels.firstIndex(where: { $0.userlevelID == currentLevelID }) {
+//          self.userlevels[index].maxStars = newMaxStars
+//      }
+//
+//      // Update Firebase
+//      let userLevelRef = store.collection("userlevel").document(currentLevelID)
+//      userLevelRef.updateData(["maxStars": newMaxStars]) { err in
+//          if let err = err {
+//              print("Error updating maxStars: \(err)")
+//          } else {
+//              print("maxStars successfully updated")
+//          }
+//      }
+//  }
+  
   // Loading data and private helpers
   init() {
     loadUser(self.userID)

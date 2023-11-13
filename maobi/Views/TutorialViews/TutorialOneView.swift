@@ -48,6 +48,8 @@ struct TutorialOneView: View {
                 
             }.onAppear{
                 viewModel.isTabViewEnabled = false
+                // give 10 free stars to users
+                user.setTotalStars(0)
             }
             
         }.navigationBarHidden(true)
