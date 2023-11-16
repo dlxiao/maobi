@@ -9,45 +9,31 @@ import SwiftUI
 
 struct MenuView: View {
   @EnvironmentObject var opData : OpData
-    
-    var body: some View {
-      Text("Placeholder menu with close button that pops stack and goes back to prev view")
-//        NavigationView{
-//            VStack(alignment: .leading){
-//                Text("Guest")
-//                    .padding(.top, 50)
-//              NavigationLink(destination: OnboardingView(levels: levels, user: user)){Text("Tutorial")}
-//                    .padding(.top)
-//                    .navigationBarTitle("")
-//                      .navigationBarBackButtonHidden(true)
-//                      .navigationBarHidden(true)
-//                Text("Sign Out")
-//                    .fontWeight(.bold)
-//                    .foregroundColor(Color.red)
-//                    .padding(.top)
-//
-//                Spacer()
-//            }
-//
-//            .padding()
-//            .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .leading)
-////            .background(
-////                Rectangle()
-////                    .fill(Color.white)
-////                    .shadow(color: .black.opacity(0.25), radius: 2, x: 4, y:0)
-////            )
-////            .edgesIgnoringSafeArea(.all)
-//
-//        }
-//        .navigationBarTitle("")
-//          .navigationBarBackButtonHidden(true)
-//          .navigationBarHidden(true)
-//
-    }
-}
+  
+  var body: some View {
+    VStack(alignment: .leading) {
+      TopBarView(stars: opData.user!.totalStars)
 
-//struct MenuView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MenuView()
-//    }
-//}
+      HStack{
+        Text("Hello, \(opData.user!.username)!").font(.title3).frame(maxWidth: .infinity, alignment: .leading)
+        Button(action: { opData.currView = opData.lastView.removeLast() }) {
+          Image(systemName: "xmark").font(.title).fontWeight(.bold)
+        }.frame(maxWidth: .infinity, alignment: .trailing)
+      }.padding().foregroundColor(.black)
+      
+      
+      Button(action: {
+        opData.currView = .onboarding
+      }) {
+        Text("Tutorial").fontWeight(.bold)
+      }.padding()
+      
+      Button(action: {
+        opData.currView = .login
+      }) {
+        Text("Sign Out").fontWeight(.bold)
+      }.padding()
+      Spacer()
+    }
+  }
+}

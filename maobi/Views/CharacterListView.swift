@@ -12,6 +12,7 @@ struct CharacterListView: View {
   @EnvironmentObject var opData : OpData
   
   var body: some View {
+    TopBarView(stars: opData.user!.totalStars)
     ZStack(alignment: .top) {
       // Back button
       HStack {

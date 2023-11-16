@@ -25,6 +25,7 @@ struct TutorialView: View {
               Rectangle()
                 .frame(width: screenWidth / 3)
                 .cornerRadius(10)
+                .offset(x: screenWidth / 3)
             )
             .overlay(
               Text("You're all set!\nHere are 10 stars to get you started.")
@@ -33,7 +34,7 @@ struct TutorialView: View {
                 .frame(maxWidth: screenWidth - 50, maxHeight: .infinity)
                 .offset(y: screenHeight * 0.06)
                 .multilineTextAlignment(.center),
-              alignment: .top
+              alignment: .topTrailing
             )
         } else {
           TopBarView(stars: 0)
@@ -41,6 +42,7 @@ struct TutorialView: View {
               Rectangle()
                 .frame(width: screenWidth / 3)
                 .cornerRadius(10)
+                .offset(x: screenWidth / 3)
             )
             .overlay(
               Text("Earn stars by practicing!\nStars are used unlock more levels.")
