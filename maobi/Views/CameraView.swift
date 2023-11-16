@@ -18,7 +18,7 @@
 //            VStack {
 //              Text("Getting Camera Feedback").font(.title)
 //              Text("After clicking open camera, please take a photo aligned to the overlay. You will receive feedback about the thickness, alignment, and stroke order of the character in this level: \(character.toString()). ").padding()
-//              
+//
 //              Button(action: {
 //                showCameraPicker = true
 //                overlay.alpha = 0.2
@@ -28,7 +28,7 @@
 //                .background(Color(red: 0.83, green: 0.25, blue: 0.17))
 //                .foregroundColor(.white)
 //                .cornerRadius(15.0)
-//              
+//
 //            }
 //            .sheet(isPresented: $showCameraPicker) {
 //              VStack{
@@ -42,7 +42,7 @@
 ////                    Image(uiImage: UIImage(named: "\(character.toString())_template")!).opacity(self.opacity)
 ////                  )
 //                }
-//                
+//
 ////                Button(action: {
 ////                  let renderer = ImageRenderer(content : self)
 ////                  if let uiImage = renderer.uiImage {
@@ -58,16 +58,17 @@
 ////                  .background(Color(red: 0.83, green: 0.25, blue: 0.17))
 ////                  .foregroundColor(.white)
 ////                  .cornerRadius(15.0)
-//                
-//                
+//
+//
 //              }
-//            
-//            }.navigate(to: AlignPhotoView(character: character.toString(), levels: levels, cameraModel: cameraModel, user: user), when: $navigateToAlignmentView)
+//
+//            }
+////            .navigate(to: AlignPhotoView(character: character.toString(), levels: levels, cameraModel: cameraModel, user: user), when: $navigateToAlignmentView)
 //    }
 //}
 //
 //extension UIImage {
-//    
+//
 //    // Crop the image to a specified ratio by removing the excess parts.
 //    func crop(ratio: CGFloat) -> UIImage {
 //        var newSize: CGSize!
@@ -76,19 +77,19 @@
 //        } else {
 //            newSize = CGSize(width: size.width, height: size.width / ratio)
 //        }
-//        
+//
 //        let rect = CGRect(
 //            x: (newSize.width - size.width) / 2.0,
 //            y: (newSize.height - size.height) / 2.0,
 //            width: size.width,
 //            height: size.height
 //        )
-//        
+//
 //        UIGraphicsBeginImageContext(newSize)
 //        draw(in: rect)
 //        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
 //        UIGraphicsEndImageContext()
-//        
+//
 //        return scaledImage ?? self
 //    }
 //}
@@ -100,13 +101,13 @@
 //    @Environment(\.presentationMode) private var presentationMode
 //    let sourceType: UIImagePickerController.SourceType
 //    let onImagePicked: (UIImage) -> Void
-// 
+//
 //    final class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 //      var character : String
 //        @Binding private var presentationMode: PresentationMode
 //        private let sourceType: UIImagePickerController.SourceType
 //        private let onImagePicked: (UIImage) -> Void
-// 
+//
 //      init(character: String, presentationMode: Binding<PresentationMode>,
 //             sourceType: UIImagePickerController.SourceType,
 //             onImagePicked: @escaping (UIImage) -> Void) {
@@ -114,9 +115,9 @@
 //            _presentationMode = presentationMode
 //            self.sourceType = sourceType
 //            self.onImagePicked = onImagePicked
-//          
+//
 //        }
-// 
+//
 //        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
 //            if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
 //                // Crop the image to a square before passing it back
@@ -125,40 +126,40 @@
 //            }
 //            presentationMode.dismiss()
 //        }
-// 
+//
 //        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
 //            presentationMode.dismiss()
 //        }
-// 
+//
 //    }
-// 
+//
 //    func makeCoordinator() -> Coordinator {
 //      return Coordinator(character: character,
 //                          presentationMode: presentationMode,
 //                           sourceType: sourceType,
 //                           onImagePicked: onImagePicked)
 //    }
-// 
+//
 //    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
 //        let picker = UIImagePickerController()
 //        picker.sourceType = sourceType
 //        picker.delegate = context.coordinator
 //        overlay.frame = CGRect(x: 0, y: 150, width: overlay.frame.width, height: overlay.frame.height)
 //        picker.cameraOverlayView = overlay
-//      
-//      
+//
+//
 ////        picker.showsCameraControls = false;
-//        
+//
 //        NotificationCenter.default.addObserver(forName: NSNotification.Name("_UIImagePickerControllerUserDidCaptureItem"), object: nil, queue: nil) { _ in
 //            picker.cameraOverlayView = nil
 //        }
-//      
+//
 //      NotificationCenter.default.addObserver(forName: NSNotification.Name("_UIImagePickerControllerUserDidRejectItem"), object: nil, queue: nil) { _ in picker.cameraOverlayView = overlay }
-//      
+//
 //      return picker
-//        
+//
 //    }
-// 
+//
 //    func updateUIViewController(_ uiViewController: UIImagePickerController,
 //                                context: UIViewControllerRepresentableContext<ImagePicker>) {
 //    }

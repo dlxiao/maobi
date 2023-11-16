@@ -11,6 +11,8 @@ struct NavigationView: View {
       case .tutorial: TutorialView().environmentObject(opData)
       case .login: LoginView().environmentObject(opData)
       case .home: HomeView().environmentObject(opData)
+      case .strokelist: StrokeListView().environmentObject(opData)
+      case .characterlist: CharacterListView().environmentObject(opData)
     }
   }
 }

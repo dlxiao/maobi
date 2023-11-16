@@ -22,12 +22,15 @@ enum CurrView:Int {
     case tutorial
     case home
     case login
+    case strokelist
+    case characterlist
 }
 
 class OpData : ObservableObject {
     @Published var currView = CurrView.login
     @Published var levels = Levels()
     @Published var user : UserRepository? = nil
+    @Published var character : CharacterData? = nil
 }
 
 

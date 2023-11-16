@@ -159,7 +159,7 @@
 //        //      }
 //      }) {
 //        NavigationLink(
-//          destination: HomeView(levels: levels, user: user),
+//          destination: HomeView(),
 //          label: { Text("Finish").fontWeight(.bold)
 //          })
 //      }.padding(.all)
