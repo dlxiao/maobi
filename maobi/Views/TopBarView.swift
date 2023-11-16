@@ -1,34 +1,40 @@
 //
-//  TopBarView.swift
+//  TutorialTopbarView.swift
 //  maobi
 //
-//  Created by Teresa Yuefan Yang on 11/1/23.
+//  Created by Dora Xiao on 11/14/23.
 //
 
 import SwiftUI
 
 struct TopBarView: View {
-    @EnvironmentObject var viewModel: ViewModel
-  var user : UserRepository
-
-    var body: some View {
-        ZStack(alignment: .top){
-          HStack{
-                    Image("star")
-                        .foregroundColor(Color(red:1, green: 0.97, blue: 0.78))
-                        .frame(width: 43, height: 43)
-                        .scaleEffect(0.5)
-            Text("\(user.getTotalStars())").bold()
-
-                }
-                .frame(maxWidth: .infinity)
-                .background(Color(red: 0.9, green: 0.71, blue: 0.54))
-            
-            
-
-            }
-        .overlay(viewModel.isOnboardingEnabled ? Color.white.ignoresSafeArea() : nil)
-
-
+  @EnvironmentObject var opData : OpData
+  var stars : Int
+  
+  var body: some View {
+    let screenHeight = UIScreen.main.bounds.height
+    let topbarSize = screenHeight * 0.06
+    
+    
+    ZStack(alignment: .top){
+      HStack{
+        Button(action: {
+//          opData.currView = .menu
+        }) {
+          Image(systemName: "line.3.horizontal")
+            .foregroundColor(.white)
+            .fontWeight(.bold)
+            .font(.title)
+        }
+        Spacer()
+          Image("star")
+            .foregroundColor(Color(red:1, green: 0.97, blue: 0.78))
+            .frame(width: topbarSize, height: topbarSize)
+            .scaleEffect(0.5)
+          Text("\(stars)").bold() // Pretend user has 0 stars during tutorial
+      }.padding([.leading, .trailing])
+      .frame(maxWidth: .infinity)
+      .background(Color(red: 0.9, green: 0.71, blue: 0.54))
     }
+  }
 }

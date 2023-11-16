@@ -22,10 +22,8 @@ struct LoginView: View {
     userRepo.loadUser() { userResult in
       if let user = userResult {
         if(user.completedTutorial) {
-          print("Navigating to home")
           self.opData.currView = .home
         } else {
-          print("Navigating to tutorial")
           self.opData.currView = .onboarding
         }
       } else {
@@ -37,7 +35,7 @@ struct LoginView: View {
   var body: some View {
     
     VStack {
-      Text("Placeholder Login, always goes to sampleuser_1")
+      Text("Placeholder Login (always sampleuser_1)")
       AsyncButton(
           "Login",
           action: onLogin

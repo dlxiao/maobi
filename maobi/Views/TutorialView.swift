@@ -20,7 +20,7 @@ struct TutorialView: View {
       
       VStack {
         if(tutorialNum == 6) {
-          TutorialTopBarView(stars: 10)
+          TopBarView(stars: 10)
             .mask(
               Rectangle()
                 .frame(width: screenWidth / 3)
@@ -36,7 +36,7 @@ struct TutorialView: View {
               alignment: .top
             )
         } else {
-          TutorialTopBarView(stars: 0)
+          TopBarView(stars: 0)
             .mask(
               Rectangle()
                 .frame(width: screenWidth / 3)

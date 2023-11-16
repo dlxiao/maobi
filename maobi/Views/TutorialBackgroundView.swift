@@ -11,7 +11,7 @@ struct TutorialBackgroundView: View {
   var body: some View {
     
     VStack {
-      TutorialTopBarView(stars: 0)
+      TopBarView(stars: 0)
       Spacer()
       
       HStack {

@@ -10,7 +10,6 @@
 		70471DFF2AF3F7A500DE800F /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70471DFE2AF3F7A500DE800F /* LevelView.swift */; };
 		70780E872AF331B50067BDEE /* StrokeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E862AF331B50067BDEE /* StrokeListView.swift */; };
 		70780E892AF331D30067BDEE /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E882AF331D30067BDEE /* CharacterListView.swift */; };
-		70780E8D2AF3325C0067BDEE /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E8C2AF3325C0067BDEE /* TopBarView.swift */; };
 		70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E902AF33ADB0067BDEE /* MenuView.swift */; };
 		709460142AFACDDE006AF4FE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709460132AFACDDE006AF4FE /* ViewModel.swift */; };
 		864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94C72AD99D8100F76C79 /* maobiApp.swift */; };
@@ -27,7 +26,7 @@
 		86DC80EA2AFFF62B00D61940 /* Perspective.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E92AFFF62B00D61940 /* Perspective.swift */; };
 		86DC80F82B00557B00D61940 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86DC80F72B00557B00D61940 /* GoogleService-Info.plist */; };
 		86DC80FE2B013C7600D61940 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80FD2B013C7600D61940 /* TutorialView.swift */; };
-		86DC813C2B040B6600D61940 /* TutorialTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC813B2B040B6600D61940 /* TutorialTopBarView.swift */; };
+		86DC813C2B040B6600D61940 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC813B2B040B6600D61940 /* TopBarView.swift */; };
 		86DC813F2B053D0B00D61940 /* TutorialBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC813E2B053D0B00D61940 /* TutorialBackgroundView.swift */; };
 		86DC81412B05787900D61940 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC81402B05787900D61940 /* NavigationView.swift */; };
 		86DC81432B057A2400D61940 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC81422B057A2400D61940 /* OnboardingView.swift */; };
@@ -68,7 +67,6 @@
 		70471DFE2AF3F7A500DE800F /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		70780E862AF331B50067BDEE /* StrokeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeListView.swift; sourceTree = "<group>"; };
 		70780E882AF331D30067BDEE /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
-		70780E8C2AF3325C0067BDEE /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		70780E902AF33ADB0067BDEE /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		709460132AFACDDE006AF4FE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		864D94C42AD99D8100F76C79 /* maobi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = maobi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +83,7 @@
 		86DC80E92AFFF62B00D61940 /* Perspective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perspective.swift; sourceTree = "<group>"; };
 		86DC80F72B00557B00D61940 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		86DC80FD2B013C7600D61940 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
-		86DC813B2B040B6600D61940 /* TutorialTopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTopBarView.swift; sourceTree = "<group>"; };
+		86DC813B2B040B6600D61940 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		86DC813E2B053D0B00D61940 /* TutorialBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialBackgroundView.swift; sourceTree = "<group>"; };
 		86DC81402B05787900D61940 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		86DC81422B057A2400D61940 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 				70780E862AF331B50067BDEE /* StrokeListView.swift */,
 				70780E882AF331D30067BDEE /* CharacterListView.swift */,
 				70471DFE2AF3F7A500DE800F /* LevelView.swift */,
-				70780E8C2AF3325C0067BDEE /* TopBarView.swift */,
 				70780E902AF33ADB0067BDEE /* MenuView.swift */,
 				86E232072AF5B65F00785AEC /* TestNavView.swift */,
 				86DC80E32AFEF55400D61940 /* FeedbackGraphicsView.swift */,
@@ -231,7 +228,7 @@
 				86DC81422B057A2400D61940 /* OnboardingView.swift */,
 				86DC81462B05E72700D61940 /* OnboardingViewOld.swift */,
 				86DC80FD2B013C7600D61940 /* TutorialView.swift */,
-				86DC813B2B040B6600D61940 /* TutorialTopBarView.swift */,
+				86DC813B2B040B6600D61940 /* TopBarView.swift */,
 				86DC813E2B053D0B00D61940 /* TutorialBackgroundView.swift */,
 				709460122AFACDCD006AF4FE /* ViewModels */,
 			);
@@ -381,7 +378,7 @@
 				70780E892AF331D30067BDEE /* CharacterListView.swift in Sources */,
 				70471DFF2AF3F7A500DE800F /* LevelView.swift in Sources */,
 				86DC81472B05E72700D61940 /* OnboardingViewOld.swift in Sources */,
-				86DC813C2B040B6600D61940 /* TutorialTopBarView.swift in Sources */,
+				86DC813C2B040B6600D61940 /* TopBarView.swift in Sources */,
 				864D94D42AD99D8300F76C79 /* maobi.xcdatamodeld in Sources */,
 				864D94E22AD9ACCF00F76C79 /* Character.swift in Sources */,
 				86E231FB2AF1E80900785AEC /* LevelView.swift in Sources */,
@@ -389,7 +386,6 @@
 				86DC80FE2B013C7600D61940 /* TutorialView.swift in Sources */,
 				86E232012AF2B09100785AEC /* FeedbackView.swift in Sources */,
 				70780E872AF331B50067BDEE /* StrokeListView.swift in Sources */,
-				70780E8D2AF3325C0067BDEE /* TopBarView.swift in Sources */,
 				86DC81452B057D2D00D61940 /* LoginView.swift in Sources */,
 				864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */,
 			);

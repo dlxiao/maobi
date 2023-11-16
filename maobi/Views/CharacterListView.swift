@@ -15,7 +15,7 @@ struct CharacterListView: View {
     ZStack(alignment: .top) {
       // Back button
       HStack {
-        Button(action: { opData.currView = .home }) {
+        Button(action: { opData.currView = opData.lastView }) {
           HStack {
             Image(systemName: "chevron.left")
             Text("Back")
@@ -30,7 +30,8 @@ struct CharacterListView: View {
             VStack{
               Button(action: {
                 opData.character = c
-                // opData.currView = .level
+                opData.lastView = .characterlist
+                opData.currView = .level
               }) {
                 Text(c.toString())
                   .foregroundColor(Color.black)

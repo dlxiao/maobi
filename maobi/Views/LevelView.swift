@@ -7,13 +7,26 @@ struct LevelView: View {
   var body: some View {
     let character = opData.character!
     VStack {
+      // Back button
+      HStack {
+        Button(action: { opData.currView = opData.lastView }) {
+          HStack {
+            Image(systemName: "chevron.left")
+            Text("Back")
+          }.foregroundColor(.black).font(.title3).fontWeight(.bold)
+        }.frame(maxWidth: .infinity, alignment: .leading)
+      }.padding()
+      
+      // Content
       Text(character.toString() + "  |  " + character.getPinyin()).font(.largeTitle).padding(20)
       Text("This character means \"" + character.getDefinition() + "\". To write it, follow the stroke order animation below:").padding(20)
       
       LevelGraphicsView(html: character.getLevelHTML()) // pass in image and animation
       Button(action: {
         if(["一", "丨", " ` ", "亅", "丶", "丿", "ノ", "小", "十","八", "二"].contains(character.toString())) {
-          //          self.opData.currView = .camera // TODO: finish rest of navigation
+          // opData.lastView = .level
+          // opData.currView = .camera
+          // TODO: uncomment these to connect this button to camera views after camera fixed
         }
       }) {
         Text("Check your Work!").fontWeight(.bold)

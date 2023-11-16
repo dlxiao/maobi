@@ -18,32 +18,34 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 // Navigation & app data instead of passing variables to views
 // https://www.hackingwithswift.com/forums/swiftui/pushing-a-view-without-navigation-view-swift-ui/6859
 enum CurrView:Int {
-    case onboarding
-    case tutorial
-    case home
-    case login
-    case strokelist
-    case characterlist
+  case onboarding
+  case tutorial
+  case home
+  case login
+  case strokelist
+  case characterlist
+  case level
 }
 
 class OpData : ObservableObject {
-    @Published var currView = CurrView.login
-    @Published var levels = Levels()
-    @Published var user : UserRepository? = nil
-    @Published var character : CharacterData? = nil
+  @Published var currView = CurrView.login
+  @Published var levels = Levels()
+  @Published var user : UserRepository? = nil
+  @Published var character : CharacterData? = nil
+  @Published var lastView = CurrView.login
 }
 
 
 // For displaying animations and pictures of characters
 struct WebView: UIViewRepresentable {
   var html: String
-
+  
   func makeUIView(context: Context) -> WKWebView {
     var webView = WKWebView()
     return webView
     
   }
-
+  
   func updateUIView(_ uiView: WKWebView, context: Context) {
     uiView.loadHTMLString(html, baseURL: nil)
     
@@ -55,10 +57,10 @@ struct WebView: UIViewRepresentable {
 struct maobiApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
   private var opData = OpData()
-
+  
   var body: some Scene {
-      WindowGroup {
-          NavigationView().environmentObject(opData)
-      }
+    WindowGroup {
+      NavigationView().environmentObject(opData)
+    }
   }
 }
