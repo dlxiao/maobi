@@ -25,6 +25,7 @@ enum CurrView:Int {
   case strokelist
   case characterlist
   case level
+  case menu
 }
 
 class OpData : ObservableObject {
@@ -32,7 +33,7 @@ class OpData : ObservableObject {
   @Published var levels = Levels()
   @Published var user : UserRepository? = nil
   @Published var character : CharacterData? = nil
-  @Published var lastView = CurrView.login
+  @Published var lastView : [CurrView] = [] // nav stack
 }
 
 

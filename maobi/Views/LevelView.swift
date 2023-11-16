@@ -9,7 +9,7 @@ struct LevelView: View {
     VStack {
       // Back button
       HStack {
-        Button(action: { opData.currView = opData.lastView }) {
+        Button(action: { opData.currView = opData.lastView.removeLast() }) {
           HStack {
             Image(systemName: "chevron.left")
             Text("Back")

@@ -22,9 +22,9 @@ struct LoginView: View {
     userRepo.loadUser() { userResult in
       if let user = userResult {
         if(user.completedTutorial) {
-          self.opData.currView = .home
+          opData.currView = .home
         } else {
-          self.opData.currView = .onboarding
+          opData.currView = .onboarding
         }
       } else {
         print("Couldn't fetch user")

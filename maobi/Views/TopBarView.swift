@@ -19,7 +19,8 @@ struct TopBarView: View {
     ZStack(alignment: .top){
       HStack{
         Button(action: {
-//          opData.currView = .menu
+          opData.lastView.append(opData.currView)
+          opData.currView = .menu
         }) {
           Image(systemName: "line.3.horizontal")
             .foregroundColor(.white)

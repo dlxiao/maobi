@@ -151,6 +151,7 @@ struct TutorialView: View {
         } else {
           Button(action: {
             opData.user!.completeTutorial()
+            opData.lastView.append(.tutorial)
             opData.currView = .home
           }) {
             Text("Finish")

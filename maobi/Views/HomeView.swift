@@ -11,7 +11,7 @@ struct HomeView: View {
       HStack {
         VStack{
           Button(action: {
-            opData.lastView = .home
+            opData.lastView.append(.home)
             opData.currView = .strokelist
           }) {
             Image("strokes-icon").padding(10.0)
@@ -21,7 +21,7 @@ struct HomeView: View {
         
         VStack{
           Button(action: {
-            opData.lastView = .home
+            opData.lastView.append(.home)
             opData.currView = .characterlist
           }) {
             Image("character-icon").padding(10.0)
@@ -33,7 +33,7 @@ struct HomeView: View {
       HStack {
         VStack{
           Button(action:{
-            opData.lastView = .home
+            opData.lastView.append(.home)
             // opData.currView = .extrapacks
           }){
             Image("stack").padding(10.0)
@@ -42,7 +42,7 @@ struct HomeView: View {
         }
         VStack{
           Button(action:{
-            opData.lastView = .home
+            opData.lastView.append(.home)
             // opData.currView = .dailychallenge
           }){
             Image("daily-icon").padding(10.0)

@@ -15,7 +15,9 @@ struct CharacterListView: View {
     ZStack(alignment: .top) {
       // Back button
       HStack {
-        Button(action: { opData.currView = opData.lastView }) {
+        Button(action: {
+          opData.currView = opData.lastView.removeLast()
+        }) {
           HStack {
             Image(systemName: "chevron.left")
             Text("Back")
@@ -30,7 +32,7 @@ struct CharacterListView: View {
             VStack{
               Button(action: {
                 opData.character = c
-                opData.lastView = .characterlist
+                opData.lastView.append(.characterlist)
                 opData.currView = .level
               }) {
                 Text(c.toString())

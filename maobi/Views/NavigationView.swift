@@ -14,6 +14,7 @@ struct NavigationView: View {
     case .strokelist: StrokeListView().environmentObject(opData)
     case .characterlist: CharacterListView().environmentObject(opData)
     case .level: LevelView().environmentObject(opData)
+    case .menu: MenuView().environmentObject(opData)
     }
   }
 }

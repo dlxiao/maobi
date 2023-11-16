@@ -165,6 +165,7 @@ struct OnboardingView: View {
       HStack{
         Spacer()
         Button(action: {
+          opData.lastView.append(.onboarding)
           opData.currView = .tutorial
         }) {
           Image(systemName: "chevron.right.2")
