@@ -4,6 +4,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 import UIKit
 import FirebaseCore
+import WebKit
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -14,68 +15,47 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   }
 }
 
+// Navigation & app data instead of passing variables to views
+// https://www.hackingwithswift.com/forums/swiftui/pushing-a-view-without-navigation-view-swift-ui/6859
+enum CurrView:Int {
+    case onboarding
+    case tutorial
+    case home
+    case login
+}
+
+class OpData : ObservableObject {
+    @Published var currView = CurrView.login
+    @Published var levels = Levels()
+    @Published var user : UserRepository? = nil
+}
+
+
+// For displaying animations and pictures of characters
+struct WebView: UIViewRepresentable {
+  var html: String
+
+  func makeUIView(context: Context) -> WKWebView {
+    var webView = WKWebView()
+    return webView
+    
+  }
+
+  func updateUIView(_ uiView: WKWebView, context: Context) {
+    uiView.loadHTMLString(html, baseURL: nil)
+    
+  }
+}
+
+
 @main
 struct maobiApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-  @State private var showTutorial = isFirstLaunch()
-    var viewModel = ViewModel()
-    
-  
-  var levels = Levels()
-  var body: some Scene {
-    WindowGroup {
-//      if showTutorial {
-//        OnboardingView(levels: levels, onFinish: {
-//          showTutorial = false
-//          UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
-//        })
-//      } else {
-//        HomeView(levels: levels)
-//      }
-      TestNavView().environmentObject(viewModel)
-            
-//      NavigationView {
-//        NavigationLink("to align photo view", destination: AlignPhotoView(character: "小"))
-//      }
-      
-      // Pass in PERSPECTIVE TRANSFORMED version of submission & the current level's character
-//      FeedbackGraphicsView(submission: UIImage.init(named: "小_thick")!, character: "小")
-    }
-    
-  }
-  
-  
-  
-  static func isFirstLaunch() -> Bool {
-    return !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
-  }
-  
-}
+  private var opData = OpData()
 
-// pop to root of navigation stack
-// taken from https://stackoverflow.com/questions/57334455/how-can-i-pop-to-the-root-view-using-swiftui/59662275#59662275
-struct NavigationUtil {
-  static func popToRootView(animated: Bool = false) {
-    findNavigationController(viewController: UIApplication.shared.connectedScenes.flatMap { ($0 as? UIWindowScene)?.windows ?? [] }.first { $0.isKeyWindow }?.rootViewController)?.popToRootViewController(animated: animated)
-  }
-  
-  static func findNavigationController(viewController: UIViewController?) -> UINavigationController? {
-    guard let viewController = viewController else {
-      return nil
-    }
-    
-    if let navigationController = viewController as? UITabBarController {
-      return findNavigationController(viewController: navigationController.selectedViewController)
-    }
-    
-    if let navigationController = viewController as? UINavigationController {
-      return navigationController
-    }
-    
-    for childViewController in viewController.children {
-      return findNavigationController(viewController: childViewController)
-    }
-    
-    return nil
+  var body: some Scene {
+      WindowGroup {
+          NavigationView().environmentObject(opData)
+      }
   }
 }
