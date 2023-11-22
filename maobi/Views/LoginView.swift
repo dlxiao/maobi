@@ -11,31 +11,57 @@ import FirebaseFirestoreCombineSwift
 import SwiftUI
 
 
-
 struct LoginView: View {
   @EnvironmentObject var opData : OpData
+  @State var formUsername : String = "sampleusername_1"
+  @State var formPassword : String = "password_1"
+  @State var validAccount = true
   
   // async completion handler for initalizing user
   func onLogin() async -> Void {
-    var userRepo = UserRepository("sampleuser_1")
-    self.opData.user = userRepo
-    userRepo.loadUser() { userResult in
-      if let user = userResult {
-        if(user.completedTutorial) {
-          opData.currView = .home
+      var userRepo = UserRepository(formUsername, formPassword)
+      userRepo.loginUser() { userResult in
+        if let user = userResult {
+          if(user.count != 1) {
+            validAccount = false
+            print("Couldn't fetch user")
+          } else {
+            self.opData.user = userRepo
+            if(user[0].completedTutorial) {
+              opData.currView = .home
+            } else {
+              opData.currView = .onboarding
+            }
+          }
         } else {
-          opData.currView = .onboarding
+          validAccount = false
+          print("Couldn't fetch user")
         }
-      } else {
-        print("Couldn't fetch user")
       }
     }
-  }
   
   var body: some View {
     
     VStack {
-      Text("Placeholder Login (always sampleuser_1)")
+      Spacer()
+      Image("maobi_logo")
+      
+      VStack {
+        TextField("username", text: $formUsername)
+          .padding(.all)
+          .background(Color.white)
+          .frame(width: screenWidth / 1.5)
+          .cornerRadius(10)
+        TextField("password", text: $formPassword)
+          .padding(.all)
+          .background(Color.white)
+          .frame(width: screenWidth / 1.5)
+          .cornerRadius(10)
+          .padding()
+      }
+      
+      Text("Couldn't find account. Please try again.").foregroundColor(validAccount ? Color(red: 0.9, green: 0.71, blue: 0.54) : Color.black)
+        
       AsyncButton(
           "Login",
           action: onLogin
@@ -43,7 +69,9 @@ struct LoginView: View {
         .background(Color(red: 0.83, green: 0.25, blue: 0.17))
         .foregroundColor(.white)
         .cornerRadius(15.0)
-    }
+      Spacer()
+    }.frame(maxWidth: .infinity, maxHeight: .infinity)
+      .background(Color(red: 0.9, green: 0.71, blue: 0.54))
   }
 }
 
@@ -128,3 +156,4 @@ extension AsyncButton where Label == Image {
         }
     }
 }
+

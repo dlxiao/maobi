@@ -28,12 +28,13 @@ enum CurrView:Int {
   case menu
 }
 
+// Environment variable for whole app
 class OpData : ObservableObject {
   @Published var currView = CurrView.login
   @Published var levels = Levels()
   @Published var user : UserRepository? = nil
   @Published var character : CharacterData? = nil
-  @Published var lastView : [CurrView] = [] // nav stack
+  @Published var lastView : [CurrView] = [] // custom navigation stack
 }
 
 

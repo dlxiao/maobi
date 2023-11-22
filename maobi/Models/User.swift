@@ -30,6 +30,7 @@ class UserRepository: ObservableObject {
   @Published var password = ""
   @Published var totalStars = 0
   @Published var completedTutorial = false
+  @Published var success = false
   
   func getTotalStars() -> Int {
       return self.totalStars
@@ -50,37 +51,61 @@ class UserRepository: ObservableObject {
     }
   }
   
-  init(_ userID : String) {
-    self.userID = userID
+  init(_ username : String, _ password : String) {
+    self.username = username
+    self.password = password
     
     // Initialize local data
     self.loadUser() { userResult in
       if let user = userResult {
-        self.username = user.username
-        self.password = user.password
+        self.userID = user.userID
         self.totalStars = user.totalStars
         self.completedTutorial = user.completedTutorial
+        self.success = true
         print("Initialized user: \(user)")
       } else {
+        self.success = false
         print("Couldn't initialize user")
       }
     }
   }
   
   func loadUser(completion: @escaping (User?) -> Void) {
-    store.collection("user").whereField("userID", isEqualTo: userID).limit(to: 1)
+    store.collection("user")
+      .whereField("username", isEqualTo: self.username)
+      .whereField("password", isEqualTo: self.password)
+      .limit(to: 1)
       .getDocuments() { (querySnapshot, err) in
         if let err = err {
-          print("Error loading current user (\(self.userID)) from Firebase: \(err).")
+          print("Error loading username=\(self.username), password=\(self.password) from Firebase: \(err).")
         } else {
           let data = querySnapshot?.documents.compactMap { document in
             try? document.data(as: User.self)
           } ?? []
           if(data.count != 1) {
-            print("Error loading current user (\(self.userID)) from Firebase: 0 or multiple users found.")
+            print("Error loading username=\(self.username), password=\(self.password) from Firebase: 0 or multiple users found.")
           } else {
+            self.success = true
             completion(data[0])
           }
+        }
+      }
+  }
+  
+  
+  func loginUser(completion: @escaping ([User]?) -> Void) {
+    store.collection("user")
+      .whereField("username", isEqualTo: self.username)
+      .whereField("password", isEqualTo: self.password)
+      .limit(to: 1)
+      .getDocuments() { (querySnapshot, err) in
+        if let err = err {
+          print("Error loading username=\(self.username), password=\(self.password) from Firebase: \(err).")
+        } else {
+          let data = querySnapshot?.documents.compactMap { document in
+            try? document.data(as: User.self)
+          } ?? []
+          completion(data)
         }
       }
   }

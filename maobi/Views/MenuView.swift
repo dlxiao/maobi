@@ -18,7 +18,7 @@ struct MenuView: View {
         Text("Hello, \(opData.user!.username)!").font(.title3).frame(maxWidth: .infinity, alignment: .leading)
         Button(action: { opData.currView = opData.lastView.removeLast() }) {
           Image(systemName: "xmark").font(.title).fontWeight(.bold)
-        }.frame(maxWidth: .infinity, alignment: .trailing)
+        }.frame(alignment: .trailing)
       }.padding().foregroundColor(.black)
       
       
