@@ -13,7 +13,7 @@ struct SearchBarView: View {
     
     var body: some View {
         HStack{
-            TextField("Filter by character, stroke, or meaning", text: $text)
+            TextField("Filter by character, pinyin, or meaning", text: $text)
                 .padding(15)
                 .padding(.horizontal, 25)
                 .background(Color(.systemGray6))
