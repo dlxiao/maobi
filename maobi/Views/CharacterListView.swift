@@ -10,7 +10,19 @@ import WebKit
 
 struct CharacterListView: View {
   @EnvironmentObject var opData : OpData
-  
+    @State var text = ""
+    var filteredLevels: [CharacterData]{
+        if text.isEmpty{
+            return opData.levels.getCharacterLevels()
+        } else {
+            return opData.levels.getCharacterLevels().filter{ c in
+                c.getPinyin().localizedCaseInsensitiveContains(text) ||
+                c.getDefinition().localizedCaseInsensitiveContains(text)
+                
+            }
+        }
+    }
+    
   var body: some View {
     TopBarView(stars: opData.user!.totalStars)
     ZStack(alignment: .top) {
@@ -25,11 +37,15 @@ struct CharacterListView: View {
           }.foregroundColor(.black).font(.title3).fontWeight(.bold)
         }.frame(maxWidth: .infinity, alignment: .leading)
       }.padding()
+        
       
       // Levels tiles
       ScrollView{
+          //Search bar
+          SearchBarView(text: $text).padding()
+
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]){
-          ForEach(opData.levels.getCharacterLevels()){ c in
+          ForEach(filteredLevels){ c in
             VStack{
               Button(action: {
                 opData.character = c
@@ -51,8 +67,8 @@ struct CharacterListView: View {
         }
         
       }.padding(.top, 100)
+//            .searchable(text: $searchText, placement: .automatic, prompt: "Filter by character, stroke, or meaning")
+
     }
-    
-    
   }
-}
+    }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		700A31AE2B145F800079B55F /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700A31AD2B145F800079B55F /* SearchBarView.swift */; };
 		70471DFF2AF3F7A500DE800F /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70471DFE2AF3F7A500DE800F /* LevelView.swift */; };
 		70780E872AF331B50067BDEE /* StrokeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E862AF331B50067BDEE /* StrokeListView.swift */; };
 		70780E892AF331D30067BDEE /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E882AF331D30067BDEE /* CharacterListView.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		700A31AD2B145F800079B55F /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		70471DFE2AF3F7A500DE800F /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		70780E862AF331B50067BDEE /* StrokeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeListView.swift; sourceTree = "<group>"; };
 		70780E882AF331D30067BDEE /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */,
 				70780E862AF331B50067BDEE /* StrokeListView.swift */,
 				70780E882AF331D30067BDEE /* CharacterListView.swift */,
+				700A31AD2B145F800079B55F /* SearchBarView.swift */,
 				70471DFE2AF3F7A500DE800F /* LevelView.swift */,
 				70780E902AF33ADB0067BDEE /* MenuView.swift */,
 				86E232072AF5B65F00785AEC /* TestNavView.swift */,
@@ -363,6 +366,7 @@
 				86DC80EA2AFFF62B00D61940 /* Perspective.swift in Sources */,
 				86E232082AF5B65F00785AEC /* TestNavView.swift in Sources */,
 				8D52D5362B027381000223BB /* UserLevel.swift in Sources */,
+				700A31AE2B145F800079B55F /* SearchBarView.swift in Sources */,
 				86E231B52AE6287D00785AEC /* HomeView.swift in Sources */,
 				70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */,
 				86E231BB2AE9FA5B00785AEC /* User.swift in Sources */,
