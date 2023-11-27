@@ -17,8 +17,8 @@ struct CharacterListView: View {
         } else {
             return opData.levels.getCharacterLevels().filter{ c in
                 c.getPinyin().localizedCaseInsensitiveContains(text) ||
-                c.getDefinition().localizedCaseInsensitiveContains(text)
-                
+                c.getDefinition().localizedCaseInsensitiveContains(text) ||
+                c.toString().localizedCaseInsensitiveContains(text)                
             }
         }
     }
