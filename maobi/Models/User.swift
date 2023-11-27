@@ -36,7 +36,7 @@ class UserRepository: ObservableObject {
   @Published var success = false
   
   func getTotalStars() -> Int {
-      return self.totalStars
+    return self.totalStars
   }
   
   func completeTutorial() {
@@ -123,50 +123,55 @@ class UserRepository: ObservableObject {
       .whereField("username", isEqualTo: self.username)
       .getDocuments() { (querySnapshot, err) in
         if let err = err {
+          print("Error checking if username exists \(self.username)")
           completion([])
         } else {
           let data = querySnapshot?.documents.compactMap { document in
             try? document.data(as: User.self)
           } ?? []
-          if(data.count == 1) {completion([])}
-          // Username doesn't exist already, ok to create account
-          var ref: DocumentReference? = nil
-          ref = self.store.collection("user").addDocument(data: [
-            "username": self.username,
-            "email": self.email,
-            "password": self.password,
-            "completedTutorial": false,
-            "totalStars": 0,
-          ]) { err in
-            if let err = err {
-              print("Error creating user account: \(err)")
-            } else {
-              print("User account created with ID: \(ref!.documentID)")
-              self.userID = ref!.documentID
-              self.store.collection("user").document(ref!.documentID).updateData([
-                "userID": ref!.documentID
-              ]) { err in
-                if let err = err {
-                  print("Error updating userID: \(err)")
-                } else {
-                  print("Document successfully updated")
-                }
-              }
-              // Retrieve newly created user
-              self.store.collection("user")
-                .whereField("username", isEqualTo: self.username)
-                .whereField("password", isEqualTo: self.password)
-                .limit(to: 1)
-                .getDocuments() { (querySnapshot, err) in
+          if(data.count > 0) {
+            print("Username already exists: \(self.username)")
+            completion(nil)
+          } else {
+            print("Username doesn't exist, creating account")
+            var ref: DocumentReference? = nil
+            ref = self.store.collection("user").addDocument(data: [
+              "username": self.username,
+              "email": self.email,
+              "password": self.password,
+              "completedTutorial": false,
+              "totalStars": 0,
+            ]) { err in
+              if let err = err {
+                print("Error creating user account: \(err)")
+              } else {
+                print("User account created with ID: \(ref!.documentID)")
+                self.userID = ref!.documentID
+                self.store.collection("user").document(ref!.documentID).updateData([
+                  "userID": ref!.documentID
+                ]) { err in
                   if let err = err {
-                    print("Error loading username=\(self.username), password=\(self.password) from Firebase: \(err).")
+                    print("Error updating userID: \(err)")
                   } else {
-                    let data = querySnapshot?.documents.compactMap { document in
-                      try? document.data(as: User.self)
-                    } ?? []
-                    completion(data)
+                    print("Document successfully updated")
                   }
                 }
+                // Retrieve newly created user
+                self.store.collection("user")
+                  .whereField("username", isEqualTo: self.username)
+                  .whereField("password", isEqualTo: self.password)
+                  .limit(to: 1)
+                  .getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                      print("Error loading username=\(self.username), password=\(self.password) from Firebase: \(err).")
+                    } else {
+                      let data = querySnapshot?.documents.compactMap { document in
+                        try? document.data(as: User.self)
+                      } ?? []
+                      completion(data)
+                    }
+                  }
+              }
             }
           }
         }

@@ -45,7 +45,7 @@ struct CreateAccountView: View {
           }
         } else {
           validAccount = false
-          print("Couldn't create user")
+          errorMsg = "Username already exists"
         }
       }
     }
