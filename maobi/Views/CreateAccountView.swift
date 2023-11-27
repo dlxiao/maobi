@@ -18,23 +18,35 @@ struct CreateAccountView: View {
   @State var formPassword : String = "NewPassword"
   @State var formConfirmPassword : String = "NewPassword"
   @State var validAccount = true
+  @State var errorMsg = "Couldn't create account. Please try again."
+  let emailValidation = NSPredicate(format:"SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
   
   // async completion handler for creating account
   func onCreateAccount() async -> Void {
-    var userRepo = UserRepository(formUsername, formPassword, formEmail)
-    userRepo.createUser() { userResult in
-      if let user = userResult {
-        if(user.count != 1) {
-          validAccount = false
-          print("Couldn't fetch newly created user")
+    // validation
+    if(formPassword != formConfirmPassword) {
+      validAccount = false
+      errorMsg = "Passwords don't match."
+    } else if (!emailValidation.evaluate(with: formEmail)) {
+      validAccount = false
+      errorMsg = "Invalid email."
+    } else {
+      // create account
+      var userRepo = UserRepository(formUsername, formPassword, formEmail)
+      userRepo.createUser() { userResult in
+        if let user = userResult {
+          if(user.count != 1) {
+            validAccount = false
+            print("Couldn't fetch newly created user")
+          } else {
+            // always go to onboarding for new account
+            self.opData.user = userRepo
+            opData.currView = .onboarding
+          }
         } else {
-          // always go to onboarding for new account
-          self.opData.user = userRepo
-          opData.currView = .onboarding
+          validAccount = false
+          print("Couldn't create user")
         }
-      } else {
-        validAccount = false
-        print("Couldn't create user")
       }
     }
   }
@@ -79,15 +91,14 @@ struct CreateAccountView: View {
         }.padding()
       }
       AsyncButton(
-          "Sign Up",
-          action: onCreateAccount
+        "Sign Up",
+        action: onCreateAccount
       ).padding(.all)
         .background(Color(red: 0.83, green: 0.25, blue: 0.17))
         .foregroundColor(.white)
-        .disabled(!validAccount)
         .cornerRadius(15.0)
       
-      Text("Couldn't create account. Please try again.").foregroundColor(validAccount ? Color(red: 0.9, green: 0.71, blue: 0.54) : Color.black)
+      Text(errorMsg).foregroundColor(validAccount ? Color(red: 0.9, green: 0.71, blue: 0.54) : Color.black)
       
       Spacer()
     }.frame(maxWidth: .infinity, maxHeight: .infinity)
