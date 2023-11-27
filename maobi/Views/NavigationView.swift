@@ -15,6 +15,7 @@ struct NavigationView: View {
     case .characterlist: CharacterListView().environmentObject(opData)
     case .level: LevelView().environmentObject(opData)
     case .menu: MenuView().environmentObject(opData)
+    case .createaccount: CreateAccountView().environmentObject(opData)
     }
   }
 }

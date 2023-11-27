@@ -13,27 +13,30 @@ import SwiftUI
 
 struct CreateAccountView: View {
   @EnvironmentObject var opData : OpData
-  @State var formEmail : String = ""
-  @State var formUsername : String = ""
-  @State var formPassword : String = ""
-  @State var formConfirmPassword : String = ""
-  private var validAccount = false
+  @State var formEmail : String = "NewEmail"
+  @State var formUsername : String = "NewUsername"
+  @State var formPassword : String = "NewPassword"
+  @State var formConfirmPassword : String = "NewPassword"
+  @State var validAccount = true
   
   // async completion handler for creating account
   func onCreateAccount() async -> Void {
-//    var userRepo = UserRepository("sampleuser_1")
-//    self.opData.user = userRepo
-//    userRepo.loadUser() { userResult in
-//      if let user = userResult {
-//        if(user.completedTutorial) {
-//          opData.currView = .home
-//        } else {
-//          opData.currView = .onboarding
-//        }
-//      } else {
-//        print("Couldn't fetch user")
-//      }
-//    }
+    var userRepo = UserRepository(formUsername, formPassword, formEmail)
+    userRepo.createUser() { userResult in
+      if let user = userResult {
+        if(user.count != 1) {
+          validAccount = false
+          print("Couldn't fetch newly created user")
+        } else {
+          // always go to onboarding for new account
+          self.opData.user = userRepo
+          opData.currView = .onboarding
+        }
+      } else {
+        validAccount = false
+        print("Couldn't create user")
+      }
+    }
   }
   
   var body: some View {
@@ -67,13 +70,14 @@ struct CreateAccountView: View {
           .frame(width: screenWidth / 1.5)
           .cornerRadius(10)
         
-        Button(action: {}) {
+        Button(action: {
+          opData.currView = .login
+        }) {
           Text("Have an account? Log in")
             .foregroundColor(Color.black)
             .underline(true)
         }.padding()
       }
-        
       AsyncButton(
           "Sign Up",
           action: onCreateAccount
@@ -82,6 +86,9 @@ struct CreateAccountView: View {
         .foregroundColor(.white)
         .disabled(!validAccount)
         .cornerRadius(15.0)
+      
+      Text("Couldn't create account. Please try again.").foregroundColor(validAccount ? Color(red: 0.9, green: 0.71, blue: 0.54) : Color.black)
+      
       Spacer()
     }.frame(maxWidth: .infinity, maxHeight: .infinity)
       .background(Color(red: 0.9, green: 0.71, blue: 0.54))

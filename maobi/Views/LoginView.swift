@@ -59,9 +59,15 @@ struct LoginView: View {
           .cornerRadius(10)
           .padding()
       }
+      Button(action: {
+        opData.currView = .createaccount
+      }) {
+        Text("New user? Create account")
+          .foregroundColor(Color.black)
+          .underline(true)
+      }.padding()
       
-      Text("Couldn't find account. Please try again.").foregroundColor(validAccount ? Color(red: 0.9, green: 0.71, blue: 0.54) : Color.black)
-        
+      
       AsyncButton(
           "Login",
           action: onLogin
@@ -69,9 +75,13 @@ struct LoginView: View {
         .background(Color(red: 0.83, green: 0.25, blue: 0.17))
         .foregroundColor(.white)
         .cornerRadius(15.0)
+      
+      Text("Couldn't find account. Please try again.").foregroundColor(validAccount ? Color(red: 0.9, green: 0.71, blue: 0.54) : Color.black)
+      
       Spacer()
     }.frame(maxWidth: .infinity, maxHeight: .infinity)
       .background(Color(red: 0.9, green: 0.71, blue: 0.54))
+    
   }
 }
 
