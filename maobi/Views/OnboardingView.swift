@@ -158,7 +158,7 @@ struct OnboardingView: View {
           }
         }
         .padding()
-        Text("You can access this information any time from the home screen.")
+        Text("You can access this information any time by redoing the tutorial from the menu.")
           .font(.system(size: 10))
           .foregroundColor(.gray)
       }.padding(50)

@@ -48,7 +48,7 @@ struct StrokeListView: View {
           }
         }
         
-      }.padding(.top, 100)
+      }.padding(.top, 60)
     }
     
     

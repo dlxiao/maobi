@@ -66,8 +66,7 @@ struct CharacterListView: View {
           }
         }
         
-      }.padding(.top, 100)
-//            .searchable(text: $searchText, placement: .automatic, prompt: "Filter by character, stroke, or meaning")
+      }.padding(.top, 50)
 
     }
   }
