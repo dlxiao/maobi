@@ -40,6 +40,8 @@ struct SearchBarView: View {
                 ).onTapGesture{
                     self.isEditing = true
                 }
+                .gesture(DragGesture().onChanged({ _ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for :nil)}))
+
             
             if isEditing{
                 Button(action:{
