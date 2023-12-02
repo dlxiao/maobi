@@ -16,3 +16,6 @@
 {"character":"七","definition":"seven (7)","pinyin":["qī"],"decomposition":"⿻一乚","radical":"一","matches":[[0],[1]]}
 {"character":"六","definition":"six (6)","pinyin":["liù"],"decomposition":"⿱亠八","radical":"八","matches":[[0],[0],[1],[1]]}
 {"character":"二","definition":"two (2)","pinyin":["èr"],"decomposition":"","radical":"","matches":[]}
+{"character":"心","definition":"heart; mind; soul","pinyin":["xīn"],"decomposition":"？","etymology":{"type":"pictographic","hint":"A heart"},"radical":"心","matches":[null,null,null,null]}
+{"character":"川","definition":"stream, river","pinyin":["chuān"],"decomposition":"⿲丿丨丨","etymology":{"type":"ideographic","hint":"A river's flow; compare 巛"},"radical":"川","matches":[[0],[1],[2]]}
+{"character":"门","definition":"gate, door, entrance, opening","pinyin":["mén"],"decomposition":"⿰⿱丶丨？","etymology":{"type":"pictographic","hint":"An open doorway or gate"},"radical":"门","matches":[[0,0],[0,1],null]}
