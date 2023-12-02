@@ -21,6 +21,11 @@
 		864D94DC2AD9A9C700F76C79 /* SVGPath in Frameworks */ = {isa = PBXBuildFile; productRef = 864D94DB2AD9A9C700F76C79 /* SVGPath */; };
 		864D94E22AD9ACCF00F76C79 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94E12AD9ACCF00F76C79 /* Character.swift */; };
 		86712D9C2B0E29AB00949161 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86712D9B2B0E29AB00949161 /* CreateAccountView.swift */; };
+		86D43FF62B17AC6200C78F37 /* maobiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D43FF52B17AC6200C78F37 /* maobiTests.swift */; };
+		86D43FFE2B17ADB300C78F37 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 86D43FFD2B17ADB300C78F37 /* FirebaseDatabase */; };
+		86D440002B17ADC600C78F37 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86D43FFF2B17ADC600C78F37 /* FirebaseDatabaseSwift */; };
+		86D440022B17ADD600C78F37 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 86D440012B17ADD600C78F37 /* FirebaseFirestore */; };
+		86D440042B17ADDA00C78F37 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86D440032B17ADDA00C78F37 /* FirebaseFirestoreSwift */; };
 		86DC80E22AFEF53200D61940 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E12AFEF53200D61940 /* Feedback.swift */; };
 		86DC80E42AFEF55400D61940 /* FeedbackGraphicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E32AFEF55400D61940 /* FeedbackGraphicsView.swift */; };
 		86DC80E62AFF310400D61940 /* AlignPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E52AFF310400D61940 /* AlignPhotoView.swift */; };
@@ -61,8 +66,17 @@
 		8D3487772AF5B5B2008186E0 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487762AF5B5B2008186E0 /* FirebaseAppCheck */; };
 		8D52D5322B02596E000223BB /* FingerDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D52D5312B02596E000223BB /* FingerDraw.swift */; };
 		8D52D5342B02598F000223BB /* FingerDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D52D5332B02598F000223BB /* FingerDrawView.swift */; };
-		8D52D5362B027381000223BB /* UserLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D52D5352B027381000223BB /* UserLevel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		86D43FF72B17AC6200C78F37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 864D94BC2AD99D8100F76C79 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 864D94C32AD99D8100F76C79;
+			remoteInfo = maobi;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		700A31AD2B145F800079B55F /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
@@ -79,6 +93,9 @@
 		864D94D32AD99D8300F76C79 /* maobi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = maobi.xcdatamodel; sourceTree = "<group>"; };
 		864D94E12AD9ACCF00F76C79 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		86712D9B2B0E29AB00949161 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		86D43FF32B17AC6200C78F37 /* maobiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = maobiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		86D43FF52B17AC6200C78F37 /* maobiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maobiTests.swift; sourceTree = "<group>"; };
+		86D440052B17BEE100C78F37 /* maobi.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = maobi.xctestplan; sourceTree = "<group>"; };
 		86DC80E12AFEF53200D61940 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		86DC80E32AFEF55400D61940 /* FeedbackGraphicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackGraphicsView.swift; sourceTree = "<group>"; };
 		86DC80E52AFF310400D61940 /* AlignPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignPhotoView.swift; sourceTree = "<group>"; };
@@ -110,7 +127,6 @@
 		86E232072AF5B65F00785AEC /* TestNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNavView.swift; sourceTree = "<group>"; };
 		8D52D5312B02596E000223BB /* FingerDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDraw.swift; sourceTree = "<group>"; };
 		8D52D5332B02598F000223BB /* FingerDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDrawView.swift; sourceTree = "<group>"; };
-		8D52D5352B027381000223BB /* UserLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLevel.swift; sourceTree = "<group>"; };
 		8DDCA3022AF99F4D00FB181B /* FingerDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDraw.swift; sourceTree = "<group>"; };
 		8DDCA3042AF99F8900FB181B /* FingerDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDrawView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +149,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		86D43FF02B17AC6200C78F37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86D440002B17ADC600C78F37 /* FirebaseDatabaseSwift in Frameworks */,
+				86D43FFE2B17ADB300C78F37 /* FirebaseDatabase in Frameworks */,
+				86D440022B17ADD600C78F37 /* FirebaseFirestore in Frameworks */,
+				86D440042B17ADDA00C78F37 /* FirebaseFirestoreSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -147,9 +174,12 @@
 		864D94BB2AD99D8100F76C79 = {
 			isa = PBXGroup;
 			children = (
+				86D440052B17BEE100C78F37 /* maobi.xctestplan */,
 				864D94C62AD99D8100F76C79 /* maobi */,
+				86D43FF42B17AC6200C78F37 /* maobiTests */,
 				864D94C52AD99D8100F76C79 /* Products */,
 				8D52D52B2B025713000223BB /* Recovered References */,
+				86D43FFC2B17ADB300C78F37 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				864D94C42AD99D8100F76C79 /* maobi.app */,
+				86D43FF32B17AC6200C78F37 /* maobiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -183,6 +214,21 @@
 				864D94CE2AD99D8300F76C79 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		86D43FF42B17AC6200C78F37 /* maobiTests */ = {
+			isa = PBXGroup;
+			children = (
+				86D43FF52B17AC6200C78F37 /* maobiTests.swift */,
+			);
+			path = maobiTests;
+			sourceTree = "<group>";
+		};
+		86D43FFC2B17ADB300C78F37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		86E2319D2AE5BCBE00785AEC /* character_data */ = {
@@ -248,7 +294,6 @@
 				86DC80E12AFEF53200D61940 /* Feedback.swift */,
 				86DC80E72AFFF5AE00D61940 /* Contours.swift */,
 				86DC80E92AFFF62B00D61940 /* Perspective.swift */,
-				8D52D5352B027381000223BB /* UserLevel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -294,6 +339,30 @@
 			productReference = 864D94C42AD99D8100F76C79 /* maobi.app */;
 			productType = "com.apple.product-type.application";
 		};
+		86D43FF22B17AC6200C78F37 /* maobiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86D43FF92B17AC6200C78F37 /* Build configuration list for PBXNativeTarget "maobiTests" */;
+			buildPhases = (
+				86D43FEF2B17AC6200C78F37 /* Sources */,
+				86D43FF02B17AC6200C78F37 /* Frameworks */,
+				86D43FF12B17AC6200C78F37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				86D43FF82B17AC6200C78F37 /* PBXTargetDependency */,
+			);
+			name = maobiTests;
+			packageProductDependencies = (
+				86D43FFD2B17ADB300C78F37 /* FirebaseDatabase */,
+				86D43FFF2B17ADC600C78F37 /* FirebaseDatabaseSwift */,
+				86D440012B17ADD600C78F37 /* FirebaseFirestore */,
+				86D440032B17ADDA00C78F37 /* FirebaseFirestoreSwift */,
+			);
+			productName = maobiTests;
+			productReference = 86D43FF32B17AC6200C78F37 /* maobiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -306,6 +375,10 @@
 				TargetAttributes = {
 					864D94C32AD99D8100F76C79 = {
 						CreatedOnToolsVersion = 14.3.1;
+					};
+					86D43FF22B17AC6200C78F37 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 864D94C32AD99D8100F76C79;
 					};
 				};
 			};
@@ -328,6 +401,7 @@
 			projectRoot = "";
 			targets = (
 				864D94C32AD99D8100F76C79 /* maobi */,
+				86D43FF22B17AC6200C78F37 /* maobiTests */,
 			);
 		};
 /* End PBXProject section */
@@ -352,6 +426,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		86D43FF12B17AC6200C78F37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -365,7 +446,6 @@
 				86DC80E82AFFF5AE00D61940 /* Contours.swift in Sources */,
 				86DC80EA2AFFF62B00D61940 /* Perspective.swift in Sources */,
 				86E232082AF5B65F00785AEC /* TestNavView.swift in Sources */,
-				8D52D5362B027381000223BB /* UserLevel.swift in Sources */,
 				700A31AE2B145F800079B55F /* SearchBarView.swift in Sources */,
 				86E231B52AE6287D00785AEC /* HomeView.swift in Sources */,
 				70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */,
@@ -395,7 +475,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		86D43FEF2B17AC6200C78F37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86D43FF62B17AC6200C78F37 /* maobiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		86D43FF82B17AC6200C78F37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 864D94C32AD99D8100F76C79 /* maobi */;
+			targetProxy = 86D43FF72B17AC6200C78F37 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		864D94D52AD99D8300F76C79 /* Debug */ = {
@@ -574,6 +670,40 @@
 			};
 			name = Release;
 		};
+		86D43FFA2B17AC6200C78F37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = orgid.maobiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/maobi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/maobi";
+			};
+			name = Debug;
+		};
+		86D43FFB2B17AC6200C78F37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = orgid.maobiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/maobi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/maobi";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -591,6 +721,15 @@
 			buildConfigurations = (
 				864D94D82AD99D8300F76C79 /* Debug */,
 				864D94D92AD99D8300F76C79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86D43FF92B17AC6200C78F37 /* Build configuration list for PBXNativeTarget "maobiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86D43FFA2B17AC6200C78F37 /* Debug */,
+				86D43FFB2B17AC6200C78F37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -629,6 +768,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 864D94DA2AD9A9C700F76C79 /* XCRemoteSwiftPackageReference "SVGPath" */;
 			productName = SVGPath;
+		};
+		86D43FFD2B17ADB300C78F37 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E231BC2AE9FA9200785AEC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		86D43FFF2B17ADC600C78F37 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E231BC2AE9FA9200785AEC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		86D440012B17ADD600C78F37 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E231BC2AE9FA9200785AEC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		86D440032B17ADDA00C78F37 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E231BC2AE9FA9200785AEC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 		86E231932AD9E17300785AEC /* SwiftSVG */ = {
 			isa = XCSwiftPackageProductDependency;
