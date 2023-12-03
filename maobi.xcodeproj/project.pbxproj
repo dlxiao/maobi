@@ -80,6 +80,7 @@
 
 /* Begin PBXFileReference section */
 		700A31AD2B145F800079B55F /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		700A31AF2B1BFB710079B55F /* maobi.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = maobi.xctestplan; sourceTree = "<group>"; };
 		70471DFE2AF3F7A500DE800F /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		70780E862AF331B50067BDEE /* StrokeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeListView.swift; sourceTree = "<group>"; };
 		70780E882AF331D30067BDEE /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
@@ -174,6 +175,7 @@
 		864D94BB2AD99D8100F76C79 = {
 			isa = PBXGroup;
 			children = (
+				700A31AF2B1BFB710079B55F /* maobi.xctestplan */,
 				86D440052B17BEE100C78F37 /* maobi.xctestplan */,
 				864D94C62AD99D8100F76C79 /* maobi */,
 				86D43FF42B17AC6200C78F37 /* maobiTests */,

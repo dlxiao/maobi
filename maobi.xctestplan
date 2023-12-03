@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "7BB6144D-3533-485C-B458-1BDBA2BBCA62",
+      "id" : "17E8496A-E2D7-4A0D-9D58-72676F4B3E61",
       "name" : "Test Scheme Action",
       "options" : {
 
@@ -18,8 +18,6 @@
   },
   "testTargets" : [
     {
-      "enabled" : false,
-      "parallelizable" : false,
       "target" : {
         "containerPath" : "container:maobi.xcodeproj",
         "identifier" : "86D43FF22B17AC6200C78F37",
