@@ -55,7 +55,6 @@
 		86E231FB2AF1E80900785AEC /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231FA2AF1E80900785AEC /* LevelView.swift */; };
 		86E231FD2AF20D7500785AEC /* LevelGraphicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */; };
 		86E231FF2AF29EE400785AEC /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231FE2AF29EE400785AEC /* CameraView.swift */; };
-		86E232012AF2B09100785AEC /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E232002AF2B09100785AEC /* FeedbackView.swift */; };
 		8D34876F2AF5B5B2008186E0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8D34876E2AF5B5B2008186E0 /* FirebaseAnalytics */; };
 		8D3487712AF5B5B2008186E0 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487702AF5B5B2008186E0 /* FirebaseAnalyticsOnDeviceConversion */; };
 		8D3487732AF5B5B2008186E0 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487722AF5B5B2008186E0 /* FirebaseAnalyticsSwift */; };
@@ -120,7 +119,6 @@
 		86E231FA2AF1E80900785AEC /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelGraphicsView.swift; sourceTree = "<group>"; };
 		86E231FE2AF29EE400785AEC /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		86E232002AF2B09100785AEC /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		8D52D5312B02596E000223BB /* FingerDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDraw.swift; sourceTree = "<group>"; };
 		8D52D5332B02598F000223BB /* FingerDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDrawView.swift; sourceTree = "<group>"; };
 		8DDCA3022AF99F4D00FB181B /* FingerDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDraw.swift; sourceTree = "<group>"; };
@@ -251,7 +249,6 @@
 				86E231B42AE6287D00785AEC /* HomeView.swift */,
 				86E231FA2AF1E80900785AEC /* LevelView.swift */,
 				86E231FE2AF29EE400785AEC /* CameraView.swift */,
-				86E232002AF2B09100785AEC /* FeedbackView.swift */,
 				86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */,
 				70780E862AF331B50067BDEE /* StrokeListView.swift */,
 				70780E882AF331D30067BDEE /* CharacterListView.swift */,
@@ -452,7 +449,6 @@
 				86E231FB2AF1E80900785AEC /* LevelView.swift in Sources */,
 				86E231F92AF1D1FE00785AEC /* Camera.swift in Sources */,
 				86DC80FE2B013C7600D61940 /* TutorialView.swift in Sources */,
-				86E232012AF2B09100785AEC /* FeedbackView.swift in Sources */,
 				70780E872AF331B50067BDEE /* StrokeListView.swift in Sources */,
 				86DC81452B057D2D00D61940 /* LoginView.swift in Sources */,
 				864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */,

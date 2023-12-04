@@ -11,15 +11,6 @@
 //import Foundation
 //
 //
-//func binarize(_ uiimage : UIImage) -> UIImage {
-//  var image = CIImage(image: uiimage)!
-//  var ciCtx = CIContext()
-//  var filter = ThresholdFilter()
-//  filter.inputImage = CIImage(image: uiimage, options: [CIImageOption.colorSpace: NSNull()])
-//  let outputImage = filter.outputImage
-//  let cgimg = ciCtx.createCGImage(outputImage!, from: (outputImage?.extent)!)
-//  return UIImage(cgImage: cgimg!)
-//}
 //
 //
 //struct FeedbackGraphicsView: View {
