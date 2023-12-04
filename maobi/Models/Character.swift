@@ -144,7 +144,7 @@ class Levels {
   }
   
   func getCharacter(_ character : String) -> CharacterData {
-    return self.allCharacters[character]!
+    return self.allCharacters[character] ?? CharacterData(character: "N/A", definition: "N/A", pinyin: "N/A", strokes: [], medians: [[[]]])
   }
   
   func getBasicStrokes() -> [CharacterData] {

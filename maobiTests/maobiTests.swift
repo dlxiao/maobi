@@ -205,4 +205,29 @@ final class maobiTests: XCTestCase {
     
   }
   
+  func testCameraModel() {
+    var cm = CameraModel()
+    let testImg = UIImage(named: "小_template")!
+    cm.storeImage(testImg)
+    XCTAssertNotNil(cm.image)
+    cm.overlayImage(character: levels.getCharacter("小"))
+    XCTAssertNotNil(cm.composedImage)
+    
+    
+    // Try to overlay onto nil image
+    var cm2 = CameraModel()
+    cm2.image = nil
+    XCTAssertNil(cm2.image)
+    cm2.overlayImage(character: levels.getCharacter("二"))
+    XCTAssertNil(cm2.composedImage)
+    
+    // Try to overlay template not found
+    var cm3 = CameraModel()
+    cm3.image = testImg
+    XCTAssertNotNil(cm.image)
+    cm.overlayImage(character: levels.getCharacter("m"))
+    XCTAssertNil(cm3.composedImage)
+
+  }
+  
 }
