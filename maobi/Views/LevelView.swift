@@ -24,8 +24,8 @@ struct LevelView: View {
       LevelGraphicsView(html: character.getLevelHTML()) // pass in image and animation
       Button(action: {
         if(["一", "丨", " ` ", "亅", "丶", "丿", "ノ", "小", "十","八", "二"].contains(character.toString())) {
-          // opData.lastView = .level
-          // opData.currView = .camera
+//           opData.lastView = .level
+//           opData.currView = .camera
           // TODO: uncomment these to connect this button to camera views after camera fixed
         }
       }) {
