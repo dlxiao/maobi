@@ -9,6 +9,9 @@ import Vision
 import CoreImage
 import CoreImage.CIFilterBuiltins
 
+enum InvalidSubmission: Error {
+    case invalid
+}
 
 class ProcessImage {
   var submissionPts : [[CGPoint]] = []
@@ -27,12 +30,7 @@ class ProcessImage {
   var thicknessMsg : String = "Perfect thickness."
   var strokeorderMsg : String = "TBD"
   var feedback : [Dictionary<String, String>] = []
-  
-  enum InvalidSubmission: Error {
-      case invalid
-  }
-  
-  
+
   init(submission : UIImage, template : UIImage, character : String) {
     self.submissionPts = detectVisionContours(submission).filter { $0.count > 50 }
     self.templatePts = detectVisionContours(template)

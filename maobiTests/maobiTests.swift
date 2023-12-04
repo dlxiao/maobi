@@ -189,11 +189,19 @@ final class maobiTests: XCTestCase {
     let submission = UIImage.init(named: "小_template")!
     let feedback = ProcessImage(submission: submission, template: template, character: "小")
     
-    // Invalid contours detected
+    // Invalid input image provided
+    let invalidInputFilter = CustomFilter()
+    invalidInputFilter.inputImage = nil
+    XCTAssertNil(invalidInputFilter.outputImage)
     
+    // Invalid contours detected
+    let submission2 = UIImage.init(named: "blank")!
+    let feedback2 = ProcessImage(submission: submission2, template: template, character: "小")
     
     // Different feedback messages
     
+    
+    // Characters with anchor points
     
   }
   
