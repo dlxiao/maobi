@@ -52,12 +52,16 @@ struct LoginView: View {
           .background(Color.white)
           .frame(width: screenWidth / 1.5)
           .cornerRadius(10)
+          .gesture(DragGesture().onChanged({ _ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for :nil)}))
+
         TextField("password", text: $formPassword)
           .padding(.all)
           .background(Color.white)
           .frame(width: screenWidth / 1.5)
           .cornerRadius(10)
           .padding()
+          .gesture(DragGesture().onChanged({ _ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for :nil)}))
+
       }
       Button(action: {
         opData.currView = .createaccount

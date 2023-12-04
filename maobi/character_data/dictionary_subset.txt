@@ -10,9 +10,12 @@
 {"character":"王","definition":"king, ruler; royal; surname","pinyin":["wáng"],"decomposition":"⿱一土","etymology":{"type":"ideographic","hint":"A man 十 bridging heaven and earth (both 一)"},"radical":"王","matches":[[0],[1],[1],[1]]}
 {"character":"大","definition":"big, great, vast, high, deep","pinyin":["dà"],"decomposition":"⿻一人","etymology":{"type":"ideographic","hint":"A man 人 with outstretched arms"},"radical":"大","matches":[[0],[1],[1]]}
 {"character":"天","definition":"sky, heaven; god, celestial","pinyin":["tiān"],"decomposition":"⿱一大","etymology":{"type":"ideographic","hint":"The heavens 一 above a man 大"},"radical":"大","matches":[[0],[1],[1],[1]]}
-{"character":"十","definition":"ten, tenth; complete; perfect","pinyin":["shí"],"decomposition":"⿻一丨","radical":"十","matches":[[0],[1]]}
-{"character":"九","definition":"nine","pinyin":["jiǔ"],"decomposition":"⿻丿乙","etymology":{"type":"pictographic","hint":"An elbow"},"radical":"乙","matches":[[0],[1]]}
-{"character":"八","definition":"eight; all around, all sides","pinyin":["bā"],"decomposition":"？","etymology":{"type":"ideographic","hint":"Two bent lines meaning \"to divide\""},"radical":"八","matches":[null,null]}
-{"character":"七","definition":"seven","pinyin":["qī"],"decomposition":"⿻一乚","radical":"一","matches":[[0],[1]]}
-{"character":"六","definition":"six","pinyin":["liù"],"decomposition":"⿱亠八","radical":"八","matches":[[0],[0],[1],[1]]}
-{"character":"二","definition":"two","pinyin":["èr"],"decomposition":"","radical":"","matches":[]}
+{"character":"十","definition":"ten (10), tenth; complete; perfect","pinyin":["shí"],"decomposition":"⿻一丨","radical":"十","matches":[[0],[1]]}
+{"character":"九","definition":"nine (9)","pinyin":["jiǔ"],"decomposition":"⿻丿乙","etymology":{"type":"pictographic","hint":"An elbow"},"radical":"乙","matches":[[0],[1]]}
+{"character":"八","definition":"eight (8); all around, all sides","pinyin":["bā"],"decomposition":"？","etymology":{"type":"ideographic","hint":"Two bent lines meaning \"to divide\""},"radical":"八","matches":[null,null]}
+{"character":"七","definition":"seven (7)","pinyin":["qī"],"decomposition":"⿻一乚","radical":"一","matches":[[0],[1]]}
+{"character":"六","definition":"six (6)","pinyin":["liù"],"decomposition":"⿱亠八","radical":"八","matches":[[0],[0],[1],[1]]}
+{"character":"二","definition":"two (2)","pinyin":["èr"],"decomposition":"","radical":"","matches":[]}
+{"character":"心","definition":"heart; mind; soul","pinyin":["xīn"],"decomposition":"？","etymology":{"type":"pictographic","hint":"A heart"},"radical":"心","matches":[null,null,null,null]}
+{"character":"川","definition":"stream, river","pinyin":["chuān"],"decomposition":"⿲丿丨丨","etymology":{"type":"ideographic","hint":"A river's flow; compare 巛"},"radical":"川","matches":[[0],[1],[2]]}
+{"character":"门","definition":"gate, door, entrance, opening","pinyin":["mén"],"decomposition":"⿰⿱丶丨？","etymology":{"type":"pictographic","hint":"An open doorway or gate"},"radical":"门","matches":[[0,0],[0,1],null]}
