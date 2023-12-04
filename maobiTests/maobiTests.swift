@@ -183,6 +183,18 @@ final class maobiTests: XCTestCase {
     
   }
   
-  
+  func testContoursAndFeedback() {
+    // Perfect submission
+    let template = UIImage.init(named: "小_template")!
+    let submission = UIImage.init(named: "小_template")!
+    let feedback = ProcessImage(submission: submission, template: template, character: "小")
+    
+    // Invalid contours detected
+    
+    
+    // Different feedback messages
+    
+    
+  }
   
 }
