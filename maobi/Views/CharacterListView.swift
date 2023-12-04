@@ -8,21 +8,22 @@
 import SwiftUI
 import WebKit
 
+#if !TESTING
 struct CharacterListView: View {
   @EnvironmentObject var opData : OpData
-    @State var text = ""
-    var filteredLevels: [CharacterData]{
-        if text.isEmpty{
-            return opData.levels.getCharacterLevels()
-        } else {
-            return opData.levels.getCharacterLevels().filter{ c in
-                c.getPinyin().folding(options: .diacriticInsensitive, locale: .current).localizedCaseInsensitiveContains(text) ||
-                c.getDefinition().localizedCaseInsensitiveContains(text) ||
-                c.toString().localizedCaseInsensitiveContains(text)                
-            }
-        }
+  @State var text = ""
+  var filteredLevels: [CharacterData]{
+    if text.isEmpty{
+      return opData.levels.getCharacterLevels()
+    } else {
+      return opData.levels.getCharacterLevels().filter{ c in
+        c.getPinyin().folding(options: .diacriticInsensitive, locale: .current).localizedCaseInsensitiveContains(text) ||
+        c.getDefinition().localizedCaseInsensitiveContains(text) ||
+        c.toString().localizedCaseInsensitiveContains(text)
+      }
     }
-    
+  }
+  
   var body: some View {
     TopBarView(stars: opData.user!.totalStars)
     ZStack(alignment: .top) {
@@ -37,13 +38,13 @@ struct CharacterListView: View {
           }.foregroundColor(.black).font(.title3).fontWeight(.bold)
         }.frame(maxWidth: .infinity, alignment: .leading)
       }.padding()
-        
+      
       
       // Levels tiles
       ScrollView{
-          //Search bar
-          SearchBarView(text: $text).padding()
-
+        //Search bar
+        SearchBarView(text: $text).padding()
+        
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]){
           ForEach(filteredLevels){ c in
             VStack{
@@ -65,9 +66,8 @@ struct CharacterListView: View {
             }
           }
         }
-        
       }.padding(.top, 50)
-
     }
   }
-    }
+}
+#endif

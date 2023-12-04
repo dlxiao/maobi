@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if !TESTING
 struct MenuView: View {
   @EnvironmentObject var opData : OpData
   
@@ -37,3 +38,4 @@ struct MenuView: View {
     }
   }
 }
+#endif

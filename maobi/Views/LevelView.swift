@@ -1,5 +1,6 @@
 import SwiftUI
 
+#if !TESTING
 struct LevelView: View {
   @EnvironmentObject var opData : OpData
   @StateObject var cameraModel = CameraModel()
@@ -35,10 +36,7 @@ struct LevelView: View {
         .foregroundColor(.white)
         .cornerRadius(15.0)
     }.padding([.bottom], 50)
-    
-    
   }
-  
 }
-
+#endif
 

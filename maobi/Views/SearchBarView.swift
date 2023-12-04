@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if !TESTING
 struct SearchBarView: View {
     @Binding var text: String
     @State private var isEditing = false
@@ -33,14 +34,12 @@ struct SearchBarView: View {
                                 Image(systemName: "multiply.circle.fill")
                                     .foregroundColor(.gray)
                                     .padding(.trailing, 8)
-
                             })
                         }
                     }
                 ).onTapGesture{
                     self.isEditing = true
                 }
-            
             if isEditing{
                 Button(action:{
                     self.isEditing = false
@@ -57,9 +56,4 @@ struct SearchBarView: View {
         
     }
 }
-
-//struct SearchBarView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SearchBarView()
-//    }
-//}
+#endif

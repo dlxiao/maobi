@@ -8,6 +8,7 @@
 import SwiftUI
 import WebKit
 
+#if !TESTING
 struct StrokeListView: View {
   @EnvironmentObject var opData : OpData
   
@@ -47,10 +48,8 @@ struct StrokeListView: View {
             }
           }
         }
-        
       }.padding(.top, 60)
     }
-    
-    
   }
 }
+#endif

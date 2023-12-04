@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if !TESTING
 struct OnboardingView: View {
   @EnvironmentObject var opData : OpData
   @State var page = 1
@@ -158,7 +159,7 @@ struct OnboardingView: View {
           }
         }
         .padding()
-        Text("You can access this information any time by redoing the tutorial from the menu.")
+        Text("You can access this information any time from the home screen.")
           .font(.system(size: 10))
           .foregroundColor(.gray)
       }.padding(50)
@@ -175,10 +176,7 @@ struct OnboardingView: View {
         }.padding([.trailing, .top])
       }
     }
-    
   }
-  
-  
 }
 
 struct OnboardingView_Previews: PreviewProvider {
@@ -186,3 +184,4 @@ struct OnboardingView_Previews: PreviewProvider {
     OnboardingView()
   }
 }
+#endif

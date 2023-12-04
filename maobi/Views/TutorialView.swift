@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if !TESTING
 let screenHeight = UIScreen.main.bounds.height
 let screenWidth = UIScreen.main.bounds.width
 
@@ -137,9 +138,6 @@ struct TutorialView: View {
           .frame(maxWidth: .infinity, alignment: .leading)
           .padding(30)
         
-        
-        
-        
         if(tutorialNum < 6) {
           Button(action: {
             tutorialNum += 1
@@ -186,3 +184,4 @@ struct TutorialView_Previews: PreviewProvider {
     TutorialView()
   }
 }
+#endif

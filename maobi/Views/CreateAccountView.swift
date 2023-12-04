@@ -10,7 +10,7 @@ import FirebaseFirestoreSwift
 import FirebaseFirestoreCombineSwift
 import SwiftUI
 
-
+#if !TESTING
 struct CreateAccountView: View {
   @EnvironmentObject var opData : OpData
   @State var formEmail : String = "NewEmail"
@@ -111,3 +111,4 @@ struct CreateAccountView_Previews: PreviewProvider {
     CreateAccountView()
   }
 }
+#endif

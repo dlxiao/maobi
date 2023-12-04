@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if !TESTING
 struct TopBarView: View {
   @EnvironmentObject var opData : OpData
   var stars : Int
@@ -43,3 +44,4 @@ struct TopBarView: View {
     }
   }
 }
+#endif

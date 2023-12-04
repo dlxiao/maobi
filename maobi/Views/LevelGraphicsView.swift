@@ -4,7 +4,7 @@ import Foundation
 
 
 // Entering level for one character
-
+#if !TESTING
 struct LevelGraphicsView: View {
   @State var html : String
 
@@ -13,3 +13,4 @@ struct LevelGraphicsView: View {
       .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
   }
 }
+#endif

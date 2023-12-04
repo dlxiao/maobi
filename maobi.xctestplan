@@ -9,7 +9,6 @@
     }
   ],
   "defaultOptions" : {
-    "codeCoverage" : false,
     "targetForVariableExpansion" : {
       "containerPath" : "container:maobi.xcodeproj",
       "identifier" : "864D94C32AD99D8100F76C79",
