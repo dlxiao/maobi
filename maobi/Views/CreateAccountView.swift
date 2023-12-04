@@ -63,24 +63,31 @@ struct CreateAccountView: View {
           .background(Color.white)
           .frame(width: screenWidth / 1.5)
           .cornerRadius(10)
+          .gesture(DragGesture().onChanged({ _ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for :nil)}))
         
         TextField("Email", text: $formEmail)
           .padding(.all)
           .background(Color.white)
           .frame(width: screenWidth / 1.5)
           .cornerRadius(10)
+          .gesture(DragGesture().onChanged({ _ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for :nil)}))
+        
         
         TextField("Password", text: $formPassword)
           .padding(.all)
           .background(Color.white)
           .frame(width: screenWidth / 1.5)
           .cornerRadius(10)
+          .gesture(DragGesture().onChanged({ _ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for :nil)}))
+        
         
         TextField("Confirm Password", text: $formConfirmPassword)
           .padding(.all)
           .background(Color.white)
           .frame(width: screenWidth / 1.5)
           .cornerRadius(10)
+          .gesture(DragGesture().onChanged({ _ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for :nil)}))
+        
         
         Button(action: {
           opData.currView = .login
@@ -103,12 +110,6 @@ struct CreateAccountView: View {
       Spacer()
     }.frame(maxWidth: .infinity, maxHeight: .infinity)
       .background(Color(red: 0.9, green: 0.71, blue: 0.54))
-  }
-}
-
-struct CreateAccountView_Previews: PreviewProvider {
-  static var previews: some View {
-    CreateAccountView()
   }
 }
 #endif
