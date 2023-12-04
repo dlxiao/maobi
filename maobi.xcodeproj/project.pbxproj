@@ -25,7 +25,6 @@
 		86D440002B17ADC600C78F37 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86D43FFF2B17ADC600C78F37 /* FirebaseDatabaseSwift */; };
 		86D440022B17ADD600C78F37 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 86D440012B17ADD600C78F37 /* FirebaseFirestore */; };
 		86D440042B17ADDA00C78F37 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86D440032B17ADDA00C78F37 /* FirebaseFirestoreSwift */; };
-		86D4400B2B1D880900C78F37 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D4400A2B1D880900C78F37 /* Extensions.swift */; };
 		86DC80E22AFEF53200D61940 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E12AFEF53200D61940 /* Feedback.swift */; };
 		86DC80E42AFEF55400D61940 /* FeedbackGraphicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E32AFEF55400D61940 /* FeedbackGraphicsView.swift */; };
 		86DC80E62AFF310400D61940 /* AlignPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E52AFF310400D61940 /* AlignPhotoView.swift */; };
@@ -96,7 +95,6 @@
 		86D43FF52B17AC6200C78F37 /* maobiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maobiTests.swift; sourceTree = "<group>"; };
 		86D440052B17BEE100C78F37 /* maobi.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = maobi.xctestplan; sourceTree = "<group>"; };
 		86D440062B1D7D0100C78F37 /* testconfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = testconfig.xcconfig; sourceTree = "<group>"; };
-		86D4400A2B1D880900C78F37 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		86DC80E12AFEF53200D61940 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		86DC80E32AFEF55400D61940 /* FeedbackGraphicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackGraphicsView.swift; sourceTree = "<group>"; };
 		86DC80E52AFF310400D61940 /* AlignPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignPhotoView.swift; sourceTree = "<group>"; };
@@ -286,7 +284,6 @@
 				86DC80E12AFEF53200D61940 /* Feedback.swift */,
 				86DC80E72AFFF5AE00D61940 /* Contours.swift */,
 				86DC80E92AFFF62B00D61940 /* Perspective.swift */,
-				86D4400A2B1D880900C78F37 /* Extensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -459,7 +456,6 @@
 				86E231FB2AF1E80900785AEC /* LevelView.swift in Sources */,
 				86E231F92AF1D1FE00785AEC /* Camera.swift in Sources */,
 				86DC80FE2B013C7600D61940 /* TutorialView.swift in Sources */,
-				86D4400B2B1D880900C78F37 /* Extensions.swift in Sources */,
 				86E232012AF2B09100785AEC /* FeedbackView.swift in Sources */,
 				70780E872AF331B50067BDEE /* StrokeListView.swift in Sources */,
 				86DC81452B057D2D00D61940 /* LoginView.swift in Sources */,

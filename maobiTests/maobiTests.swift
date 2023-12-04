@@ -9,6 +9,7 @@ import XCTest
 import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import WebKit
 @testable import maobi
 
 
@@ -37,14 +38,6 @@ final class maobiTests: XCTestCase {
     super.tearDown()
     print("finished teardown")
   }
-  
-//  func testCreateUser() {
-//    //    let testuser = UserRepository("sampleusername_1", "password_1")
-//    print("Testing")
-//    //    XCTAssertEqual(0, 0, "testing")
-//    print("Done testing")
-//  }
-  
   
   func testCharactersAndFingerDraw() {
     // Check we get correct basic strokes and character levels
@@ -101,6 +94,94 @@ final class maobiTests: XCTestCase {
     }
   }
   
+  func testUser() {
+    func onCreateAccount(_ formUsername : String, _ formPassword : String, _ formConfirmPassword : String, _ formEmail : String) -> Bool {
+      var validAccount = true
+      let emailValidation = NSPredicate(format:"SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
+      
+      if(formPassword != formConfirmPassword) {
+        validAccount = false
+      } else if (!emailValidation.evaluate(with: formEmail)) {
+        validAccount = false
+      } else {
+        validAccount = true
+      }
+      return validAccount
+    }
+    
+    // Invalid account details to create - email malformed
+    let formUsername2 = "UnitTestUsername"
+    let formPassword2 = "UnitTestPassword"
+    let formConfirmPassword2 = "UnitTestPassword"
+    let formEmail2 = "UnitTestEmailInvalid"
+    XCTAssertFalse(onCreateAccount(formUsername2, formPassword2, formConfirmPassword2, formEmail2))
+    
+    // Invalid account details to create - passwords don't match
+    let formUsername3 = "UnitTestUsername"
+    let formPassword3 = "UnitTestPassword"
+    let formConfirmPassword3 = "UnitTestPasswordDifferent"
+    let formEmail3 = "UnitTestEmail@domain.com"
+    XCTAssertFalse(onCreateAccount(formUsername3, formPassword3, formConfirmPassword3, formEmail3))
+    
+    // Valid account details to create
+    let exp = XCTestExpectation(description: "Create user")
+    var validAccount = true
+    let formUsername = "UnitTestUsername"
+    let formPassword = "UnitTestPassword"
+    let formConfirmPassword = "UnitTestPassword"
+    let formEmail = "UnitTestEmail@domain.com"
+    var userRepo = UserRepository(formUsername, formPassword, formEmail)
+    // create account
+    userRepo.createUser() { userResult in
+      if let user = userResult {
+        if(user.count != 1) {
+          validAccount = false
+        } else {
+          var currUser = user[0]
+          print(currUser)
+          // Test initial new account details
+          XCTAssertNotNil(currUser.userID)
+          XCTAssertEqual(currUser.username,"UnitTestUsername")
+          XCTAssertEqual(currUser.password,"UnitTestPassword")
+          XCTAssertEqual(currUser.email,"UnitTestEmail@domain.com")
+          XCTAssertEqual(currUser.totalStars,0)
+          XCTAssertEqual(userRepo.getTotalStars(),0)
+          XCTAssertFalse(currUser.completedTutorial)
+          exp.fulfill()
+          
+          // Complete tutorial
+          userRepo.completeTutorial()
+          XCTAssertEqual(userRepo.getTotalStars(),10)
+        }
+      } 
+    }
+    XCTAssertTrue(onCreateAccount(formUsername, formPassword, formConfirmPassword, formEmail))
+    self.wait(for: [exp], timeout: 20.0)
+    
+    let exp2 = XCTestExpectation(description: "Login and delete created user")
+    // Log in again
+    userRepo.loginUser() { userLoginResult in
+      if let userLogin = userLoginResult {
+        XCTAssertNotNil(userLogin[0].userID)
+        XCTAssertEqual(userLogin[0].username,"UnitTestUsername")
+        XCTAssertEqual(userLogin[0].password,"UnitTestPassword")
+        XCTAssertEqual(userLogin[0].email,"UnitTestEmail@domain.com")
+        XCTAssertEqual(userLogin[0].totalStars,10)
+        
+        // Delete document afterwards
+        userRepo.store.collection("user").document(userRepo.userID).delete() { err in
+          if let err = err {
+            print("Error deleting user after testing: \(err)")
+          } else {
+            print("Deleted document \(userRepo.userID)")
+            exp2.fulfill()
+          }
+        }
+      }
+    }
+    self.wait(for: [exp2], timeout: 20.0)
+    
+  }
   
   
   

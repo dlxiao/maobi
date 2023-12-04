@@ -38,22 +38,19 @@ class OpData : ObservableObject {
   @Published var lastView : [CurrView] = [] // custom navigation stack
 }
 
-
-// For displaying animations and pictures of characters
+#if !TESTING
+// For displaying animations and pictures of characters, UI Extension
 struct WebView: UIViewRepresentable {
   var html: String
   
   func makeUIView(context: Context) -> WKWebView {
-    var webView = WKWebView()
-    return webView
-    
+    return WKWebView()
   }
-  
   func updateUIView(_ uiView: WKWebView, context: Context) {
     uiView.loadHTMLString(html, baseURL: nil)
-    
   }
 }
+#endif
 
 
 @main
