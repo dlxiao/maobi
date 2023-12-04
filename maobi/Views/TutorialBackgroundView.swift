@@ -6,7 +6,7 @@
 //  Fake home page with disabled buttons for the tutorial
 
 import SwiftUI
-
+#if !TESTING
 struct TutorialBackgroundView: View {
   var body: some View {
     
@@ -57,3 +57,4 @@ struct TutorialBackgroundView_Previews: PreviewProvider {
     TutorialBackgroundView()
   }
 }
+#endif

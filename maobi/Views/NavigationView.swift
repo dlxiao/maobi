@@ -5,8 +5,9 @@ struct NavigationView: View {
   @EnvironmentObject var opData : OpData
   
   var body: some View {
+#if !TESTING
     switch(opData.currView){
-    // Given this new navigation, can condition from Firebase about whether user has done tutorial before
+      // Given this new navigation, can condition from Firebase about whether user has done tutorial before
     case .onboarding: OnboardingView().environmentObject(opData)
     case .tutorial: TutorialView().environmentObject(opData)
     case .login: LoginView().environmentObject(opData)
@@ -22,5 +23,6 @@ struct NavigationView: View {
         //TODO: uncomment
 //      case .feedback: FeedbackGraphicsView().environmentObject(opData)
     }
+#endif
   }
 }

@@ -12,7 +12,6 @@
 		70780E872AF331B50067BDEE /* StrokeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E862AF331B50067BDEE /* StrokeListView.swift */; };
 		70780E892AF331D30067BDEE /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E882AF331D30067BDEE /* CharacterListView.swift */; };
 		70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70780E902AF33ADB0067BDEE /* MenuView.swift */; };
-		709460142AFACDDE006AF4FE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709460132AFACDDE006AF4FE /* ViewModel.swift */; };
 		864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94C72AD99D8100F76C79 /* maobiApp.swift */; };
 		864D94CC2AD99D8300F76C79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864D94CB2AD99D8300F76C79 /* Assets.xcassets */; };
 		864D94CF2AD99D8300F76C79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864D94CE2AD99D8300F76C79 /* Preview Assets.xcassets */; };
@@ -21,6 +20,12 @@
 		864D94DC2AD9A9C700F76C79 /* SVGPath in Frameworks */ = {isa = PBXBuildFile; productRef = 864D94DB2AD9A9C700F76C79 /* SVGPath */; };
 		864D94E22AD9ACCF00F76C79 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94E12AD9ACCF00F76C79 /* Character.swift */; };
 		86712D9C2B0E29AB00949161 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86712D9B2B0E29AB00949161 /* CreateAccountView.swift */; };
+		86D43FF62B17AC6200C78F37 /* maobiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D43FF52B17AC6200C78F37 /* maobiTests.swift */; };
+		86D43FFE2B17ADB300C78F37 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 86D43FFD2B17ADB300C78F37 /* FirebaseDatabase */; };
+		86D440002B17ADC600C78F37 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86D43FFF2B17ADC600C78F37 /* FirebaseDatabaseSwift */; };
+		86D440022B17ADD600C78F37 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 86D440012B17ADD600C78F37 /* FirebaseFirestore */; };
+		86D440042B17ADDA00C78F37 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86D440032B17ADDA00C78F37 /* FirebaseFirestoreSwift */; };
+		86D4400B2B1D880900C78F37 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D4400A2B1D880900C78F37 /* Extensions.swift */; };
 		86DC80E22AFEF53200D61940 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E12AFEF53200D61940 /* Feedback.swift */; };
 		86DC80E42AFEF55400D61940 /* FeedbackGraphicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E32AFEF55400D61940 /* FeedbackGraphicsView.swift */; };
 		86DC80E62AFF310400D61940 /* AlignPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E52AFF310400D61940 /* AlignPhotoView.swift */; };
@@ -53,7 +58,6 @@
 		86E231FD2AF20D7500785AEC /* LevelGraphicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */; };
 		86E231FF2AF29EE400785AEC /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231FE2AF29EE400785AEC /* CameraView.swift */; };
 		86E232012AF2B09100785AEC /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E232002AF2B09100785AEC /* FeedbackView.swift */; };
-		86E232082AF5B65F00785AEC /* TestNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E232072AF5B65F00785AEC /* TestNavView.swift */; };
 		8D34876F2AF5B5B2008186E0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8D34876E2AF5B5B2008186E0 /* FirebaseAnalytics */; };
 		8D3487712AF5B5B2008186E0 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487702AF5B5B2008186E0 /* FirebaseAnalyticsOnDeviceConversion */; };
 		8D3487732AF5B5B2008186E0 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487722AF5B5B2008186E0 /* FirebaseAnalyticsSwift */; };
@@ -65,13 +69,23 @@
 		8D90E74F2B1E542A00F08D52 /* GestureAlignmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D90E74E2B1E542A00F08D52 /* GestureAlignmentView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		86D43FF72B17AC6200C78F37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 864D94BC2AD99D8100F76C79 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 864D94C32AD99D8100F76C79;
+			remoteInfo = maobi;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		700A31AD2B145F800079B55F /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		700A31AF2B1BFB710079B55F /* maobi.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = maobi.xctestplan; sourceTree = "<group>"; };
 		70471DFE2AF3F7A500DE800F /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		70780E862AF331B50067BDEE /* StrokeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeListView.swift; sourceTree = "<group>"; };
 		70780E882AF331D30067BDEE /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		70780E902AF33ADB0067BDEE /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
-		709460132AFACDDE006AF4FE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		864D94C42AD99D8100F76C79 /* maobi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = maobi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		864D94C72AD99D8100F76C79 /* maobiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maobiApp.swift; sourceTree = "<group>"; };
 		864D94CB2AD99D8300F76C79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,6 +94,11 @@
 		864D94D32AD99D8300F76C79 /* maobi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = maobi.xcdatamodel; sourceTree = "<group>"; };
 		864D94E12AD9ACCF00F76C79 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		86712D9B2B0E29AB00949161 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		86D43FF32B17AC6200C78F37 /* maobiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = maobiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		86D43FF52B17AC6200C78F37 /* maobiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maobiTests.swift; sourceTree = "<group>"; };
+		86D440052B17BEE100C78F37 /* maobi.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = maobi.xctestplan; sourceTree = "<group>"; };
+		86D440062B1D7D0100C78F37 /* testconfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = testconfig.xcconfig; sourceTree = "<group>"; };
+		86D4400A2B1D880900C78F37 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		86DC80E12AFEF53200D61940 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		86DC80E32AFEF55400D61940 /* FeedbackGraphicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackGraphicsView.swift; sourceTree = "<group>"; };
 		86DC80E52AFF310400D61940 /* AlignPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignPhotoView.swift; sourceTree = "<group>"; };
@@ -108,7 +127,6 @@
 		86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelGraphicsView.swift; sourceTree = "<group>"; };
 		86E231FE2AF29EE400785AEC /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		86E232002AF2B09100785AEC /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
-		86E232072AF5B65F00785AEC /* TestNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNavView.swift; sourceTree = "<group>"; };
 		8D52D5312B02596E000223BB /* FingerDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDraw.swift; sourceTree = "<group>"; };
 		8D52D5332B02598F000223BB /* FingerDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDrawView.swift; sourceTree = "<group>"; };
 		8D52D5352B027381000223BB /* UserLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLevel.swift; sourceTree = "<group>"; };
@@ -135,23 +153,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		86D43FF02B17AC6200C78F37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86D440002B17ADC600C78F37 /* FirebaseDatabaseSwift in Frameworks */,
+				86D43FFE2B17ADB300C78F37 /* FirebaseDatabase in Frameworks */,
+				86D440022B17ADD600C78F37 /* FirebaseFirestore in Frameworks */,
+				86D440042B17ADDA00C78F37 /* FirebaseFirestoreSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		709460122AFACDCD006AF4FE /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				709460132AFACDDE006AF4FE /* ViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		864D94BB2AD99D8100F76C79 = {
 			isa = PBXGroup;
 			children = (
+				86D440062B1D7D0100C78F37 /* testconfig.xcconfig */,
+				700A31AF2B1BFB710079B55F /* maobi.xctestplan */,
+				86D440052B17BEE100C78F37 /* maobi.xctestplan */,
 				864D94C62AD99D8100F76C79 /* maobi */,
+				86D43FF42B17AC6200C78F37 /* maobiTests */,
 				864D94C52AD99D8100F76C79 /* Products */,
 				8D52D52B2B025713000223BB /* Recovered References */,
+				86D43FFC2B17ADB300C78F37 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				864D94C42AD99D8100F76C79 /* maobi.app */,
+				86D43FF32B17AC6200C78F37 /* maobiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,6 +212,21 @@
 				864D94CE2AD99D8300F76C79 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		86D43FF42B17AC6200C78F37 /* maobiTests */ = {
+			isa = PBXGroup;
+			children = (
+				86D43FF52B17AC6200C78F37 /* maobiTests.swift */,
+			);
+			path = maobiTests;
+			sourceTree = "<group>";
+		};
+		86D43FFC2B17ADB300C78F37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		86E2319D2AE5BCBE00785AEC /* character_data */ = {
@@ -225,7 +267,6 @@
 				700A31AD2B145F800079B55F /* SearchBarView.swift */,
 				70471DFE2AF3F7A500DE800F /* LevelView.swift */,
 				70780E902AF33ADB0067BDEE /* MenuView.swift */,
-				86E232072AF5B65F00785AEC /* TestNavView.swift */,
 				86DC80E32AFEF55400D61940 /* FeedbackGraphicsView.swift */,
 				86DC80E52AFF310400D61940 /* AlignPhotoView.swift */,
 				86DC81402B05787900D61940 /* NavigationView.swift */,
@@ -251,7 +292,7 @@
 				86DC80E12AFEF53200D61940 /* Feedback.swift */,
 				86DC80E72AFFF5AE00D61940 /* Contours.swift */,
 				86DC80E92AFFF62B00D61940 /* Perspective.swift */,
-				8D52D5352B027381000223BB /* UserLevel.swift */,
+				86D4400A2B1D880900C78F37 /* Extensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -297,6 +338,30 @@
 			productReference = 864D94C42AD99D8100F76C79 /* maobi.app */;
 			productType = "com.apple.product-type.application";
 		};
+		86D43FF22B17AC6200C78F37 /* maobiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86D43FF92B17AC6200C78F37 /* Build configuration list for PBXNativeTarget "maobiTests" */;
+			buildPhases = (
+				86D43FEF2B17AC6200C78F37 /* Sources */,
+				86D43FF02B17AC6200C78F37 /* Frameworks */,
+				86D43FF12B17AC6200C78F37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				86D43FF82B17AC6200C78F37 /* PBXTargetDependency */,
+			);
+			name = maobiTests;
+			packageProductDependencies = (
+				86D43FFD2B17ADB300C78F37 /* FirebaseDatabase */,
+				86D43FFF2B17ADC600C78F37 /* FirebaseDatabaseSwift */,
+				86D440012B17ADD600C78F37 /* FirebaseFirestore */,
+				86D440032B17ADDA00C78F37 /* FirebaseFirestoreSwift */,
+			);
+			productName = maobiTests;
+			productReference = 86D43FF32B17AC6200C78F37 /* maobiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -309,6 +374,10 @@
 				TargetAttributes = {
 					864D94C32AD99D8100F76C79 = {
 						CreatedOnToolsVersion = 14.3.1;
+					};
+					86D43FF22B17AC6200C78F37 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 864D94C32AD99D8100F76C79;
 					};
 				};
 			};
@@ -331,6 +400,7 @@
 			projectRoot = "";
 			targets = (
 				864D94C32AD99D8100F76C79 /* maobi */,
+				86D43FF22B17AC6200C78F37 /* maobiTests */,
 			);
 		};
 /* End PBXProject section */
@@ -355,6 +425,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		86D43FF12B17AC6200C78F37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -368,15 +445,12 @@
 				8D52D5322B02596E000223BB /* FingerDraw.swift in Sources */,
 				86DC80E82AFFF5AE00D61940 /* Contours.swift in Sources */,
 				86DC80EA2AFFF62B00D61940 /* Perspective.swift in Sources */,
-				86E232082AF5B65F00785AEC /* TestNavView.swift in Sources */,
-				8D52D5362B027381000223BB /* UserLevel.swift in Sources */,
 				700A31AE2B145F800079B55F /* SearchBarView.swift in Sources */,
 				86E231B52AE6287D00785AEC /* HomeView.swift in Sources */,
 				70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */,
 				86E231BB2AE9FA5B00785AEC /* User.swift in Sources */,
 				86DC81432B057A2400D61940 /* OnboardingView.swift in Sources */,
 				86DC80E62AFF310400D61940 /* AlignPhotoView.swift in Sources */,
-				709460142AFACDDE006AF4FE /* ViewModel.swift in Sources */,
 				86DC80E42AFEF55400D61940 /* FeedbackGraphicsView.swift in Sources */,
 				86712D9C2B0E29AB00949161 /* CreateAccountView.swift in Sources */,
 				86E231FD2AF20D7500785AEC /* LevelGraphicsView.swift in Sources */,
@@ -392,6 +466,7 @@
 				86E231FB2AF1E80900785AEC /* LevelView.swift in Sources */,
 				86E231F92AF1D1FE00785AEC /* Camera.swift in Sources */,
 				86DC80FE2B013C7600D61940 /* TutorialView.swift in Sources */,
+				86D4400B2B1D880900C78F37 /* Extensions.swift in Sources */,
 				86E232012AF2B09100785AEC /* FeedbackView.swift in Sources */,
 				70780E872AF331B50067BDEE /* StrokeListView.swift in Sources */,
 				86DC81452B057D2D00D61940 /* LoginView.swift in Sources */,
@@ -399,7 +474,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		86D43FEF2B17AC6200C78F37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86D43FF62B17AC6200C78F37 /* maobiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		86D43FF82B17AC6200C78F37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 864D94C32AD99D8100F76C79 /* maobi */;
+			targetProxy = 86D43FF72B17AC6200C78F37 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		864D94D52AD99D8300F76C79 /* Debug */ = {
@@ -524,7 +615,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"maobi/Preview Content\"";
-				DEVELOPMENT_TEAM = MFFBJX3ZHX;
+				DEVELOPMENT_TEAM = 4S8P7P4AQC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow camera access.";
@@ -539,7 +630,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = test.maobi;
+				PRODUCT_BUNDLE_IDENTIFIER = hahaha.maobi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -555,7 +646,133 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"maobi/Preview Content\"";
-				DEVELOPMENT_TEAM = MFFBJX3ZHX;
+				DEVELOPMENT_TEAM = 4S8P7P4AQC;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow camera access.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hahaha.maobi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		86D43FFA2B17AC6200C78F37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = orgid.maobiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "TESTING DEBUG";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/maobi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/maobi";
+			};
+			name = Debug;
+		};
+		86D43FFB2B17AC6200C78F37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = orgid.maobiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/maobi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/maobi";
+			};
+			name = Release;
+		};
+		86D440072B1D7DFE00C78F37 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = TESTING;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Testing;
+		};
+		86D440082B1D7DFE00C78F37 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"maobi/Preview Content\"";
+				DEVELOPMENT_TEAM = 4AS8N7YMJ7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow camera access.";
@@ -576,7 +793,25 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Release;
+			name = Testing;
+		};
+		86D440092B1D7DFE00C78F37 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = orgid.maobiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "TESTING DEBUG";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/maobi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/maobi";
+			};
+			name = Testing;
 		};
 /* End XCBuildConfiguration section */
 
@@ -585,6 +820,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				864D94D52AD99D8300F76C79 /* Debug */,
+				86D440072B1D7DFE00C78F37 /* Testing */,
 				864D94D62AD99D8300F76C79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -594,7 +830,18 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				864D94D82AD99D8300F76C79 /* Debug */,
+				86D440082B1D7DFE00C78F37 /* Testing */,
 				864D94D92AD99D8300F76C79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86D43FF92B17AC6200C78F37 /* Build configuration list for PBXNativeTarget "maobiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86D43FFA2B17AC6200C78F37 /* Debug */,
+				86D440092B1D7DFE00C78F37 /* Testing */,
+				86D43FFB2B17AC6200C78F37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -633,6 +880,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 864D94DA2AD9A9C700F76C79 /* XCRemoteSwiftPackageReference "SVGPath" */;
 			productName = SVGPath;
+		};
+		86D43FFD2B17ADB300C78F37 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E231BC2AE9FA9200785AEC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		86D43FFF2B17ADC600C78F37 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E231BC2AE9FA9200785AEC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		86D440012B17ADD600C78F37 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E231BC2AE9FA9200785AEC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		86D440032B17ADDA00C78F37 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E231BC2AE9FA9200785AEC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 		86E231932AD9E17300785AEC /* SwiftSVG */ = {
 			isa = XCSwiftPackageProductDependency;

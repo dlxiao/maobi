@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+#if !TESTING
 struct FeedbackView: View {
   var feedback : Dictionary<String, String>
   var levels : Levels
@@ -39,3 +39,5 @@ struct FeedbackView: View {
 
   }
 }
+
+#endif

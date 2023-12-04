@@ -1,6 +1,7 @@
 import WebKit
 import SwiftUI
 
+#if !TESTING
 struct HomeView: View {
   @EnvironmentObject var opData : OpData
   var body : some View {
@@ -54,3 +55,4 @@ struct HomeView: View {
     }
   }
 }
+#endif

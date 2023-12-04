@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+    {
+      "id" : "17E8496A-E2D7-4A0D-9D58-72676F4B3E61",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:maobi.xcodeproj",
+      "identifier" : "864D94C32AD99D8100F76C79",
+      "name" : "maobi"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:maobi.xcodeproj",
+        "identifier" : "86D43FF22B17AC6200C78F37",
+        "name" : "maobiTests"
+      }
+    }
+  ],
+  "version" : 1
+}

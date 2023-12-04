@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if !TESTING
 struct OnboardingView: View {
   @EnvironmentObject var opData : OpData
   @State var page = 1
@@ -175,10 +176,7 @@ struct OnboardingView: View {
         }.padding([.trailing, .top])
       }
     }
-    
   }
-  
-  
 }
 
 struct OnboardingView_Previews: PreviewProvider {
@@ -186,3 +184,4 @@ struct OnboardingView_Previews: PreviewProvider {
     OnboardingView()
   }
 }
+#endif
