@@ -24,12 +24,13 @@
 //
 //struct FeedbackGraphicsView: View {
 //  //  @State var html : String
-//  var levels : Levels
-//  var translation : (Double, Double)
-//  var zoom : Double
-//  var submission : UIImage
-//  var character : String
-//  var user : UserRepository
+////  var levels : Levels
+////  var translation : (Double, Double)
+////  var zoom : Double
+////  var submission : UIImage
+////  var character : String
+////  var user : UserRepository
+//  @EnvironmentObject var opData : OpData
 //  
 //  @State var selectedStroke = -1
 //  

@@ -1,27 +1,41 @@
 import SwiftUI
 import UIKit
 
-struct GestureView: View {
+struct GestureAlignmentView: View {
+    @EnvironmentObject var opData : OpData
     @State private var offset: CGSize = .zero
     @State private var zoom: CGFloat = 1
     @State private var angle: Angle = Angle(degrees: 0)
     @State private var showSavedImage = false
     @State private var savedImage: UIImage?
+//    var baseImage: UIImage
+//    var overlayImage: UIImage
 
     var body: some View {
         VStack {
             ZStack {
-                Image("offset")
-                    .resizable()
-                    .frame(width: 400, height: 400)
-                    .scaleEffect(zoom)
-                    .offset(offset)
-                    .rotationEffect(angle)
-
-                Image("template")
-                    .resizable()
-                    .frame(width: 400, height: 400)
-                    .opacity(0.5)
+              if let baseImage = opData.cameraModel.image {
+                  Image(uiImage: baseImage)
+                      .resizable()
+                      .frame(width: 400, height: 400)
+                      .scaleEffect(zoom)
+                      .offset(offset)
+                      .rotationEffect(angle)
+              }
+//                Image("小_offset")
+//                    .resizable()
+//                    .frame(width: 400, height: 400)
+              if let character = opData.character,
+                 let overlayImage = UIImage(named: "\(character.toString())_template") {
+                  Image(uiImage: overlayImage)
+                      .resizable()
+                      .frame(width: 400, height: 400)
+                      .opacity(0.5)
+              }
+//                Image("小_template")
+//                    .resizable()
+//                    .frame(width: 400, height: 400)
+//                    .opacity(0.5)
             }
             .frame(width: 400, height: 400)
             .border(Color.black)
@@ -39,7 +53,9 @@ struct GestureView: View {
 
             Button("Save Image") {
                 saveTransformedImage()
-            }
+//              opData.lastView.append(opData.currView)
+//              opData.currView = .feedback
+             }
         }
         .sheet(isPresented: $showSavedImage) {
             if let savedImage = savedImage {
@@ -58,17 +74,22 @@ struct GestureView: View {
 
       let image = renderer.image { _ in
           let rootView = ZStack {
-              Image("offset")
-                  .resizable()
-                  .frame(width: 400, height: 400)
-                  .scaleEffect(zoom)
-                  .offset(offset)
-                  .rotationEffect(angle)
+            if let baseImage = opData.cameraModel.image {
+                Image(uiImage: baseImage)
+                    .resizable()
+                    .frame(width: 400, height: 400)
+                    .scaleEffect(zoom)
+                    .offset(offset)
+                    .rotationEffect(angle)
+            }
 
-              Image("template")
-                  .resizable()
-                  .frame(width: 400, height: 400)
-                  .opacity(0.5)
+//            if let character = opData.character,
+//               let overlayImage = UIImage(named: "\(character.toString())_template") {
+//                Image(uiImage: overlayImage)
+//                    .resizable()
+//                    .frame(width: 400, height: 400)
+//                    .opacity(0.5)
+//            }
           }
           .background(Color.white)
           .edgesIgnoringSafeArea(.all)
@@ -86,6 +107,7 @@ struct GestureView: View {
 
       DispatchQueue.main.async {
           self.savedImage = image
+//          opData.cameraModel.storeImage(image)
           self.showSavedImage = true
       }
   }

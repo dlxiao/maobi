@@ -2,7 +2,7 @@ import SwiftUI
 
 struct LevelView: View {
   @EnvironmentObject var opData : OpData
-  @StateObject var cameraModel = CameraModel()
+//  @StateObject var cameraModel = CameraModel()
   
   var body: some View {
     let character = opData.character!
@@ -24,9 +24,8 @@ struct LevelView: View {
       LevelGraphicsView(html: character.getLevelHTML()) // pass in image and animation
       Button(action: {
         if(["一", "丨", " ` ", "亅", "丶", "丿", "ノ", "小", "十","八", "二"].contains(character.toString())) {
-//           opData.lastView = .level
-//           opData.currView = .camera
-          // TODO: uncomment these to connect this button to camera views after camera fixed
+          opData.lastView.append(.level) // Store the current view
+          opData.currView = .camera
         }
       }) {
         Text("Check your Work!").fontWeight(.bold)

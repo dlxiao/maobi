@@ -4,20 +4,19 @@ import AVFoundation
 
 
 struct CameraView: View {
-  var levels : Levels
+    @EnvironmentObject var opData : OpData
     @State private var showCameraPicker = false
-    @State private var navigateToAlignmentView = false
-    @State var opacity = 0.2
-    @ObservedObject var cameraModel: CameraModel
-    var character: CharacterData
-    var user : UserRepository
+//    @State var opacity = 0.2
 
     var body: some View {
-      let filename = "\((character.toString() == " ` " ? "`" : character.toString()))_template"
-        var overlay = UIImageView(image: resizeImage(image: UIImage(named: filename)!, newWidth: 400))
+        let characterString = opData.character?.toString() ?? "default_character"
+        let filename = "\(characterString)_template"
+        // Safely unwrap the UIImage, provide a default image if nil
+        let overlayImage = UIImage(named: filename) ?? UIImage() // Default image if nil
+        var overlay = UIImageView(image: resizeImage(image: overlayImage, newWidth: 400))
             VStack {
               Text("Getting Camera Feedback").font(.title)
-              Text("After clicking open camera, please take a photo aligned to the overlay. You will receive feedback about the thickness, alignment, and stroke order of the character in this level: \(character.toString()). ").padding()
+              Text("After clicking open camera, please take a photo aligned to the overlay. You will receive feedback about the thickness, alignment, and stroke order of the character in this level: \(characterString). ").padding()
 
               Button(action: {
                 showCameraPicker = true
@@ -33,37 +32,20 @@ struct CameraView: View {
             .sheet(isPresented: $showCameraPicker) {
               VStack{
                 ZStack(alignment: .top) {
-                  ImagePicker(character: character.toString(), overlay: overlay, sourceType: .camera) { selectedImage in
-                    cameraModel.storeImage(selectedImage) // Store the cropped image in CameraModel
-                    cameraModel.overlayImage(character: character)
-                    navigateToAlignmentView = true // Trigger navigation
+                  ImagePicker(character: characterString, overlay: overlay, sourceType: .camera) { selectedImage in
+                      opData.cameraModel.storeImage(selectedImage) // Store the cropped image in CameraModel
+//                      if let character = opData.character {
+//                          opData.cameraModel.overlayImage(character: character)
+//                      }
+                    opData.lastView.append(opData.currView)
+                    opData.currView = .alignment
                   }
 //                  .overlay(
 //                    Image(uiImage: UIImage(named: "\(character.toString())_template")!).opacity(self.opacity)
 //                  )
                 }
-
-//                Button(action: {
-//                  let renderer = ImageRenderer(content : self)
-//                  if let uiImage = renderer.uiImage {
-//                    cameraModel.composedImage = uiImage
-//                  } else {
-//                    cameraModel.composedImage = UIImage(named: "\(character.toString())_template")!
-//                  }
-//                  showCameraPicker = false
-//                  navigateToAlignmentView = true
-//                }) {
-//                  Text("Take Picture")
-//                }.padding(.all)
-//                  .background(Color(red: 0.83, green: 0.25, blue: 0.17))
-//                  .foregroundColor(.white)
-//                  .cornerRadius(15.0)
-
-
               }
-
             }
-//            .navigate(to: AlignPhotoView(character: character.toString(), levels: levels, cameraModel: cameraModel, user: user), when: $navigateToAlignmentView)
     }
 }
 
@@ -164,28 +146,3 @@ struct ImagePicker: UIViewControllerRepresentable {
                                 context: UIViewControllerRepresentableContext<ImagePicker>) {
     }
 }
-
-
-
-//extension View {
-//    /// Navigate to a new view.
-//    /// - Parameters:
-//    ///   - view: View to navigate to.
-//    ///   - binding: Only navigates when this condition is `true`.
-//    func navigate<NewView: View>(to view: NewView, when binding: Binding<Bool>) -> some View {
-//        NavigationView {
-//            ZStack {
-//                self
-//                    .navigationBarHidden(true)
-//
-//                NavigationLink(
-//                    destination: view,
-//                    isActive: binding
-//                ) {
-//                    EmptyView()
-//                }
-//            }
-//        }
-//        .navigationViewStyle(.stack)
-//    }
-//}

@@ -27,6 +27,10 @@ enum CurrView:Int {
   case level
   case menu
   case createaccount
+  case camera
+  case alignment
+  //TODO: uncomment
+//  case feedback
 }
 
 // Environment variable for whole app
@@ -36,6 +40,7 @@ class OpData : ObservableObject {
   @Published var user : UserRepository? = nil
   @Published var character : CharacterData? = nil
   @Published var lastView : [CurrView] = [] // custom navigation stack
+  @Published var cameraModel: CameraModel = CameraModel()
 }
 
 
