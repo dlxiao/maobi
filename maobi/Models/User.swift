@@ -189,6 +189,8 @@ class UserRepository: ObservableObject {
               "completedTutorial": false,
               "totalStars": 0,
               "unlocked": emptyDict,
+              "dailyChallengeCharacter": "",
+              "dailyChallengeTimestamp": Calendar.current.date(byAdding: .day, value: -1, to: Date.now)!
             ]) { err in
               if let err = err {
                 print("Error creating user account: \(err)")
