@@ -14,6 +14,7 @@ struct User: Codable, Hashable {
   var password : String
   var totalStars : Int
   var completedTutorial : Bool
+  var unlocked : [String:Int]
   
   enum CodingKeys: CodingKey {
     case userID
@@ -22,6 +23,7 @@ struct User: Codable, Hashable {
     case password
     case totalStars
     case completedTutorial
+    case unlocked
   }
 }
 
@@ -34,6 +36,7 @@ class UserRepository: ObservableObject {
   @Published var totalStars = 0
   @Published var completedTutorial = false
   @Published var success = false
+  @Published var unlocked : [String:Int] = [:]
   
   func getTotalStars() -> Int {
     return self.totalStars
@@ -63,6 +66,9 @@ class UserRepository: ObservableObject {
         self.userID = user.userID ?? ""
         self.totalStars = user.totalStars
         self.completedTutorial = user.completedTutorial
+        self.unlocked = user.unlocked
+        self.success = true
+        print("UNLOCKED LEVELS: \(self.unlocked)")
       }
     }
   }
@@ -123,12 +129,14 @@ class UserRepository: ObservableObject {
           } else {
             print("Username doesn't exist, creating account")
             var ref: DocumentReference? = nil
+            let emptyDict : [String:Int] = [:]
             ref = self.store.collection("user").addDocument(data: [
               "username": self.username,
               "email": self.email,
               "password": self.password,
               "completedTutorial": false,
               "totalStars": 0,
+              "unlocked": emptyDict,
             ]) { err in
               if let err = err {
                 print("Error creating user account: \(err)")
