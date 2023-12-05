@@ -21,7 +21,7 @@ struct NavigationView: View {
         CameraView().environmentObject(opData)
       case .alignment: GestureAlignmentView().environmentObject(opData)
         //TODO: uncomment
-//      case .feedback: FeedbackGraphicsView().environmentObject(opData)
+      case .feedback: FeedbackGraphicsView().environmentObject(opData)
     }
 #endif
   }

@@ -65,7 +65,6 @@
 		8D3487772AF5B5B2008186E0 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487762AF5B5B2008186E0 /* FirebaseAppCheck */; };
 		8D52D5322B02596E000223BB /* FingerDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D52D5312B02596E000223BB /* FingerDraw.swift */; };
 		8D52D5342B02598F000223BB /* FingerDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D52D5332B02598F000223BB /* FingerDrawView.swift */; };
-		8D52D5362B027381000223BB /* UserLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D52D5352B027381000223BB /* UserLevel.swift */; };
 		8D90E74F2B1E542A00F08D52 /* GestureAlignmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D90E74E2B1E542A00F08D52 /* GestureAlignmentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -129,7 +128,6 @@
 		86E232002AF2B09100785AEC /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		8D52D5312B02596E000223BB /* FingerDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDraw.swift; sourceTree = "<group>"; };
 		8D52D5332B02598F000223BB /* FingerDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDrawView.swift; sourceTree = "<group>"; };
-		8D52D5352B027381000223BB /* UserLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLevel.swift; sourceTree = "<group>"; };
 		8D90E74E2B1E542A00F08D52 /* GestureAlignmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureAlignmentView.swift; sourceTree = "<group>"; };
 		8DDCA3022AF99F4D00FB181B /* FingerDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDraw.swift; sourceTree = "<group>"; };
 		8DDCA3042AF99F8900FB181B /* FingerDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDrawView.swift; sourceTree = "<group>"; };
@@ -276,7 +274,6 @@
 				86DC80FD2B013C7600D61940 /* TutorialView.swift */,
 				86DC813B2B040B6600D61940 /* TopBarView.swift */,
 				86DC813E2B053D0B00D61940 /* TutorialBackgroundView.swift */,
-				709460122AFACDCD006AF4FE /* ViewModels */,
 				8D90E74E2B1E542A00F08D52 /* GestureAlignmentView.swift */,
 			);
 			path = Views;
@@ -615,7 +612,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"maobi/Preview Content\"";
-				DEVELOPMENT_TEAM = 4S8P7P4AQC;
+				DEVELOPMENT_TEAM = MFFBJX3ZHX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow camera access.";
@@ -646,7 +643,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"maobi/Preview Content\"";
-				DEVELOPMENT_TEAM = 4S8P7P4AQC;
+				DEVELOPMENT_TEAM = MFFBJX3ZHX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow camera access.";
@@ -772,7 +769,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"maobi/Preview Content\"";
-				DEVELOPMENT_TEAM = 4AS8N7YMJ7;
+				DEVELOPMENT_TEAM = MFFBJX3ZHX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow camera access.";

@@ -30,7 +30,7 @@ enum CurrView:Int {
   case camera
   case alignment
   //TODO: uncomment
-//  case feedback
+  case feedback
 }
 
 // Environment variable for whole app

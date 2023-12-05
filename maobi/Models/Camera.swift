@@ -5,20 +5,15 @@ import Foundation
 import Combine
 
 class CameraModel: ObservableObject {
-    @Published var image: UIImage?
-    @Published var composedImage: UIImage?
-    @Published var feedback: [String: String]?
-    
-    //TODO: save to firebase after user login finished
-//    func storeImage(_ newImage: UIImage) {
-//        image = newImage
-//    }
-  func storeImage(_ newImage: UIImage) {
-      let croppedImage = newImage.crop(ratio: 1.0) // square
-      let resizedImage = resizeImage(image: croppedImage, newWidth: 400) // size change
-      image = resizedImage
-  }
-  
+    @Published var originalImage: UIImage?
+    @Published var transformedImage: UIImage?
+//    @Published var feedback: [String: String]?
+    func storeOrigImage(_ newImage: UIImage) {
+        originalImage = newImage
+    }
+    func storeTransformedImage(_ newImage: UIImage) {
+        transformedImage = newImage
+    }
 
   
     // TODO
@@ -55,34 +50,31 @@ class CameraModel: ObservableObject {
 //
 //        composedImage = resizedComposedImage
 //    }
-
   
-    // Add more functions as needed to manipulate the image
-
-    func getFeedback(_ character : CharacterData, _ image : UIImage) -> Dictionary<String, String> {
-      let stars = Int.random(in: 1...3) // depends on image processing
-      
-      var msg : String // msg depends on stars
-      if(stars == 1) {
-        msg = "Try again."
-      } else if (stars == 2) {
-        msg = "Good progress!"
-      } else {
-        msg = "Awesome work!"
-      }
-      
-      let alignment = "alignment msg"
-      
-      let thickness = "thickness msg"
-      
-      var feedback = [
-        "stars": String(stars),
-        "message": msg,
-        "strokeOrder": "not for MVP",
-        "thickness": thickness,
-        "alignment": alignment
-        
-      ]
-      return feedback
-    }
+//    func getFeedback(_ character : CharacterData, _ image : UIImage) -> Dictionary<String, String> {
+//      let stars = Int.random(in: 1...3) // depends on image processing
+//      
+//      var msg : String // msg depends on stars
+//      if(stars == 1) {
+//        msg = "Try again."
+//      } else if (stars == 2) {
+//        msg = "Good progress!"
+//      } else {
+//        msg = "Awesome work!"
+//      }
+//      
+//      let alignment = "alignment msg"
+//      
+//      let thickness = "thickness msg"
+//      
+//      var feedback = [
+//        "stars": String(stars),
+//        "message": msg,
+//        "strokeOrder": "not for MVP",
+//        "thickness": thickness,
+//        "alignment": alignment
+//        
+//      ]
+//      return feedback
+//    }
 }

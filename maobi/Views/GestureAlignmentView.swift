@@ -6,15 +6,12 @@ struct GestureAlignmentView: View {
     @State private var offset: CGSize = .zero
     @State private var zoom: CGFloat = 1
     @State private var angle: Angle = Angle(degrees: 0)
-    @State private var showSavedImage = false
-    @State private var savedImage: UIImage?
-//    var baseImage: UIImage
-//    var overlayImage: UIImage
+    @State private var showTransformedImage = false
 
     var body: some View {
         VStack {
             ZStack {
-              if let baseImage = opData.cameraModel.image {
+              if let baseImage = opData.cameraModel.originalImage {
                   Image(uiImage: baseImage)
                       .resizable()
                       .frame(width: 400, height: 400)
@@ -22,9 +19,6 @@ struct GestureAlignmentView: View {
                       .offset(offset)
                       .rotationEffect(angle)
               }
-//                Image("小_offset")
-//                    .resizable()
-//                    .frame(width: 400, height: 400)
               if let character = opData.character,
                  let overlayImage = UIImage(named: "\(character.toString())_template") {
                   Image(uiImage: overlayImage)
@@ -32,10 +26,6 @@ struct GestureAlignmentView: View {
                       .frame(width: 400, height: 400)
                       .opacity(0.5)
               }
-//                Image("小_template")
-//                    .resizable()
-//                    .frame(width: 400, height: 400)
-//                    .opacity(0.5)
             }
             .frame(width: 400, height: 400)
             .border(Color.black)
@@ -53,28 +43,31 @@ struct GestureAlignmentView: View {
 
             Button("Save Image") {
                 saveTransformedImage()
-//              opData.lastView.append(opData.currView)
-//              opData.currView = .feedback
+                showTransformedImage = true
+                if let transformedImage = opData.cameraModel.transformedImage {
+                  opData.lastView.append(opData.currView)
+                  opData.currView = .feedback
+                }
              }
         }
-        .sheet(isPresented: $showSavedImage) {
-            if let savedImage = savedImage {
-                Image(uiImage: savedImage)
-                    .resizable()
-                    .scaledToFit()
-                    .offset(y: -20)
-            } else {
-                Text("No image saved")
-            }
+        .sheet(isPresented: $showTransformedImage) {
+          if let transformedImage = opData.cameraModel.transformedImage {
+              Image(uiImage: transformedImage)
+                  .resizable()
+                  .scaledToFit()
+          } else {
+              Text("No image saved")
+          }
         }
     }
   private func saveTransformedImage() {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
       let size = CGSize(width: 400, height: 400)
       let renderer = UIGraphicsImageRenderer(size: size)
 
       let image = renderer.image { _ in
           let rootView = ZStack {
-            if let baseImage = opData.cameraModel.image {
+            if let baseImage = opData.cameraModel.originalImage {
                 Image(uiImage: baseImage)
                     .resizable()
                     .frame(width: 400, height: 400)
@@ -99,16 +92,15 @@ struct GestureAlignmentView: View {
           hostingController.view.backgroundColor = UIColor.clear
 
           // This will lay out the subviews immediately
+          hostingController.view.setNeedsLayout()
           hostingController.view.layoutIfNeeded()
 
           // Render the view hierarchy into the image context
           hostingController.view.drawHierarchy(in: hostingController.view.bounds, afterScreenUpdates: true)
       }
-
-      DispatchQueue.main.async {
-          self.savedImage = image
-//          opData.cameraModel.storeImage(image)
-          self.showSavedImage = true
+      print("Image rendering completed") // 打印图像渲染完成的标记
+          opData.cameraModel.storeTransformedImage(image)
+          
       }
   }
 

@@ -33,7 +33,7 @@ struct CameraView: View {
               VStack{
                 ZStack(alignment: .top) {
                   ImagePicker(character: characterString, overlay: overlay, sourceType: .camera) { selectedImage in
-                      opData.cameraModel.storeImage(selectedImage) // Store the cropped image in CameraModel
+                      opData.cameraModel.storeOrigImage(selectedImage) // Store the cropped image in CameraModel
 //                      if let character = opData.character {
 //                          opData.cameraModel.overlayImage(character: character)
 //                      }
