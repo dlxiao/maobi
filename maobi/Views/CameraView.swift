@@ -1,6 +1,5 @@
 import SwiftUI
 import UIKit
-import AVFoundation
 
 
 struct CameraView: View {
@@ -15,9 +14,25 @@ struct CameraView: View {
         let overlayImage = UIImage(named: filename) ?? UIImage() // Default image if nil
         var overlay = UIImageView(image: resizeImage(image: overlayImage, newWidth: 400))
             VStack {
+              HStack {
+                  Button(action: {
+                      opData.currView = opData.lastView.removeLast()
+                  }) {
+                      HStack {
+                          Image(systemName: "chevron.left")
+                          Text("Back")
+                      }
+                      .foregroundColor(.black)
+                      .font(.title3)
+                      .fontWeight(.bold)
+                  }
+                  .frame(maxWidth: .infinity, alignment: .leading)
+              }
+              .padding()
+              Spacer()
               Text("Getting Camera Feedback").font(.title)
               Text("After clicking open camera, please take a photo aligned to the overlay. You will receive feedback about the thickness, alignment, and stroke order of the character in this level: \(characterString). ").padding()
-
+              Spacer()
               Button(action: {
                 showCameraPicker = true
                 overlay.alpha = 0.2

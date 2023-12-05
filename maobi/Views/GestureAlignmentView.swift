@@ -10,6 +10,23 @@ struct GestureAlignmentView: View {
 
     var body: some View {
         VStack {
+            // Back button
+            HStack {
+                Button(action: {
+                    opData.currView = opData.lastView.removeLast()
+                }) {
+                    HStack {
+                        Image(systemName: "chevron.left")
+                        Text("Back")
+                    }
+                    .foregroundColor(.black)
+                    .font(.title3)
+                    .fontWeight(.bold)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .padding()
+            Spacer()
             ZStack {
               if let baseImage = opData.cameraModel.originalImage {
                   Image(uiImage: baseImage)
@@ -31,8 +48,8 @@ struct GestureAlignmentView: View {
             .border(Color.black)
             .background(Color.white)
             .simultaneousGesture(MagnificationGesture().onChanged { z in
-                let newZoom = zoom + (z > 1 ? 0.05 : -0.05)
-                zoom = max(newZoom, 1) // make sure zoom in only
+                  zoom = zoom + (z > 1 ? 0.05 : -0.05)
+//                zoom = max(newZoom, 1) // make sure zoom in only
             })
             .simultaneousGesture(DragGesture().onChanged { value in
                 offset = value.translation
@@ -40,8 +57,8 @@ struct GestureAlignmentView: View {
             .simultaneousGesture(RotationGesture().onChanged { a in
                 angle = a
             })
-
-            Button("Save Image") {
+            Spacer()
+            Button("Use Image") {
                 saveTransformedImage()
                 showTransformedImage = true
                 if let transformedImage = opData.cameraModel.transformedImage {
@@ -49,6 +66,9 @@ struct GestureAlignmentView: View {
                   opData.currView = .feedback
                 }
              }
+            .background(Color(red: 0.83, green: 0.25, blue: 0.17))
+            .foregroundColor(.white)
+            .cornerRadius(15.0)
         }
         .sheet(isPresented: $showTransformedImage) {
           if let transformedImage = opData.cameraModel.transformedImage {
@@ -61,7 +81,7 @@ struct GestureAlignmentView: View {
         }
     }
   private func saveTransformedImage() {
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
       let size = CGSize(width: 400, height: 400)
       let renderer = UIGraphicsImageRenderer(size: size)
 
@@ -101,7 +121,7 @@ struct GestureAlignmentView: View {
       print("Image rendering completed") // 打印图像渲染完成的标记
           opData.cameraModel.storeTransformedImage(image)
           
-      }
+//      }
   }
 
 

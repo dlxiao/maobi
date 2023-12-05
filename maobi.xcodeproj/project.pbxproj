@@ -26,7 +26,6 @@
 		86D440042B17ADDA00C78F37 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86D440032B17ADDA00C78F37 /* FirebaseFirestoreSwift */; };
 		86DC80E22AFEF53200D61940 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E12AFEF53200D61940 /* Feedback.swift */; };
 		86DC80E42AFEF55400D61940 /* FeedbackGraphicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E32AFEF55400D61940 /* FeedbackGraphicsView.swift */; };
-		86DC80E62AFF310400D61940 /* AlignPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E52AFF310400D61940 /* AlignPhotoView.swift */; };
 		86DC80E82AFFF5AE00D61940 /* Contours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E72AFFF5AE00D61940 /* Contours.swift */; };
 		86DC80EA2AFFF62B00D61940 /* Perspective.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E92AFFF62B00D61940 /* Perspective.swift */; };
 		86DC80F82B00557B00D61940 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86DC80F72B00557B00D61940 /* GoogleService-Info.plist */; };
@@ -96,7 +95,6 @@
 		86D440062B1D7D0100C78F37 /* testconfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = testconfig.xcconfig; sourceTree = "<group>"; };
 		86DC80E12AFEF53200D61940 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		86DC80E32AFEF55400D61940 /* FeedbackGraphicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackGraphicsView.swift; sourceTree = "<group>"; };
-		86DC80E52AFF310400D61940 /* AlignPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignPhotoView.swift; sourceTree = "<group>"; };
 		86DC80E72AFFF5AE00D61940 /* Contours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contours.swift; sourceTree = "<group>"; };
 		86DC80E92AFFF62B00D61940 /* Perspective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perspective.swift; sourceTree = "<group>"; };
 		86DC80F72B00557B00D61940 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -260,7 +258,6 @@
 				70471DFE2AF3F7A500DE800F /* LevelView.swift */,
 				70780E902AF33ADB0067BDEE /* MenuView.swift */,
 				86DC80E32AFEF55400D61940 /* FeedbackGraphicsView.swift */,
-				86DC80E52AFF310400D61940 /* AlignPhotoView.swift */,
 				86DC81402B05787900D61940 /* NavigationView.swift */,
 				86DC81442B057D2D00D61940 /* LoginView.swift */,
 				86712D9B2B0E29AB00949161 /* CreateAccountView.swift */,
@@ -441,7 +438,6 @@
 				70780E912AF33ADB0067BDEE /* MenuView.swift in Sources */,
 				86E231BB2AE9FA5B00785AEC /* User.swift in Sources */,
 				86DC81432B057A2400D61940 /* OnboardingView.swift in Sources */,
-				86DC80E62AFF310400D61940 /* AlignPhotoView.swift in Sources */,
 				86DC80E42AFEF55400D61940 /* FeedbackGraphicsView.swift in Sources */,
 				86712D9C2B0E29AB00949161 /* CreateAccountView.swift in Sources */,
 				86E231FD2AF20D7500785AEC /* LevelGraphicsView.swift in Sources */,
@@ -619,7 +615,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hahaha.maobi;
+				PRODUCT_BUNDLE_IDENTIFIER = orgid.maobi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -650,7 +646,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hahaha.maobi;
+				PRODUCT_BUNDLE_IDENTIFIER = orgid.maobi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
