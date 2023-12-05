@@ -15,7 +15,6 @@
 		864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94C72AD99D8100F76C79 /* maobiApp.swift */; };
 		864D94CC2AD99D8300F76C79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864D94CB2AD99D8300F76C79 /* Assets.xcassets */; };
 		864D94CF2AD99D8300F76C79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864D94CE2AD99D8300F76C79 /* Preview Assets.xcassets */; };
-		864D94D12AD99D8300F76C79 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94D02AD99D8300F76C79 /* Persistence.swift */; };
 		864D94D42AD99D8300F76C79 /* maobi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 864D94D22AD99D8300F76C79 /* maobi.xcdatamodeld */; };
 		864D94DC2AD9A9C700F76C79 /* SVGPath in Frameworks */ = {isa = PBXBuildFile; productRef = 864D94DB2AD9A9C700F76C79 /* SVGPath */; };
 		864D94E22AD9ACCF00F76C79 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D94E12AD9ACCF00F76C79 /* Character.swift */; };
@@ -25,7 +24,6 @@
 		86D440002B17ADC600C78F37 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86D43FFF2B17ADC600C78F37 /* FirebaseDatabaseSwift */; };
 		86D440022B17ADD600C78F37 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 86D440012B17ADD600C78F37 /* FirebaseFirestore */; };
 		86D440042B17ADDA00C78F37 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86D440032B17ADDA00C78F37 /* FirebaseFirestoreSwift */; };
-		86D4400B2B1D880900C78F37 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D4400A2B1D880900C78F37 /* Extensions.swift */; };
 		86DC80E22AFEF53200D61940 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E12AFEF53200D61940 /* Feedback.swift */; };
 		86DC80E42AFEF55400D61940 /* FeedbackGraphicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E32AFEF55400D61940 /* FeedbackGraphicsView.swift */; };
 		86DC80E62AFF310400D61940 /* AlignPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC80E52AFF310400D61940 /* AlignPhotoView.swift */; };
@@ -57,7 +55,6 @@
 		86E231FB2AF1E80900785AEC /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231FA2AF1E80900785AEC /* LevelView.swift */; };
 		86E231FD2AF20D7500785AEC /* LevelGraphicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */; };
 		86E231FF2AF29EE400785AEC /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231FE2AF29EE400785AEC /* CameraView.swift */; };
-		86E232012AF2B09100785AEC /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E232002AF2B09100785AEC /* FeedbackView.swift */; };
 		8D34876F2AF5B5B2008186E0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8D34876E2AF5B5B2008186E0 /* FirebaseAnalytics */; };
 		8D3487712AF5B5B2008186E0 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487702AF5B5B2008186E0 /* FirebaseAnalyticsOnDeviceConversion */; };
 		8D3487732AF5B5B2008186E0 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3487722AF5B5B2008186E0 /* FirebaseAnalyticsSwift */; };
@@ -88,7 +85,6 @@
 		864D94C72AD99D8100F76C79 /* maobiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maobiApp.swift; sourceTree = "<group>"; };
 		864D94CB2AD99D8300F76C79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		864D94CE2AD99D8300F76C79 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		864D94D02AD99D8300F76C79 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		864D94D32AD99D8300F76C79 /* maobi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = maobi.xcdatamodel; sourceTree = "<group>"; };
 		864D94E12AD9ACCF00F76C79 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		86712D9B2B0E29AB00949161 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
@@ -96,7 +92,6 @@
 		86D43FF52B17AC6200C78F37 /* maobiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maobiTests.swift; sourceTree = "<group>"; };
 		86D440052B17BEE100C78F37 /* maobi.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = maobi.xctestplan; sourceTree = "<group>"; };
 		86D440062B1D7D0100C78F37 /* testconfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = testconfig.xcconfig; sourceTree = "<group>"; };
-		86D4400A2B1D880900C78F37 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		86DC80E12AFEF53200D61940 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		86DC80E32AFEF55400D61940 /* FeedbackGraphicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackGraphicsView.swift; sourceTree = "<group>"; };
 		86DC80E52AFF310400D61940 /* AlignPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignPhotoView.swift; sourceTree = "<group>"; };
@@ -124,7 +119,6 @@
 		86E231FA2AF1E80900785AEC /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelGraphicsView.swift; sourceTree = "<group>"; };
 		86E231FE2AF29EE400785AEC /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		86E232002AF2B09100785AEC /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		8D52D5312B02596E000223BB /* FingerDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDraw.swift; sourceTree = "<group>"; };
 		8D52D5332B02598F000223BB /* FingerDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDrawView.swift; sourceTree = "<group>"; };
 		8DDCA3022AF99F4D00FB181B /* FingerDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerDraw.swift; sourceTree = "<group>"; };
@@ -194,7 +188,6 @@
 				86E231F72AF1B1CC00785AEC /* Models */,
 				86E231A92AE5C78800785AEC /* Views */,
 				864D94CB2AD99D8300F76C79 /* Assets.xcassets */,
-				864D94D02AD99D8300F76C79 /* Persistence.swift */,
 				864D94D22AD99D8300F76C79 /* maobi.xcdatamodeld */,
 				86E2319D2AE5BCBE00785AEC /* character_data */,
 				864D94CD2AD99D8300F76C79 /* Preview Content */,
@@ -256,7 +249,6 @@
 				86E231B42AE6287D00785AEC /* HomeView.swift */,
 				86E231FA2AF1E80900785AEC /* LevelView.swift */,
 				86E231FE2AF29EE400785AEC /* CameraView.swift */,
-				86E232002AF2B09100785AEC /* FeedbackView.swift */,
 				86E231FC2AF20D7500785AEC /* LevelGraphicsView.swift */,
 				70780E862AF331B50067BDEE /* StrokeListView.swift */,
 				70780E882AF331D30067BDEE /* CharacterListView.swift */,
@@ -286,7 +278,6 @@
 				86DC80E12AFEF53200D61940 /* Feedback.swift */,
 				86DC80E72AFFF5AE00D61940 /* Contours.swift */,
 				86DC80E92AFFF62B00D61940 /* Perspective.swift */,
-				86D4400A2B1D880900C78F37 /* Extensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -449,7 +440,6 @@
 				86E231FD2AF20D7500785AEC /* LevelGraphicsView.swift in Sources */,
 				86E231FF2AF29EE400785AEC /* CameraView.swift in Sources */,
 				86DC813F2B053D0B00D61940 /* TutorialBackgroundView.swift in Sources */,
-				864D94D12AD99D8300F76C79 /* Persistence.swift in Sources */,
 				86DC80E22AFEF53200D61940 /* Feedback.swift in Sources */,
 				70780E892AF331D30067BDEE /* CharacterListView.swift in Sources */,
 				70471DFF2AF3F7A500DE800F /* LevelView.swift in Sources */,
@@ -459,8 +449,6 @@
 				86E231FB2AF1E80900785AEC /* LevelView.swift in Sources */,
 				86E231F92AF1D1FE00785AEC /* Camera.swift in Sources */,
 				86DC80FE2B013C7600D61940 /* TutorialView.swift in Sources */,
-				86D4400B2B1D880900C78F37 /* Extensions.swift in Sources */,
-				86E232012AF2B09100785AEC /* FeedbackView.swift in Sources */,
 				70780E872AF331B50067BDEE /* StrokeListView.swift in Sources */,
 				86DC81452B057D2D00D61940 /* LoginView.swift in Sources */,
 				864D94C82AD99D8100F76C79 /* maobiApp.swift in Sources */,

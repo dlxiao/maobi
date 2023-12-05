@@ -19,11 +19,11 @@ struct CreateAccountView: View {
   @State var formConfirmPassword : String = "NewPassword"
   @State var validAccount = true
   @State var errorMsg = "Couldn't create account. Please try again."
-  let emailValidation = NSPredicate(format:"SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
   
   // async completion handler for creating account
   func onCreateAccount() async -> Void {
     // validation
+    let emailValidation = NSPredicate(format:"SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
     if(formPassword != formConfirmPassword) {
       validAccount = false
       errorMsg = "Passwords don't match."

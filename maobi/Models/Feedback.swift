@@ -9,6 +9,9 @@ import Vision
 import CoreImage
 import CoreImage.CIFilterBuiltins
 
+enum InvalidSubmission: Error {
+    case invalid
+}
 
 class ProcessImage {
   var submissionPts : [[CGPoint]] = []
@@ -22,17 +25,12 @@ class ProcessImage {
   var invalid = false
   
   var stars : Int = 1
-  var overallMsg : String = "Awesome work!"
-  var alignmentMsg : String = "Perfect alignment."
-  var thicknessMsg : String = "Perfect thickness."
+  var overallMsg : String = "Awesome Work!"
+  var alignmentMsg : String = "Perfect alignment!"
+  var thicknessMsg : String = "Perfect thickness!"
   var strokeorderMsg : String = "TBD"
   var feedback : [Dictionary<String, String>] = []
-  
-  enum InvalidSubmission: Error {
-      case invalid
-  }
-  
-  
+
   init(submission : UIImage, template : UIImage, character : String) {
     self.submissionPts = detectVisionContours(submission).filter { $0.count > 50 }
     self.templatePts = detectVisionContours(template)
@@ -154,15 +152,11 @@ class ProcessImage {
         .map {CGPoint(x:$0.0, y:$0.1)}
       self.templateAnchorMapping = [[(1,2),(3,0)], [(0,1),(2,3)]]
       self.alignmentAnchors = [(123,18), (125, 231),(84, 201), (28,145),(64,99),(173,96),(223,146)].map {CGPoint(x:$0.0, y:$0.1)}
-    } else if(character == "二") {
-      print("No joints")
     } else if (character == "小") {
       self.alignmentAnchors = [(114,400-18), (129, 400-233), (79, 400-197), (60,400-102),(29,400-158),(173,400-92),(223,400-148)].map {CGPoint(x:$0.0, y:$0.1)}
       print("No joints")
-    } else if (character == "八") {
-      print("No joints")
     } else {
-      print("Error: character not in dataset")
+      print("No joints")
     }
   }
   
@@ -294,6 +288,7 @@ struct StrokeContour: Shape {
 // Character Shape Object - draws the whole character given its pts
 struct CharacterContour: Shape {
   var cgpts : [[CGPoint]] = []
+  var outline = UIBezierPath()
   
   init(_ pts : [[CGPoint]]) {
     self.cgpts = pts
@@ -308,6 +303,15 @@ struct CharacterContour: Shape {
         }
       }
       path.closeSubpath()
+    }
+  }
+  
+  func makeOutline() {
+    for stroke in cgpts {
+      self.outline.move(to: stroke[0])
+      for pt in stroke {
+        self.outline.addLine(to: pt)
+      }
     }
   }
 }

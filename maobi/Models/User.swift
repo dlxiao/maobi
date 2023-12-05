@@ -26,7 +26,7 @@ struct User: Codable, Hashable {
 }
 
 class UserRepository: ObservableObject {
-  private let store = Firestore.firestore()
+  let store = Firestore.firestore()
   @Published var userID = ""
   @Published var username = ""
   @Published var email = ""
@@ -48,13 +48,7 @@ class UserRepository: ObservableObject {
       userRef.updateData([
         "completedTutorial": true,
         "totalStars": 10
-      ]) { err in
-        if let err = err {
-          print("Error completing tutorial: \(err).")
-        } else {
-          print("Tutorial completed.")
-        }
-      }
+      ])
     }
   }
   
@@ -69,11 +63,6 @@ class UserRepository: ObservableObject {
         self.userID = user.userID ?? ""
         self.totalStars = user.totalStars
         self.completedTutorial = user.completedTutorial
-        self.success = true
-        print("Initialized user: \(user)")
-      } else {
-        self.success = false
-        print("Couldn't initialize user")
       }
     }
   }
@@ -93,7 +82,6 @@ class UserRepository: ObservableObject {
           if(data.count != 1) {
             print("Error loading username=\(self.username), password=\(self.password) from Firebase: 0 or multiple users found.")
           } else {
-            self.success = true
             completion(data[0])
           }
         }
@@ -149,13 +137,7 @@ class UserRepository: ObservableObject {
                 self.userID = ref!.documentID
                 self.store.collection("user").document(ref!.documentID).updateData([
                   "userID": ref!.documentID
-                ]) { err in
-                  if let err = err {
-                    print("Error updating userID: \(err)")
-                  } else {
-                    print("Document successfully updated")
-                  }
-                }
+                ])
                 // Retrieve newly created user
                 self.store.collection("user")
                   .whereField("username", isEqualTo: self.username)
