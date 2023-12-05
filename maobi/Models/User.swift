@@ -55,6 +55,16 @@ class UserRepository: ObservableObject {
     }
   }
   
+  func unlockLevel(_ character : String) {
+    self.totalStars -= 5
+    self.unlocked[character] = 0
+    print("Unlocking level. New stars: \(self.totalStars); New unlocked levels: \(self.unlocked)")
+    self.store.collection("user").document(self.userID).updateData([
+      "totalStars": self.totalStars,
+      "unlocked": self.unlocked
+    ])
+  }
+  
   init(_ username : String, _ password : String, _ email : String = "") {
     self.username = username
     self.password = password
