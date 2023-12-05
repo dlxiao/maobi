@@ -37,14 +37,23 @@ struct HomeView: View {
             opData.lastView.append(.home)
             // opData.currView = .extrapacks
           }){
-            Image("stack").padding(10.0)
+            ZStack {
+              Image("stack").padding(10.0)
+              HStack(spacing: 0) {
+                Image(systemName: "lock.fill")
+                    .foregroundColor(.black)
+              }.frame(maxWidth: screenWidth / 4, alignment: .trailing)
+                .offset(x: screenWidth / 20, y: screenWidth / 5 - screenWidth / 18 )
+            }
+            
           }.buttonStyle(CustomButton())
           Text("Extra Packs").bold()
         }
         VStack{
           Button(action:{
             opData.lastView.append(.home)
-            // opData.currView = .dailychallenge
+            opData.character = opData.levels.getCharacter(opData.user!.dailyChallengeCharacter)
+            opData.currView = .dailychallenge
           }){
             Image("daily-icon").padding(10.0)
           }.buttonStyle(CustomButton())
@@ -56,3 +65,7 @@ struct HomeView: View {
   }
 }
 #endif
+
+
+
+

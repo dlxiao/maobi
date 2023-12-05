@@ -1,9 +1,7 @@
 //
 //  FeedbackGraphicsView.swift
 //  maobi
-//
-//  Created by Dora Xiao on 11/10/23.
-//
+
 import WebKit
 import SwiftUI
 import CoreGraphics

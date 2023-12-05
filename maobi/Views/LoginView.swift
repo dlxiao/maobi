@@ -15,6 +15,8 @@ struct LoginView: View {
   @EnvironmentObject var opData : OpData
   @State var formUsername : String = "sampleusername_1"
   @State var formPassword : String = "password_1"
+//    @State var formUsername : String = "username_2"
+//    @State var formPassword : String = "password_2"
   @State var validAccount = true
   
   // async completion handler for initalizing user
@@ -48,6 +50,7 @@ struct LoginView: View {
       
       VStack {
         TextField("username", text: $formUsername)
+          .autocapitalization(.none)
           .padding(.all)
           .background(Color.white)
           .frame(width: screenWidth / 1.5)
@@ -55,6 +58,7 @@ struct LoginView: View {
           .gesture(DragGesture().onChanged({ _ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for :nil)}))
 
         TextField("password", text: $formPassword)
+          .autocapitalization(.none)
           .padding(.all)
           .background(Color.white)
           .frame(width: screenWidth / 1.5)
@@ -87,6 +91,72 @@ struct LoginView: View {
       .background(Color(red: 0.9, green: 0.71, blue: 0.54))
     
   }
+}
+
+// Button Extension for loading or creating user data for the rest of the app
+// https://www.swiftbysundell.com/articles/building-an-async-swiftui-button/
+
+struct AsyncButton<Label: View>: View {
+    var action: () async -> Void
+    var actionOptions = Set(ActionOption.allCases)
+    @ViewBuilder var label: () -> Label
+
+    @State private var isDisabled = false
+    @State private var showProgressView = false
+
+    var body: some View {
+        Button(
+            action: {
+                if actionOptions.contains(.disableButton) {
+                    isDisabled = true
+                }
+            
+                Task {
+                    var progressViewTask: Task<Void, Error>?
+
+                    if actionOptions.contains(.showProgressView) {
+                        progressViewTask = Task {
+                            try await Task.sleep(nanoseconds: 150_000_000)
+                            showProgressView = true
+                        }
+                    }
+
+                    await action()
+                    progressViewTask?.cancel()
+
+                    isDisabled = false
+                    showProgressView = false
+                }
+            },
+            label: {
+                ZStack {
+                    label().opacity(showProgressView ? 0 : 1)
+
+                    if showProgressView {
+                        ProgressView()
+                    }
+                }
+            }
+        )
+        .disabled(isDisabled)
+    }
+}
+
+extension AsyncButton {
+    enum ActionOption: CaseIterable {
+        case disableButton
+        case showProgressView
+    }
+}
+
+extension AsyncButton where Label == Text {
+    init(_ label: String,
+         actionOptions: Set<ActionOption> = Set(ActionOption.allCases),
+         action: @escaping () async -> Void) {
+        self.init(action: action) {
+            Text(label)
+        }
+    }
 }
 
 struct LoginView_Previews: PreviewProvider {

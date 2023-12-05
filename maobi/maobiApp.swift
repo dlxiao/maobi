@@ -29,8 +29,8 @@ enum CurrView:Int {
   case createaccount
   case camera
   case alignment
-  //TODO: uncomment
   case feedback
+  case dailychallenge
 }
 
 // Environment variable for whole app
@@ -43,22 +43,19 @@ class OpData : ObservableObject {
   @Published var cameraModel: CameraModel = CameraModel()
 }
 
-
-// For displaying animations and pictures of characters
+#if !TESTING
+// For displaying animations and pictures of characters, UI Extension
 struct WebView: UIViewRepresentable {
   var html: String
   
   func makeUIView(context: Context) -> WKWebView {
-    var webView = WKWebView()
-    return webView
-    
+    return WKWebView()
   }
-  
   func updateUIView(_ uiView: WKWebView, context: Context) {
     uiView.loadHTMLString(html, baseURL: nil)
-    
   }
 }
+#endif
 
 
 @main

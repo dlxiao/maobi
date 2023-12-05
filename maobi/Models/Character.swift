@@ -108,24 +108,6 @@ class CharacterData : Identifiable {
     }
   }
   
-  // Only run this on what's in the tutorial wireframes bc doesn't catch edge cases
-  func getQuiz(_ size : Int = 500) -> (String, String) {
-    var div = "<div id='quiz-\(self.character)'></div>"
-    var script = """
-      var fingerWrite = HanziWriter.create('quiz-\(self.character)', '\(self.character)', {
-        width: \(size),
-        height: \(size),
-        showCharacter: false,
-        padding: 5
-      });
-      fingerWrite.quiz({
-        onComplete: function(summaryData) {
-          
-        }
-      });
-    """
-    return (div, script)
-  }
   
   func getPinyin() -> String {
     return self.pinyin
@@ -161,31 +143,8 @@ class Levels {
     self.allCharacters = loadCharacterData()
   }
   
-  // DELETE LATER - example of how to compose pages and get character image / animation
-  func example() -> String {
-    let chars = ["一", "丨", " ` ", "亅", "丶", "丿", "ノ", "大", "小", "水", "天", "王", "十", "九", "八", "七", "六"]
-    var divs = ""
-    var scripts = ""
-    for char in chars {
-      let (d1, s1) = self.getCharacter(char).getImage()
-      let (d2, s2) = self.getCharacter(char).getAnimation()
-      divs += (d1 + d2)
-      scripts += (s1+s2)
-    }
-    
-    return """
-    <head><script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script></head>
-    <body style="padding:10%;">\(divs)</body>
-    <script>\(scripts)</script>
-    """
-  }
-  
   func getCharacter(_ character : String) -> CharacterData {
-    return self.allCharacters[character]!
-  }
-  
-  func getAllCharacters() -> [CharacterData] {
-    return self.allCharacters.map { $0.1 }
+    return self.allCharacters[character] ?? CharacterData(character: "N/A", definition: "N/A", pinyin: "N/A", strokes: [], medians: [[[]]])
   }
   
   func getBasicStrokes() -> [CharacterData] {
@@ -209,7 +168,6 @@ class Levels {
     var result : [String: CharacterGraphics] = [:]
     for line in lines {
       guard let lineEntry = try? JSONDecoder().decode(CharacterGraphics.self, from: Data(line.utf8)) else {
-        print("Error decoding")
         return [:]
       }
       result[lineEntry.character] = lineEntry
@@ -228,7 +186,6 @@ class Levels {
     var result : [String: CharacterInfo] = [:]
     for line in lines {
       guard let lineEntry = try? JSONDecoder().decode(CharacterInfo.self, from: Data(line.utf8)) else {
-        print("Error decoding")
         return [:]
       }
       result[lineEntry.character] = lineEntry

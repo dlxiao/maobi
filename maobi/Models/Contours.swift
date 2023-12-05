@@ -36,6 +36,7 @@ func detectVisionContours(_ srcimg: UIImage) -> [[CGPoint]] {
     do {
       let numContours = contoursObservation.contourCount
       var pts : [[CGPoint]] = []
+      if(numContours < 2) { throw InvalidSubmission.invalid }
       for contourIdx in 1...(numContours-1) {
         let contour = try contoursObservation.contour(at:contourIdx)
         pts.append(contour.normalizedPoints.map { CGPoint(x:Int($0[0]*250.0), y:Int((1-$0[1])*250.0))})
