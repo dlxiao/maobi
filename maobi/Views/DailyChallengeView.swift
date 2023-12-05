@@ -1,7 +1,13 @@
-import SwiftUI
+//
+//  DailyChallengeView.swift
+//  maobi
+//
+//  Created by Dora Xiao on 12/4/23.
+//
 
+import SwiftUI
 #if !TESTING
-struct LevelView: View {
+struct DailyChallengeView: View {
   @EnvironmentObject var opData : OpData
   @StateObject var cameraModel = CameraModel()
   
@@ -20,11 +26,13 @@ struct LevelView: View {
       
       // Content
       Text(character.toString() + "  |  " + character.getPinyin()).font(.largeTitle).padding(20)
+      Text("Daily Challenge: Complete this level today to unlock \(character.toString()) forever!").foregroundColor(.red).padding(20)
       Text("This character means \"" + character.getDefinition() + "\". To write it, follow the stroke order animation below:").padding(20)
+      
       
       LevelGraphicsView(html: character.getLevelHTML()) // pass in image and animation
       Button(action: {
-        // opData.lastView = .level
+        // opData.lastView = .dailychallenge
         // opData.currView = .camera
         // TODO: uncomment these to connect this button to camera views after camera fixed
       }) {
@@ -35,6 +43,12 @@ struct LevelView: View {
         .cornerRadius(15.0)
     }.padding([.bottom], 50)
   }
+}
+
+struct DailyChallengeView_Previews: PreviewProvider {
+    static var previews: some View {
+        DailyChallengeView()
+    }
 }
 #endif
 

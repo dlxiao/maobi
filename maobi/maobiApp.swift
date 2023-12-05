@@ -27,6 +27,7 @@ enum CurrView:Int {
   case level
   case menu
   case createaccount
+  case dailychallenge
 }
 
 // Environment variable for whole app

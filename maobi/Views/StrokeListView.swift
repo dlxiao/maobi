@@ -36,11 +36,40 @@ struct StrokeListView: View {
                   opData.lastView.append(.strokelist)
                   opData.currView = .level
                 }) {
-                  Text(c.toString())
-                    .foregroundColor(Color.black)
-                    .font(.system(.largeTitle))
-                    .fontWeight(.bold)
-                  
+                  ZStack {
+                    Text(c.toString())
+                      .foregroundColor(Color.black)
+                      .font(.system(.largeTitle))
+                      .fontWeight(.bold)
+                    
+                    HStack(spacing: 0) {
+                      if let levelStars = opData.user!.unlocked[c.toString()] {
+                        if(levelStars == 0) {
+                          Image("stargray").resizable().scaledToFit().saturation(2)
+                          Image("stargray").resizable().scaledToFit().saturation(2)
+                          Image("stargray").resizable().scaledToFit().saturation(2)
+                        } else if (levelStars == 1) {
+                          Image("star").resizable().scaledToFit().saturation(2)
+                          Image("stargray").resizable().scaledToFit().saturation(2)
+                          Image("stargray").resizable().scaledToFit().saturation(2)
+                        } else if (levelStars == 2) {
+                          Image("star").resizable().scaledToFit().saturation(2)
+                          Image("star").resizable().scaledToFit().saturation(2)
+                          Image("stargray").resizable().scaledToFit().saturation(2)
+                        } else {
+                          Image("star").resizable().scaledToFit().saturation(2)
+                          Image("star").resizable().scaledToFit().saturation(2)
+                          Image("star").resizable().scaledToFit().saturation(2)
+                        }
+                      } else {
+                        Image("stargray").resizable().scaledToFit().saturation(2)
+                        Image("stargray").resizable().scaledToFit().saturation(2)
+                        Image("stargray").resizable().scaledToFit().saturation(2)
+                      }
+                    }.frame(maxWidth: screenWidth / 4, alignment: .trailing)
+                      .offset(x: screenWidth / 20, y: screenWidth / 5 - screenWidth / 18 )
+                    
+                  }
                 }.frame(width: screenWidth / 2.5, height: screenWidth / 2.5)
                   .background(Color(red: 0.97, green: 0.94, blue: 0.91))
                   .cornerRadius(10)
