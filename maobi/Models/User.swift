@@ -15,6 +15,8 @@ struct User: Codable, Hashable {
   var totalStars : Int
   var completedTutorial : Bool
   var unlocked : [String:Int]
+  var dailyChallengeTimestamp : Date
+  var dailyChallengeCharacter : String
   
   enum CodingKeys: CodingKey {
     case userID
@@ -24,6 +26,8 @@ struct User: Codable, Hashable {
     case totalStars
     case completedTutorial
     case unlocked
+    case dailyChallengeTimestamp
+    case dailyChallengeCharacter
   }
 }
 
@@ -37,6 +41,8 @@ class UserRepository: ObservableObject {
   @Published var completedTutorial = false
   @Published var success = false
   @Published var unlocked : [String:Int] = [:]
+  @Published var dailyChallengeTimestamp = Date.now
+  @Published var dailyChallengeCharacter = ""
   
   func getTotalStars() -> Int {
     return self.totalStars
@@ -65,6 +71,21 @@ class UserRepository: ObservableObject {
     ])
   }
   
+  func updateDailyChallenge() {
+    if(!Calendar.current.isDate(self.dailyChallengeTimestamp, equalTo: Date.now, toGranularity: .day)) {
+      print("Changing daily challenge")
+      let allCharacters = Levels().getCharacterLevels().map { $0.toString() }
+      let locked = allCharacters.filter { self.unlocked[$0] == nil }
+      self.dailyChallengeTimestamp = Date.now
+      self.dailyChallengeCharacter = locked.randomElement() ?? "八" // in case unlocked all already
+      // update firebase
+      self.store.collection("user").document(self.userID).updateData([
+        "dailyChallengeTimestamp": self.dailyChallengeTimestamp,
+        "dailyChallengeCharacter": self.dailyChallengeCharacter
+      ])
+    }
+  }
+  
   init(_ username : String, _ password : String, _ email : String = "") {
     self.username = username
     self.password = password
@@ -78,6 +99,14 @@ class UserRepository: ObservableObject {
         self.completedTutorial = user.completedTutorial
         self.unlocked = user.unlocked
         self.success = true
+        self.dailyChallengeTimestamp = user.dailyChallengeTimestamp
+        self.dailyChallengeCharacter = user.dailyChallengeCharacter
+        
+        // Update daily challenge
+        self.updateDailyChallenge()
+        
+        // Decide if basic strokes need to be unlocked
+        // TODO: also unlock "eight" when returning back to home at end of level
         var completedBasicStrokes = true
         for stroke in ["一", "丨", " ` ", "亅", "丶", "丿", "ノ"] {
           if let levelStars = self.unlocked["一"] {

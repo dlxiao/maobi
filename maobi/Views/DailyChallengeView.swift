@@ -24,7 +24,7 @@ struct DailyChallengeView: View {
           }.frame(maxWidth: .infinity, alignment: .leading)
         }.padding()
         VStack {
-          Text("Daily Challenge Content")
+          Text("Daily Challenge: \(self.opData.user!.dailyChallengeCharacter)")
         }
         Spacer()
       }
