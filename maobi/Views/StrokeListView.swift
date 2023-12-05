@@ -81,6 +81,8 @@ struct StrokeListView: View {
         }
       }
     }
+    .gesture(DragGesture().onChanged({ _ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for :nil)}))
+
   }
 }
 #endif
