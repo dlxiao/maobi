@@ -18,19 +18,8 @@ final class maobiTests: XCTestCase {
   let characterStrings = ["二", "小", "心", "川", "十", "门", "八", "六"]
   let basicStrokeStrings = ["一", "丨", " ` ", "亅", "丶", "丿", "ノ"]
   
-  override func setUpWithError() throws {
-    print("setup with error")
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-  }
-  
-  override func tearDownWithError() throws {
-    print("teardown with error")
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-  }
-  
   override func setUp() {
     super.setUp()
-    
     print("finished setup")
   }
   
