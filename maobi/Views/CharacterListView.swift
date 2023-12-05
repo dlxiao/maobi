@@ -51,7 +51,7 @@ struct CharacterListView: View {
         .alert("This level is locked. Pay 5 stars to unlock now?", isPresented: $lockedPopup) {
           Button("Unlock \(lockedCharacter) with Stars", role: .destructive) {
             // update unlocked array and refresh
-            opData.user!.unlockLevel(lockedCharacter)
+            opData.user!.unlockLevel(5, lockedCharacter)
             opData.currView = .characterlist
           }
           Button("Cancel", role: .cancel) { }

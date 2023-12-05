@@ -59,6 +59,7 @@ struct CreateAccountView: View {
       
       VStack {
         TextField("Username", text: $formUsername)
+          .autocapitalization(.none)
           .padding(.all)
           .background(Color.white)
           .frame(width: screenWidth / 1.5)
@@ -66,6 +67,7 @@ struct CreateAccountView: View {
           .gesture(DragGesture().onChanged({ _ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for :nil)}))
         
         TextField("Email", text: $formEmail)
+          .autocapitalization(.none)
           .padding(.all)
           .background(Color.white)
           .frame(width: screenWidth / 1.5)
@@ -74,6 +76,7 @@ struct CreateAccountView: View {
         
         
         TextField("Password", text: $formPassword)
+          .autocapitalization(.none)
           .padding(.all)
           .background(Color.white)
           .frame(width: screenWidth / 1.5)
@@ -82,6 +85,7 @@ struct CreateAccountView: View {
         
         
         TextField("Confirm Password", text: $formConfirmPassword)
+          .autocapitalization(.none)
           .padding(.all)
           .background(Color.white)
           .frame(width: screenWidth / 1.5)

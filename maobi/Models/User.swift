@@ -55,8 +55,8 @@ class UserRepository: ObservableObject {
     }
   }
   
-  func unlockLevel(_ character : String) {
-    self.totalStars -= 5
+  func unlockLevel(_ cost: Int, _ character : String) {
+    self.totalStars -= cost
     self.unlocked[character] = 0
     print("Unlocking level. New stars: \(self.totalStars); New unlocked levels: \(self.unlocked)")
     self.store.collection("user").document(self.userID).updateData([
@@ -78,6 +78,19 @@ class UserRepository: ObservableObject {
         self.completedTutorial = user.completedTutorial
         self.unlocked = user.unlocked
         self.success = true
+        var completedBasicStrokes = true
+        for stroke in ["一", "丨", " ` ", "亅", "丶", "丿", "ノ"] {
+          if let levelStars = self.unlocked["一"] {
+            if(levelStars < 1) {
+              completedBasicStrokes = false
+            }
+          } else {
+            completedBasicStrokes = false
+          }
+        }
+        if(completedBasicStrokes) {
+          self.unlockLevel(0, "八")
+        }
         print("UNLOCKED LEVELS: \(self.unlocked)")
       }
     }
