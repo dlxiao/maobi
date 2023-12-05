@@ -52,6 +52,7 @@ struct HomeView: View {
         VStack{
           Button(action:{
             opData.lastView.append(.home)
+            opData.character = opData.levels.getCharacter(opData.user!.dailyChallengeCharacter)
             opData.currView = .dailychallenge
           }){
             Image("daily-icon").padding(10.0)
