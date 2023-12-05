@@ -111,7 +111,7 @@ func binarize(_ uiimage : UIImage) -> UIImage {
 class ThresholdFilter: CIFilter
 {
     var inputImage : CIImage?
-    var threshold: Float = 0.1 // This is set to a good value via Otsu's method
+    var threshold: Float = 0.3 // This is set to a good value via Otsu's method
 
     var thresholdKernel =  CIColorKernel(source:
         "kernel vec4 thresholdKernel(sampler image, float threshold) {" +
@@ -130,5 +130,50 @@ class ThresholdFilter: CIFilter
         let extent = inputImage.extent
         let arguments : [Any] = [inputImage, threshold]
         return thresholdKernel.apply(extent: extent, arguments: arguments)
+    }
+}
+
+extension UIImage {
+    func averageColor(withMask maskImage: UIImage) -> UIColor? {
+        guard let inputCGImage = self.cgImage, let maskCGImage = maskImage.cgImage,
+              let inputPixels = inputCGImage.dataProvider?.data,
+              let maskPixels = maskCGImage.dataProvider?.data else {
+            return nil
+        }
+
+        let inputPixelData = CFDataGetBytePtr(inputPixels)
+        let maskPixelData = CFDataGetBytePtr(maskPixels)
+
+        var totalRed = 0
+        var totalGreen = 0
+        var totalBlue = 0
+        var count = 0
+
+        let width = Int(self.size.width)
+        let height = Int(self.size.height)
+        
+        for x in 0..<width {
+            for y in 0..<height {
+                let pixelIndex = (width * y + x) * 4
+                let maskPixel = maskPixelData?[pixelIndex]
+
+                // Check if the mask pixel is black
+                if maskPixel == 0 {
+                    totalRed += Int(inputPixelData?[pixelIndex + 1] ?? 0)
+                    totalGreen += Int(inputPixelData?[pixelIndex + 2] ?? 0)
+                    totalBlue += Int(inputPixelData?[pixelIndex + 3] ?? 0)
+                    count += 1
+                }
+            }
+        }
+
+        if count == 0 { return nil }
+
+        return UIColor(
+            red: CGFloat(totalRed) / CGFloat(count) / 255.0,
+            green: CGFloat(totalGreen) / CGFloat(count) / 255.0,
+            blue: CGFloat(totalBlue) / CGFloat(count) / 255.0,
+            alpha: 1.0
+        )
     }
 }

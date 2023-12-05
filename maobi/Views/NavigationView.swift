@@ -17,6 +17,9 @@ struct NavigationView: View {
     case .level: LevelView().environmentObject(opData)
     case .menu: MenuView().environmentObject(opData)
     case .createaccount: CreateAccountView().environmentObject(opData)
+    case .camera: CameraView().environmentObject(opData)
+    case .alignment: GestureAlignmentView().environmentObject(opData)
+    case .feedback: FeedbackGraphicsView().environmentObject(opData)
     case .dailychallenge: DailyChallengeView().environmentObject(opData)
     }
 #endif
