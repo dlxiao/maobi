@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 
+#if !TESTING
 struct GestureAlignmentView: View {
   @EnvironmentObject var opData : OpData
   @State private var offset: CGSize = .zero
@@ -30,8 +31,6 @@ struct GestureAlignmentView: View {
         finalAngle += value
       }
   }
-  
-  
   
   var dragGesture: some Gesture {
     DragGesture()
@@ -159,4 +158,4 @@ struct GestureAlignmentView: View {
   
   
 }
-
+#endif

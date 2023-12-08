@@ -12,6 +12,25 @@ import FirebaseFirestoreSwift
 import WebKit
 @testable import maobi
 
+extension Date {
+    static var yesterday: Date { return Date().dayBefore }
+    static var tomorrow:  Date { return Date().dayAfter }
+    var dayBefore: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
+    }
+    var dayAfter: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
+    }
+    var noon: Date {
+        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
+    }
+    var month: Int {
+        return Calendar.current.component(.month,  from: self)
+    }
+    var isLastDayOfMonth: Bool {
+        return dayAfter.month != month
+    }
+}
 
 final class maobiTests: XCTestCase {
   let levels = Levels()
@@ -141,6 +160,23 @@ final class maobiTests: XCTestCase {
           // Complete tutorial
           userRepo.completeTutorial()
           XCTAssertEqual(userRepo.getTotalStars(),10)
+          
+          // unlock a level with stars
+          userRepo.unlockLevel(5, "小", 1)
+          XCTAssertEqual(userRepo.getTotalStars(),5)
+          XCTAssertEqual(userRepo.unlocked["小"],1)
+          
+          // add stars at end of level
+          userRepo.saveUserLevel(3, "小")
+          XCTAssertEqual(userRepo.getTotalStars(),7)
+          XCTAssertEqual(userRepo.unlocked["小"],3)
+          
+          // try updating daily challenge
+          userRepo.updateDailyChallenge(Date(), "小")
+          XCTAssertEqual(userRepo.dailyChallengeCharacter, "小")
+          
+          userRepo.updateDailyChallenge(Date.yesterday, "小")
+          XCTAssertNotEqual(userRepo.dailyChallengeCharacter, "小")
         }
       } 
     }
@@ -155,7 +191,7 @@ final class maobiTests: XCTestCase {
         XCTAssertEqual(userLogin[0].username,"UnitTestUsername")
         XCTAssertEqual(userLogin[0].password,"UnitTestPassword")
         XCTAssertEqual(userLogin[0].email,"UnitTestEmail@domain.com")
-        XCTAssertEqual(userLogin[0].totalStars,10)
+        XCTAssertEqual(userLogin[0].totalStars,7)
         
         // Delete document afterwards
         userRepo.store.collection("user").document(userRepo.userID).delete() { err in
@@ -260,26 +296,12 @@ final class maobiTests: XCTestCase {
   func testCameraModel() {
     var cm = CameraModel()
     let testImg = UIImage(named: "小_template")!
-    cm.storeImage(testImg)
-    XCTAssertNotNil(cm.image)
-    cm.overlayImage(character: levels.getCharacter("小"))
-    XCTAssertNotNil(cm.composedImage)
-    
-    
-    // Try to overlay onto nil image
-    var cm2 = CameraModel()
-    cm2.image = nil
-    XCTAssertNil(cm2.image)
-    cm2.overlayImage(character: levels.getCharacter("二"))
-    XCTAssertNil(cm2.composedImage)
-    
-    // Try to overlay template not found
-    var cm3 = CameraModel()
-    cm3.image = testImg
-    XCTAssertNotNil(cm.image)
-    cm.overlayImage(character: levels.getCharacter("m"))
-    XCTAssertNil(cm3.composedImage)
-
+    XCTAssertNil(cm.originalImage)
+    XCTAssertNil(cm.transformedImage)
+    cm.storeTransformedImage(testImg)
+    XCTAssertNotNil(cm.transformedImage)
+    cm.storeOrigImage(testImg)
+    XCTAssertNotNil(cm.originalImage)
   }
   
   func testPadding() {
@@ -314,6 +336,8 @@ final class maobiTests: XCTestCase {
     XCTAssertNil(tf.inputImage)
     XCTAssertNil(tf.outputImage)
   }
+  
+  
   
   func testZoom() {
     let testImg = UIImage(named: "小_template")!

@@ -8,6 +8,7 @@ import CoreGraphics
 import Combine
 import Foundation
 
+#if !TESTING
 struct FeedbackGraphicsView: View {
   @EnvironmentObject var opData : OpData
   @State var selectedStroke = -1
@@ -18,7 +19,7 @@ struct FeedbackGraphicsView: View {
       let filename = characterString == " ` " ? "`_template" : "\(characterString)_template"
       let template = UIImage.init(named: filename)!
       if let submission = opData.cameraModel.transformedImage {
-        let averageColor = submission.averageColor(withMask: template)
+//        let averageColor = submission.averageColor(withMask: template)
         //        let thresholdedSubmission = binarize(submission, withAverageColor: averageColor)
         let test = binarize(submission)
         let processed = ProcessImage(submission: test, template: template, character: characterString)
@@ -135,3 +136,4 @@ struct FeedbackGraphicsView: View {
     }
   }
 }
+#endif

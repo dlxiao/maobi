@@ -1,7 +1,7 @@
 import SwiftUI
 import UIKit
 
-
+#if !TESTING
 struct CameraView: View {
     @EnvironmentObject var opData : OpData
     @State private var showCameraPicker = false
@@ -166,3 +166,4 @@ struct ImagePicker: UIViewControllerRepresentable {
                                 context: UIViewControllerRepresentableContext<ImagePicker>) {
     }
 }
+#endif

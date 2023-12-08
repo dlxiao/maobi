@@ -2,45 +2,6 @@ import UIKit
 import CoreImage
 
 
-// given the input UIImage, perform perspective transformation to the
-// four bounding points
-//func perspectiveTransform(_ input : UIImage) -> UIImage {
-//
-//  let inputImage = CIImage(image: input)!
-//  let context = CIContext()
-//
-//  let transformFilter = CIFilter(name:"CIPerspectiveTransform")
-//  transformFilter?.setValue(inputImage, forKey: kCIInputImageKey)
-//  transformFilter?.setValue(CIVector(cgPoint: CGPoint(x:0,y:250)), forKey: "inputTopLeft")
-//  transformFilter?.setValue(CIVector(cgPoint: CGPoint(x:250,y:500)), forKey: "inputTopRight")
-//  transformFilter?.setValue(CIVector(cgPoint: CGPoint(x:0,y:0)), forKey: "inputBottomLeft")
-//  transformFilter?.setValue(CIVector(cgPoint: CGPoint(x:250,y:0)), forKey: "inputBottomRight")
-//
-//  let transformed = transformFilter?.outputImage
-//  let cgOutputImage = context.createCGImage(transformed!, from: inputImage.extent)!
-//
-//  return UIImage(cgImage: cgOutputImage)
-//}
-//
-//
-//func perspectiveCorrection(_ input : UIImage, _ bottomLeft : CGPoint, _ bottomRight : CGPoint, _ topRight : CGPoint, _ topLeft : CGPoint) -> UIImage {
-//  let inputImage = CIImage(image: input)!
-//  let context = CIContext()
-//  let transformFilter = CIFilter(name:"CIPerspectiveCorrection")
-//  transformFilter?.setValue(inputImage, forKey: kCIInputImageKey)
-//  transformFilter?.setValue(CIVector(cgPoint: topLeft), forKey: "inputTopLeft")
-//  transformFilter?.setValue(CIVector(cgPoint: topRight), forKey: "inputTopRight")
-//  transformFilter?.setValue(CIVector(cgPoint: bottomLeft), forKey: "inputBottomLeft")
-//  transformFilter?.setValue(CIVector(cgPoint: bottomRight), forKey: "inputBottomRight")
-//
-//  let transformed = transformFilter?.outputImage
-//  let cgOutputImage = context.createCGImage(transformed!, from: inputImage.extent)!
-//
-//  return UIImage(cgImage: cgOutputImage)
-//}
-
-
-
 func transformSubmission(submissionZoom: Double, templateZoom: Double, translation: (Double, Double), submission: UIImage, template: UIImage) -> UIImage {
   // Convert UIImage to CGImage
   let subCI = CIImage(image: submission)!
@@ -133,47 +94,85 @@ class ThresholdFilter: CIFilter
     }
 }
 
-extension UIImage {
-    func averageColor(withMask maskImage: UIImage) -> UIColor? {
-        guard let inputCGImage = self.cgImage, let maskCGImage = maskImage.cgImage,
-              let inputPixels = inputCGImage.dataProvider?.data,
-              let maskPixels = maskCGImage.dataProvider?.data else {
-            return nil
-        }
 
-        let inputPixelData = CFDataGetBytePtr(inputPixels)
-        let maskPixelData = CFDataGetBytePtr(maskPixels)
+// given the input UIImage, perform perspective transformation to the
+// four bounding points
+//func perspectiveTransform(_ input : UIImage) -> UIImage {
+//
+//  let inputImage = CIImage(image: input)!
+//  let context = CIContext()
+//
+//  let transformFilter = CIFilter(name:"CIPerspectiveTransform")
+//  transformFilter?.setValue(inputImage, forKey: kCIInputImageKey)
+//  transformFilter?.setValue(CIVector(cgPoint: CGPoint(x:0,y:250)), forKey: "inputTopLeft")
+//  transformFilter?.setValue(CIVector(cgPoint: CGPoint(x:250,y:500)), forKey: "inputTopRight")
+//  transformFilter?.setValue(CIVector(cgPoint: CGPoint(x:0,y:0)), forKey: "inputBottomLeft")
+//  transformFilter?.setValue(CIVector(cgPoint: CGPoint(x:250,y:0)), forKey: "inputBottomRight")
+//
+//  let transformed = transformFilter?.outputImage
+//  let cgOutputImage = context.createCGImage(transformed!, from: inputImage.extent)!
+//
+//  return UIImage(cgImage: cgOutputImage)
+//}
+//
+//
+//func perspectiveCorrection(_ input : UIImage, _ bottomLeft : CGPoint, _ bottomRight : CGPoint, _ topRight : CGPoint, _ topLeft : CGPoint) -> UIImage {
+//  let inputImage = CIImage(image: input)!
+//  let context = CIContext()
+//  let transformFilter = CIFilter(name:"CIPerspectiveCorrection")
+//  transformFilter?.setValue(inputImage, forKey: kCIInputImageKey)
+//  transformFilter?.setValue(CIVector(cgPoint: topLeft), forKey: "inputTopLeft")
+//  transformFilter?.setValue(CIVector(cgPoint: topRight), forKey: "inputTopRight")
+//  transformFilter?.setValue(CIVector(cgPoint: bottomLeft), forKey: "inputBottomLeft")
+//  transformFilter?.setValue(CIVector(cgPoint: bottomRight), forKey: "inputBottomRight")
+//
+//  let transformed = transformFilter?.outputImage
+//  let cgOutputImage = context.createCGImage(transformed!, from: inputImage.extent)!
+//
+//  return UIImage(cgImage: cgOutputImage)
+//}
+//extension UIImage {
+//    func averageColor(withMask maskImage: UIImage) -> UIColor? {
+//        guard let inputCGImage = self.cgImage, let maskCGImage = maskImage.cgImage,
+//              let inputPixels = inputCGImage.dataProvider?.data,
+//              let maskPixels = maskCGImage.dataProvider?.data else {
+//            return nil
+//        }
+//
+//        let inputPixelData = CFDataGetBytePtr(inputPixels)
+//        let maskPixelData = CFDataGetBytePtr(maskPixels)
+//
+//        var totalRed = 0
+//        var totalGreen = 0
+//        var totalBlue = 0
+//        var count = 0
+//
+//        let width = Int(self.size.width)
+//        let height = Int(self.size.height)
+//
+//        for x in 0..<width {
+//            for y in 0..<height {
+//                let pixelIndex = (width * y + x) * 4
+//                let maskPixel = maskPixelData?[pixelIndex]
+//
+//                // Check if the mask pixel is black
+//                if maskPixel == 0 {
+//                    totalRed += Int(inputPixelData?[pixelIndex + 1] ?? 0)
+//                    totalGreen += Int(inputPixelData?[pixelIndex + 2] ?? 0)
+//                    totalBlue += Int(inputPixelData?[pixelIndex + 3] ?? 0)
+//                    count += 1
+//                }
+//            }
+//        }
+//
+//        if count == 0 { return nil }
+//
+//        return UIColor(
+//            red: CGFloat(totalRed) / CGFloat(count) / 255.0,
+//            green: CGFloat(totalGreen) / CGFloat(count) / 255.0,
+//            blue: CGFloat(totalBlue) / CGFloat(count) / 255.0,
+//            alpha: 1.0
+//        )
+//    }
+//}
 
-        var totalRed = 0
-        var totalGreen = 0
-        var totalBlue = 0
-        var count = 0
-
-        let width = Int(self.size.width)
-        let height = Int(self.size.height)
-        
-        for x in 0..<width {
-            for y in 0..<height {
-                let pixelIndex = (width * y + x) * 4
-                let maskPixel = maskPixelData?[pixelIndex]
-
-                // Check if the mask pixel is black
-                if maskPixel == 0 {
-                    totalRed += Int(inputPixelData?[pixelIndex + 1] ?? 0)
-                    totalGreen += Int(inputPixelData?[pixelIndex + 2] ?? 0)
-                    totalBlue += Int(inputPixelData?[pixelIndex + 3] ?? 0)
-                    count += 1
-                }
-            }
-        }
-
-        if count == 0 { return nil }
-
-        return UIColor(
-            red: CGFloat(totalRed) / CGFloat(count) / 255.0,
-            green: CGFloat(totalGreen) / CGFloat(count) / 255.0,
-            blue: CGFloat(totalBlue) / CGFloat(count) / 255.0,
-            alpha: 1.0
-        )
-    }
-}
