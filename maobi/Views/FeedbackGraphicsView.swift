@@ -15,7 +15,7 @@ struct FeedbackGraphicsView: View {
   var body: some View {
     ScrollView {
       let characterString = opData.character?.toString() ?? "default_character"
-      let filename = "\(characterString)_template"
+      let filename = characterString == " ` " ? "`_template" : "\(characterString)_template"
       let template = UIImage.init(named: filename)!
       if let submission = opData.cameraModel.transformedImage {
         let averageColor = submission.averageColor(withMask: template)

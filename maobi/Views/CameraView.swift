@@ -9,7 +9,7 @@ struct CameraView: View {
 
     var body: some View {
       let characterString = opData.character!.toString()
-      let filename = characterString == " ` " ? "`_template" : "\(characterString)_template"
+      let filename = characterString == " ` " ? "`_template_transparent" : "\(characterString)_template_transparent"
         // Safely unwrap the UIImage, provide a default image if nil
         let overlayImage = UIImage(named: filename) ?? UIImage() // Default image if nil
         var overlay = UIImageView(image: resizeImage(image: overlayImage, newWidth: 400))
