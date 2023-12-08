@@ -59,6 +59,7 @@ class ProcessImage {
     var delta = 10 // allowed error
     let numStrokes = self.strokes.count
     
+    print("numstrokes: \(numStrokes)")
     if(numStrokes < 1) {throw InvalidSubmission.invalid}
     for i in 0...(numStrokes-1) {
       var thicknessResult = ""
@@ -152,17 +153,14 @@ class ProcessImage {
         .map {CGPoint(x:$0.0, y:$0.1)}
       self.templateAnchorMapping = [[(1,2),(3,0)], [(0,1),(2,3)]]
       self.alignmentAnchors = [(123,18), (125, 231),(84, 201), (28,145),(64,99),(173,96),(223,146)].map {CGPoint(x:$0.0, y:$0.1)}
-    } else if (character == "小") {
-      self.alignmentAnchors = [(114,400-18), (129, 400-233), (79, 400-197), (60,400-102),(29,400-158),(173,400-92),(223,400-148)].map {CGPoint(x:$0.0, y:$0.1)}
-      print("No joints")
     } else {
-      print("No joints")
+      print("no joints")
     }
   }
   
   // Interprets the templateAnchorMapping and creates stroke objects
   func joinAnchors(_ character : String) throws {
-    if(character == "小" || character == "八" || character == "二" || ["一", "丨", " ` ", "亅", "丶", "丿", "ノ"].contains(character)) {
+    if(character != "十") {
       for stroke in self.submissionPts {
         self.strokes.append(StrokeContour(stroke))
       }
@@ -200,6 +198,7 @@ class ProcessImage {
       }
     }
     if(self.strokes.count != self.templateStrokes.count) {
+      print("Error: stroke count for template = \(self.templateStrokes.count), for submission: \(self.strokes.count)")
       throw InvalidSubmission.invalid
     }
   }
