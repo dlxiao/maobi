@@ -61,9 +61,9 @@ class UserRepository: ObservableObject {
     }
   }
   
-  func unlockLevel(_ cost: Int, _ character : String) {
+  func unlockLevel(_ cost: Int, _ character : String, _ initialStars : Int) {
     self.totalStars -= cost
-    self.unlocked[character] = 0
+    self.unlocked[character] = initialStars
     print("Unlocking level. New stars: \(self.totalStars); New unlocked levels: \(self.unlocked)")
     self.store.collection("user").document(self.userID).updateData([
       "totalStars": self.totalStars,
@@ -71,8 +71,23 @@ class UserRepository: ObservableObject {
     ])
   }
   
-  func updateDailyChallenge() {
-    if(!Calendar.current.isDate(self.dailyChallengeTimestamp, equalTo: Date.now, toGranularity: .day)) {
+  func saveUserLevel(_ newStars : Int, _ character : String) {
+    if let oldStars = unlocked[character] {
+      if(oldStars < newStars) {
+        self.totalStars += (newStars - oldStars)
+        self.unlocked[character] = newStars
+        self.store.collection("user").document(self.userID).updateData([
+          "totalStars": self.totalStars,
+          "unlocked": self.unlocked
+        ])
+      }
+    } else { // must be daily challenge
+      unlockLevel(0, character, newStars)
+    }
+  }
+  
+  func updateDailyChallenge(_ dailyChallengeTimestamp : Date, _ dailyChallengeCharacter : String) {
+    if(!Calendar.current.isDate(dailyChallengeTimestamp, equalTo: Date.now, toGranularity: .day)) {
       print("Changing daily challenge")
       let allCharacters = Levels().getCharacterLevels().map { $0.toString() }
       let locked = allCharacters.filter { self.unlocked[$0] == nil }
@@ -83,6 +98,10 @@ class UserRepository: ObservableObject {
         "dailyChallengeTimestamp": self.dailyChallengeTimestamp,
         "dailyChallengeCharacter": self.dailyChallengeCharacter
       ])
+    } else {
+      print("Not changing daily challenge")
+      self.dailyChallengeCharacter = dailyChallengeCharacter
+      self.dailyChallengeTimestamp = dailyChallengeTimestamp
     }
   }
   
@@ -99,11 +118,9 @@ class UserRepository: ObservableObject {
         self.completedTutorial = user.completedTutorial
         self.unlocked = user.unlocked
         self.success = true
-        self.dailyChallengeTimestamp = user.dailyChallengeTimestamp
-        self.dailyChallengeCharacter = user.dailyChallengeCharacter
         
         // Update daily challenge
-        self.updateDailyChallenge()
+        self.updateDailyChallenge(user.dailyChallengeTimestamp, user.dailyChallengeCharacter)
         
         // Decide if basic strokes need to be unlocked
         // TODO: also unlock "eight" when returning back to home at end of level
@@ -118,7 +135,7 @@ class UserRepository: ObservableObject {
           }
         }
         if(completedBasicStrokes) {
-          self.unlockLevel(0, "八")
+          self.unlockLevel(0, "八", 0)
         }
         print("UNLOCKED LEVELS: \(self.unlocked)")
       }
