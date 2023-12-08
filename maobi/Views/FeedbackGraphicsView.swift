@@ -22,7 +22,7 @@ struct FeedbackGraphicsView: View {
         //        let thresholdedSubmission = binarize(submission, withAverageColor: averageColor)
         let test = binarize(submission)
         let processed = ProcessImage(submission: test, template: template, character: characterString)
-        Text(processed.overallMsg).font(.title)
+        Text(processed.overallMsg).font(.title).padding([.top], 50)
         
         // Stars
         HStack {

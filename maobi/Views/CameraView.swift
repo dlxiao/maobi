@@ -29,9 +29,13 @@ struct CameraView: View {
                   .frame(maxWidth: .infinity, alignment: .leading)
               }
               .padding()
-              Spacer()
-              Text("Getting Camera Feedback").font(.title)
-              Text("After clicking open camera, please take a photo aligned to the overlay. You will receive feedback about the thickness, alignment, and stroke order of the character in this level: \(characterString). ").padding()
+              
+              Text("Getting Camera Feedback").font(.title).padding(.top)
+              Text("After clicking open camera, please take a photo aligned to the overlay.").padding()
+              Image("camerademo")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+              Text("You will receive feedback about the thickness, alignment, and stroke order of the character in this level: \(characterString). ").padding()
               Spacer()
               Button(action: {
                 showCameraPicker = true
@@ -42,6 +46,7 @@ struct CameraView: View {
                 .background(Color(red: 0.83, green: 0.25, blue: 0.17))
                 .foregroundColor(.white)
                 .cornerRadius(15.0)
+              Spacer()
 
             }
             .sheet(isPresented: $showCameraPicker) {
