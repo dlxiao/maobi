@@ -26,10 +26,8 @@ struct LevelView: View {
       
       LevelGraphicsView(html: character.getLevelHTML()) // pass in image and animation
       Button(action: {
-        if(["一", "丨", " ` ", "亅", "丶", "丿", "ノ", "小", "十","八", "二"].contains(character.toString())) {
-          opData.lastView.append(.level) // Store the current view
-          opData.currView = .camera
-        }
+        opData.lastView.append(.level) // Store the current view
+        opData.currView = .camera
       }) {
         Text("Check your Work!").fontWeight(.bold)
       }.padding(.all)

@@ -50,11 +50,10 @@ class CharacterData : Identifiable {
   func getImage(_ size : Int = 500) -> (String, String) {
     var charLookup = (self.character == " ` ") ? "丶" : self.character
     if(charLookup == "丶" || charLookup == "ノ") {
-      let xtranslate = charLookup == "丶" ? -300 : 0
       var paths = (self.strokes.map() { "<path fill='#555555' d='" + $0 + "'/>" }).joined()
       let svg = """
         <svg viewBox='0 0 1024 1024' style='width: 50%; float: left; text-align: center;'>
-          <g transform="scale(1.0, -1.0) translate(\(xtranslate), -900)">
+          <g transform="scale(1.0, -1.0) translate(0, -900)">
             \(paths)
           </g>
         </svg>
@@ -149,12 +148,12 @@ class Levels {
   
   func getBasicStrokes() -> [CharacterData] {
     let basicStrokes = self.allCharacters.filter { self.basicStrokes.contains($0.0) }.map { $0.1 }
-    return basicStrokes.sorted(by: { $0.getPinyin() < $1.getPinyin() })
+    return basicStrokes.sorted(by: { $1.getPinyin() < $0.getPinyin() })
   }
   
   func getCharacterLevels() -> [CharacterData] {
     let basicStrokes = self.allCharacters.filter { self.sampleCharacters.contains($0.0) }.map { $0.1 }
-    return basicStrokes.sorted(by: { $0.getPinyin() < $1.getPinyin() })
+    return basicStrokes.sorted(by: { $1.getPinyin() < $0.getPinyin() })
   }
   
   // Load graphics for characters from graphics.txt from https://github.com/skishore/makemeahanzi

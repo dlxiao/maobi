@@ -8,8 +8,8 @@ struct CameraView: View {
 //    @State var opacity = 0.2
 
     var body: some View {
-        let characterString = opData.character?.toString() ?? "default_character"
-        let filename = "\(characterString)_template"
+      let characterString = opData.character!.toString()
+      let filename = characterString == " ` " ? "`_template" : "\(characterString)_template"
         // Safely unwrap the UIImage, provide a default image if nil
         let overlayImage = UIImage(named: filename) ?? UIImage() // Default image if nil
         var overlay = UIImageView(image: resizeImage(image: overlayImage, newWidth: 400))

@@ -32,9 +32,8 @@ struct DailyChallengeView: View {
       
       LevelGraphicsView(html: character.getLevelHTML()) // pass in image and animation
       Button(action: {
-        // opData.lastView = .dailychallenge
-        // opData.currView = .camera
-        // TODO: uncomment these to connect this button to camera views after camera fixed
+        opData.lastView.append(.dailychallenge)
+        opData.currView = .camera
       }) {
         Text("Check your Work!").fontWeight(.bold)
       }.padding(.all)
