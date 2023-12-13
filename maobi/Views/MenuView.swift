@@ -16,7 +16,8 @@ struct MenuView: View {
       TopBarView(stars: opData.user!.totalStars)
 
       HStack{
-        Text("Hello, \(opData.user!.username)!").font(.title3).frame(maxWidth: .infinity, alignment: .leading)
+        Text("Hello, \(opData.user!.username)!").font(.title3)
+          .frame(width: screenWidth * 0.8, alignment: .leading)
         Button(action: { opData.currView = opData.lastView.removeLast() }) {
           Image(systemName: "xmark").font(.title).fontWeight(.bold)
         }.frame(alignment: .trailing)
@@ -30,9 +31,15 @@ struct MenuView: View {
       }.padding()
       
       Button(action: {
+        opData.currView = .purchases
+      }) {
+        Text("Purchases").fontWeight(.bold)
+      }.padding()
+      
+      Button(action: {
         opData.currView = .login
       }) {
-        Text("Sign Out").fontWeight(.bold)
+        Text("Sign Out").fontWeight(.bold).foregroundColor(.red)
       }.padding()
       Spacer()
     }

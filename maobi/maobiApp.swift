@@ -33,6 +33,7 @@ enum CurrView:Int {
   case dailychallenge
   case levelquiz
   case extrapacks
+  case purchases
 }
 
 // Environment variable for whole app
