@@ -33,9 +33,9 @@ struct DailyChallengeView: View {
       LevelGraphicsView(html: character.getLevelHTML()) // pass in image and animation
       Button(action: {
         opData.lastView.append(.dailychallenge)
-        opData.currView = .camera
+        opData.currView = .levelquiz
       }) {
-        Text("Check your Work!").fontWeight(.bold)
+        Text("Check Your Stroke Order").fontWeight(.bold)
       }.padding(.all)
         .background(Color(red: 0.83, green: 0.25, blue: 0.17))
         .foregroundColor(.white)
