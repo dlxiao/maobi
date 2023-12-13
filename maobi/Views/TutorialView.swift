@@ -20,13 +20,13 @@ struct TutorialView: View {
       TutorialBackgroundView()
       
       VStack {
-        if(tutorialNum == 6) {
+        if(tutorialNum == 7) {
           TopBarView(stars: 10)
             .mask(
               Rectangle()
-                .frame(width: screenWidth / 3)
+                .frame(width: screenWidth / 2)
                 .cornerRadius(10)
-                .offset(x: screenWidth / 3)
+                .offset(x: screenWidth / 2)
             )
             .overlay(
               Text("You're all set!\nHere are 10 stars to get you started.")
@@ -38,23 +38,44 @@ struct TutorialView: View {
               alignment: .topTrailing
             )
         } else {
-          TopBarView(stars: 0)
-            .mask(
-              Rectangle()
-                .frame(width: screenWidth / 3)
-                .cornerRadius(10)
-                .offset(x: screenWidth / 3)
-            )
-            .overlay(
-              Text("Earn stars by practicing!\nStars are used unlock more levels.")
-                .foregroundColor(.white)
-                .fontWeight(.bold)
-                .frame(maxWidth: screenWidth - 50, maxHeight: .infinity)
-                .offset(y: screenHeight * 0.06)
-                .multilineTextAlignment(.center),
-              alignment: .top
-            )
-            .opacity(tutorialNum == 3 ? 1.0 : 0.0)
+          if(tutorialNum == 3) {
+            TopBarView(stars: 0)
+              .mask(
+                Rectangle()
+                  .frame(width: screenWidth / 2)
+                  .cornerRadius(10)
+                  .offset(x: screenWidth / 2)
+              )
+              .overlay(
+                Text("Earn stars by practicing!\nStars are used unlock more levels.")
+                  .foregroundColor(.white)
+                  .fontWeight(.bold)
+                  .frame(maxWidth: screenWidth - 50, maxHeight: .infinity)
+                  .offset(y: screenHeight * 0.06)
+                  .multilineTextAlignment(.center),
+                alignment: .top
+              )
+              .opacity(tutorialNum == 3 ? 1.0 : 0.0)
+          } else {
+            TopBarView(stars: 0)
+              .mask(
+                Rectangle()
+                  .frame(width: screenWidth / 4)
+                  .cornerRadius(10)
+                  .offset(x: screenWidth / 8)
+              )
+              .overlay(
+                Text("Maintain your streak by practicing every day!")
+                  .foregroundColor(.white)
+                  .fontWeight(.bold)
+                  .frame(maxWidth: screenWidth - 50, maxHeight: .infinity)
+                  .offset(y: screenHeight * 0.06)
+                  .multilineTextAlignment(.center),
+                alignment: .top
+              )
+              .opacity(tutorialNum == 6 ? 1.0 : 0.0)
+          }
+          
         }
         
         Spacer()
@@ -138,7 +159,7 @@ struct TutorialView: View {
           .frame(maxWidth: .infinity, alignment: .leading)
           .padding(30)
         
-        if(tutorialNum < 6) {
+        if(tutorialNum < 7) {
           Button(action: {
             tutorialNum += 1
           }) {

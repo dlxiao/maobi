@@ -83,6 +83,9 @@ struct FeedbackGraphicsView: View {
         // Feedback Messages
         if(!processed.invalid) {
           VStack {
+            HStack{
+              Text("Tap on the strokes in the image above.").padding()
+            }
             HStack(alignment: .top) {
               Text("Thickness: ")
               if(selectedStroke == -1) {
