@@ -25,15 +25,31 @@ struct LevelView: View {
       Text("This character means \"" + character.getDefinition() + "\". To write it, follow the stroke order animation below:").padding(20)
       
       LevelGraphicsView(html: character.getLevelHTML()) // pass in image and animation
-      Button(action: {
-        opData.lastView.append(.level) // Store the current view
-        opData.currView = .camera
-      }) {
-        Text("Check your Work!").fontWeight(.bold)
-      }.padding(.all)
-        .background(Color(red: 0.83, green: 0.25, blue: 0.17))
-        .foregroundColor(.white)
-        .cornerRadius(15.0)
+      
+      if((opData.levels.getBasicStrokesStrings()).contains(opData.character!.toString())) {
+        Button(action: {
+          opData.lastView.append(.level) // Store the current view
+          opData.currView = .camera
+        }) {
+          Text("Check Your Work!").fontWeight(.bold)
+        }.padding(.all)
+          .background(Color(red: 0.83, green: 0.25, blue: 0.17))
+          .foregroundColor(.white)
+          .cornerRadius(15.0)
+      } else {
+        Button(action: {
+          opData.lastView.append(.level) // Store the current view
+          opData.currView = .levelquiz
+        }) {
+          Text("Check Your Stroke Order").fontWeight(.bold)
+        }.padding(.all)
+          .background(Color(red: 0.83, green: 0.25, blue: 0.17))
+          .foregroundColor(.white)
+          .cornerRadius(15.0)
+      }
+      
+      
+      
     }.padding([.bottom], 50)
   }
 }

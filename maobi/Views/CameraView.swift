@@ -41,7 +41,7 @@ struct CameraView: View {
                 showCameraPicker = true
                 overlay.alpha = 0.2
               }) {
-                Text("Open Camera")
+                Text("Open Camera").bold()
               }.padding(.all)
                 .background(Color(red: 0.83, green: 0.25, blue: 0.17))
                 .foregroundColor(.white)

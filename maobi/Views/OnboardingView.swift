@@ -57,6 +57,14 @@ struct OnboardingView: View {
           }
       }
       HStack{
+        Button(action:{
+          opData.currView = .home
+        }) {
+          Text("Skip")
+            .foregroundStyle(.black)
+            .font(.title)
+            .fontWeight(.bold)
+        }.padding()
         Spacer()
         Button(action: {
           self.page += 1
@@ -83,6 +91,14 @@ struct OnboardingView: View {
       }
       
       HStack{
+        Button(action:{
+          opData.currView = .home
+        }) {
+          Text("Skip")
+            .foregroundStyle(.black)
+            .font(.title)
+            .fontWeight(.bold)
+        }.padding()
         Spacer()
         Button(action: {
           self.page += 1
@@ -116,6 +132,14 @@ struct OnboardingView: View {
       }
       
       HStack{
+        Button(action:{
+          opData.currView = .home
+        }) {
+          Text("Skip")
+            .foregroundStyle(.black)
+            .font(.title)
+            .fontWeight(.bold)
+        }.padding()
         Spacer()
         Button(action: {
           self.page += 1
@@ -164,6 +188,14 @@ struct OnboardingView: View {
           .foregroundColor(.gray)
       }.padding(50)
       HStack{
+        Button(action:{
+          opData.currView = .home
+        }) {
+          Text("Skip")
+            .foregroundStyle(.black)
+            .font(.title)
+            .fontWeight(.bold)
+        }.padding()
         Spacer()
         Button(action: {
           opData.lastView.append(.onboarding)
