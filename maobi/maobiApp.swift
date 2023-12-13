@@ -31,11 +31,12 @@ enum CurrView:Int {
   case alignment
   case feedback
   case dailychallenge
+  case testview
 }
 
 // Environment variable for whole app
 class OpData : ObservableObject {
-  @Published var currView = CurrView.login
+  @Published var currView = CurrView.testview
   @Published var levels = Levels()
   @Published var user : UserRepository? = nil
   @Published var character : CharacterData? = nil

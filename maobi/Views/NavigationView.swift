@@ -21,6 +21,7 @@ struct NavigationView: View {
     case .alignment: GestureAlignmentView().environmentObject(opData)
     case .feedback: FeedbackGraphicsView().environmentObject(opData)
     case .dailychallenge: DailyChallengeView().environmentObject(opData)
+    case .testview: TestView().environmentObject(opData)
     }
 #endif
   }
