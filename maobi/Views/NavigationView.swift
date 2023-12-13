@@ -23,6 +23,7 @@ struct NavigationView: View {
     case .dailychallenge: DailyChallengeView().environmentObject(opData)
     case .levelquiz: LevelQuizView().environmentObject(opData)
     case .extrapacks: ExtraPacksView().environmentObject(opData)
+    case .purchases: PurchasesView().environmentObject(opData)
     }
 #endif
   }
