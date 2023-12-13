@@ -32,7 +32,7 @@ class ProcessImage {
   var feedback : [Dictionary<String, String>] = []
 
   init(submission : UIImage, template : UIImage, character : String) {
-    self.submissionPts = detectVisionContours(submission).filter { $0.count > 50 }
+    self.submissionPts = detectVisionContours(submission).filter { $0.count > 30 }
     self.templatePts = detectVisionContours(template)
     self.submissionPts.sort(by: {$0[0].x < $1[0].x})
     self.templatePts.sort(by: {$0[0].x < $1[0].x})
@@ -41,6 +41,7 @@ class ProcessImage {
     do {
       try getAnchors(character)
       try joinAnchors(character)
+      print("calculating feedback now")
       try calculateFeedback()
     } catch {
       self.invalid = true
@@ -75,7 +76,7 @@ class ProcessImage {
         ct = userStroke.contains(pt) ? ct+1 : ct-1
       }
       let percentDiff = Float(abs(ct)) / Float(self.strokes[i].contourpts.count)
-      if(percentDiff > 0.25) {
+      if(percentDiff > 0.50) {
         thicknessResult = ct < 0 ? "Too thin." : "Too thick."
         perfectThickness = false
       } else {
@@ -149,7 +150,7 @@ class ProcessImage {
   // Grabs the corresponding template anchors for the char
   func getAnchors(_ character : String) throws {
     if(character == "十") {
-      self.templateAnchors = [(110, 112), (110, 100), (126, 98), (125, 112)]
+      self.templateAnchors = [(121, 114), (120, 102), (136, 99), (134, 112)]
         .map {CGPoint(x:$0.0, y:$0.1)}
       self.templateAnchorMapping = [[(1,2),(3,0)], [(0,1),(2,3)]]
       self.alignmentAnchors = [(123,18), (125, 231),(84, 201), (28,145),(64,99),(173,96),(223,146)].map {CGPoint(x:$0.0, y:$0.1)}
@@ -169,13 +170,21 @@ class ProcessImage {
       }
     } else {
       var anchorPts : [(Int, CGPoint)] = []
+      var templateAnchorPts : [(Int, CGPoint)] = []
       if(self.submissionPts.count < 1) { throw InvalidSubmission.invalid }
       let submissionPts = self.submissionPts[0]
+      let templatePts = self.templatePts[0]
       for pt in self.templateAnchors {
         anchorPts.append(closestPoint(CGPoint(x:pt.x, y:pt.y), submissionPts))
+        templateAnchorPts.append(closestPoint(CGPoint(x:pt.x, y:pt.y), templatePts))
       }
       
+      
+      print(anchorPts)
+      print(templateAnchorPts)
+      
       let n = submissionPts.count-1
+      let n2 = templatePts.count-1
       
       for stroke in self.templateAnchorMapping {
         var strokePts : [CGPoint] = []
@@ -192,9 +201,29 @@ class ProcessImage {
           }
         }
         let sample = strokePts.enumerated().compactMap { i, e in i % 5 == 0 ? e : nil }
-        if(sample.count < 2) { throw InvalidSubmission.invalid }
+        if(sample.count < 2 || strokePts.count > Int(0.8 * Double(templatePts.count))) { throw InvalidSubmission.invalid }
         let newStrokeObject = StrokeContour(sample)
         self.strokes.append(newStrokeObject)
+      }
+      
+      for stroke in self.templateAnchorMapping {
+        var strokePts : [CGPoint] = []
+        
+        for (s,d) in stroke {
+          let (sidx, _) = templateAnchorPts[s]
+          let (eidx, _) = templateAnchorPts[d]
+          
+          print(stroke)
+          if(sidx > eidx) {
+            strokePts += (templatePts[sidx...n2] + templatePts[0...eidx])
+          } else {
+            strokePts += templatePts[sidx...eidx]
+          }
+        }
+        let sample = strokePts.enumerated().compactMap { i, e in i % 5 == 0 ? e : nil }
+        if(sample.count < 2) { throw InvalidSubmission.invalid }
+        let newStrokeObject = StrokeContour(sample)
+        self.templateStrokes.append(newStrokeObject)
       }
     }
     if(self.strokes.count != self.templateStrokes.count) {
