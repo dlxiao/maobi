@@ -9,12 +9,13 @@ import SwiftUI
 
 #if !TESTING
 struct SearchBarView: View {
+  var filterDescription : String
   @Binding var text: String
   @State private var isEditing = false
   
   var body: some View {
     HStack{
-      TextField("Filter by character, pinyin, or meaning", text: $text)
+      TextField(filterDescription, text: $text)
         .padding(15)
         .padding(.horizontal, 25)
         .background(Color(.systemGray6))

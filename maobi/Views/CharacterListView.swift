@@ -44,7 +44,7 @@ struct CharacterListView: View {
           }.padding()
           
           //Search bar
-          SearchBarView(text: $text).padding([.leading, .trailing])
+          SearchBarView(filterDescription:"Filter by character, pinyin, or meaning", text: $text).padding([.leading, .trailing])
         }
         
         // Levels tiles

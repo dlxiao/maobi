@@ -22,6 +22,7 @@ struct NavigationView: View {
     case .feedback: FeedbackGraphicsView().environmentObject(opData)
     case .dailychallenge: DailyChallengeView().environmentObject(opData)
     case .levelquiz: LevelQuizView().environmentObject(opData)
+    case .extrapacks: ExtraPacksView().environmentObject(opData)
     }
 #endif
   }

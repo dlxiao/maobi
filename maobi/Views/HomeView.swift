@@ -35,15 +35,15 @@ struct HomeView: View {
         VStack{
           Button(action:{
             opData.lastView.append(.home)
-            // opData.currView = .extrapacks
+             opData.currView = .extrapacks
           }){
             ZStack {
               Image("stack").padding(10.0)
-              HStack(spacing: 0) {
-                Image(systemName: "lock.fill")
-                    .foregroundColor(.black)
-              }.frame(maxWidth: screenWidth / 4, alignment: .trailing)
-                .offset(x: screenWidth / 20, y: screenWidth / 5 - screenWidth / 18 )
+//              HStack(spacing: 0) {
+//                Image(systemName: "lock.fill")
+//                    .foregroundColor(.black)
+//              }.frame(maxWidth: screenWidth / 4, alignment: .trailing)
+//                .offset(x: screenWidth / 20, y: screenWidth / 5 - screenWidth / 18 )
             }
             
           }.buttonStyle(CustomButton())
